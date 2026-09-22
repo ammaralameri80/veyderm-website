@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Veyderm — AI Dermatology for the UAE</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%20role%3D%22img%22%20aria-label%3D%22veyderm%22%3E%3Ctitle%3Eveyderm%3C/title%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237a72d1%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%234b40b0%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22115.2%22%20fill%3D%22url%28%23g%29%22/%3E%3Cg%20transform%3D%22translate%284.85%20-110.14%29%20scale%282.2555%29%22%3E%3Cg%20transform%3D%22translate%280.000000%2C331.000000%29%20scale%280.100000%2C-0.100000%29%22%20fill%3D%22%23ffffff%22%3E%3Cpath%20d%3D%22M404%202341%20c-14%20-15%203%20-34%2049%20-55%2077%20-34%20110%20-84%20212%20-321%2026%20-60%2073%20-168%20105%20-240%2080%20-179%20240%20-542%20285%20-647%2020%20-47%2044%20-89%2053%20-93%2024%20-9%2045%2021%2082%20115%2018%2047%2043%20108%2056%20135%2012%2028%2048%20113%2079%20190%2031%2077%2082%20199%20112%20270%2030%2072%2075%20180%20100%20240%2057%20140%20116%20251%20156%20293%2034%2036%2096%2072%20122%2072%2011%200%2015%207%2013%2021%20-3%2020%20-8%2021%20-216%2020%20-117%200%20-217%20-3%20-222%20-6%20-19%20-12%203%20-34%2040%20-40%2028%20-5%2049%20-17%2071%20-43%2029%20-33%2031%20-39%2026%20-93%20-5%20-55%20-61%20-205%20-210%20-564%20-30%20-71%20-57%20-139%20-61%20-150%20-8%20-23%20-3%20-32%20-133%20265%20-202%20461%20-219%20518%20-168%20558%2014%2011%2040%2023%2060%2026%2037%207%2048%2017%2040%2038%20-4%2010%20-67%2013%20-326%2013%20-176%200%20-323%20-2%20-325%20-4z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#191529;
+    --paper:#ffffff;
+    --purple:#5b4dc7;
+    --purple-deep:#362b87;
+    --mint:#8f83e0;
+    --mint-deep:#5b4dc7;
+    --line:#e7e4f1;
+    --muted:#585670;
+    --paper-on-dark:#f2effc;
+    --muted-on-dark:#c2bae8;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+  body{
+    margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);
+    -webkit-font-smoothing:antialiased;line-height:1.55;font-size:17px;
+  }
+  h1,h2,h3{margin:0;font-weight:600;line-height:1.05}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .serif{font-family:var(--serif)}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(252,252,250,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  /* LOGO — clear space = lowercase height (~18px at this size) */
+  .brand{display:flex;align-items:center;padding:0 18px 0 0;margin:0}
+  .logo{height:33px;width:auto;display:block}
+  .logo-small,.logo-icon{display:none}
+  .logo-icon{height:38px;width:38px}
+  .mark{width:28px;height:28px;border-radius:8px;background:var(--purple);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:19px;font-weight:600}
+  .navlinks{display:flex;gap:32px;align-items:center;font-size:15px;color:var(--muted)}
+  .navlinks a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:600;font-size:15px;padding:12px 20px;border-radius:999px;cursor:pointer;border:1px solid transparent;transition:transform .15s ease,background .15s ease}
+  .btn-primary{background:var(--purple);color:var(--paper-on-dark)}
+  .btn-primary:hover{background:var(--purple-deep)}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .btn-mint{background:#fff;color:var(--purple-deep)}
+  .btn-mint:hover{background:var(--paper-on-dark);color:var(--purple-deep)}
+  .nav-cta{display:inline-flex;white-space:nowrap}
+  .navlinks .lk{display:none}
+
+  /* HERO */
+  .hero{padding:54px 0 60px}
+  .hero .wrap{display:grid;grid-template-columns:1.06fr .94fr;gap:52px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--mint-deep);font-weight:600;margin-bottom:24px}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(143,131,224,.18)}
+  .hero h1{font-family:var(--serif);font-size:clamp(42px,6.4vw,76px);line-height:1.0;letter-spacing:-.021em;font-weight:500}
+  .hero h1 em{font-style:italic;font-weight:400}
+  .hero .sub{margin-top:24px;max-width:520px;font-size:clamp(17px,2.2vw,20px);line-height:1.55;color:var(--muted)}
+  .hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  /* ORBIT GRAPHIC */
+  .orbit{width:100%;max-width:458px;margin:0 auto;display:block;height:auto}
+  .orbit .ring{fill:none;stroke:var(--line);stroke-width:1}
+  .orbit .spoke{stroke:#cfc9ec;stroke-width:1.4;stroke-dasharray:3 5}
+  .orbit .speck{fill:#c8c1ea}
+  .orbit .node{fill:#fff;stroke:var(--purple);stroke-width:1.6;filter:drop-shadow(0 8px 22px rgba(54,43,135,.12))}
+  .orbit .ico{fill:none;stroke:var(--purple);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .orbit .lbl{fill:var(--ink);font-family:var(--sans);font-size:14px;font-weight:600;text-anchor:middle}
+  .orbit .core-lbl{fill:#fff;font-family:var(--serif);font-size:30px;font-weight:600;text-anchor:middle}
+  .orbit .pulse{fill:var(--purple);opacity:0}
+  .orbit .ripple{fill:none;stroke:var(--purple);stroke-width:1.2;opacity:0}
+  .orbit .spin{transform-box:view-box;transform-origin:230px 230px}
+  @media(prefers-reduced-motion:no-preference){
+    .orbit .spoke{animation:flow 1.6s linear infinite}
+    @keyframes flow{to{stroke-dashoffset:16}}
+    .orbit .spin{animation:spin 60s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .orbit .ripple{transform-box:view-box;transform-origin:230px 230px;animation:ripple 3.6s ease-out infinite}
+    .orbit .ripple.r2{animation-delay:1.8s}
+    @keyframes ripple{0%{transform:scale(1);opacity:.45}100%{transform:scale(1.9);opacity:0}}
+    .orbit .core{transform-box:fill-box;transform-origin:center;animation:breathe 3.6s ease-in-out infinite}
+    @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+    .orbit .nodeg{animation:glow 4.8s ease-in-out infinite}
+    .orbit .nodeg.d2{animation-delay:1.2s}.orbit .nodeg.d3{animation-delay:2.4s}.orbit .nodeg.d4{animation-delay:3.6s}
+    @keyframes glow{0%,100%{filter:none}12%{filter:drop-shadow(0 0 10px rgba(91,77,199,.45))}}
+  }
+  @media(prefers-reduced-motion:reduce){.orbit .pulse{display:none}}
+
+  /* STANDARDS STRIP */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+  .strip .wrap{display:flex;align-items:center;gap:28px;flex-wrap:wrap;justify-content:space-between}
+  .strip .lbl{font-size:13px;color:var(--muted);max-width:16ch}
+  .strip .set{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+  .strip .set span{font-size:14px;font-weight:600;color:var(--ink);opacity:.72}
+
+  /* STATS */
+  .stats{padding:72px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  .stat{padding:40px 34px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat .n{font-family:var(--serif);font-size:clamp(40px,5vw,60px);font-weight:500;letter-spacing:-.02em;color:var(--purple)}
+  .stat .k{margin-top:10px;font-size:15px;color:var(--muted);max-width:26ch}
+
+  /* SECTION HEADS */
+  .sec{padding:88px 0}
+  .sec-tag{font-size:14px;color:var(--mint-deep);font-weight:600;margin-bottom:16px}
+  .sec h2{font-family:var(--serif);font-size:clamp(30px,4.4vw,46px);font-weight:500;letter-spacing:-.02em;max-width:20ch}
+  .sec .lede{margin-top:18px;max-width:60ch;color:var(--muted);font-size:18px}
+
+  /* PROBLEM (dark) */
+  .dark{background:linear-gradient(160deg,var(--purple-deep),var(--purple));color:var(--paper-on-dark)}
+  .dark .sec-tag{color:var(--mint)}
+  .dark h2{color:#fff}
+  .dark .lede{color:var(--muted-on-dark)}
+  .prob-grid{margin-top:52px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.09);border-radius:18px;overflow:hidden}
+  .prob{background:rgba(255,255,255,.04);padding:34px}
+  .prob .ic{width:38px;height:38px;border-radius:10px;background:rgba(143,131,224,.12);color:var(--mint);display:grid;place-items:center;margin-bottom:18px}
+  .prob h3{font-size:19px;color:#fff;margin-bottom:8px;font-weight:600}
+  .prob p{color:var(--muted-on-dark);font-size:15px}
+
+  /* ENGINE REVEAL */
+  .engine{background:linear-gradient(180deg,var(--purple-deep),#2b2170);color:#fff;text-align:center;padding:110px 0}
+  .engine .sec-tag{color:var(--mint)}
+  .engine h2{font-family:var(--serif);font-size:clamp(34px,6vw,64px);font-weight:500;letter-spacing:-.02em;margin:0 auto;max-width:16ch}
+  .engine .q{margin-top:24px;color:var(--paper-on-dark);font-size:clamp(18px,2.4vw,23px);max-width:48ch;margin-inline:auto}
+  .engine .q2{margin-top:14px;color:var(--muted-on-dark);max-width:52ch;margin-inline:auto}
+  .engine .panel{margin:48px auto 0;max-width:760px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:linear-gradient(180deg,rgba(143,131,224,.08),rgba(255,255,255,0));padding:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .chip{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:9px 16px;font-size:14px;color:var(--paper-on-dark)}
+  .chip b{color:var(--mint);font-weight:600}
+  .engine .btn{margin-top:40px}
+  /* AGENT INSIGHT CARDS */
+  .agent-cards{margin:52px auto 0;max-width:960px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
+  .acard{border:1px solid rgba(255,255,255,.14);border-radius:18px;background:linear-gradient(180deg,rgba(143,131,224,.10),rgba(255,255,255,0));padding:28px}
+  .acard .ah{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .acard .ai{width:34px;height:34px;border-radius:9px;background:rgba(143,131,224,.18);color:var(--mint);display:grid;place-items:center;font-size:16px}
+  .acard h3{font-size:17px;color:#fff;font-weight:600}
+  .acard ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .acard li{font-size:14.5px;color:var(--paper-on-dark);padding-left:20px;position:relative}
+  .acard li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;background:var(--mint)}
+  /* PATIENT JOURNEY */
+  .journey{margin-top:52px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .jstep{border:1px solid var(--line);border-radius:16px;padding:22px 18px;background:var(--paper);display:flex;flex-direction:column;gap:10px}
+  .jstep .jn{width:30px;height:30px;border-radius:8px;background:#f0edfb;color:var(--purple);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:15px}
+  .jstep h3{font-size:16px;font-weight:600}
+  .jstep p{font-size:14px;color:var(--muted)}
+  .wa{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--mint-deep);background:#eef7f1;border:1px solid #cdeede;border-radius:999px;padding:3px 10px;align-self:flex-start}
+
+  /* STEPS */
+  .steps{margin-top:52px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .step{position:relative;padding-top:26px;border-top:2px solid var(--purple)}
+  .step .num{font-family:var(--serif);font-size:15px;color:var(--mint-deep);font-weight:600}
+  .step h3{margin:14px 0 8px;font-size:19px;font-weight:600}
+  .step p{color:var(--muted);font-size:15px}
+
+  /* SEGMENTS */
+  .segs{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .seg{border:1px solid var(--line);border-radius:20px;padding:32px;display:flex;flex-direction:column;min-height:340px;transition:border-color .15s ease}
+  .seg:hover{border-color:var(--purple)}
+  .seg .k{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:auto}
+  .seg h3{font-family:var(--serif);font-size:28px;font-weight:500;margin:34px 0 12px;letter-spacing:-.01em}
+  .seg p{color:var(--muted);font-size:15px;flex:0}
+  .seg ul{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  .seg li{font-size:14.5px;padding-left:22px;position:relative;color:var(--ink)}
+  .seg li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:2px;background:var(--mint)}
+  .seg.soon{background:#f4f6f3}
+  .seg.soon .badge{align-self:flex-start;font-size:12px;font-weight:600;color:var(--mint-deep);border:1px solid var(--mint);border-radius:999px;padding:4px 12px;margin-bottom:8px}
+
+  /* STANDARDS DETAIL */
+  .std-grid{margin-top:52px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .std{border:1px solid var(--line);border-radius:16px;padding:26px}
+  .std h3{font-size:17px;font-weight:600;margin-bottom:8px}
+  .std p{font-size:14px;color:var(--muted)}
+  .std .foot{margin-top:34px;color:var(--muted);font-size:14px;max-width:64ch}
+
+  /* CTA / FORM */
+  .cta{background:linear-gradient(160deg,var(--purple-deep),var(--purple));color:#fff;padding:96px 0}
+  .cta .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+  .cta .sec-tag{color:var(--mint)}
+  .cta h2{font-family:var(--serif);font-size:clamp(30px,4.4vw,46px);font-weight:500;color:#fff;max-width:16ch}
+  .cta p{margin-top:18px;color:var(--muted-on-dark);max-width:44ch}
+  .card{background:var(--paper);color:var(--ink);border-radius:20px;padding:32px}
+  .card h3{font-size:20px;font-weight:600;margin-bottom:6px}
+  .card .hint{color:var(--muted);font-size:14px;margin-bottom:22px}
+  .field{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+  .field label{font-size:13px;font-weight:600;color:var(--ink)}
+  .field input,.field select{font-family:var(--sans);font-size:15px;padding:13px 14px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink)}
+  .field input:focus,.field select:focus{outline:2px solid var(--mint);outline-offset:1px;border-color:var(--mint)}
+  .card .btn{width:100%;margin-top:6px}
+  .card .privacy{margin-top:16px;font-size:12.5px;color:var(--muted)}
+  .ok{display:none;text-align:center;padding:20px 0}
+  .ok .tick{width:52px;height:52px;border-radius:50%;background:rgba(143,131,224,.15);color:var(--mint-deep);display:grid;place-items:center;margin:0 auto 16px}
+  .ok h3{font-size:20px}
+  .ok p{color:var(--muted);margin-top:8px;font-size:15px}
+
+  /* FOOTER */
+  footer{background:var(--purple-deep);color:var(--muted-on-dark);padding:56px 0 40px}
+  .fgrid{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start}
+  footer .logo-foot{height:30px}
+  .flinks{display:flex;gap:28px;flex-wrap:wrap;font-size:15px}
+  .flinks a:hover{color:#fff}
+  .fbar{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;line-height:1.7;max-width:80ch}
+
+  @media(max-width:900px){
+    .agent-cards{grid-template-columns:1fr}
+    .journey{grid-template-columns:repeat(2,1fr)}
+    .cta .grid{grid-template-columns:1fr;gap:32px}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .std-grid{grid-template-columns:repeat(2,1fr)}
+    .segs{grid-template-columns:1fr}
+  }
+  @media(max-width:820px){
+    .hero .wrap{grid-template-columns:1fr;gap:8px}
+    .hero-visual{order:-1}
+    .orbit{max-width:360px}
+    .hero-copy{text-align:center}
+    .hero .sub{margin-inline:auto}
+    .hero-cta{justify-content:center}
+  }
+  @media(max-width:640px){
+    .logo-full{display:none}
+    .logo-small{display:block;height:28px}
+    .nav-cta{padding:10px 16px;font-size:14px}
+    .navlinks{display:none}
+    .stats-grid{grid-template-columns:1fr}
+    .stat{border-right:none;border-bottom:1px solid var(--line)}
+    .stat:last-child{border-bottom:none}
+    .prob-grid{grid-template-columns:1fr}
+    .journey{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .std-grid{grid-template-columns:1fr}
+    .sec,.stats{padding:56px 0}
+  }
+  @media(max-width:360px){
+    .logo-small{display:none}
+    .logo-icon{display:block}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+  /* AUDIENCE SECTIONS */
+  .aud-head{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+  .reassure{border:1px solid var(--line);border-radius:20px;padding:28px;background:#f6f4fd}
+  .reassure .rq{font-family:var(--serif);font-size:30px;line-height:1.1;color:var(--purple-deep);font-weight:500}
+  .reassure .rq em{color:var(--purple)}
+  .reassure p{margin-top:12px;font-size:15px;color:var(--muted)}
+  .bgrid{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .bcard{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--paper)}
+  .bcard .bi{width:44px;height:44px;border-radius:12px;background:#f0edfb;color:var(--purple);display:grid;place-items:center;margin-bottom:16px}
+  .bcard h3{font-size:18px;font-weight:600;margin-bottom:8px;line-height:1.25}
+  .bcard p{font-size:15px;color:var(--muted)}
+  .dark .bcard{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+  .dark .bcard h3{color:#fff}
+  .dark .bcard p{color:var(--muted-on-dark)}
+  .dark .bcard .bi{background:rgba(255,255,255,.1);color:#fff}
+  .start{margin-top:36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;border:1px solid var(--line);border-radius:18px;padding:22px 26px}
+  .start.on-dark{border-color:rgba(255,255,255,.14)}
+  .start-t{font-weight:600;font-size:16px}
+  .s3{list-style:none;margin:0;padding:0;display:flex;gap:22px;flex-wrap:wrap;flex:1}
+  .s3 li{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--muted)}
+  .on-dark .s3 li{color:var(--paper-on-dark)}
+  .s3 b{width:26px;height:26px;border-radius:50%;background:#f0edfb;color:var(--purple);display:grid;place-items:center;font-size:13px;flex:none}
+  .on-dark .s3 b{background:rgba(255,255,255,.14);color:#fff}
+  .ba{margin-top:48px;display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch}
+  .ba-col{border-radius:18px;padding:26px}
+  .ba-col.before{border:1px dashed rgba(255,255,255,.22)}
+  .ba-col.after{background:#fff;color:var(--ink)}
+  .ba-t{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+  .before .ba-t{color:var(--muted-on-dark)}
+  .after .ba-t{color:var(--purple)}
+  .ba ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;font-size:15px}
+  .before li{color:var(--muted-on-dark);padding-left:22px;position:relative}
+  .before li::before{content:"✕";position:absolute;left:0;font-size:12px;top:2px;opacity:.7}
+  .after li{padding-left:22px;position:relative}
+  .after li::before{content:"✓";position:absolute;left:0;color:var(--purple);font-weight:700}
+  .ba-arrow{display:grid;place-items:center;font-size:26px;color:#fff;opacity:.7}
+  .cta-roles{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn-outline-light{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
+  .btn-outline-light:hover{border-color:#fff}
+  @media(max-width:900px){
+    .aud-head{grid-template-columns:1fr;gap:24px}
+    .bgrid{grid-template-columns:1fr 1fr}
+    .ba{grid-template-columns:1fr}
+    .ba-arrow{transform:rotate(90deg)}
+  }
+  @media(max-width:640px){.bgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top" aria-label="veyderm home"><svg class="logo logo-full" aria-hidden="true" viewBox="39 39 1010 253" role="img" aria-label="veyderm"><g transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)" fill="#6c65c2"><path d="M2315 2374 c-158 -38 -237 -74 -330 -151 -191 -157 -291 -399 -270
+-652 25 -305 192 -516 465 -588 86 -22 243 -22 329 1 129 35 255 118 324 215
+45 62 107 184 107 210 0 15 -18 31 -35 31 -2 0 -15 -24 -28 -52 -55 -119 -132
+-187 -257 -228 -81 -27 -194 -29 -265 -5 -152 52 -254 180 -299 376 -11 45
+-12 61 -3 64 36 11 408 142 498 175 200 72 267 118 308 210 65 142 -33 304
+-224 371 -44 15 -91 22 -180 24 -66 2 -129 2 -140 -1z m178 -81 c20 -11 43
+-40 60 -73 26 -50 28 -62 25 -140 -4 -71 -10 -95 -36 -148 -34 -65 -75 -102
+-166 -149 -76 -39 -318 -124 -334 -118 -13 5 -14 24 -9 113 16 275 126 474
+291 528 51 17 127 11 169 -13z M404 2341 c-14 -15 3 -34 49 -55 77 -34 110
+-84 212 -321 26 -60 73 -168 105 -240 80 -179 240 -542 285 -647 20 -47 44
+-89 53 -93 24 -9 45 21 82 115 18 47 43 108 56 135 12 28 48 113 79 190 31 77
+82 199 112 270 30 72 75 180 100 240 57 140 116 251 156 293 34 36 96 72 122
+72 11 0 15 7 13 21 -3 20 -8 21 -216 20 -117 0 -217 -3 -222 -6 -19 -12 3 -34
+40 -40 28 -5 49 -17 71 -43 29 -33 31 -39 26 -93 -5 -55 -61 -205 -210 -564
+-30 -71 -57 -139 -61 -150 -8 -23 -3 -32 -133 265 -202 461 -219 518 -168 558
+14 11 40 23 60 26 37 7 48 17 40 38 -4 10 -67 13 -326 13 -176 0 -323 -2 -325
+-4z M4073 2343 c-182 -3 -193 -5 -193 -22 0 -15 10 -21 40 -26 82 -14 117 -72
+98 -162 -9 -40 -157 -421 -187 -480 -5 -10 -26 -63 -47 -118 -22 -55 -43 -99
+-48 -98 -5 1 -21 33 -36 70 -15 37 -49 115 -75 173 -26 58 -62 141 -80 185
+-18 44 -54 129 -80 188 -56 129 -63 189 -24 218 13 10 41 21 62 24 28 5 37 12
+37 26 0 18 -12 19 -325 19 -286 0 -325 -2 -325 -15 0 -9 19 -24 43 -34 23 -10
+57 -34 75 -52 36 -36 56 -71 107 -188 76 -178 328 -737 389 -865 36 -76 66
+-148 66 -159 0 -17 -35 -102 -92 -224 -26 -57 -105 -143 -145 -159 -48 -20
+-100 -17 -168 11 -69 29 -102 31 -150 11 -69 -29 -96 -125 -55 -192 12 -18 40
+-42 66 -55 38 -18 58 -21 118 -17 54 4 85 12 124 33 141 76 225 197 347 495
+25 63 53 129 60 145 21 47 43 100 95 230 27 66 82 201 123 300 41 99 100 243
+132 320 75 183 108 247 151 295 20 22 60 51 90 66 30 14 54 29 54 33 0 13 -24
+31 -39 29 -9 -2 -103 -4 -208 -5z M4314 1680 c0 -74 1 -105 3 -67 2 37 2 97 0
+135 -2 37 -3 6 -3 -68z"/></g><g transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)" fill="#111111"><path d="M5510 2489 l0 -423 -28 45 c-39 60 -119 137 -187 178 -96 58 -178 83
+-295 88 -197 9 -344 -44 -479 -172 -88 -85 -141 -168 -176 -278 -23 -71 -25
+-95 -25 -252 0 -156 2 -182 24 -250 13 -42 42 -106 64 -143 79 -132 231 -247
+382 -288 88 -23 262 -23 350 0 130 35 241 113 327 230 l43 58 0 -95 c0 -52 3
+-115 6 -141 l7 -47 56 3 56 3 0 950 0 950 -62 3 -63 3 0 -422z m-417 -234 c91
+-19 180 -68 248 -136 68 -68 100 -121 135 -220 34 -98 43 -269 20 -378 -45
+-214 -196 -374 -396 -422 -30 -7 -91 -13 -135 -13 -199 1 -377 112 -463 289
+-48 97 -65 176 -65 300 -1 126 16 203 66 304 41 85 149 195 232 236 107 53
+230 67 358 40z M6465 2366 c-92 -21 -157 -49 -235 -101 -122 -81 -223 -226
+-267 -385 -25 -90 -24 -318 1 -410 65 -240 237 -413 471 -475 83 -22 288 -23
+379 -1 94 22 198 79 273 149 58 55 133 153 133 175 0 10 -89 67 -94 60 -72
+-114 -114 -160 -191 -210 -90 -58 -179 -82 -305 -82 -148 0 -245 31 -353 113
+-53 39 -112 112 -146 179 -26 50 -63 195 -59 226 l3 21 595 5 595 5 3 35 c5
+51 -17 204 -40 274 -29 90 -82 179 -148 249 -68 73 -141 119 -242 154 -57 19
+-98 26 -193 29 -80 2 -140 -1 -180 -10z m277 -107 c29 -7 77 -23 107 -37 65
+-31 158 -115 199 -180 36 -55 78 -175 88 -249 l7 -53 -538 0 -538 0 7 52 c4
+29 10 55 14 58 4 3 8 17 9 33 4 56 65 160 138 233 76 77 143 117 233 138 71
+18 204 20 274 5z M8078 2370 c-77 -13 -143 -39 -206 -79 -61 -40 -134 -117
+-164 -173 -18 -33 -18 -32 -18 100 l0 132 -60 0 -60 0 0 -675 0 -675 59 0 59
+0 5 408 c4 444 7 466 66 597 72 158 229 255 412 255 l49 0 0 60 0 60 -47 -1
+c-27 -1 -69 -5 -95 -9z M8898 2365 c-121 -31 -217 -100 -287 -208 l-41 -62 0
+128 0 128 -57 -3 -58 -3 0 -670 0 -670 60 0 60 0 5 440 c5 387 8 447 24 495
+30 93 76 168 137 225 94 87 216 119 358 95 54 -9 86 -21 131 -51 68 -46 111
+-106 143 -199 21 -62 22 -84 27 -535 l5 -470 63 -3 62 -3 0 415 c0 461 6 519
+61 631 35 71 111 150 177 184 22 11 73 26 111 33 87 15 197 2 263 -32 66 -33
+127 -96 160 -167 51 -109 57 -175 58 -640 l0 -423 61 0 60 0 -4 488 c-3 470
+-4 489 -25 553 -28 83 -85 173 -143 223 -52 45 -142 89 -217 105 -29 6 -86 11
+-125 11 -189 0 -351 -90 -441 -244 l-39 -66 -27 59 c-50 104 -131 178 -245
+221 -78 29 -234 36 -317 15z"/></g></svg><svg class="logo logo-small" aria-hidden="true" viewBox="39 39 1010 253" role="img" aria-label="veyderm"><g transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)" fill="#6c65c2" stroke="#6c65c2" stroke-width="70" stroke-linejoin="round"><path d="M2315 2374 c-158 -38 -237 -74 -330 -151 -191 -157 -291 -399 -270
+-652 25 -305 192 -516 465 -588 86 -22 243 -22 329 1 129 35 255 118 324 215
+45 62 107 184 107 210 0 15 -18 31 -35 31 -2 0 -15 -24 -28 -52 -55 -119 -132
+-187 -257 -228 -81 -27 -194 -29 -265 -5 -152 52 -254 180 -299 376 -11 45
+-12 61 -3 64 36 11 408 142 498 175 200 72 267 118 308 210 65 142 -33 304
+-224 371 -44 15 -91 22 -180 24 -66 2 -129 2 -140 -1z m178 -81 c20 -11 43
+-40 60 -73 26 -50 28 -62 25 -140 -4 -71 -10 -95 -36 -148 -34 -65 -75 -102
+-166 -149 -76 -39 -318 -124 -334 -118 -13 5 -14 24 -9 113 16 275 126 474
+291 528 51 17 127 11 169 -13z M404 2341 c-14 -15 3 -34 49 -55 77 -34 110
+-84 212 -321 26 -60 73 -168 105 -240 80 -179 240 -542 285 -647 20 -47 44
+-89 53 -93 24 -9 45 21 82 115 18 47 43 108 56 135 12 28 48 113 79 190 31 77
+82 199 112 270 30 72 75 180 100 240 57 140 116 251 156 293 34 36 96 72 122
+72 11 0 15 7 13 21 -3 20 -8 21 -216 20 -117 0 -217 -3 -222 -6 -19 -12 3 -34
+40 -40 28 -5 49 -17 71 -43 29 -33 31 -39 26 -93 -5 -55 -61 -205 -210 -564
+-30 -71 -57 -139 -61 -150 -8 -23 -3 -32 -133 265 -202 461 -219 518 -168 558
+14 11 40 23 60 26 37 7 48 17 40 38 -4 10 -67 13 -326 13 -176 0 -323 -2 -325
+-4z M4073 2343 c-182 -3 -193 -5 -193 -22 0 -15 10 -21 40 -26 82 -14 117 -72
+98 -162 -9 -40 -157 -421 -187 -480 -5 -10 -26 -63 -47 -118 -22 -55 -43 -99
+-48 -98 -5 1 -21 33 -36 70 -15 37 -49 115 -75 173 -26 58 -62 141 -80 185
+-18 44 -54 129 -80 188 -56 129 -63 189 -24 218 13 10 41 21 62 24 28 5 37 12
+37 26 0 18 -12 19 -325 19 -286 0 -325 -2 -325 -15 0 -9 19 -24 43 -34 23 -10
+57 -34 75 -52 36 -36 56 -71 107 -188 76 -178 328 -737 389 -865 36 -76 66
+-148 66 -159 0 -17 -35 -102 -92 -224 -26 -57 -105 -143 -145 -159 -48 -20
+-100 -17 -168 11 -69 29 -102 31 -150 11 -69 -29 -96 -125 -55 -192 12 -18 40
+-42 66 -55 38 -18 58 -21 118 -17 54 4 85 12 124 33 141 76 225 197 347 495
+25 63 53 129 60 145 21 47 43 100 95 230 27 66 82 201 123 300 41 99 100 243
+132 320 75 183 108 247 151 295 20 22 60 51 90 66 30 14 54 29 54 33 0 13 -24
+31 -39 29 -9 -2 -103 -4 -208 -5z M4314 1680 c0 -74 1 -105 3 -67 2 37 2 97 0
+135 -2 37 -3 6 -3 -68z"/></g><g transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)" fill="#111111" stroke="#111111" stroke-width="70" stroke-linejoin="round"><path d="M5510 2489 l0 -423 -28 45 c-39 60 -119 137 -187 178 -96 58 -178 83
+-295 88 -197 9 -344 -44 -479 -172 -88 -85 -141 -168 -176 -278 -23 -71 -25
+-95 -25 -252 0 -156 2 -182 24 -250 13 -42 42 -106 64 -143 79 -132 231 -247
+382 -288 88 -23 262 -23 350 0 130 35 241 113 327 230 l43 58 0 -95 c0 -52 3
+-115 6 -141 l7 -47 56 3 56 3 0 950 0 950 -62 3 -63 3 0 -422z m-417 -234 c91
+-19 180 -68 248 -136 68 -68 100 -121 135 -220 34 -98 43 -269 20 -378 -45
+-214 -196 -374 -396 -422 -30 -7 -91 -13 -135 -13 -199 1 -377 112 -463 289
+-48 97 -65 176 -65 300 -1 126 16 203 66 304 41 85 149 195 232 236 107 53
+230 67 358 40z M6465 2366 c-92 -21 -157 -49 -235 -101 -122 -81 -223 -226
+-267 -385 -25 -90 -24 -318 1 -410 65 -240 237 -413 471 -475 83 -22 288 -23
+379 -1 94 22 198 79 273 149 58 55 133 153 133 175 0 10 -89 67 -94 60 -72
+-114 -114 -160 -191 -210 -90 -58 -179 -82 -305 -82 -148 0 -245 31 -353 113
+-53 39 -112 112 -146 179 -26 50 -63 195 -59 226 l3 21 595 5 595 5 3 35 c5
+51 -17 204 -40 274 -29 90 -82 179 -148 249 -68 73 -141 119 -242 154 -57 19
+-98 26 -193 29 -80 2 -140 -1 -180 -10z m277 -107 c29 -7 77 -23 107 -37 65
+-31 158 -115 199 -180 36 -55 78 -175 88 -249 l7 -53 -538 0 -538 0 7 52 c4
+29 10 55 14 58 4 3 8 17 9 33 4 56 65 160 138 233 76 77 143 117 233 138 71
+18 204 20 274 5z M8078 2370 c-77 -13 -143 -39 -206 -79 -61 -40 -134 -117
+-164 -173 -18 -33 -18 -32 -18 100 l0 132 -60 0 -60 0 0 -675 0 -675 59 0 59
+0 5 408 c4 444 7 466 66 597 72 158 229 255 412 255 l49 0 0 60 0 60 -47 -1
+c-27 -1 -69 -5 -95 -9z M8898 2365 c-121 -31 -217 -100 -287 -208 l-41 -62 0
+128 0 128 -57 -3 -58 -3 0 -670 0 -670 60 0 60 0 5 440 c5 387 8 447 24 495
+30 93 76 168 137 225 94 87 216 119 358 95 54 -9 86 -21 131 -51 68 -46 111
+-106 143 -199 21 -62 22 -84 27 -535 l5 -470 63 -3 62 -3 0 415 c0 461 6 519
+61 631 35 71 111 150 177 184 22 11 73 26 111 33 87 15 197 2 263 -32 66 -33
+127 -96 160 -167 51 -109 57 -175 58 -640 l0 -423 61 0 60 0 -4 488 c-3 470
+-4 489 -25 553 -28 83 -85 173 -143 223 -52 45 -142 89 -217 105 -29 6 -86 11
+-125 11 -189 0 -351 -90 -441 -244 l-39 -66 -27 59 c-50 104 -131 178 -245
+221 -78 29 -234 36 -317 15z"/></g></svg><svg class="logo-icon" aria-hidden="true" viewBox="0 0 512 512" role="img" aria-label="veyderm"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a72d1"/><stop offset="1" stop-color="#4b40b0"/></linearGradient></defs><rect width="512" height="512" rx="115.2" fill="url(#g)"/><g transform="translate(63.45 -23.51) scale(1.7292)"><g transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)" fill="#ffffff"><path d="M404 2341 c-14 -15 3 -34 49 -55 77 -34 110 -84 212 -321 26 -60 73 -168 105 -240 80 -179 240 -542 285 -647 20 -47 44 -89 53 -93 24 -9 45 21 82 115 18 47 43 108 56 135 12 28 48 113 79 190 31 77 82 199 112 270 30 72 75 180 100 240 57 140 116 251 156 293 34 36 96 72 122 72 11 0 15 7 13 21 -3 20 -8 21 -216 20 -117 0 -217 -3 -222 -6 -19 -12 3 -34 40 -40 28 -5 49 -17 71 -43 29 -33 31 -39 26 -93 -5 -55 -61 -205 -210 -564 -30 -71 -57 -139 -61 -150 -8 -23 -3 -32 -133 265 -202 461 -219 518 -168 558 14 11 40 23 60 26 37 7 48 17 40 38 -4 10 -67 13 -326 13 -176 0 -323 -2 -325 -4z"/></g></g></svg></a>
+      <div class="navlinks">
+        <a href="#agent">AI Agent</a>
+        <a href="#journey">Patient Journey</a>
+        <a href="#doctors">For Doctors</a>
+        <a href="#distributors">For Distributors</a>
+      </div>
+      <a class="btn btn-primary nav-cta" href="#access">Request Early Access</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="dot"></span>UAE's first AI-powered dermatology platform</span>
+        <h1>AI dermatology,<br><em>doctor-led.</em></h1>
+        <p class="sub">Veyderm helps licensed dermatologists build evidence-based treatment plans, surface clinically verified products, and deliver personalized care — in minutes.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#access">Request Early Access</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <svg class="orbit" viewBox="0 0 460 460" role="img" aria-label="Veyderm connects doctors, clinics, patients and distributors">
+          <!-- orbit rings -->
+          <g class="spin">
+          <circle class="ring" cx="230" cy="230" r="205"/>
+          <circle class="ring" cx="230" cy="230" r="150" style="opacity:.7"/>
+          <circle class="ring" cx="230" cy="230" r="92" style="opacity:.5"/>
+          <!-- decorative specks on outer ring -->
+          <circle class="speck" cx="230" cy="25" r="3"/>
+          <circle class="speck" cx="404" cy="300" r="3"/>
+          <circle class="speck" cx="56" cy="300" r="3"/>
+          <circle class="speck" cx="360" cy="90" r="2.5"/>
+          </g>
+          <!-- spokes -->
+          <path id="sp1" class="spoke" d="M120 130 L230 230"/>
+          <path id="sp2" class="spoke" d="M340 130 L230 230"/>
+          <path id="sp3" class="spoke" d="M120 330 L230 230"/>
+          <path id="sp4" class="spoke" d="M340 330 L230 230"/>
+          <!-- ripples from the core -->
+          <circle class="ripple" cx="230" cy="230" r="52"/>
+          <circle class="ripple r2" cx="230" cy="230" r="52"/>
+          <!-- data pulses travelling into the agent -->
+          <circle class="pulse" r="3.5"><animateMotion dur="2.4s" begin="0s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .6 1"><mpath href="#sp1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.8;1" dur="2.4s" begin="0s" repeatCount="indefinite"/></circle>
+          <circle class="pulse" r="3.5"><animateMotion dur="2.4s" begin=".6s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .6 1"><mpath href="#sp2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.8;1" dur="2.4s" begin=".6s" repeatCount="indefinite"/></circle>
+          <circle class="pulse" r="3.5"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .6 1"><mpath href="#sp3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.8;1" dur="2.4s" begin="1.2s" repeatCount="indefinite"/></circle>
+          <circle class="pulse" r="3.5"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines=".4 0 .6 1"><mpath href="#sp4"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.8;1" dur="2.4s" begin="1.8s" repeatCount="indefinite"/></circle>
+          <!-- central core -->
+          <g class="core">
+            <circle cx="230" cy="230" r="50" fill="url(#coreGrad)"/>
+            <g transform="translate(192.39 175.41) scale(0.3377)"><g transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)" fill="#fff"><path d="M404 2341 c-14 -15 3 -34 49 -55 77 -34 110 -84 212 -321 26 -60 73 -168 105 -240 80 -179 240 -542 285 -647 20 -47 44 -89 53 -93 24 -9 45 21 82 115 18 47 43 108 56 135 12 28 48 113 79 190 31 77 82 199 112 270 30 72 75 180 100 240 57 140 116 251 156 293 34 36 96 72 122 72 11 0 15 7 13 21 -3 20 -8 21 -216 20 -117 0 -217 -3 -222 -6 -19 -12 3 -34 40 -40 28 -5 49 -17 71 -43 29 -33 31 -39 26 -93 -5 -55 -61 -205 -210 -564 -30 -71 -57 -139 -61 -150 -8 -23 -3 -32 -133 265 -202 461 -219 518 -168 558 14 11 40 23 60 26 37 7 48 17 40 38 -4 10 -67 13 -326 13 -176 0 -323 -2 -325 -4z"/></g></g>
+          </g>
+          <defs>
+            <radialGradient id="coreGrad" cx="35%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#6a5cd6"/>
+              <stop offset="100%" stop-color="#362b87"/>
+            </radialGradient>
+          </defs>
+          <!-- NODE: Doctors (top-left) -->
+          <g class="nodeg" transform="translate(120,130)">
+            <circle class="node" cx="0" cy="0" r="42"/>
+            <g class="ico" transform="translate(-15.6,-15.6) scale(1.3)">
+              <path d="M4.8 2.3v1.9"/>
+              <path d="M9.5 2.3v1.9"/>
+              <path d="M4.8 3.9H4a1.7 1.7 0 0 0-1.7 1.7v3.4a5 5 0 0 0 10 0V5.6A1.7 1.7 0 0 0 10.6 3.9h-.8"/>
+              <path d="M7.3 15.6a5 5 0 0 0 10 0v-2.5"/>
+              <circle cx="17.3" cy="10.6" r="1.7"/>
+            </g>
+            <text class="lbl" x="0" y="63">Doctors</text>
+          </g>
+          <!-- NODE: Clinics (top-right) -->
+          <g class="nodeg d2" transform="translate(340,130)">
+            <circle class="node" cx="0" cy="0" r="42"/>
+            <g class="ico" transform="translate(-15.6,-15.6) scale(1.3)">
+              <path d="M18 22V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v18"/>
+              <path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h2"/>
+              <path d="M12 6v4"/>
+              <path d="M14 8h-4"/>
+              <path d="M14 14h-4"/>
+              <path d="M14 18h-4"/>
+            </g>
+            <text class="lbl" x="0" y="63">Clinics</text>
+          </g>
+          <!-- NODE: Patients (bottom-left) -->
+          <g class="nodeg d4" transform="translate(120,330)">
+            <circle class="node" cx="0" cy="0" r="42"/>
+            <g class="ico" transform="translate(-15.6,-15.6) scale(1.3)">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </g>
+            <text class="lbl" x="0" y="63">Patients</text>
+          </g>
+          <!-- NODE: Distributors (bottom-right) -->
+          <g class="nodeg d3" transform="translate(340,330)">
+            <circle class="node" cx="0" cy="0" r="42"/>
+            <g class="ico" transform="translate(-15.6,-15.6) scale(1.3)">
+              <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/>
+              <path d="M12 22V12"/>
+              <polyline points="3.29 7 12 12 20.71 7"/>
+              <path d="m7.5 4.27 9 5.15"/>
+            </g>
+            <text class="lbl" x="0" y="63">Distributors</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="n">24/7</div>
+          <div class="k">AI assistant answering patients on WhatsApp</div>
+        </div>
+        <div class="stat">
+          <div class="n">Minutes</div>
+          <div class="k">from consult to a shared, evidence-based treatment plan</div>
+        </div>
+        <div class="stat">
+          <div class="n">One</div>
+          <div class="k">connected view for doctors, patients, and distributors</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="sec dark">
+    <div class="wrap">
+      <div class="sec-tag">Problems to solve</div>
+      <h2>The patient journey is broken at every handoff.</h2>
+      <p class="lede">From the first search to follow-up, patients, doctors, and distributors work in disconnected silos — losing time, trust, and outcomes along the way.</p>
+      <div class="prob-grid">
+        <div class="prob">
+          <div class="ic">◇</div>
+          <h3>Patients are left guessing</h3>
+          <p>Confusing advice, self-medication, and grey-market products — with no clear guidance after they leave the clinic and no one to ask.</p>
+        </div>
+        <div class="prob">
+          <div class="ic">△</div>
+          <h3>Doctors decide without data at hand</h3>
+          <p>Evidence, contraindications, and ingredient data sit scattered — and there's no visibility into whether patients actually follow the plan.</p>
+        </div>
+        <div class="prob">
+          <div class="ic">◻</div>
+          <h3>No follow-up, no adherence</h3>
+          <p>Once the consult ends, the relationship goes quiet — no reminders, no answers, no reordering, so results and repeat visits slip away.</p>
+        </div>
+        <div class="prob">
+          <div class="ic">○</div>
+          <h3>Distributors fly blind</h3>
+          <p>No real demand signal from the ground — sourcing and ordering happen over calls and messages, with no view of what patients truly need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI AGENT -->
+  <section class="engine" id="agent">
+    <div class="wrap">
+      <div class="sec-tag">The Veyderm AI Agent</div>
+      <h2>An AI agent that does the work — and turns it into insight.</h2>
+      <p class="q">It reads the evidence, builds the plan, answers patients around the clock, and learns from every interaction — then hands each side the insight it needs to act.</p>
+      <div class="agent-cards">
+        <div class="acard">
+          <div class="ah"><span class="ai">✚</span><h3>For doctors</h3></div>
+          <ul>
+            <li>Evidence-ranked product recommendations for each condition</li>
+            <li>Automatic safety, allergen &amp; interaction checks</li>
+            <li>Adherence signals — see who's following their plan</li>
+            <li>Draft treatment plans ready to review in seconds</li>
+          </ul>
+        </div>
+        <div class="acard">
+          <div class="ah"><span class="ai">◈</span><h3>For distributors</h3></div>
+          <ul>
+            <li>Real demand signals from actual patient needs</li>
+            <li>Most-requested products and emerging concern trends</li>
+            <li>Structured RFQs instead of scattered messages</li>
+            <li>Insight into what's selling, where, and why</li>
+          </ul>
+        </div>
+        <div class="acard">
+          <div class="ah"><span class="ai">☺</span><h3>For patients</h3></div>
+          <ul>
+            <li>A 24/7 chatbot that explains their plan in plain language</li>
+            <li>Ingredient, usage &amp; safety questions answered on WhatsApp</li>
+            <li>Reminders, follow-ups, and easy reordering</li>
+            <li>Guidance toward verified doctors and real products</li>
+          </ul>
+        </div>
+      </div>
+      <a class="btn btn-mint" href="#access">Request Early Access</a>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="sec" id="how">
+    <div class="wrap">
+      <div class="sec-tag">How it works</div>
+      <h2>AI-assisted, doctor-led — from search to delivery.</h2>
+      <p class="lede">Find the right product, build the plan, and get it to your patient in minutes — all in one system.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">Step 01</div>
+          <h3>Search &amp; discover</h3>
+          <p>Search the clinical catalog by concern, condition, ingredient, or natural language — grounded in verified data.</p>
+        </div>
+        <div class="step">
+          <div class="num">Step 02</div>
+          <h3>Review evidence</h3>
+          <p>See evidence levels, contraindications, full INCI composition, and regulatory status in a single view.</p>
+        </div>
+        <div class="step">
+          <div class="num">Step 03</div>
+          <h3>Share the plan</h3>
+          <p>Build a digital treatment plan and send it to your patient over WhatsApp or email — with safety guidance included.</p>
+        </div>
+        <div class="step">
+          <div class="num">Step 04</div>
+          <h3>Procure &amp; order</h3>
+          <p>Submit RFQs to authorized distributors, receive proposals, and convert them to orders in one flow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATIENT JOURNEY -->
+  <section class="sec" id="journey" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-tag">The patient journey</div>
+      <h2>A connected experience — from first question to lasting results.</h2>
+      <p class="lede">Veyderm follows the patient the whole way, with an AI assistant on the channel they already use every day: WhatsApp.</p>
+      <div class="journey">
+        <div class="jstep">
+          <div class="jn">1</div>
+          <h3>Ask &amp; discover</h3>
+          <p>Patients describe a concern to the AI chatbot and learn what's clinically recommended — no guessing, no grey market.</p>
+        </div>
+        <div class="jstep">
+          <div class="jn">2</div>
+          <h3>See the right doctor</h3>
+          <p>Get matched to verified dermatologists and clinics nearby, connected to authorized products.</p>
+        </div>
+        <div class="jstep">
+          <div class="jn">3</div>
+          <h3>Receive the plan</h3>
+          <span class="wa">● WhatsApp</span>
+          <p>The doctor's treatment plan arrives on WhatsApp — with ingredients, usage, and safety guidance included.</p>
+        </div>
+        <div class="jstep">
+          <div class="jn">4</div>
+          <h3>Ask anything, anytime</h3>
+          <span class="wa">● 24/7 chatbot</span>
+          <p>The AI assistant answers product, ingredient, and usage questions instantly — day or night.</p>
+        </div>
+        <div class="jstep">
+          <div class="jn">5</div>
+          <h3>Follow up &amp; reorder</h3>
+          <p>Reminders keep patients on track, and reordering verified products is one message away.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FOR DOCTORS -->
+  <section class="sec aud" id="doctors">
+    <div class="wrap">
+      <div class="aud-head">
+        <div>
+          <div class="sec-tag">For dermatologists</div>
+          <h2>Recommend with confidence. Every time.</h2>
+          <p class="lede">You know your patients best. Veyderm gives you the facts behind every product — so you can recommend with certainty, and your patients leave knowing exactly what to do.</p>
+        </div>
+        <div class="reassure">
+          <div class="rq">AI suggests.<br><em>You decide.</em></div>
+          <p>Nothing reaches your patient without your approval. The AI does the research — you stay in full control of every plan.</p>
+        </div>
+      </div>
+      <div class="bgrid">
+        <div class="bcard"><div class="bi"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Only real, authorized products</h3><p>Every product comes from an authorized distributor. No fakes, no grey market — you can stand behind what you recommend.</p></div>
+        <div class="bcard"><div class="bi"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div><h3>The proof, in plain words</h3><p>See how strong the evidence is for each product, explained simply — no digging through studies.</p></div>
+        <div class="bcard"><div class="bi"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div><h3>Safer for every patient</h3><p>Allergies, pregnancy, and ingredient clashes are flagged automatically before you recommend.</p></div>
+        <div class="bcard"><div class="bi"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div><h3>Patients who follow through</h3><p>Your plan arrives on your patient’s WhatsApp, with an AI assistant to answer questions and remind them — so results show.</p></div>
+        <div class="bcard"><div class="bi"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg></div><h3>Patients who come back</h3><p>Follow-ups and reorders keep the relationship going after the visit — and bring patients back to you.</p></div>
+        <div class="bcard"><div class="bi"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div><h3>Minutes, not hours</h3><p>Search, check, plan, and share in one place. Less admin, more time with patients.</p></div>
+      </div>
+      <div class="start">
+        <div class="start-t">Getting started is simple</div>
+        <ol class="s3">
+          <li><b>1</b><span>Request access — it takes a minute</span></li>
+          <li><b>2</b><span>We verify your medical license</span></li>
+          <li><b>3</b><span>Start recommending with confidence</span></li>
+        </ol>
+        <a class="btn btn-primary" href="#access" data-role="Dermatologist">Join as a doctor</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR DISTRIBUTORS -->
+  <section class="sec dark aud" id="distributors">
+    <div class="wrap">
+      <div class="sec-tag">For distributors</div>
+      <h2>Be in front of dermatologists at the moment they choose.</h2>
+      <p class="lede">Veyderm puts your products where decisions happen — inside the dermatologist's daily workflow, backed by real patient demand.</p>
+      <div class="ba">
+        <div class="ba-col before">
+          <div class="ba-t">Today</div>
+          <ul>
+            <li>Chasing clinics with calls and visits</li>
+            <li>Orders lost in WhatsApp and email threads</li>
+            <li>Guessing what patients actually need</li>
+            <li>Undercut by grey-market sellers</li>
+          </ul>
+        </div>
+        <div class="ba-arrow" aria-hidden="true">→</div>
+        <div class="ba-col after">
+          <div class="ba-t">With Veyderm</div>
+          <ul>
+            <li>Doctors find your products while planning treatment</li>
+            <li>Clear requests and orders in one place</li>
+            <li>Real demand insight from real patients</li>
+            <li>Authorized-only platform that protects your brand</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bgrid">
+        <div class="bcard"><div class="bi"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Reach the right buyers</h3><p>Your portfolio is visible to verified dermatologists and clinics — the people who recommend and buy.</p></div>
+        <div class="bcard"><div class="bi"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div><h3>Real requests, ready to close</h3><p>Receive structured quote requests from clinics, respond, and turn them into orders — no back-and-forth.</p></div>
+        <div class="bcard"><div class="bi"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div><h3>Know what sells, and why</h3><p>The AI shows you trending skin concerns, top-requested products, and where demand is growing.</p></div>
+      </div>
+      <div class="start on-dark">
+        <div class="start-t">Early partners get the advantage</div>
+        <ol class="s3">
+          <li><b>1</b><span>Apply as a distributor</span></li>
+          <li><b>2</b><span>Share your product portfolio</span></li>
+          <li><b>3</b><span>Start receiving clinic requests</span></li>
+        </ol>
+        <a class="btn btn-mint" href="#access" data-role="Authorized Distributor">Become a partner</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="access">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <div class="sec-tag">Get started</div>
+          <h2>Join Veyderm early — and grow with it.</h2>
+          <p>We're onboarding a limited number of dermatologists and distributors in the UAE. Early members help shape the platform and get priority access at launch.</p>
+          <div class="cta-roles">
+            <a class="btn btn-mint" href="#access" data-role="Dermatologist">I'm a doctor</a>
+            <a class="btn btn-outline-light btn" href="#access" data-role="Authorized Distributor">I'm a distributor</a>
+          </div>
+        </div>
+        <div class="card">
+          <form id="accessForm" novalidate>
+            <h3>Request early access</h3>
+            <p class="hint">We'll reach out with your invitation when your region goes live.</p>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" type="text" required placeholder="Dr. Full Name">
+            </div>
+            <div class="field">
+              <label for="email">Work email</label>
+              <input id="email" type="email" required placeholder="you@clinic.com">
+            </div>
+            <div class="field">
+              <label for="role">I am a…</label>
+              <select id="role" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Dermatologist</option>
+                <option>Clinic / Hospital</option>
+                <option>Authorized Distributor</option>
+                <option>Patient</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-mint">Request Early Access</button>
+            <p class="privacy">Your information is only used to contact you about Veyderm access. We never share your data.</p>
+          </form>
+          <div class="ok" id="okState">
+            <div class="tick">✓</div>
+            <h3>You're on the list.</h3>
+            <p>We'll be in touch at the email you provided.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <a class="brand" href="#top" aria-label="veyderm home"><svg class="logo logo-foot" aria-hidden="true" viewBox="39 39 1010 253" role="img" aria-label="veyderm"><g transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)" fill="#b3aaf0" stroke="#b3aaf0" stroke-width="70" stroke-linejoin="round"><path d="M2315 2374 c-158 -38 -237 -74 -330 -151 -191 -157 -291 -399 -270
+-652 25 -305 192 -516 465 -588 86 -22 243 -22 329 1 129 35 255 118 324 215
+45 62 107 184 107 210 0 15 -18 31 -35 31 -2 0 -15 -24 -28 -52 -55 -119 -132
+-187 -257 -228 -81 -27 -194 -29 -265 -5 -152 52 -254 180 -299 376 -11 45
+-12 61 -3 64 36 11 408 142 498 175 200 72 267 118 308 210 65 142 -33 304
+-224 371 -44 15 -91 22 -180 24 -66 2 -129 2 -140 -1z m178 -81 c20 -11 43
+-40 60 -73 26 -50 28 -62 25 -140 -4 -71 -10 -95 -36 -148 -34 -65 -75 -102
+-166 -149 -76 -39 -318 -124 -334 -118 -13 5 -14 24 -9 113 16 275 126 474
+291 528 51 17 127 11 169 -13z M404 2341 c-14 -15 3 -34 49 -55 77 -34 110
+-84 212 -321 26 -60 73 -168 105 -240 80 -179 240 -542 285 -647 20 -47 44
+-89 53 -93 24 -9 45 21 82 115 18 47 43 108 56 135 12 28 48 113 79 190 31 77
+82 199 112 270 30 72 75 180 100 240 57 140 116 251 156 293 34 36 96 72 122
+72 11 0 15 7 13 21 -3 20 -8 21 -216 20 -117 0 -217 -3 -222 -6 -19 -12 3 -34
+40 -40 28 -5 49 -17 71 -43 29 -33 31 -39 26 -93 -5 -55 -61 -205 -210 -564
+-30 -71 -57 -139 -61 -150 -8 -23 -3 -32 -133 265 -202 461 -219 518 -168 558
+14 11 40 23 60 26 37 7 48 17 40 38 -4 10 -67 13 -326 13 -176 0 -323 -2 -325
+-4z M4073 2343 c-182 -3 -193 -5 -193 -22 0 -15 10 -21 40 -26 82 -14 117 -72
+98 -162 -9 -40 -157 -421 -187 -480 -5 -10 -26 -63 -47 -118 -22 -55 -43 -99
+-48 -98 -5 1 -21 33 -36 70 -15 37 -49 115 -75 173 -26 58 -62 141 -80 185
+-18 44 -54 129 -80 188 -56 129 -63 189 -24 218 13 10 41 21 62 24 28 5 37 12
+37 26 0 18 -12 19 -325 19 -286 0 -325 -2 -325 -15 0 -9 19 -24 43 -34 23 -10
+57 -34 75 -52 36 -36 56 -71 107 -188 76 -178 328 -737 389 -865 36 -76 66
+-148 66 -159 0 -17 -35 -102 -92 -224 -26 -57 -105 -143 -145 -159 -48 -20
+-100 -17 -168 11 -69 29 -102 31 -150 11 -69 -29 -96 -125 -55 -192 12 -18 40
+-42 66 -55 38 -18 58 -21 118 -17 54 4 85 12 124 33 141 76 225 197 347 495
+25 63 53 129 60 145 21 47 43 100 95 230 27 66 82 201 123 300 41 99 100 243
+132 320 75 183 108 247 151 295 20 22 60 51 90 66 30 14 54 29 54 33 0 13 -24
+31 -39 29 -9 -2 -103 -4 -208 -5z M4314 1680 c0 -74 1 -105 3 -67 2 37 2 97 0
+135 -2 37 -3 6 -3 -68z"/></g><g transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)" fill="#ffffff" stroke="#ffffff" stroke-width="70" stroke-linejoin="round"><path d="M5510 2489 l0 -423 -28 45 c-39 60 -119 137 -187 178 -96 58 -178 83
+-295 88 -197 9 -344 -44 -479 -172 -88 -85 -141 -168 -176 -278 -23 -71 -25
+-95 -25 -252 0 -156 2 -182 24 -250 13 -42 42 -106 64 -143 79 -132 231 -247
+382 -288 88 -23 262 -23 350 0 130 35 241 113 327 230 l43 58 0 -95 c0 -52 3
+-115 6 -141 l7 -47 56 3 56 3 0 950 0 950 -62 3 -63 3 0 -422z m-417 -234 c91
+-19 180 -68 248 -136 68 -68 100 -121 135 -220 34 -98 43 -269 20 -378 -45
+-214 -196 -374 -396 -422 -30 -7 -91 -13 -135 -13 -199 1 -377 112 -463 289
+-48 97 -65 176 -65 300 -1 126 16 203 66 304 41 85 149 195 232 236 107 53
+230 67 358 40z M6465 2366 c-92 -21 -157 -49 -235 -101 -122 -81 -223 -226
+-267 -385 -25 -90 -24 -318 1 -410 65 -240 237 -413 471 -475 83 -22 288 -23
+379 -1 94 22 198 79 273 149 58 55 133 153 133 175 0 10 -89 67 -94 60 -72
+-114 -114 -160 -191 -210 -90 -58 -179 -82 -305 -82 -148 0 -245 31 -353 113
+-53 39 -112 112 -146 179 -26 50 -63 195 -59 226 l3 21 595 5 595 5 3 35 c5
+51 -17 204 -40 274 -29 90 -82 179 -148 249 -68 73 -141 119 -242 154 -57 19
+-98 26 -193 29 -80 2 -140 -1 -180 -10z m277 -107 c29 -7 77 -23 107 -37 65
+-31 158 -115 199 -180 36 -55 78 -175 88 -249 l7 -53 -538 0 -538 0 7 52 c4
+29 10 55 14 58 4 3 8 17 9 33 4 56 65 160 138 233 76 77 143 117 233 138 71
+18 204 20 274 5z M8078 2370 c-77 -13 -143 -39 -206 -79 -61 -40 -134 -117
+-164 -173 -18 -33 -18 -32 -18 100 l0 132 -60 0 -60 0 0 -675 0 -675 59 0 59
+0 5 408 c4 444 7 466 66 597 72 158 229 255 412 255 l49 0 0 60 0 60 -47 -1
+c-27 -1 -69 -5 -95 -9z M8898 2365 c-121 -31 -217 -100 -287 -208 l-41 -62 0
+128 0 128 -57 -3 -58 -3 0 -670 0 -670 60 0 60 0 5 440 c5 387 8 447 24 495
+30 93 76 168 137 225 94 87 216 119 358 95 54 -9 86 -21 131 -51 68 -46 111
+-106 143 -199 21 -62 22 -84 27 -535 l5 -470 63 -3 62 -3 0 415 c0 461 6 519
+61 631 35 71 111 150 177 184 22 11 73 26 111 33 87 15 197 2 263 -32 66 -33
+127 -96 160 -167 51 -109 57 -175 58 -640 l0 -423 61 0 60 0 -4 488 c-3 470
+-4 489 -25 553 -28 83 -85 173 -143 223 -52 45 -142 89 -217 105 -29 6 -86 11
+-125 11 -189 0 -351 -90 -441 -244 l-39 -66 -27 59 c-50 104 -131 178 -245
+221 -78 29 -234 36 -317 15z"/></g></svg></a>
+      <div class="flinks">
+        <a href="#agent">AI Agent</a>
+        <a href="#journey">Patient Journey</a>
+        <a href="#doctors">For Doctors</a>
+        <a href="#distributors">For Distributors</a>
+        <a href="mailto:info@veyderm.com">Contact</a>
+      </div>
+    </div>
+    <div class="fbar">
+      © 2026 Veyderm. All rights reserved. Dubai, United Arab Emirates.<br>
+      Veyderm is a digital platform connecting licensed healthcare professionals with authorized dermocosmetic distributors. Product information on this platform does not constitute medical advice. Always consult a qualified healthcare professional.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('accessForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!this.checkValidity()){this.reportValidity();return;}
+    this.style.display='none';
+    document.getElementById('okState').style.display='block';
+  });
+  document.querySelectorAll('[data-role]').forEach(function(el){
+    el.addEventListener('click',function(){
+      var sel=document.getElementById('role');
+      if(sel){sel.value=el.getAttribute('data-role');}
+    });
+  });
+</script>
+</body>
+</html>

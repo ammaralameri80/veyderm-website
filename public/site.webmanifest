@@ -1,0 +1,22 @@
+{
+  "name": "Veyderm",
+  "short_name": "Veyderm",
+  "description": "AI dermatology, doctor-led — the UAE's first AI-powered dermatology platform.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5b4dc7",
+  "icons": [
+    {
+      "src": "/favicon-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/veyderm-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
