@@ -1,4 +1,10 @@
-import { OrbitDiagram } from "./OrbitDiagram";
+import { HeroMockup } from "./HeroMockup";
+
+const TRUST = [
+  "Doctor approves every plan",
+  "Authorized products only",
+  "WhatsApp-ready",
+];
 
 export function Hero() {
   return (
@@ -15,8 +21,9 @@ export function Hero() {
             <em>doctor-led.</em>
           </h1>
           <p className="sub">
-            Evidence-based plans and verified products, built in minutes — with the
-            doctor always in control.
+            Veyderm is an AI agent that helps UAE dermatologists build
+            evidence-based treatment plans, recommend verified products, and stay
+            connected to patients on WhatsApp.
           </p>
           <div className="hero-cta">
             <a className="btn btn-primary" href="#access">
@@ -26,9 +33,29 @@ export function Hero() {
               See how it works
             </a>
           </div>
+          <ul className="hero-trust">
+            {TRUST.map((t) => (
+              <li key={t}>
+                <svg
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                {t}
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="hero-visual">
-          <OrbitDiagram />
+          <HeroMockup />
         </div>
       </div>
     </section>

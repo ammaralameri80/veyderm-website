@@ -88,6 +88,44 @@ nav{display:flex;align-items:center;justify-content:space-between;height:72px}
 .hero h1 em{font-style:italic;font-weight:400}
 .hero .sub{margin-top:24px;max-width:520px;font-size:clamp(17px,2.2vw,20px);line-height:1.55;color:var(--muted)}
 .hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+/* Hero trust chips */
+.hero-trust{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.hero-trust li{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--ink);background:var(--purple-soft);border:1px solid var(--line);border-radius:var(--r-pill);padding:7px 13px}
+.hero-trust li svg{color:var(--purple-deep);flex:none}
+
+/* HERO PRODUCT MOCKUP */
+.mockup{position:relative;max-width:410px;margin:0 auto;padding-bottom:84px}
+.mk-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:22px}
+.mk-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}
+.mk-kicker{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-deep)}
+.mk-concern{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);margin-top:3px}
+.mk-sample{flex:none;font-size:11px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:var(--r-pill);padding:3px 9px}
+.mk-products{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:8px}
+.mk-products li{display:flex;align-items:center;gap:12px;padding:11px 12px;border:1px solid var(--line);border-radius:var(--r-sm)}
+.mk-rank{flex:none;width:24px;height:24px;border-radius:50%;background:var(--purple-soft);color:var(--purple-deep);display:grid;place-items:center;font-size:13px;font-weight:700}
+.mk-pinfo{display:flex;flex-direction:column;gap:3px;min-width:0}
+.mk-pname{font-size:14.5px;font-weight:600;color:var(--ink)}
+.mk-badge{align-self:flex-start;font-size:11px;font-weight:600;border-radius:var(--r-pill);padding:2px 9px}
+.mk-badge.strong{background:#e3f4ea;color:#1b6e45}
+.mk-badge.moderate{background:#fdf0da;color:#8a5e0f}
+.mk-safety{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.mk-safe{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;border-radius:var(--r-sm);padding:10px 12px}
+.mk-safe svg{flex:none}
+.mk-safe.pass{background:#e3f4ea;color:#1b6e45}
+.mk-safe.warn{background:#fdf0da;color:#8a5e0f}
+.mk-approve{display:inline-flex;align-items:center;justify-content:center;background:var(--purple);color:#fff;font-weight:600;font-size:14.5px;padding:12px 22px;border-radius:var(--r-pill);box-shadow:var(--sh-sm)}
+.mk-chat{position:absolute;right:-8px;bottom:0;width:190px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh-lg);padding:13px}
+.mk-chat-head{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#1f8a4c;margin-bottom:8px}
+.mk-bubble{background:#eafaf0;border:1px solid #c7e9d5;border-radius:12px;border-bottom-left-radius:4px;padding:10px 12px;font-size:12.5px;color:var(--ink);line-height:1.45}
+.mk-chat-meta{margin-top:8px;font-size:11px;color:var(--muted)}
+
+/* WHAT IS VEYDERM */
+.whatis-grid{margin-top:38px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.whatis-col{display:flex;flex-direction:column;gap:11px}
+.whatis-ic{width:52px;height:52px;border-radius:var(--r-md);background:var(--purple-soft);color:var(--purple-deep);display:grid;place-items:center}
+.whatis-col h3{font-size:18px;font-weight:600;color:var(--ink)}
+.whatis-col p{font-size:15px;color:var(--muted);max-width:36ch;line-height:1.5}
+
 /* ORBIT GRAPHIC */
 .orbit{width:100%;max-width:458px;margin:0 auto;display:block;height:auto}
 .orbit .ring{fill:none;stroke:var(--line);stroke-width:1}
@@ -115,6 +153,15 @@ nav{display:flex;align-items:center;justify-content:space-between;height:72px}
   @keyframes glow{0%,100%{filter:none}12%{filter:drop-shadow(0 0 10px rgba(108,101,194,.5))}}
 }
 @media(prefers-reduced-motion:reduce){.orbit .pulse{display:none}}
+/* Secondary orbit inside the AI Agent gradient band */
+.agent-orbit{max-width:280px;margin:40px auto 4px}
+.engine .orbit .ring{stroke:rgba(255,255,255,.28)}
+.engine .orbit .spoke,.engine .orbit .speck{stroke:rgba(255,255,255,.45);fill:rgba(255,255,255,.45)}
+.engine .orbit .node{fill:#fff;stroke:#fff}
+.engine .orbit .ico{stroke:var(--purple-deep)}
+.engine .orbit .lbl,.engine .orbit .core-lbl{fill:#fff}
+.engine .orbit .pulse{fill:#fff}
+.engine .orbit .ripple{stroke:rgba(255,255,255,.6)}
 
 /* STANDARDS STRIP */
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
@@ -241,12 +288,13 @@ footer .logo-foot{height:30px}
   .segs{grid-template-columns:1fr}
 }
 @media(max-width:820px){
-  .hero .wrap{grid-template-columns:1fr;gap:8px}
+  .hero .wrap{grid-template-columns:1fr;gap:28px}
   .hero-visual{order:-1}
   .orbit{max-width:360px}
   .hero-copy{text-align:center}
   .hero .sub{margin-inline:auto}
   .hero-cta{justify-content:center}
+  .hero-trust{justify-content:center}
 }
 @media(max-width:640px){
   .logo-full{display:none}
@@ -260,6 +308,9 @@ footer .logo-foot{height:30px}
   .journey{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   .std-grid{grid-template-columns:1fr}
+  .whatis-grid{grid-template-columns:1fr;gap:24px}
+  .mockup{max-width:400px;padding-bottom:0}
+  .mk-chat{position:static;right:auto;width:auto;margin:14px 0 0}
   .sec,.stats{padding:56px 0}
 }
 @media(max-width:360px){

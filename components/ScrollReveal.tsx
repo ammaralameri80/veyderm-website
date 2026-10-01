@@ -18,6 +18,7 @@ const SELECTOR = [
   ".ba-col",
   ".stat",
   ".reassure",
+  ".whatis-col",
 ].join(",");
 
 export function ScrollReveal() {

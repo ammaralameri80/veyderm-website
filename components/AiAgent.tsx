@@ -1,3 +1,5 @@
+import { OrbitDiagram } from "./OrbitDiagram";
+
 export function AiAgent() {
   return (
     <section className="engine" id="agent">
@@ -5,6 +7,9 @@ export function AiAgent() {
         <div className="sec-tag">The Veyderm AI Agent</div>
         <h2>One agent. Insight for every side.</h2>
         <p className="q">Reads the evidence, drafts the plan, answers patients.</p>
+        <div className="agent-orbit">
+          <OrbitDiagram />
+        </div>
         <div className="agent-cards">
           <div className="acard">
             <div className="ah">
