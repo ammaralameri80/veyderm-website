@@ -3,12 +3,8 @@ export function AiAgent() {
     <section className="engine" id="agent">
       <div className="wrap">
         <div className="sec-tag">The Veyderm AI Agent</div>
-        <h2>An AI agent that does the work — and turns it into insight.</h2>
-        <p className="q">
-          It reads the evidence, builds the plan, answers patients around the
-          clock, and learns from every interaction — then hands each side the
-          insight it needs to act.
-        </p>
+        <h2>One agent. Insight for every side.</h2>
+        <p className="q">Reads the evidence, drafts the plan, answers patients.</p>
         <div className="agent-cards">
           <div className="acard">
             <div className="ah">
@@ -16,10 +12,8 @@ export function AiAgent() {
               <h3>For doctors</h3>
             </div>
             <ul>
-              <li>Evidence-ranked product recommendations for each condition</li>
-              <li>Automatic safety, allergen &amp; interaction checks</li>
-              <li>Adherence signals — see who&apos;s following their plan</li>
-              <li>Draft treatment plans ready to review in seconds</li>
+              <li>Evidence-ranked product picks</li>
+              <li>Automatic safety &amp; interaction checks</li>
             </ul>
           </div>
           <div className="acard">
@@ -28,10 +22,8 @@ export function AiAgent() {
               <h3>For distributors</h3>
             </div>
             <ul>
-              <li>Real demand signals from actual patient needs</li>
-              <li>Most-requested products and emerging concern trends</li>
-              <li>Structured RFQs instead of scattered messages</li>
-              <li>Insight into what&apos;s selling, where, and why</li>
+              <li>Real demand signals</li>
+              <li>Structured RFQs, not scattered chats</li>
             </ul>
           </div>
           <div className="acard">
@@ -40,14 +32,12 @@ export function AiAgent() {
               <h3>For patients</h3>
             </div>
             <ul>
-              <li>A 24/7 chatbot that explains their plan in plain language</li>
-              <li>Ingredient, usage &amp; safety questions answered on WhatsApp</li>
-              <li>Reminders, follow-ups, and easy reordering</li>
-              <li>Guidance toward verified doctors and real products</li>
+              <li>24/7 answers on WhatsApp</li>
+              <li>Reminders &amp; easy reordering</li>
             </ul>
           </div>
         </div>
-        <a className="btn btn-mint" href="#access">
+        <a className="btn btn-primary" href="#access">
           Request Early Access
         </a>
       </div>

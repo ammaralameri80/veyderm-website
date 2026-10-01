@@ -5,8 +5,8 @@ export function ForDistributors() {
         <div className="sec-tag">For distributors</div>
         <h2>Be in front of dermatologists at the moment they choose.</h2>
         <p className="lede">
-          Veyderm puts your products where decisions happen — inside the
-          dermatologist&apos;s daily workflow, backed by real patient demand.
+          Your products where decisions happen — inside the dermatologist&apos;s
+          workflow.
         </p>
         <div className="ba">
           <div className="ba-col before">
@@ -50,10 +50,7 @@ export function ForDistributors() {
               </svg>
             </div>
             <h3>Reach the right buyers</h3>
-            <p>
-              Your portfolio is visible to verified dermatologists and clinics — the
-              people who recommend and buy.
-            </p>
+            <p>Visible to the dermatologists who recommend and buy.</p>
           </div>
           <div className="bcard">
             <div className="bi">
@@ -72,10 +69,7 @@ export function ForDistributors() {
               </svg>
             </div>
             <h3>Real requests, ready to close</h3>
-            <p>
-              Receive structured quote requests from clinics, respond, and turn them
-              into orders — no back-and-forth.
-            </p>
+            <p>Structured quote requests from clinics — no back-and-forth.</p>
           </div>
           <div className="bcard">
             <div className="bi">
@@ -96,10 +90,7 @@ export function ForDistributors() {
               </svg>
             </div>
             <h3>Know what sells, and why</h3>
-            <p>
-              The AI shows you trending skin concerns, top-requested products, and
-              where demand is growing.
-            </p>
+            <p>Trending concerns, top products, and where demand grows.</p>
           </div>
         </div>
         <div className="start on-dark">
@@ -119,7 +110,7 @@ export function ForDistributors() {
             </li>
           </ol>
           <a
-            className="btn btn-mint"
+            className="btn btn-primary"
             href="#access"
             data-role="Authorized Distributor"
           >

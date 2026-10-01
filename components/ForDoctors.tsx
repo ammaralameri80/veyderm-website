@@ -8,8 +8,7 @@ export function ForDoctors() {
             <h2>Recommend with confidence. Every time.</h2>
             <p className="lede">
               You know your patients best. Veyderm gives you the facts behind every
-              product — so you can recommend with certainty, and your patients leave
-              knowing exactly what to do.
+              product.
             </p>
           </div>
           <div className="reassure">
@@ -18,10 +17,7 @@ export function ForDoctors() {
               <br />
               <em>You decide.</em>
             </div>
-            <p>
-              Nothing reaches your patient without your approval. The AI does the
-              research — you stay in full control of every plan.
-            </p>
+            <p>Nothing reaches your patient without your approval.</p>
           </div>
         </div>
         <div className="bgrid">
@@ -41,11 +37,8 @@ export function ForDoctors() {
                 <path d="m9 12 2 2 4-4" />
               </svg>
             </div>
-            <h3>Only real, authorized products</h3>
-            <p>
-              Every product comes from an authorized distributor. No fakes, no
-              grey market — you can stand behind what you recommend.
-            </p>
+            <h3>Only authorized products</h3>
+            <p>From authorized distributors — no fakes, no grey market.</p>
           </div>
           <div className="bcard">
             <div className="bi">
@@ -65,10 +58,7 @@ export function ForDoctors() {
               </svg>
             </div>
             <h3>The proof, in plain words</h3>
-            <p>
-              See how strong the evidence is for each product, explained simply — no
-              digging through studies.
-            </p>
+            <p>See how strong the evidence is, explained simply.</p>
           </div>
           <div className="bcard">
             <div className="bi">
@@ -86,77 +76,7 @@ export function ForDoctors() {
               </svg>
             </div>
             <h3>Safer for every patient</h3>
-            <p>
-              Allergies, pregnancy, and ingredient clashes are flagged
-              automatically before you recommend.
-            </p>
-          </div>
-          <div className="bcard">
-            <div className="bi">
-              <svg
-                viewBox="0 0 24 24"
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-              </svg>
-            </div>
-            <h3>Patients who follow through</h3>
-            <p>
-              Your plan arrives on your patient&rsquo;s WhatsApp, with an AI
-              assistant to answer questions and remind them — so results show.
-            </p>
-          </div>
-          <div className="bcard">
-            <div className="bi">
-              <svg
-                viewBox="0 0 24 24"
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <polyline points="16 11 18 13 22 9" />
-              </svg>
-            </div>
-            <h3>Patients who come back</h3>
-            <p>
-              Follow-ups and reorders keep the relationship going after the visit —
-              and bring patients back to you.
-            </p>
-          </div>
-          <div className="bcard">
-            <div className="bi">
-              <svg
-                viewBox="0 0 24 24"
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
-                <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
-                <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
-              </svg>
-            </div>
-            <h3>Minutes, not hours</h3>
-            <p>
-              Search, check, plan, and share in one place. Less admin, more time
-              with patients.
-            </p>
+            <p>Allergies, pregnancy, and clashes flagged automatically.</p>
           </div>
         </div>
         <div className="start">

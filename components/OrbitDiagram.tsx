@@ -19,11 +19,6 @@ export function OrbitDiagram() {
         <circle className="ring" cx="230" cy="230" r="205" />
         <circle className="ring" cx="230" cy="230" r="150" style={{ opacity: 0.7 }} />
         <circle className="ring" cx="230" cy="230" r="92" style={{ opacity: 0.5 }} />
-        {/* decorative specks on outer ring */}
-        <circle className="speck" cx="230" cy="25" r="3" />
-        <circle className="speck" cx="404" cy="300" r="3" />
-        <circle className="speck" cx="56" cy="300" r="3" />
-        <circle className="speck" cx="360" cy="90" r="2.5" />
       </g>
       {/* spokes */}
       <path id="sp1" className="spoke" d="M120 130 L230 230" />
@@ -172,7 +167,7 @@ export function OrbitDiagram() {
           <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
           <circle cx="12" cy="7" r="4" />
         </g>
-        <text className="lbl" x="0" y="63">
+        <text className="lbl" x="0" y="-52">
           Patients
         </text>
       </g>
@@ -185,7 +180,7 @@ export function OrbitDiagram() {
           <polyline points="3.29 7 12 12 20.71 7" />
           <path d="m7.5 4.27 9 5.15" />
         </g>
-        <text className="lbl" x="0" y="63">
+        <text className="lbl" x="0" y="-52">
           Distributors
         </text>
       </g>

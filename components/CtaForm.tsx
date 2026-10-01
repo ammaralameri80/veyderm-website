@@ -90,15 +90,14 @@ export function CtaForm() {
             <h2>Join Veyderm early — and grow with it.</h2>
             <p>
               We&apos;re onboarding a limited number of dermatologists and
-              distributors in the UAE. Early members help shape the platform and
-              get priority access at launch.
+              distributors in the UAE.
             </p>
             <div className="cta-roles">
-              <a className="btn btn-mint" href="#access" data-role="Dermatologist">
+              <a className="btn btn-primary" href="#access" data-role="Dermatologist">
                 I&apos;m a doctor
               </a>
               <a
-                className="btn btn-outline-light btn"
+                className="btn btn-ghost"
                 href="#access"
                 data-role="Authorized Distributor"
               >
@@ -158,7 +157,7 @@ export function CtaForm() {
                   ))}
                 </select>
               </div>
-              <button type="submit" className="btn btn-mint" disabled={pending}>
+              <button type="submit" className="btn btn-primary" disabled={pending}>
                 {pending ? "Sending…" : "Request Early Access"}
               </button>
               <p className="privacy">

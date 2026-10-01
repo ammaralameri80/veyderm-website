@@ -1,6 +1,6 @@
 // Inline SVG wordmark, ported 1:1 from the design reference.
 // Three responsive variants swap via CSS (.logo-full / .logo-small / .logo-icon).
-// The footer uses the dark (lavender + white) variant.
+// The footer uses the dark (aqua + white) variant.
 
 const WORDMARK_PATH_PURPLE = `M2315 2374 c-158 -38 -237 -74 -330 -151 -191 -157 -291 -399 -270
 -652 25 -305 192 -516 465 -588 86 -22 243 -22 329 1 129 35 255 118 324 215
@@ -143,7 +143,7 @@ export function HeaderLogo() {
   );
 }
 
-/** Footer logo: lavender "vey" + white "derm" for dark backgrounds. */
+/** Footer logo: purple "vey" + ink "derm" for the light footer. */
 export function FooterLogo() {
   return (
     <a className="brand" href="#top" aria-label="veyderm home">
@@ -155,8 +155,8 @@ export function FooterLogo() {
       >
         <g
           transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)"
-          fill="#b3aaf0"
-          stroke="#b3aaf0"
+          fill="#6c65c2"
+          stroke="#6c65c2"
           strokeWidth="70"
           strokeLinejoin="round"
         >
@@ -164,8 +164,8 @@ export function FooterLogo() {
         </g>
         <g
           transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)"
-          fill="#ffffff"
-          stroke="#ffffff"
+          fill="#111111"
+          stroke="#111111"
           strokeWidth="70"
           strokeLinejoin="round"
         >

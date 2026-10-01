@@ -15,9 +15,8 @@ export function Hero() {
             <em>doctor-led.</em>
           </h1>
           <p className="sub">
-            Veyderm helps licensed dermatologists build evidence-based treatment
-            plans, surface clinically verified products, and deliver personalized
-            care — in minutes.
+            Evidence-based plans and verified products, built in minutes — with the
+            doctor always in control.
           </p>
           <div className="hero-cta">
             <a className="btn btn-primary" href="#access">
