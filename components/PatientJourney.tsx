@@ -118,7 +118,7 @@ export function PatientJourney() {
                 </div>
               </div>
             </div>
-            <div className="phone-cap">Illustrative conversation</div>
+            <div className="phone-cap">Illustrative example</div>
           </div>
         </div>
       </div>

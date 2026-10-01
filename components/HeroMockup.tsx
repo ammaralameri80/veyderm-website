@@ -22,7 +22,7 @@ export function HeroMockup() {
             <div className="mk-kicker">Treatment plan</div>
             <div className="mk-concern">Melasma · Fitzpatrick III</div>
           </div>
-          <span className="mk-sample">Sample</span>
+          <span className="mk-sample">Illustrative example</span>
         </div>
 
         <ol className="mk-products">

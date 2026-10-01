@@ -80,7 +80,7 @@ export function AiAgent() {
             <div className="demo-head" aria-hidden="true">
               <span className="demo-dot" />
               Veyderm agent
-              <span className="demo-sample">Sample</span>
+              <span className="demo-sample">Illustrative example</span>
             </div>
             <div className="demo-thread" aria-hidden="true">
               <div className="d-msg patient">

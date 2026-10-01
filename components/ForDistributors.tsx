@@ -53,7 +53,7 @@ export function ForDistributors() {
               <span className="rfq-badge">New RFQ received</span>
               <span className="rfq-time">2m ago</span>
             </div>
-            <div className="rfq-clinic">Marina Dermatology Clinic</div>
+            <div className="rfq-clinic">Sample Clinic</div>
             <ul className="rfq-items">
               <li>
                 <span>Azelaic acid 20% cream</span>
@@ -65,7 +65,7 @@ export function ForDistributors() {
               </li>
             </ul>
             <div className="rfq-foot">
-              <span className="rfq-sample">Sample</span>
+              <span className="rfq-sample">Illustrative example</span>
               <span className="rfq-action">Send quote</span>
             </div>
           </div>
