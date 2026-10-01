@@ -79,6 +79,50 @@ export function ForDoctors() {
             <p>Allergies, pregnancy, and clashes flagged automatically.</p>
           </div>
         </div>
+        <div className="control">
+          <div className="control-t">The doctor stays in control</div>
+          <ol className="control-flow">
+            <li className="cf-step">
+              <span className="cf-ic">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" />
+                </svg>
+              </span>
+              <h3>AI suggests</h3>
+              <p>Evidence-ranked options and safety flags, drafted in seconds.</p>
+            </li>
+            <li className="cf-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+              </svg>
+            </li>
+            <li className="cf-step">
+              <span className="cf-ic">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </span>
+              <h3>You review the evidence</h3>
+              <p>See how strong the evidence is, explained in plain words.</p>
+            </li>
+            <li className="cf-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+              </svg>
+            </li>
+            <li className="cf-step">
+              <span className="cf-ic">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              </span>
+              <h3>You approve</h3>
+              <p>Nothing reaches the patient until you say so.</p>
+            </li>
+          </ol>
+        </div>
+
         <div className="start">
           <div className="start-t">Getting started is simple</div>
           <ol className="s3">

@@ -22,7 +22,7 @@ const hanken = Hanken_Grotesk({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com";
 const title = "Veyderm — AI Dermatology for the UAE";
 const description =
-  "Veyderm helps licensed dermatologists build evidence-based treatment plans, surface clinically verified products, and deliver personalized care — in minutes. The UAE's first AI-powered dermatology platform.";
+  "Veyderm helps licensed dermatologists build evidence-based treatment plans, surface clinically verified products, and deliver personalized care — in minutes. An AI-powered dermatology platform built for the UAE.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

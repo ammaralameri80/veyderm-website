@@ -13,7 +13,7 @@ export function Hero() {
         <div className="hero-copy">
           <span className="eyebrow">
             <span className="dot" />
-            UAE&apos;s first AI-powered dermatology platform
+            AI-powered dermatology platform, built for the UAE
           </span>
           <h1>
             AI dermatology,

@@ -20,6 +20,7 @@ const SELECTOR = [
   ".reassure",
   ".whatis-col",
   ".tl-step",
+  ".cf-step",
 ].join(",");
 
 export function ScrollReveal() {

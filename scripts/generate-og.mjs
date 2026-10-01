@@ -41,7 +41,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
   <text x="88" y="432" font-family="${serif}" font-size="92" font-weight="400" font-style="italic" fill="#ffffff">doctor-led.</text>
 
   <!-- subtitle -->
-  <text x="92" y="520" font-family="${sans}" font-size="30" fill="#ffffff" fill-opacity="0.88">UAE&#8217;s first AI-powered dermatology platform</text>
+  <text x="92" y="520" font-family="${sans}" font-size="30" fill="#ffffff" fill-opacity="0.88">AI-powered dermatology platform, built for the UAE</text>
 </svg>`;
 
 await sharp(Buffer.from(svg)).png().toFile(out);
