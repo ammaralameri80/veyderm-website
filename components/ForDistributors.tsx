@@ -159,6 +159,7 @@ export function ForDistributors() {
             className="btn btn-primary"
             href="#access"
             data-role="Authorized Distributor"
+            data-cta="for_distributors"
           >
             Become a partner
           </a>

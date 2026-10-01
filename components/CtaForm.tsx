@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 const ROLES = [
   "Dermatologist",
@@ -48,6 +49,7 @@ export function CtaForm() {
       name: String(data.get("name") || ""),
       email: String(data.get("email") || ""),
       role: String(data.get("role") || ""),
+      company: String(data.get("company") || ""), // honeypot
     };
 
     setPending(true);
@@ -70,6 +72,7 @@ export function CtaForm() {
         setPending(false);
         return;
       }
+      trackEvent("generate_lead", { role: payload.role });
       setSubmitted(true);
     } catch {
       // Network failure — keep the form so the user can retry.
@@ -118,6 +121,17 @@ export function CtaForm() {
                 We&apos;ll reach out with your invitation when your region goes
                 live.
               </p>
+              {/* Honeypot: hidden from users; bots that fill it are dropped. */}
+              <div className="hp" aria-hidden="true">
+                <label htmlFor="company">Company (leave blank)</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <div className="field">
                 <label htmlFor="name">Full name</label>
                 <input

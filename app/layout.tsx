@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { ConsentBanner } from "@/components/ConsentBanner";
 
 // Self-hosted at build time (no external runtime font requests).
 const fraunces = Fraunces({
@@ -77,9 +77,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/social-avatar-1024.png",
-        width: 1024,
-        height: 1024,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
         alt: "Veyderm — AI dermatology, doctor-led.",
       },
     ],
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/social-avatar-1024.png"],
+    images: ["/og-image.png"],
   },
   category: "health",
 };
@@ -105,11 +105,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
   return (
     <html lang="en" className={`${fraunces.variable} ${hanken.variable}`}>
-      <body>{children}</body>
-      {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+      <body>
+        {children}
+        <ConsentBanner />
+      </body>
     </html>
   );
 }

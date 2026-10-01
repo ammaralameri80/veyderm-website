@@ -26,7 +26,7 @@ export function Hero() {
             connected to patients on WhatsApp.
           </p>
           <div className="hero-cta">
-            <a className="btn btn-primary" href="#access">
+            <a className="btn btn-primary" href="#access" data-cta="hero">
               Request Early Access
             </a>
             <a className="btn btn-ghost" href="#how">

@@ -11,6 +11,8 @@ export function Footer() {
             <a href="#journey">Patient Journey</a>
             <a href="#doctors">For Doctors</a>
             <a href="#distributors">For Distributors</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
             <a href="mailto:info@veyderm.com">Contact</a>
           </div>
         </div>

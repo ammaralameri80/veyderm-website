@@ -116,7 +116,7 @@ export function AiAgent() {
           <OrbitDiagram />
         </div>
 
-        <a className="btn btn-mint" href="#access">
+        <a className="btn btn-mint" href="#access" data-cta="ai_agent">
           Request Early Access
         </a>
       </div>

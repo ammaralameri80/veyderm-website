@@ -95,7 +95,7 @@ export function ForDoctors() {
               <span>Start recommending with confidence</span>
             </li>
           </ol>
-          <a className="btn btn-primary" href="#access" data-role="Dermatologist">
+          <a className="btn btn-primary" href="#access" data-role="Dermatologist" data-cta="for_doctors">
             Join as a doctor
           </a>
         </div>

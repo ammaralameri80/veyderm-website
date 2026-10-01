@@ -12,7 +12,7 @@ export function Header() {
             <a href="#doctors">For Doctors</a>
             <a href="#distributors">For Distributors</a>
           </div>
-          <a className="btn btn-primary nav-cta" href="#access">
+          <a className="btn btn-primary nav-cta" href="#access" data-cta="header">
             Request Early Access
           </a>
         </nav>
