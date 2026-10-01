@@ -127,8 +127,8 @@ export function OrbitDiagram() {
       </g>
       <defs>
         <radialGradient id="coreGrad" cx="35%" cy="30%" r="80%">
-          <stop offset="0%" stopColor="#6a5cd6" />
-          <stop offset="100%" stopColor="#362b87" />
+          <stop offset="0%" stopColor="#7A72D1" />
+          <stop offset="100%" stopColor="#4B40B0" />
         </radialGradient>
       </defs>
       {/* NODE: Doctors (top-left) */}

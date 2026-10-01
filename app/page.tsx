@@ -9,10 +9,12 @@ import { ForDoctors } from "@/components/ForDoctors";
 import { ForDistributors } from "@/components/ForDistributors";
 import { CtaForm } from "@/components/CtaForm";
 import { Footer } from "@/components/Footer";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
     <>
+      <ScrollReveal />
       <Header />
       <main id="top">
         <Hero />

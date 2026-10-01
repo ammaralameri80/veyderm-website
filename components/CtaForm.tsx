@@ -93,11 +93,11 @@ export function CtaForm() {
               distributors in the UAE.
             </p>
             <div className="cta-roles">
-              <a className="btn btn-primary" href="#access" data-role="Dermatologist">
+              <a className="btn btn-mint" href="#access" data-role="Dermatologist">
                 I&apos;m a doctor
               </a>
               <a
-                className="btn btn-ghost"
+                className="btn btn-outline-light"
                 href="#access"
                 data-role="Authorized Distributor"
               >

@@ -1,6 +1,6 @@
 export function ForDistributors() {
   return (
-    <section className="sec dark aud" id="distributors">
+    <section className="sec tint aud" id="distributors">
       <div className="wrap">
         <div className="sec-tag">For distributors</div>
         <h2>Be in front of dermatologists at the moment they choose.</h2>
@@ -93,7 +93,7 @@ export function ForDistributors() {
             <p>Trending concerns, top products, and where demand grows.</p>
           </div>
         </div>
-        <div className="start on-dark">
+        <div className="start">
           <div className="start-t">Early partners get the advantage</div>
           <ol className="s3">
             <li>

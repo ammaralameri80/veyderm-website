@@ -1,6 +1,6 @@
 export function Problems() {
   return (
-    <section className="sec dark">
+    <section className="sec tint">
       <div className="wrap">
         <div className="sec-tag">Problems to solve</div>
         <h2>The patient journey is broken at every handoff.</h2>

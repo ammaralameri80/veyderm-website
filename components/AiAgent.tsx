@@ -37,7 +37,7 @@ export function AiAgent() {
             </ul>
           </div>
         </div>
-        <a className="btn btn-primary" href="#access">
+        <a className="btn btn-mint" href="#access">
           Request Early Access
         </a>
       </div>
