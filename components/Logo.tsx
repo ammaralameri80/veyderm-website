@@ -65,9 +65,9 @@ c-27 -1 -69 -5 -95 -9z M8898 2365 c-121 -31 -217 -100 -287 -208 l-41 -62 0
 const ICON_V_PATH = `M404 2341 c-14 -15 3 -34 49 -55 77 -34 110 -84 212 -321 26 -60 73 -168 105 -240 80 -179 240 -542 285 -647 20 -47 44 -89 53 -93 24 -9 45 21 82 115 18 47 43 108 56 135 12 28 48 113 79 190 31 77 82 199 112 270 30 72 75 180 100 240 57 140 116 251 156 293 34 36 96 72 122 72 11 0 15 7 13 21 -3 20 -8 21 -216 20 -117 0 -217 -3 -222 -6 -19 -12 3 -34 40 -40 28 -5 49 -17 71 -43 29 -33 31 -39 26 -93 -5 -55 -61 -205 -210 -564 -30 -71 -57 -139 -61 -150 -8 -23 -3 -32 -133 265 -202 461 -219 518 -168 558 14 11 40 23 60 26 37 7 48 17 40 38 -4 10 -67 13 -326 13 -176 0 -323 -2 -325 -4z`;
 
 /** Header logo: full wordmark, small (heavier stroke), and icon tile variants. */
-export function HeaderLogo() {
+export function HeaderLogo({ href = "/" }: { href?: string }) {
   return (
-    <a className="brand" href="#top" aria-label="veyderm home">
+    <a className="brand" href={href} aria-label="veyderm home">
       {/* Full wordmark — default */}
       <svg
         className="logo logo-full"
@@ -144,9 +144,9 @@ export function HeaderLogo() {
 }
 
 /** Footer logo: purple "vey" + ink "derm" for the light footer. */
-export function FooterLogo() {
+export function FooterLogo({ href = "/" }: { href?: string }) {
   return (
-    <a className="brand" href="#top" aria-label="veyderm home">
+    <a className="brand" href={href} aria-label="veyderm home">
       <svg
         className="logo logo-foot"
         aria-hidden="true"

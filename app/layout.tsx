@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Hanken_Grotesk } from "next/font/google";
+import { Fraunces, Hanken_Grotesk, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
+import { content, isLang, type Lang } from "@/lib/content";
 
 // Self-hosted at build time (no external runtime font requests).
 const fraunces = Fraunces({
@@ -19,46 +21,39 @@ const hanken = Hanken_Grotesk({
   display: "swap",
 });
 
+const plexArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-plex-arabic",
+  display: "swap",
+});
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com";
+// Only the production canonical should be indexable — preview / dev domains stay
+// noindex so the review environment is never indexed.
+const isProduction = siteUrl.replace(/\/$/, "") === "https://www.veyderm.com";
+
 const title = "Veyderm — AI Dermatology for the UAE";
 const description =
   "Veyderm helps licensed dermatologists build evidence-based treatment plans, surface clinically verified products, and deliver personalized care — in minutes. An AI-powered dermatology platform built for the UAE.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: title,
-    template: "%s — Veyderm",
-  },
+  title: { default: title, template: "%s — Veyderm" },
   description,
   applicationName: "Veyderm",
-  keywords: [
-    "dermatology",
-    "AI dermatology",
-    "UAE",
-    "dermatologists",
-    "treatment plans",
-    "dermocosmetics",
-    "skin care",
-    "Dubai",
-  ],
+  keywords: ["dermatology", "AI dermatology", "UAE", "dermatologists", "treatment plans", "dermocosmetics", "skin care", "Dubai"],
   authors: [{ name: "Veyderm" }],
   creator: "Veyderm",
   publisher: "Veyderm",
-  alternates: {
-    canonical: "/",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  alternates: { canonical: "/" },
+  robots: isProduction
+    ? {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+      }
+    : { index: false, follow: false, googleBot: { index: false, follow: false } },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -75,21 +70,9 @@ export const metadata: Metadata = {
     description,
     url: siteUrl,
     locale: "en_US",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Veyderm — AI dermatology, doctor-led.",
-      },
-    ],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Veyderm — AI dermatology, doctor-led." }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-    images: ["/og-image.png"],
-  },
+  twitter: { card: "summary_large_image", title, description, images: ["/og-image.png"] },
   category: "health",
 };
 
@@ -100,16 +83,21 @@ export const viewport: Viewport = {
   themeColor: "#6C65C2",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const pathname = (await headers()).get("x-pathname") || "";
+  const seg = pathname.split("/")[1];
+  const lang: Lang = isLang(seg) ? seg : "en";
+  const dir = content[lang].dir;
+
   return (
-    <html lang="en" className={`${fraunces.variable} ${hanken.variable}`}>
+    <html
+      lang={content[lang].htmlLang}
+      dir={dir}
+      className={`${fraunces.variable} ${hanken.variable} ${plexArabic.variable}`}
+    >
       <body>
         {children}
-        <ConsentBanner />
+        <ConsentBanner lang={lang} />
       </body>
     </html>
   );

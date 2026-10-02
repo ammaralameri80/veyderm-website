@@ -1,20 +1,13 @@
-// Standards the platform is built around. This is an alignment statement, not a
-// certification claim — see the "Built around recognised standards" label.
+import { content, type Lang } from "@/lib/content";
 
-const STANDARDS = [
-  "EU Cosmetics Regulation 1223/2009",
-  "EU Cosmetic Claims Regulation 655/2013",
-  "ISO 22716 (Cosmetics GMP)",
-  "UAE MOHAP labelling & registration",
-];
-
-export function TrustStrip() {
+export function TrustStrip({ lang }: { lang: Lang }) {
+  const t = content[lang].trust;
   return (
-    <section className="strip" aria-label="Recognised standards">
+    <section className="strip" aria-label={t.label}>
       <div className="wrap">
-        <div className="lbl">Built around recognised standards</div>
+        <div className="lbl">{t.label}</div>
         <div className="set">
-          {STANDARDS.map((s) => (
+          {t.standards.map((s) => (
             <span key={s}>{s}</span>
           ))}
         </div>

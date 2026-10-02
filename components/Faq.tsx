@@ -1,18 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { FAQ_ITEMS, cleanAnswer } from "@/lib/faq";
+import { content, type Lang } from "@/lib/content";
 
-export function Faq() {
+export function Faq({ lang }: { lang: Lang }) {
+  const t = content[lang];
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section className="sec faq" id="faq">
       <div className="wrap">
-        <div className="sec-tag">FAQ</div>
-        <h2>Questions, answered plainly.</h2>
+        <div className="sec-tag">{t.faqTitle.tag}</div>
+        <h2>{t.faqTitle.h2}</h2>
         <div className="faq-list">
-          {FAQ_ITEMS.map((item, i) => {
+          {t.faq.map((item, i) => {
             const isOpen = open === i;
             return (
               <div className={`faq-item${isOpen ? " open" : ""}`} key={item.q}>
@@ -25,18 +26,7 @@ export function Faq() {
                     onClick={() => setOpen(isOpen ? null : i)}
                   >
                     <span>{item.q}</span>
-                    <svg
-                      className="faq-chevron"
-                      viewBox="0 0 24 24"
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
+                    <svg className="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="m6 9 6 6 6-6" />
                     </svg>
                   </button>
@@ -48,7 +38,7 @@ export function Faq() {
                   aria-labelledby={`faq-trigger-${i}`}
                   hidden={!isOpen}
                 >
-                  <p>{cleanAnswer(item.a)}</p>
+                  <p>{item.a}</p>
                 </div>
               </div>
             );

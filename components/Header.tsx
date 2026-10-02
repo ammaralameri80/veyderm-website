@@ -1,20 +1,34 @@
 import { HeaderLogo } from "./Logo";
+import { content, localizedPath, type Lang } from "@/lib/content";
 
-export function Header() {
+export function Header({ lang }: { lang: Lang }) {
+  const t = content[lang].nav;
+  const home = localizedPath(lang, "/");
+  const other: Lang = lang === "ar" ? "en" : "ar";
   return (
     <header>
       <div className="wrap">
         <nav>
-          <HeaderLogo />
+          <HeaderLogo href={home} />
           <div className="navlinks">
-            <a href="#agent">AI Agent</a>
-            <a href="#journey">Patient Journey</a>
-            <a href="#doctors">For Doctors</a>
-            <a href="#distributors">For Distributors</a>
+            <a href="#agent">{t.agent}</a>
+            <a href="#journey">{t.journey}</a>
+            <a href="#doctors">{t.doctors}</a>
+            <a href="#distributors">{t.distributors}</a>
           </div>
-          <a className="btn btn-primary nav-cta" href="#access" data-cta="header">
-            Request Early Access
-          </a>
+          <div className="nav-right">
+            <a
+              className="lang-switch"
+              href={localizedPath(other, "/")}
+              hrefLang={other}
+              aria-label={t.switchLabel}
+            >
+              {t.switch}
+            </a>
+            <a className="btn btn-primary nav-cta" href="#access" data-cta="header">
+              {t.cta}
+            </a>
+          </div>
         </nav>
       </div>
     </header>

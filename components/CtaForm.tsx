@@ -2,8 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { content, type Lang } from "@/lib/content";
 
-const ROLES = [
+// Canonical role values sent to the API (must match the server's VALID_ROLES).
+// Display labels are localized; values stay in English.
+const ROLE_VALUES = [
   "Dermatologist",
   "Clinic / Hospital",
   "Authorized Distributor",
@@ -11,23 +14,18 @@ const ROLES = [
   "Other",
 ] as const;
 
-export function CtaForm() {
+export function CtaForm({ lang }: { lang: Lang }) {
+  const t = content[lang].cta;
   const formRef = useRef<HTMLFormElement>(null);
   const [role, setRole] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [pending, setPending] = useState(false);
 
-  // Wire every [data-role] control on the page (the "I'm a doctor" /
-  // "I'm a distributor" buttons here, plus "Join as a doctor" and
-  // "Become a partner" elsewhere) to preselect the role — matching the
-  // reference behavior 1:1.
+  // Wire every [data-role] control on the page to preselect the role.
   useEffect(() => {
-    const els = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-role]")
-    );
+    const els = Array.from(document.querySelectorAll<HTMLElement>("[data-role]"));
     const handler = (e: Event) => {
-      const target = e.currentTarget as HTMLElement;
-      const value = target.getAttribute("data-role");
+      const value = (e.currentTarget as HTMLElement).getAttribute("data-role");
       if (value) setRole(value);
     };
     els.forEach((el) => el.addEventListener("click", handler));
@@ -38,7 +36,6 @@ export function CtaForm() {
     e.preventDefault();
     const form = formRef.current;
     if (!form) return;
-    // Same UX as the reference: client-side validation first.
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
@@ -60,26 +57,15 @@ export function CtaForm() {
         body: JSON.stringify(payload),
       });
       if (!res.ok) {
-        // Surface server-side validation without leaving the success path
-        // for genuinely bad input.
-        const body = (await res.json().catch(() => null)) as
-          | { error?: string }
-          | null;
-        form.setAttribute(
-          "data-error",
-          body?.error || "Something went wrong. Please try again."
-        );
+        const body = (await res.json().catch(() => null)) as { error?: string } | null;
+        form.setAttribute("data-error", body?.error || "Something went wrong. Please try again.");
         setPending(false);
         return;
       }
       trackEvent("generate_lead", { role: payload.role });
       setSubmitted(true);
     } catch {
-      // Network failure — keep the form so the user can retry.
-      form.setAttribute(
-        "data-error",
-        "Network error. Please check your connection and try again."
-      );
+      form.setAttribute("data-error", "Network error. Please check your connection and try again.");
       setPending(false);
     }
   }
@@ -89,22 +75,15 @@ export function CtaForm() {
       <div className="wrap">
         <div className="grid">
           <div>
-            <div className="sec-tag">Get started</div>
-            <h2>Join Veyderm early — and grow with it.</h2>
-            <p>
-              We&apos;re onboarding a limited number of dermatologists and
-              distributors in the UAE.
-            </p>
+            <div className="sec-tag">{t.tag}</div>
+            <h2>{t.h2}</h2>
+            <p>{t.p}</p>
             <div className="cta-roles">
-              <a className="btn btn-mint" href="#access" data-role="Dermatologist">
-                I&apos;m a doctor
+              <a className="btn btn-mint" href="#access" data-role="Dermatologist" data-cta="cta_doctor">
+                {t.roleDoctor}
               </a>
-              <a
-                className="btn btn-outline-light"
-                href="#access"
-                data-role="Authorized Distributor"
-              >
-                I&apos;m a distributor
+              <a className="btn btn-outline-light" href="#access" data-role="Authorized Distributor" data-cta="cta_distributor">
+                {t.roleDistributor}
               </a>
             </div>
           </div>
@@ -116,73 +95,43 @@ export function CtaForm() {
               onSubmit={onSubmit}
               style={{ display: submitted ? "none" : undefined }}
             >
-              <h3>Request early access</h3>
-              <p className="hint">
-                We&apos;ll reach out with your invitation when your region goes
-                live.
-              </p>
+              <h3>{t.formTitle}</h3>
+              <p className="hint">{t.hint}</p>
               {/* Honeypot: hidden from users; bots that fill it are dropped. */}
               <div className="hp" aria-hidden="true">
                 <label htmlFor="company">Company (leave blank)</label>
-                <input
-                  id="company"
-                  name="company"
-                  type="text"
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
+                <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
               </div>
               <div className="field">
-                <label htmlFor="name">Full name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  placeholder="Dr. Full Name"
-                />
+                <label htmlFor="name">{t.name}</label>
+                <input id="name" name="name" type="text" required placeholder={t.namePh} />
               </div>
               <div className="field">
-                <label htmlFor="email">Work email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="you@clinic.com"
-                />
+                <label htmlFor="email">{t.email}</label>
+                <input id="email" name="email" type="email" required placeholder={t.emailPh} />
               </div>
               <div className="field">
-                <label htmlFor="role">I am a…</label>
-                <select
-                  id="role"
-                  name="role"
-                  required
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                >
+                <label htmlFor="role">{t.role}</label>
+                <select id="role" name="role" required value={role} onChange={(e) => setRole(e.target.value)}>
                   <option value="" disabled>
-                    Select one
+                    {t.roleSelect}
                   </option>
-                  {ROLES.map((r) => (
-                    <option key={r} value={r}>
-                      {r}
+                  {ROLE_VALUES.map((value, i) => (
+                    <option key={value} value={value}>
+                      {t.roles[i]}
                     </option>
                   ))}
                 </select>
               </div>
               <button type="submit" className="btn btn-primary" disabled={pending}>
-                {pending ? "Sending…" : "Request Early Access"}
+                {pending ? t.sending : t.submit}
               </button>
-              <p className="privacy">
-                Your information is only used to contact you about Veyderm access.
-                We never share your data.
-              </p>
+              <p className="privacy">{t.privacy}</p>
             </form>
             <div className={`ok${submitted ? " show" : ""}`} id="okState">
               <div className="tick">✓</div>
-              <h3>You&apos;re on the list.</h3>
-              <p>We&apos;ll be in touch at the email you provided.</p>
+              <h3>{t.okTitle}</h3>
+              <p>{t.okP}</p>
             </div>
           </div>
         </div>

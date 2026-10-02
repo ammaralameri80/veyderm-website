@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { getConsent, setConsent, loadGa, trackEvent } from "@/lib/analytics";
+import { content, type Lang } from "@/lib/content";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-export function ConsentBanner() {
+export function ConsentBanner({ lang = "en" }: { lang?: Lang }) {
+  const t = content[lang].consent;
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -49,20 +51,18 @@ export function ConsentBanner() {
       <div className="consent-inner">
         <div className="consent-copy">
           <p id="consent-title" className="consent-h">
-            We use analytics cookies
+            {t.title}
           </p>
           <p className="consent-p">
-            Only to understand how the site is used, and only if you agree. No
-            ads, and we never sell your data. See our{" "}
-            <a href="/privacy">Privacy Policy</a>.
+            {t.body} <a href="/privacy">{t.privacy}</a>.
           </p>
         </div>
         <div className="consent-actions">
           <button type="button" className="btn btn-ghost" onClick={decline}>
-            Decline
+            {t.decline}
           </button>
           <button type="button" className="btn btn-primary" onClick={accept}>
-            Accept
+            {t.accept}
           </button>
         </div>
       </div>
