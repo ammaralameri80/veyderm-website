@@ -17,7 +17,7 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "How are products verified?",
-    a: "Recommendations come from authorized distributors, so dermatologists prescribe genuine products rather than fakes or grey-market stock. [REPLACE: details of how products and distributors are authorized]",
+    a: "Every product comes from an authorized distributor or brand. We verify the distributor's authorization and the product's regulatory status before it appears in recommendations.",
   },
   {
     q: "Who decides the treatment plan?",
@@ -29,7 +29,7 @@ export const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "Who can join?",
-    a: "Veyderm is onboarding licensed dermatologists and authorized distributors in the UAE. Request early access and we verify your medical license before you start. [REPLACE: full eligibility and onboarding details]",
+    a: "Veyderm is for licensed dermatologists and authorized dermocosmetic distributors in the UAE. We verify your medical license or distribution authorization before activating your account.",
   },
   {
     q: "How is my data handled?",

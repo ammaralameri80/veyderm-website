@@ -1,11 +1,19 @@
-// Honest stat tiles. Numbers are placeholders for the client to fill — no
-// invented figures. The `data-count` attribute marks each value so an
-// animated count-up can be wired up later without changing the markup.
+// Honest, non-numeric value tiles — no invented figures. Each states a
+// principle of the product rather than a metric.
 
 const STATS = [
-  { value: "[REPLACE: number of verified brands]", label: "verified product brands" },
-  { value: "[REPLACE: number of partner clinics]", label: "clinics & dermatologists onboard" },
-  { value: "[REPLACE: plans created]", label: "treatment plans created" },
+  {
+    head: "Authorized products only",
+    label: "from verified distributors and brands",
+  },
+  {
+    head: "Doctor-approved plans",
+    label: "nothing reaches a patient without the doctor's approval",
+  },
+  {
+    head: "24/7 on WhatsApp",
+    label: "patients get answers any time",
+  },
 ];
 
 export function Metrics() {
@@ -14,10 +22,8 @@ export function Metrics() {
       <div className="wrap">
         <div className="stats-grid">
           {STATS.map((s) => (
-            <div className="stat" key={s.label}>
-              <div className="n" data-count>
-                {s.value}
-              </div>
+            <div className="stat" key={s.head}>
+              <div className="n">{s.head}</div>
               <div className="k">{s.label}</div>
             </div>
           ))}

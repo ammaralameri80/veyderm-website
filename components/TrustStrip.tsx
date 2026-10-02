@@ -1,11 +1,11 @@
-// Standards / trust strip. Labels are placeholders for the client to fill with
-// real, verifiable standards — no invented certifications.
+// Standards the platform is built around. This is an alignment statement, not a
+// certification claim — see the "Built around recognised standards" label.
 
 const STANDARDS = [
-  "[REPLACE: standard 1]",
-  "[REPLACE: standard 2]",
-  "[REPLACE: standard 3]",
-  "[REPLACE: standard 4]",
+  "EU Cosmetics Regulation 1223/2009",
+  "EU Cosmetic Claims Regulation 655/2013",
+  "ISO 22716 (Cosmetics GMP)",
+  "UAE MOHAP labelling & registration",
 ];
 
 export function TrustStrip() {
