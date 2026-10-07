@@ -7,9 +7,9 @@ import { CtaForm } from "@/components/CtaForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { senaFaq } from "@/lib/content";
 
-const title = "Sena — your AI dermatology companion";
+const title = "Sena — your AI companion for the skin journey";
 const description =
-  "Sena is veyderm's AI skin assistant for patients. Chat about your skin, share a photo, get guidance and product suggestions, and book a dermatologist when it matters. Sena analyzes and suggests — it does not diagnose.";
+  "Sena is veyderm's AI skin assistant for patients. Ask about your skin, share a photo for AI-assisted observations, see relevant options, and book a dermatologist when it matters. Sena analyzes and suggests — it does not diagnose.";
 
 export const metadata: Metadata = {
   title,
@@ -24,7 +24,7 @@ export default function SenaPage() {
     <>
       <SiteHeader />
       <main id="top">
-        <SenaWorld />
+        <SenaWorld page="solo" />
         <SafetyStatement />
         <Faq items={senaFaq} tag="FAQ · Sena" title="Good to know." />
         <CtaForm lang="en" />

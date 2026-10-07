@@ -1,11 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Schibsted_Grotesk, Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { content, isLang, type Lang } from "@/lib/content";
 
 // Self-hosted at build time (no external runtime font requests).
+// Schibsted Grotesk carries all marketing voice; Geist + Geist Mono are
+// confined to the simulated product UIs so the mockups read as real software.
+const schibsted = Schibsted_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-schibsted",
+  display: "swap",
+});
+
 const geist = Geist({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -15,16 +24,8 @@ const geist = Geist({
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600"],
   variable: "--font-geist-mono",
-  display: "swap",
-});
-
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument",
   display: "swap",
 });
 
@@ -40,9 +41,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com";
 // noindex so the review environment is never indexed.
 const isProduction = siteUrl.replace(/\/$/, "") === "https://www.veyderm.com";
 
-const title = "veyderm — AI Dermatology for the UAE";
+const title = "veyderm — UAE's first AI-powered dermatology platform";
 const description =
-  "veyderm helps licensed dermatologists build evidence-based treatment plans, surface clinically verified products, and deliver personalized care — in minutes. An AI-powered dermatology platform built for the UAE.";
+  "veyderm is the UAE's first AI-powered dermatology platform. AI-assisted clinical decision support for dermatologists, and intelligent guidance for patients through Sena. AI assists; dermatologists decide.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -77,7 +78,7 @@ export const metadata: Metadata = {
     description,
     url: siteUrl,
     locale: "en_US",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "veyderm — AI dermatology, doctor-led." }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "veyderm — UAE's first AI-powered dermatology platform." }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/og-image.png"] },
   category: "health",
@@ -100,7 +101,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html
       lang={content[lang].htmlLang}
       dir={dir}
-      className={`${geist.variable} ${geistMono.variable} ${instrument.variable} ${plexArabic.variable}`}
+      className={`${schibsted.variable} ${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
     >
       <body>
         {children}

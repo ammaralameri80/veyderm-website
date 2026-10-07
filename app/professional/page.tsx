@@ -7,9 +7,9 @@ import { CtaForm } from "@/components/CtaForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { proFaq } from "@/lib/content";
 
-const title = "veyderm Professional — AI co-pilot for dermatology";
+const title = "veyderm Professional — AI-assisted clinical decisions";
 const description =
-  "veyderm Professional gives dermatologists, clinics and aesthetic doctors AI-assisted case assessment, product and safety intelligence, and treatment planning. AI suggests; the doctor decides.";
+  "veyderm Professional brings AI-assisted case assessment, evidence and safety intelligence, and treatment planning into the dermatologist's workflow. AI assists; the dermatologist decides.";
 
 export const metadata: Metadata = {
   title,
@@ -24,7 +24,7 @@ export default function ProfessionalPage() {
     <>
       <SiteHeader />
       <main id="top">
-        <ProWorld />
+        <ProWorld page="solo" />
         <SafetyStatement />
         <Faq items={proFaq} tag="FAQ · Professional" title="For dermatology teams." />
         <CtaForm lang="en" />

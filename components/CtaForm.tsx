@@ -80,7 +80,7 @@ export function CtaForm({ lang }: { lang: Lang }) {
               <a className="btn btn-mint" href="#access" data-role="Dermatologist / Clinic" data-cta="cta_doctor">
                 {t.roleDoctor}
               </a>
-              <a className="btn btn-outline-light" href="#access" data-role="Distributor / Brand" data-cta="cta_distributor">
+              <a className="btn btn-outline-light" href="#access" data-role="Patient — Sena waitlist" data-cta="cta_patient">
                 {t.roleDistributor}
               </a>
             </div>

@@ -199,8 +199,8 @@ export const content: Record<Lang, Dict> = {
       { q: "How is my data handled?", a: "The early-access form collects only your name, email and role, used solely to contact you about access. We don't sell your data, and analytics load only if you accept the cookie banner. See our Privacy Policy for details." },
     ],
     cta: {
-      tag: "Get started", h2: "Join veyderm early — and grow with it.", p: "We're onboarding a limited number of dermatologists and distributors in the UAE.",
-      roleDoctor: "I'm a doctor", roleDistributor: "I'm a distributor",
+      tag: "Early access", h2: "Request your invitation.", p: "Tell us who you are and we'll reach out when your access is ready.",
+      roleDoctor: "I'm a professional", roleDistributor: "I'm a patient",
       formTitle: "Request early access", hint: "We'll reach out with your invitation when your region goes live.",
       name: "Full name", namePh: "Dr. Full Name", email: "Work email", emailPh: "you@clinic.com", role: "I am a…", roleSelect: "Select one",
       roles: ["Dermatologist", "Clinic / Hospital", "Authorized Distributor", "Patient", "Other"],
@@ -372,109 +372,173 @@ export const content: Record<Lang, Dict> = {
 // ---------------------------------------------------------------------------
 
 
-// "Two worlds, one intelligence" — home content (English).
+// Home content (English). Light clinical-AI direction.
+// The UAE positioning claim is a single editable string (`uaeClaim`) so it can
+// be softened or removed in one place if the marketing/legal wording changes.
+export const uaeClaim = "UAE's first AI-powered dermatology platform";
+
 export const homeContent = {
   nav: {
     links: [
-      { label: "Professional", href: "/professional" },
-      { label: "Sena", href: "/sena" },
-      { label: "How it works", href: "/#how" },
+      { label: "Platform", href: "/#how" },
+      { label: "For professionals", href: "/professional" },
+      { label: "For patients", href: "/sena" },
     ],
     cta: "Get early access",
   },
   hero: {
-    eyebrow: "The dermatology intelligence platform · UAE",
-    h1a: "Skin intelligence.",
-    h1b: "Two ways in.",
-    sub: "One platform. A clinical system for doctors, and an AI skin assistant for patients.",
-  },
-  doors: {
-    pro: {
-      label: "veyderm professional",
-      title: "For dermatologists & clinics",
-      href: "/professional",
-      sample: "Illustrative",
-      concern: "Melasma · Fitzpatrick III",
-      products: [
-        { n: "Azelaic acid 20%", ev: "Strong" },
-        { n: "Tranexamic acid 5%", ev: "Strong" },
-        { n: "Niacinamide 10%", ev: "Moderate" },
+    kicker: uaeClaim,
+    h1: "Better dermatology decisions, made with AI.",
+    sub: "AI-assisted clinical decision support for dermatologists — and intelligent guidance for patients navigating their skin.",
+    ctaPro: "Explore veyderm Professional",
+    ctaSena: "Meet Sena",
+    note: "AI assists. A licensed dermatologist reviews every plan.",
+    scan: {
+      chip: "AI-assisted assessment",
+      markers: ["Pigmentation", "Texture", "Barrier"],
+      flow: [
+        { k: "Assessment", v: "Uneven pigmentation" },
+        { k: "Clinical context", v: "Fitzpatrick III · photo-aggravated" },
+        { k: "Recommended step", v: "Azelaic acid + daily SPF" },
       ],
-      safe: "Safety check passed",
-      approve: "Approve & send",
+      derm: { k: "Dermatologist", v: "Reviews & approves" },
+      evidence: "Evidence: strong",
     },
-    sena: {
-      label: "sena · ai skin assistant",
-      title: "For patients, any time",
-      href: "/sena",
-      sample: "Illustrative",
-      patient: "I've got dark spots and some irritation.",
-      reply: "Let's take a closer look — share a photo.",
-      chips: ["Barrier cream", "SPF 50"],
-      book: "Book a dermatologist",
-    },
-    trust: ["Doctor approves every plan", "Authorized products only", "Private by design", "Built in the UAE"],
+  },
+  ecosystem: {
+    h2: "One platform. Two journeys.",
+    p: "AI connects both sides of dermatology — the patient navigating their skin, and the doctor making the call.",
+    nodes: [
+      { r: "Patient", n: "Has a concern", ic: "user" },
+      { r: "Sena", n: "AI guidance", ic: "spark", ai: true },
+      { r: "Dermatologist", n: "Reviews & decides", ic: "steth" },
+      { r: "veyderm Professional", n: "Plans & prescribes", ic: "grid", ai: true },
+      { r: "Treatment", n: "Delivered & tracked", ic: "check" },
+    ],
+    loop: "Progress and follow-up flow back to the patient — and into the next visit.",
+  },
+  how: {
+    h2: "From information to action.",
+    p: "One flow turns scattered information into a clear, doctor-approved next step.",
+    steps: [
+      { t: "Understand", d: "AI reads the patient's concerns, history, images and relevant context." },
+      { t: "Assist", d: "It surfaces relevant evidence, products and safety signals for the case." },
+      { t: "Plan", d: "The dermatologist creates or approves a personalized treatment plan." },
+      { t: "Deliver", d: "The patient receives clear guidance and recommendations." },
+      { t: "Continue", d: "Sena supports the patient between visits, and back to a doctor when needed." },
+    ],
   },
   pro: {
-    n: "01",
-    label: "veyderm professional",
-    h2a: "Your clinic's",
-    h2b: "AI co-pilot.",
-    sub: "Assess, decide and plan — with intelligence in the loop.",
-    sidebar: ["Today", "Patients", "Treatment plans", "Product catalog", "Orders & RFQs", "Messages"],
-    patient: "Lana H. · Melasma · Fitzpatrick III",
-    panels: {
-      analysis: { t: "AI analysis", rows: [["Pigmentation", 78], ["Barrier", 54], ["Sensitivity", 32]] },
-      plan: { t: "Suggested plan", items: ["Azelaic acid 20%", "Tranexamic acid 5%", "Broad-spectrum SPF 50"] },
-      quotes: { t: "Distributor quotes", rows: [["Distributor A", "[PRICE]"], ["Distributor B", "[PRICE]"]] },
+    kicker: "veyderm Professional · for dermatologists & clinics",
+    h2: "AI-assisted clinical decisions, inside the dermatologist's workflow.",
+    p: "Veyderm removes the information burden — assessment, evidence, safety and ordering in one place — so the decision stays with the doctor, made faster and better informed.",
+    console: {
+      url: "app.veyderm.com",
+      nav: ["Today", "Patients", "Treatment plans", "Product catalog", "Orders & RFQs"],
+      patient: "Lana H. · Melasma",
+      patientTag: "Fitzpatrick III",
+      sample: "Illustrative example",
+      assessment: {
+        t: "AI-assisted assessment",
+        rows: [["Pigmentation", 78], ["Barrier", 54], ["Sensitivity", 32]] as [string, number][],
+      },
+      plan: {
+        t: "Suggested plan",
+        items: [
+          { time: "AM", n: "Broad-spectrum SPF 50", ev: "Strong", lvl: "s" as const },
+          { time: "PM", n: "Azelaic acid 20%", ev: "Strong", lvl: "s" as const },
+          { time: "PM", n: "Niacinamide 10%", ev: "Moderate", lvl: "m" as const },
+        ],
+      },
+      safePass: "Safety check passed",
+      safeWarn: "Pregnancy: avoid retinoids",
+      approve: "Approve & send",
+      floats: [
+        { t: "Evidence level", k: "ev" as const },
+        { t: "Ingredient compatibility", k: "ai" as const },
+        { t: "Safety check", k: "safe" as const },
+      ],
     },
-    caps: [
-      { t: "Evidence-based plans", d: "Ranked by clinical evidence" },
-      { t: "Verified products", d: "Authorized distributors only" },
-      { t: "One-click ordering", d: "From RFQ to order fast" },
-      { t: "WhatsApp follow-up", d: "Reach patients where they are" },
+    pipe: [
+      { k: "Input", t: "Patient case", items: ["Symptoms", "Skin type", "Concern", "Images"] },
+      { k: "AI", t: "AI-assisted assessment", items: ["Potential concerns", "Clinical context", "Important signals"] },
+      { k: "AI", t: "Product intelligence", items: ["Relevant products", "Ingredients & evidence", "Contraindications"] },
+      { k: "Plan", t: "Treatment plan", items: ["AM / PM routine", "Products", "Instructions"] },
+      { k: "Decision", t: "Doctor approves", items: ["Reviews the evidence", "Edits as needed", "Signs off"], hl: true },
+      { k: "Output", t: "Patient receives", items: ["Clear guidance", "Products", "Follow-up"], hl: true },
     ],
-    cta: "Request early access",
+    cta: "Explore veyderm Professional",
+    role: "Dermatologist / Clinic",
   },
   sena: {
-    n: "02",
-    label: "sena",
-    h2a: "Meet Sena.",
-    h2b: "Your skin, understood.",
-    sub: "Guidance for your skin — and a doctor when it matters.",
-    steps: ["Chat about your skin", "Share a photo or video", "Get product suggestions", "Book a dermatologist"],
-    cta: "Join the Sena waitlist",
+    kicker: "Sena · AI skin assistant for patients",
+    h2: "Guidance when you need it. A dermatologist when it matters.",
+    sub: "Sena is your AI companion for the skin journey — from your first question to your next dermatologist visit.",
+    points: [
+      "Ask about your skin in plain language",
+      "Share a photo for AI-assisted observations",
+      "See relevant options, then book a dermatologist",
+    ],
+    cta: "Meet Sena",
+    role: "Patient — Sena waitlist",
+    sample: "Illustrative example",
     chat: {
-      greeting: "Hi, I'm Sena. What's going on with your skin?",
-      patient: "Dark spots on my cheeks, and it feels irritated.",
-      photoNote: "Photo shared",
-      analysis: "Looks like uneven pigmentation with mild irritation.",
-      products: [
+      user: "I've noticed dark spots and some irritation.",
+      photo: "Photo shared",
+      sena1: "Thanks — let's take a closer look.",
+      analysisCap: "AI-assisted observations",
+      analysisTitle: "Uneven pigmentation, mild irritation",
+      obs: ["Uneven pigmentation", "Mild irritation", "Barrier looks stressed"],
+      note: "Sena analyzes and suggests — it doesn't diagnose.",
+      recs: [
         { n: "Gentle barrier cream", tag: "Soothing" },
         { n: "Broad-spectrum SPF 50", tag: "Daily" },
       ],
-      book: "Book a dermatologist",
+      book: { t: "Book a dermatologist", s: "3 verified clinics near you", b: "Find" },
     },
-  },
-  journey: {
-    n: "03",
-    label: "one connected journey",
-    h2: "From first question to the right treatment.",
-    tiles: [
-      { who: "Patient", what: "Asks Sena", tone: "light" },
-      { who: "Sena", what: "Analyzes & suggests", tone: "light" },
-      { who: "Dermatologist", what: "Reviews & decides", tone: "dark" },
-      { who: "Treatment", what: "Verified products, delivered", tone: "accent" },
+    journey: [
+      { t: "Ask", d: "Tell Sena what's going on.", w: "16%" },
+      { t: "Share", d: "Add a photo or video.", w: "33%" },
+      { t: "Understand", d: "Get AI-assisted observations.", w: "50%" },
+      { t: "Discover", d: "See relevant options.", w: "67%" },
+      { t: "Connect", d: "Find a dermatologist.", w: "83%" },
+      { t: "Book", d: "Book an appointment.", w: "100%" },
     ],
   },
   safety: {
-    a: "AI suggests.",
-    b: "Your dermatologist decides.",
-    note: "Sena does not diagnose. Every plan is reviewed by a licensed doctor.",
+    badge: "Human in the loop",
+    a: "AI assists.",
+    b: "Dermatologists decide.",
+    pro: {
+      k: "In the clinic",
+      p: "Veyderm organizes information, surfaces relevant insights and supports the workflow. Clinical decisions stay with the qualified dermatologist.",
+    },
+    sena: {
+      k: "With Sena",
+      p: "Guidance when you need it, and a licensed dermatologist when it matters. Sena never diagnoses.",
+    },
   },
-  paths: {
-    pro: { label: "I'm a professional", cta: "Request early access", role: "Dermatologist / Clinic" },
-    pat: { label: "I'm a patient", cta: "Join the Sena waitlist", role: "Patient — Sena waitlist" },
+  cred: {
+    kicker: "Built in the UAE",
+    h2: "Built for dermatology in the UAE. Designed to scale globally.",
+    p: "Veyderm starts where care happens — with the dermatologists, clinics, patients and authorized products of the UAE — on an architecture ready to grow beyond it.",
+    chain: [
+      { n: "UAE", d: "Where veyderm is built", ic: "pin" },
+      { n: "Dermatologists & clinics", d: "Licensed and verified", ic: "steth" },
+      { n: "Patients", d: "Guided end to end", ic: "user" },
+      { n: "Authorized products", d: "Verified distributors only", ic: "box" },
+      { n: "AI", d: "Connecting every step", ic: "spark", ai: true },
+    ],
+    standardsLabel: "Built around recognised standards",
+    standards: ["EU 1223/2009", "EU 655/2013", "ISO 22716", "UAE MOHAP"],
+  },
+  final: {
+    h2: "The next generation of dermatology starts here.",
+    p: "We're onboarding a limited number of dermatologists, clinics and patients in the UAE.",
+    ctaPro: "Explore veyderm Professional",
+    ctaSena: "Meet Sena",
+    rolePro: "Dermatologist / Clinic",
+    rolePat: "Patient — Sena waitlist",
   },
 };
 
