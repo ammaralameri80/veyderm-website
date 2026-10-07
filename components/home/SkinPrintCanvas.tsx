@@ -42,6 +42,20 @@ const RINGS = buildRings();
 const ringPath = (pts: Pt[]) =>
   pts.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(" ") + "Z";
 
+// Ambient "captured data" points scattered around the whorl on a golden-angle
+// spiral — suggests the signal being read into the SkinPrint.
+const round = (n: number, d = 3) => Math.round(n * 10 ** d) / 10 ** d;
+const FIELD = Array.from({ length: 26 }, (_, i) => {
+  const a = i * 2.399963;
+  const r = 24 + ((i * 7) % 30);
+  return {
+    x: round(50 + Math.cos(a) * r * 0.92),
+    y: round(49 + Math.sin(a) * r * 1.04),
+    r: round(0.45 + (i % 3) * 0.3, 2),
+    o: round(0.12 + ((i * 5) % 7) / 28),
+  };
+});
+
 // Chip anchors in 100-space (where the connector line ends) + CSS placement.
 type Slot = { anchor: [number, number]; style: React.CSSProperties; pulse?: boolean };
 const CHIP_SLOTS: Slot[] = [
@@ -153,6 +167,25 @@ export function SkinPrintCanvas({ chips, label }: { chips: string[]; label: stri
 
       const sweep = (t / 2600) * Math.PI * 2;
       const ringAlpha = Math.max(0, Math.min(1, (t - 760) / 820));
+      const cxc = canvas.width / 2, cyc = canvas.height / 2;
+
+      // ambient captured-data field
+      FIELD.forEach((d) => {
+        ctx.beginPath();
+        ctx.arc(d.x * scale, d.y * scale, d.r * dpr * 1.1, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(139,129,232,${d.o * ringAlpha})`;
+        ctx.fill();
+      });
+      // rotating scan ring
+      ctx.save();
+      ctx.setLineDash([1.4 * scale, 3 * scale]);
+      ctx.lineDashOffset = -(t / 90) % 1000;
+      ctx.beginPath();
+      ctx.arc(cxc, cyc, 46 * scale, 0, Math.PI * 2);
+      ctx.lineWidth = 0.5 * dpr;
+      ctx.strokeStyle = `rgba(139,129,232,${0.34 * ringAlpha})`;
+      ctx.stroke();
+      ctx.restore();
 
       // ring strokes (through current particle positions) — inner rings read
       // heavier than outer ones, so the whorl has depth rather than a flat even weight.
@@ -250,6 +283,10 @@ export function SkinPrintCanvas({ chips, label }: { chips: string[]; label: stri
           <canvas ref={canvasRef} className="skp-canvas" aria-hidden="true" />
         ) : (
           <svg className="skp-svg" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="49" r="46" className="skp-scanring" />
+            {FIELD.map((d, i) => (
+              <circle key={"f" + i} cx={d.x} cy={d.y} r={d.r} className="skp-dot" style={{ opacity: d.o }} />
+            ))}
             {CHIP_SLOTS.map((s, i) => {
               const [ax, ay] = s.anchor;
               const dx = ax - 50, dy = ay - 49;

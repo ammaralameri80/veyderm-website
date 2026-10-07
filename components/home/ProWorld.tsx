@@ -4,7 +4,7 @@ import { Icon, Arrow, SkinPrintMark } from "./Icons";
 /**
  * veyderm Professional — the clinical console (with a SkinPrint-matched Tailored
  * Plan and floating Evidence Match / SafeCheck / Doctor-Signed layers), then the
- * benefits row. `page="solo"` points the CTA at the access form.
+ * benefits row. The CTA opens the access form with the clinician role.
  */
 export function ProWorld() {
   const t = homeContent.pro;
@@ -78,6 +78,11 @@ export function ProWorld() {
               <span className="fi"><Icon name={floatIcon[f.k]} size={14} /></span>{f.t}
             </span>
           ))}
+          <span className="vc-cursor" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" stroke="#211F2A" strokeWidth="1.2" strokeLinejoin="round">
+              <path d="M5 3l5.6 15 2.3-6.3L19 9.4 5 3Z" />
+            </svg>
+          </span>
         </div>
 
         <ul className="vbenefits">
