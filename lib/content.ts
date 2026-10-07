@@ -364,3 +364,67 @@ export const content: Record<Lang, Dict> = {
     legalBack: "→ العودة إلى الرئيسية",
   },
 };
+
+// ---------------------------------------------------------------------------
+// Multi-product site copy (English). Kept here so all copy lives in one file.
+// The new /, /pro and /sena pages are English-only for now (Arabic is flagged
+// off); the lang-keyed `content` dictionary above still powers the Arabic build.
+// ---------------------------------------------------------------------------
+
+export const homeContent = {
+  nav: {
+    home: "Home",
+    pro: PRODUCT_PRO_NAME,
+    sena: PRODUCT_SENA_NAME,
+    faq: "FAQ",
+    cta: "Request early access",
+  },
+  hero: {
+    eyebrow: "A dermatology platform, built for the UAE",
+    headline: "A dermatology platform with two products.",
+    sub: `${PRODUCT_PRO_NAME} for dermatologists, clinics and distributors. ${PRODUCT_SENA_NAME}, an AI skin assistant for patients. Both connected, doctor-led.`,
+    ctaPro: "For Doctors & Clinics",
+    ctaSena: "Meet Sena",
+  },
+  split: {
+    pro: {
+      name: PRODUCT_PRO_NAME,
+      audience: "For doctors, clinics & distributors",
+      promise: "AI-assisted plans the doctor approves.",
+      bullets: ["Evidence-based treatment plans", "Verified, authorized products", "RFQs and WhatsApp follow-up"],
+      cta: "Explore " + PRODUCT_PRO_NAME,
+      href: "/pro",
+    },
+    sena: {
+      name: PRODUCT_SENA_NAME,
+      audience: "For patients",
+      promise: "Your AI skin assistant, on chat.",
+      bullets: ["Share a photo for analysis", "Get product suggestions", "Book a dermatologist"],
+      cta: "Meet " + PRODUCT_SENA_NAME,
+      href: "/sena",
+    },
+  },
+  connects: {
+    tag: "How it connects",
+    h2: "One connected loop.",
+    steps: [
+      { title: "Patient", sub: `Chats with ${PRODUCT_SENA_NAME}` },
+      { title: "Doctor", sub: `Plans in ${PRODUCT_PRO_NAME}` },
+      { title: "Products", sub: "Verified & delivered" },
+    ],
+  },
+  trust: [
+    { title: "Doctor-led", body: "A doctor approves every plan." },
+    { title: "Authorized products", body: "Verified distributors only." },
+    { title: "Privacy & consent", body: "Your data, your choice." },
+    { title: "UAE-built", body: "Made for the region." },
+  ],
+  faqTitle: { tag: "FAQ", h2: "Quick answers." },
+  faq: [
+    { q: "What is veyderm?", a: `A dermatology platform with two products: ${PRODUCT_PRO_NAME} for clinicians, and ${PRODUCT_SENA_NAME}, an AI assistant for patients.` },
+    { q: `What's the difference between ${PRODUCT_PRO_NAME} and ${PRODUCT_SENA_NAME}?`, a: `${PRODUCT_PRO_NAME} is the clinical system doctors and distributors use. ${PRODUCT_SENA_NAME} is the patient app that connects you to a dermatologist.` },
+    { q: "Does Sena diagnose my skin?", a: "No. Sena analyzes and suggests, then connects you with a licensed dermatologist who decides." },
+    { q: "Are the products genuine?", a: "Yes. Everything comes from authorized distributors and brands — no fakes, no grey market." },
+    { q: "Who can join now?", a: "Doctors and distributors can request early access. Patients can join the Sena waitlist." },
+  ],
+};

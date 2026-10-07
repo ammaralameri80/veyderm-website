@@ -21,6 +21,9 @@ const SELECTOR = [
   ".whatis-col",
   ".tl-step",
   ".cf-step",
+  ".pcard",
+  ".connect-node",
+  ".trust-pillar",
 ].join(",");
 
 export function ScrollReveal() {

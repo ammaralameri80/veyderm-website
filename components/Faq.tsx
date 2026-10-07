@@ -3,17 +3,32 @@
 import { useState } from "react";
 import { content, type Lang } from "@/lib/content";
 
-export function Faq({ lang }: { lang: Lang }) {
-  const t = content[lang];
+type Item = { q: string; a: string };
+
+export function Faq({
+  lang,
+  items,
+  tag,
+  title,
+}: {
+  lang?: Lang;
+  items?: Item[];
+  tag?: string;
+  title?: string;
+}) {
+  const fallback = content[lang ?? "en"];
+  const list = items ?? fallback.faq;
+  const tagText = tag ?? fallback.faqTitle.tag;
+  const titleText = title ?? fallback.faqTitle.h2;
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section className="sec faq" id="faq">
       <div className="wrap">
-        <div className="sec-tag">{t.faqTitle.tag}</div>
-        <h2>{t.faqTitle.h2}</h2>
+        <div className="sec-tag">{tagText}</div>
+        <h2>{titleText}</h2>
         <div className="faq-list">
-          {t.faq.map((item, i) => {
+          {list.map((item, i) => {
             const isOpen = open === i;
             return (
               <div className={`faq-item${isOpen ? " open" : ""}`} key={item.q}>
