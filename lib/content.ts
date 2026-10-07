@@ -14,7 +14,7 @@ export type Lang = "en" | "ar";
 export const ENABLE_ARABIC = false;
 
 // Solution names kept as single constants so they can be renamed in one place.
-export const PRODUCT_PRO_NAME = "Veyderm Professional";
+export const PRODUCT_PRO_NAME = "veyderm Professional";
 export const PRODUCT_SENA_NAME = "Sena";
 
 export const LANGS: Lang[] = ["en", "ar"];
@@ -85,7 +85,7 @@ export const content: Record<Lang, Dict> = {
     hero: {
       eyebrow: "AI-powered dermatology platform, built for the UAE",
       h1a: "AI dermatology,", h1b: "doctor-led.",
-      sub: "Veyderm is an AI agent that helps UAE dermatologists build evidence-based treatment plans, recommend verified products, and stay connected to patients on WhatsApp.",
+      sub: "veyderm is an AI agent that helps UAE dermatologists build evidence-based treatment plans, recommend verified products, and stay connected to patients on WhatsApp.",
       cta: "Request Early Access", secondary: "See how it works",
       trust: ["Doctor approves every plan", "Authorized products only", "WhatsApp-ready"],
     },
@@ -100,7 +100,7 @@ export const content: Record<Lang, Dict> = {
       chat: "WhatsApp", bubble: "Your plan is ready — 3 products, with how and when to use each.", meta: "Delivered to patient · now",
     },
     whatis: {
-      h2: "What is Veyderm?",
+      h2: "What is veyderm?",
       cols: [
         { title: "An AI agent for dermatologists", body: "It reads the evidence and drafts a treatment plan — the doctor reviews, edits, and approves every one." },
         { title: "Verified products only", body: "Recommendations come from authorized distributors — no fakes and no grey-market stock." },
@@ -123,7 +123,7 @@ export const content: Record<Lang, Dict> = {
       ],
     },
     agent: {
-      tag: "The Veyderm AI Agent", h2: "One agent. Insight for every side.", q: "Reads the evidence, drafts the plan, answers patients.",
+      tag: "The veyderm AI Agent", h2: "One agent. Insight for every side.", q: "Reads the evidence, drafts the plan, answers patients.",
       cards: [
         { title: "For doctors", points: ["Evidence-ranked product picks", "Automatic safety & interaction checks"] },
         { title: "For distributors", points: ["Real demand signals", "Structured RFQs, not scattered chats"] },
@@ -151,7 +151,7 @@ export const content: Record<Lang, Dict> = {
         { title: "Ask anything, anytime", tag: "24/7 chatbot", body: "Product and usage questions answered, day or night." },
         { title: "Follow up & reorder", body: "Reminders keep patients on track; reorder in a message." },
       ],
-      phoneName: "Veyderm", online: "online",
+      phoneName: "veyderm", online: "online",
       messages: [
         { in: true, text: "Your treatment plan is ready — tap to view your 3 products.", time: "09:14" },
         { in: false, text: "Thanks! How often do I apply the azelaic acid?", time: "09:16" },
@@ -160,7 +160,7 @@ export const content: Record<Lang, Dict> = {
       cap: "Illustrative example",
     },
     doctors: {
-      tag: "For dermatologists", h2: "Recommend with confidence. Every time.", lede: "You know your patients best. Veyderm gives you the facts behind every product.",
+      tag: "For dermatologists", h2: "Recommend with confidence. Every time.", lede: "You know your patients best. veyderm gives you the facts behind every product.",
       reassureA: "AI suggests.", reassureEm: "You decide.", reassureP: "Nothing reaches your patient without your approval.",
       cards: [
         { title: "Only authorized products", body: "From authorized distributors — no fakes, no grey market." },
@@ -178,7 +178,7 @@ export const content: Record<Lang, Dict> = {
     distributors: {
       tag: "For distributors", h2: "Be in front of dermatologists at the moment they choose.", lede: "Your products where decisions happen — inside the dermatologist's workflow.",
       beforeT: "Today", before: ["Chasing clinics with calls and visits", "Orders lost in WhatsApp and email threads", "Guessing what patients actually need", "Undercut by grey-market sellers"],
-      afterT: "With Veyderm", after: ["Doctors find your products while planning treatment", "Clear requests and orders in one place", "Real demand insight from real patients", "Authorized-only platform that protects your brand"],
+      afterT: "With veyderm", after: ["Doctors find your products while planning treatment", "Clear requests and orders in one place", "Real demand insight from real patients", "Authorized-only platform that protects your brand"],
       rfqBadge: "New RFQ received", rfqTime: "2m ago", rfqClinic: "Sample Clinic", rfqItems: ["Azelaic acid 20% cream", "Broad-spectrum SPF 50"], rfqSample: "Illustrative example", rfqAction: "Send quote",
       trendTitle: "Demand trend", trendSub: "Azelaic acid · last 8 weeks", trendUp: "▲ trending", trendFoot: "Illustrative data",
       cards: [
@@ -190,22 +190,22 @@ export const content: Record<Lang, Dict> = {
     },
     faqTitle: { tag: "FAQ", h2: "Questions, answered plainly." },
     faq: [
-      { q: "What is Veyderm?", a: "Veyderm is an AI agent that helps licensed dermatologists in the UAE build evidence-based treatment plans, recommend verified products, and stay connected with patients on WhatsApp. The dermatologist reviews and approves every plan." },
-      { q: "Is this medical advice?", a: "No. Veyderm supports dermatologists — it doesn't replace them. The sample plans, products and evidence levels shown on this site are illustrative examples, not recommendations. Always consult a qualified healthcare professional." },
+      { q: "What is veyderm?", a: "veyderm is an AI agent that helps licensed dermatologists in the UAE build evidence-based treatment plans, recommend verified products, and stay connected with patients on WhatsApp. The dermatologist reviews and approves every plan." },
+      { q: "Is this medical advice?", a: "No. veyderm supports dermatologists — it doesn't replace them. The sample plans, products and evidence levels shown on this site are illustrative examples, not recommendations. Always consult a qualified healthcare professional." },
       { q: "How are products verified?", a: "Every product comes from an authorized distributor or brand. We verify the distributor's authorization and the product's regulatory status before it appears in recommendations." },
       { q: "Who decides the treatment plan?", a: "The dermatologist. The AI suggests evidence-ranked options and flags safety issues such as interactions or pregnancy cautions, but nothing reaches a patient until the doctor reviews and approves it — AI suggests, the doctor decides." },
       { q: "How do patients use it on WhatsApp?", a: "Once a dermatologist approves a plan, it is delivered to the patient on WhatsApp with ingredients, usage and safety notes, follow-up reminders, and a 24/7 assistant for product and usage questions." },
-      { q: "Who can join?", a: "Veyderm is for licensed dermatologists and authorized dermocosmetic distributors in the UAE. We verify your medical license or distribution authorization before activating your account." },
+      { q: "Who can join?", a: "veyderm is for licensed dermatologists and authorized dermocosmetic distributors in the UAE. We verify your medical license or distribution authorization before activating your account." },
       { q: "How is my data handled?", a: "The early-access form collects only your name, email and role, used solely to contact you about access. We don't sell your data, and analytics load only if you accept the cookie banner. See our Privacy Policy for details." },
     ],
     cta: {
-      tag: "Get started", h2: "Join Veyderm early — and grow with it.", p: "We're onboarding a limited number of dermatologists and distributors in the UAE.",
+      tag: "Get started", h2: "Join veyderm early — and grow with it.", p: "We're onboarding a limited number of dermatologists and distributors in the UAE.",
       roleDoctor: "I'm a doctor", roleDistributor: "I'm a distributor",
       formTitle: "Request early access", hint: "We'll reach out with your invitation when your region goes live.",
       name: "Full name", namePh: "Dr. Full Name", email: "Work email", emailPh: "you@clinic.com", role: "I am a…", roleSelect: "Select one",
       roles: ["Dermatologist", "Clinic / Hospital", "Authorized Distributor", "Patient", "Other"],
       submit: "Request Early Access", sending: "Sending…",
-      privacy: "Your information is only used to contact you about Veyderm access. We never share your data.",
+      privacy: "Your information is only used to contact you about veyderm access. We never share your data.",
       okTitle: "You're on the list.", okP: "We'll be in touch at the email you provided.",
     },
     footer: {
@@ -214,8 +214,8 @@ export const content: Record<Lang, Dict> = {
         { label: "For Doctors", href: "#doctors" }, { label: "For Distributors", href: "#distributors" },
       ],
       contactT: "Get in touch", whatsapp: "WhatsApp: available soon",
-      rights: "© 2026 Veyderm. All rights reserved. Dubai, United Arab Emirates.",
-      disclaimer: "Veyderm is a digital platform connecting licensed healthcare professionals with authorized dermocosmetic distributors. Product information on this platform does not constitute medical advice. Always consult a qualified healthcare professional.",
+      rights: "© 2026 veyderm. All rights reserved. Dubai, United Arab Emirates.",
+      disclaimer: "veyderm is a digital platform connecting licensed healthcare professionals with authorized dermocosmetic distributors. Product information on this platform does not constitute medical advice. Always consult a qualified healthcare professional.",
     },
     consent: { title: "We use analytics cookies", body: "Only to understand how the site is used, and only if you agree. No ads, and we never sell your data. See our", privacy: "Privacy Policy", accept: "Accept", decline: "Decline" },
     legalBack: "← Back to home",
@@ -228,7 +228,7 @@ export const content: Record<Lang, Dict> = {
     hero: {
       eyebrow: "منصّة أمراض جلدية مدعومة بالذكاء الاصطناعي، مبنيّة لدولة الإمارات",
       h1a: "أمراض جلدية بالذكاء الاصطناعي،", h1b: "بقيادة الطبيب.",
-      sub: "Veyderm وكيل ذكاء اصطناعي يساعد أطباء الجلدية في الإمارات على بناء خطط علاجية قائمة على الأدلّة، والتوصية بمنتجات موثّقة، والبقاء على تواصل مع المرضى عبر واتساب.",
+      sub: "veyderm وكيل ذكاء اصطناعي يساعد أطباء الجلدية في الإمارات على بناء خطط علاجية قائمة على الأدلّة، والتوصية بمنتجات موثّقة، والبقاء على تواصل مع المرضى عبر واتساب.",
       cta: "اطلب وصولاً مبكراً", secondary: "شاهد كيف يعمل",
       trust: ["الطبيب يعتمد كل خطة", "منتجات مرخّصة فقط", "جاهز على واتساب"],
     },
@@ -243,7 +243,7 @@ export const content: Record<Lang, Dict> = {
       chat: "واتساب", bubble: "خطتك جاهزة — 3 منتجات، مع كيفية ووقت استخدام كلٍّ منها.", meta: "تم التسليم للمريض · الآن",
     },
     whatis: {
-      h2: "ما هو Veyderm؟",
+      h2: "ما هو veyderm؟",
       cols: [
         { title: "وكيل ذكاء اصطناعي للأطباء", body: "يقرأ الأدلّة ويصيغ خطة علاجية — ويراجعها الطبيب ويعدّلها ويعتمدها بالكامل." },
         { title: "منتجات موثّقة فقط", body: "التوصيات تأتي من موزّعين مرخّصين — لا منتجات مقلّدة ولا سوق موازٍ." },
@@ -266,7 +266,7 @@ export const content: Record<Lang, Dict> = {
       ],
     },
     agent: {
-      tag: "وكيل Veyderm الذكي", h2: "وكيل واحد. رؤية لكل الأطراف.", q: "يقرأ الأدلّة، يصيغ الخطة، يجيب المرضى.",
+      tag: "وكيل veyderm الذكي", h2: "وكيل واحد. رؤية لكل الأطراف.", q: "يقرأ الأدلّة، يصيغ الخطة، يجيب المرضى.",
       cards: [
         { title: "للأطباء", points: ["اختيارات منتجات مرتّبة حسب الأدلّة", "فحوص سلامة وتفاعلات تلقائية"] },
         { title: "للموزّعين", points: ["إشارات طلب حقيقية", "طلبات أسعار منظّمة، لا محادثات متناثرة"] },
@@ -294,7 +294,7 @@ export const content: Record<Lang, Dict> = {
         { title: "اسأل أي شيء، في أي وقت", tag: "محادثة 24/7", body: "إجابات عن المنتجات والاستعمال ليلاً ونهاراً." },
         { title: "تابِع وأعد الطلب", body: "تذكيرات تُبقي المرضى على المسار؛ وإعادة الطلب برسالة." },
       ],
-      phoneName: "Veyderm", online: "متصل",
+      phoneName: "veyderm", online: "متصل",
       messages: [
         { in: true, text: "خطتك العلاجية جاهزة — اضغط لعرض منتجاتك الثلاثة.", time: "09:14" },
         { in: false, text: "شكراً! كم مرة أضع حمض الأزيليك؟", time: "09:16" },
@@ -303,7 +303,7 @@ export const content: Record<Lang, Dict> = {
       cap: "مثال توضيحي",
     },
     doctors: {
-      tag: "لأطباء الجلدية", h2: "أوصِ بثقة. في كل مرة.", lede: "أنت أدرى بمرضاك. يمنحك Veyderm الحقائق خلف كل منتج.",
+      tag: "لأطباء الجلدية", h2: "أوصِ بثقة. في كل مرة.", lede: "أنت أدرى بمرضاك. يمنحك veyderm الحقائق خلف كل منتج.",
       reassureA: "الذكاء الاصطناعي يقترح.", reassureEm: "أنت تقرّر.", reassureP: "لا شيء يصل إلى مريضك دون اعتمادك.",
       cards: [
         { title: "منتجات مرخّصة فقط", body: "من موزّعين مرخّصين — لا تقليد ولا سوق موازٍ." },
@@ -321,7 +321,7 @@ export const content: Record<Lang, Dict> = {
     distributors: {
       tag: "للموزّعين", h2: "كن أمام أطباء الجلدية في لحظة اتخاذ القرار.", lede: "منتجاتك حيث تُتّخذ القرارات — داخل سير عمل طبيب الجلدية.",
       beforeT: "اليوم", before: ["ملاحقة العيادات بالاتصالات والزيارات", "طلبات ضائعة في واتساب والبريد", "تخمين ما يحتاجه المرضى فعلاً", "منافسة بائعي السوق الموازي"],
-      afterT: "مع Veyderm", after: ["الأطباء يجدون منتجاتك أثناء وضع الخطة", "طلبات واضحة في مكان واحد", "رؤية طلب حقيقية من مرضى حقيقيين", "منصّة للمرخّصين فقط تحمي علامتك"],
+      afterT: "مع veyderm", after: ["الأطباء يجدون منتجاتك أثناء وضع الخطة", "طلبات واضحة في مكان واحد", "رؤية طلب حقيقية من مرضى حقيقيين", "منصّة للمرخّصين فقط تحمي علامتك"],
       rfqBadge: "طلب سعر جديد", rfqTime: "قبل دقيقتين", rfqClinic: "عيادة تجريبية", rfqItems: ["كريم حمض الأزيليك 20%", "واقٍ شمسي واسع الطيف SPF 50"], rfqSample: "مثال توضيحي", rfqAction: "أرسل عرض السعر",
       trendTitle: "اتجاه الطلب", trendSub: "حمض الأزيليك · آخر 8 أسابيع", trendUp: "▲ متصاعد", trendFoot: "بيانات توضيحية",
       cards: [
@@ -333,22 +333,22 @@ export const content: Record<Lang, Dict> = {
     },
     faqTitle: { tag: "الأسئلة الشائعة", h2: "أسئلة بإجابات واضحة." },
     faq: [
-      { q: "ما هو Veyderm؟", a: "Veyderm وكيل ذكاء اصطناعي يساعد أطباء الجلدية المرخّصين في الإمارات على بناء خطط علاجية قائمة على الأدلّة، والتوصية بمنتجات موثّقة، والبقاء على تواصل مع المرضى عبر واتساب. ويراجع الطبيب كل خطة ويعتمدها." },
-      { q: "هل هذه استشارة طبية؟", a: "لا. يدعم Veyderm أطباء الجلدية ولا يحلّ محلّهم. الخطط والمنتجات ومستويات الأدلّة المعروضة هنا أمثلة توضيحية لا توصيات. استشر دائماً مختصّاً صحّياً مؤهّلاً." }, /* review */
+      { q: "ما هو veyderm؟", a: "veyderm وكيل ذكاء اصطناعي يساعد أطباء الجلدية المرخّصين في الإمارات على بناء خطط علاجية قائمة على الأدلّة، والتوصية بمنتجات موثّقة، والبقاء على تواصل مع المرضى عبر واتساب. ويراجع الطبيب كل خطة ويعتمدها." },
+      { q: "هل هذه استشارة طبية؟", a: "لا. يدعم veyderm أطباء الجلدية ولا يحلّ محلّهم. الخطط والمنتجات ومستويات الأدلّة المعروضة هنا أمثلة توضيحية لا توصيات. استشر دائماً مختصّاً صحّياً مؤهّلاً." }, /* review */
       { q: "كيف تُوثَّق المنتجات؟", a: "كل منتج يأتي من موزّع أو علامة تجارية مرخّصة. نتحقّق من ترخيص الموزّع ومن الوضع التنظيمي للمنتج قبل ظهوره في التوصيات." }, /* review */
       { q: "من يقرّر الخطة العلاجية؟", a: "طبيب الجلدية. يقترح الذكاء الاصطناعي خيارات مرتّبة حسب الأدلّة وينبّه إلى مسائل السلامة كالتفاعلات أو تحذيرات الحمل، لكن لا شيء يصل إلى المريض حتى يراجعه الطبيب ويعتمده — الذكاء الاصطناعي يقترح، والطبيب يقرّر." }, /* review */
       { q: "كيف يستخدمه المرضى على واتساب؟", a: "بعد اعتماد الطبيب للخطة، تُسلَّم إلى المريض على واتساب مع المكوّنات وملاحظات الاستعمال والسلامة وتذكيرات المتابعة ومساعد على مدار الساعة لأسئلة المنتجات والاستعمال." },
-      { q: "من يمكنه الانضمام؟", a: "Veyderm مخصّص لأطباء الجلدية المرخّصين وموزّعي مستحضرات التجميل الطبية المعتمدين في الإمارات. نتحقّق من ترخيصك الطبي أو من تفويض التوزيع قبل تفعيل حسابك." }, /* review */
+      { q: "من يمكنه الانضمام؟", a: "veyderm مخصّص لأطباء الجلدية المرخّصين وموزّعي مستحضرات التجميل الطبية المعتمدين في الإمارات. نتحقّق من ترخيصك الطبي أو من تفويض التوزيع قبل تفعيل حسابك." }, /* review */
       { q: "كيف تُعالَج بياناتي؟", a: "يجمع نموذج الوصول المبكر اسمك وبريدك ودورك فقط، لاستخدامها حصراً للتواصل معك بشأن الوصول. لا نبيع بياناتك، ولا تُحمَّل أدوات التحليل إلا إذا وافقت على شريط الكوكيز. راجع سياسة الخصوصية للتفاصيل." },
     ],
     cta: {
-      tag: "ابدأ الآن", h2: "انضم إلى Veyderm مبكراً — وانمُ معه.", p: "نستقبل عدداً محدوداً من أطباء الجلدية والموزّعين في الإمارات.",
+      tag: "ابدأ الآن", h2: "انضم إلى veyderm مبكراً — وانمُ معه.", p: "نستقبل عدداً محدوداً من أطباء الجلدية والموزّعين في الإمارات.",
       roleDoctor: "أنا طبيب", roleDistributor: "أنا موزّع",
       formTitle: "اطلب وصولاً مبكراً", hint: "سنتواصل معك بدعوتك عندما تنطلق منطقتك.",
       name: "الاسم الكامل", namePh: "د. الاسم الكامل", email: "البريد المهني", emailPh: "you@clinic.com", role: "أنا…", roleSelect: "اختر واحداً",
       roles: ["طبيب جلدية", "عيادة / مستشفى", "موزّع معتمد", "مريض", "أخرى"],
       submit: "اطلب وصولاً مبكراً", sending: "جارٍ الإرسال…",
-      privacy: "تُستخدَم معلوماتك فقط للتواصل معك بشأن الوصول إلى Veyderm. لا نشارك بياناتك إطلاقاً.",
+      privacy: "تُستخدَم معلوماتك فقط للتواصل معك بشأن الوصول إلى veyderm. لا نشارك بياناتك إطلاقاً.",
       okTitle: "أنت على القائمة.", okP: "سنتواصل معك عبر البريد الذي زوّدتنا به.",
     },
     footer: {
@@ -357,8 +357,8 @@ export const content: Record<Lang, Dict> = {
         { label: "للأطباء", href: "#doctors" }, { label: "للموزّعين", href: "#distributors" },
       ],
       contactT: "تواصل معنا", whatsapp: "واتساب: قريباً",
-      rights: "© 2026 Veyderm. جميع الحقوق محفوظة. دبي، الإمارات العربية المتحدة.",
-      disclaimer: "Veyderm منصّة رقمية تربط المختصّين الصحّيين المرخّصين بموزّعي مستحضرات التجميل الطبية المعتمدين. المعلومات عن المنتجات على هذه المنصّة لا تُعدّ استشارة طبية. استشر دائماً مختصّاً صحّياً مؤهّلاً.", /* review */
+      rights: "© 2026 veyderm. جميع الحقوق محفوظة. دبي، الإمارات العربية المتحدة.",
+      disclaimer: "veyderm منصّة رقمية تربط المختصّين الصحّيين المرخّصين بموزّعي مستحضرات التجميل الطبية المعتمدين. المعلومات عن المنتجات على هذه المنصّة لا تُعدّ استشارة طبية. استشر دائماً مختصّاً صحّياً مؤهّلاً.", /* review */
     },
     consent: { title: "نستخدم كوكيز التحليلات", body: "فقط لفهم كيفية استخدام الموقع، وبموافقتك وحدها. لا إعلانات، ولا نبيع بياناتك أبداً. راجع", privacy: "سياسة الخصوصية", accept: "موافقة", decline: "رفض" },
     legalBack: "→ العودة إلى الرئيسية",
@@ -377,20 +377,20 @@ export const homeContent = {
     professionals: "For Professionals",
     sena: PRODUCT_SENA_NAME,
     contact: "Contact",
-    cta: "Explore Veyderm",
+    cta: "Explore veyderm",
   },
   hero: {
     eyebrow: "AI-powered dermatology",
     headline: "Intelligence for every skin decision.",
-    sub: "Veyderm brings AI-powered dermatology intelligence to professionals and patients.",
+    sub: "veyderm brings AI-powered dermatology intelligence to professionals and patients.",
     pathPro: { label: "For Professionals", cta: `Explore ${PRODUCT_PRO_NAME}`, href: "/professional" },
     pathPat: { label: "For Patients", cta: `Meet ${PRODUCT_SENA_NAME}`, href: "/sena" },
   },
   platform: {
     tag: "The platform",
     h2: "One platform. Multiple dermatology experiences.",
-    sub: "Veyderm is the AI dermatology intelligence layer — powering a professional clinical system and a patient companion.",
-    core: { name: "Veyderm", sub: "AI dermatology intelligence" },
+    sub: "veyderm is the AI dermatology intelligence layer — powering a professional clinical system and a patient companion.",
+    core: { name: "veyderm", sub: "AI dermatology intelligence" },
     nodes: [
       { name: PRODUCT_PRO_NAME, audience: "For professionals", desc: "Clinical intelligence for dermatologists, aesthetic doctors and clinics.", href: "/professional", cta: "Explore" },
       { name: PRODUCT_SENA_NAME, audience: "For patients", desc: "An AI dermatology companion that guides you and connects you to a doctor.", href: "/sena", cta: "Meet Sena" },
@@ -443,15 +443,15 @@ export const homeContent = {
   },
   faqTitle: { tag: "FAQ", h2: "Quick answers." },
   faq: [
-    { q: "What is Veyderm?", a: `Veyderm is an AI-powered dermatology intelligence platform. It powers ${PRODUCT_PRO_NAME} for clinicians and ${PRODUCT_SENA_NAME}, an AI companion for patients.` },
+    { q: "What is veyderm?", a: `veyderm is an AI-powered dermatology intelligence platform. It powers ${PRODUCT_PRO_NAME} for clinicians and ${PRODUCT_SENA_NAME}, an AI companion for patients.` },
     { q: `What's the difference between ${PRODUCT_PRO_NAME} and ${PRODUCT_SENA_NAME}?`, a: `${PRODUCT_PRO_NAME} is the clinical intelligence system professionals use. ${PRODUCT_SENA_NAME} is the patient-facing assistant that guides you and connects you to a dermatologist.` },
     { q: "Does Sena diagnose my skin?", a: "No. Sena analyzes and suggests, then connects you with a licensed dermatologist who makes the clinical decision." },
-    { q: "Is the AI a replacement for a doctor?", a: "No. Veyderm is AI-assisted and clinician-centered — a dermatologist stays in the loop for decisions." },
-    { q: "Who is Veyderm for?", a: "Dermatologists, aesthetic doctors and clinics use Veyderm Professional; patients use Sena for guidance and to reach a dermatologist." },
+    { q: "Is the AI a replacement for a doctor?", a: "No. veyderm is AI-assisted and clinician-centered — a dermatologist stays in the loop for decisions." },
+    { q: "Who is veyderm for?", a: "Dermatologists, aesthetic doctors and clinics use veyderm Professional; patients use Sena for guidance and to reach a dermatologist." },
   ],
   finalCta: {
     tag: "Get started",
     h2: "The future of dermatology is intelligent.",
-    sub: "Explore Veyderm — join early as a professional, or get on the Sena waitlist.",
+    sub: "Explore veyderm — join early as a professional, or get on the Sena waitlist.",
   },
 };

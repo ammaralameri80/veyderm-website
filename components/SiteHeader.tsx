@@ -1,4 +1,5 @@
 import { HeaderLogo } from "./Logo";
+import { MobileMenu } from "./MobileMenu";
 import { homeContent } from "@/lib/content";
 
 // Header for the Veyderm platform site.
@@ -19,6 +20,7 @@ export function SiteHeader() {
             <a className="btn btn-primary nav-cta" href="/#access" data-cta="header">
               {t.cta}
             </a>
+            <MobileMenu />
           </div>
         </nav>
       </div>

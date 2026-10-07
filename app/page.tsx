@@ -14,9 +14,9 @@ import { homeContent, ENABLE_ARABIC } from "@/lib/content";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
-const title = "Veyderm — AI-powered dermatology intelligence";
+const title = "veyderm — AI-powered dermatology intelligence";
 const description =
-  "Veyderm is an AI-powered dermatology intelligence platform. Veyderm Professional gives clinicians case assessment, product and safety intelligence and treatment planning; Sena is an AI dermatology companion for patients.";
+  "veyderm is an AI-powered dermatology intelligence platform. veyderm Professional gives clinicians case assessment, product and safety intelligence and treatment planning; Sena is an AI dermatology companion for patients.";
 
 export const metadata: Metadata = {
   title,
@@ -35,14 +35,14 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
-      name: "Veyderm",
+      name: "veyderm",
       url: siteUrl,
       logo: `${siteUrl}/og-image.png`,
       description,
       email: "info@veyderm.com",
       address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
     },
-    { "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "Veyderm", url: siteUrl, publisher: { "@id": `${siteUrl}/#organization` } },
+    { "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "veyderm", url: siteUrl, publisher: { "@id": `${siteUrl}/#organization` } },
     {
       "@type": "FAQPage",
       "@id": `${siteUrl}/#faq`,

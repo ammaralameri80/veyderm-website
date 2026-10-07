@@ -33,19 +33,19 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com";
 // noindex so the review environment is never indexed.
 const isProduction = siteUrl.replace(/\/$/, "") === "https://www.veyderm.com";
 
-const title = "Veyderm — AI Dermatology for the UAE";
+const title = "veyderm — AI Dermatology for the UAE";
 const description =
-  "Veyderm helps licensed dermatologists build evidence-based treatment plans, surface clinically verified products, and deliver personalized care — in minutes. An AI-powered dermatology platform built for the UAE.";
+  "veyderm helps licensed dermatologists build evidence-based treatment plans, surface clinically verified products, and deliver personalized care — in minutes. An AI-powered dermatology platform built for the UAE.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: title, template: "%s — Veyderm" },
+  title: { default: title, template: "%s — veyderm" },
   description,
-  applicationName: "Veyderm",
+  applicationName: "veyderm",
   keywords: ["dermatology", "AI dermatology", "UAE", "dermatologists", "treatment plans", "dermocosmetics", "skin care", "Dubai"],
-  authors: [{ name: "Veyderm" }],
-  creator: "Veyderm",
-  publisher: "Veyderm",
+  authors: [{ name: "veyderm" }],
+  creator: "veyderm",
+  publisher: "veyderm",
   alternates: { canonical: "/" },
   robots: isProduction
     ? {
@@ -65,12 +65,12 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
-    siteName: "Veyderm",
+    siteName: "veyderm",
     title,
     description,
     url: siteUrl,
     locale: "en_US",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Veyderm — AI dermatology, doctor-led." }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "veyderm — AI dermatology, doctor-led." }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/og-image.png"] },
   category: "health",

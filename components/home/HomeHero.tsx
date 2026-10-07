@@ -2,11 +2,20 @@ import { homeContent } from "@/lib/content";
 
 // Signature hero visual: a dermatology skin field being analysed, with
 // intelligence layers annotated around it. Built in CSS/SVG (no stock photo).
+// Image slot: drop /public/images/hero-skin.jpg to replace the CSS skin.
 function SkinIntelligence() {
   return (
     <div className="si" aria-hidden="true">
       <div className="si-frame">
         <div className="si-skin" />
+        <svg className="si-noise" xmlns="http://www.w3.org/2000/svg">
+          <filter id="skinGrain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" stitchTiles="stitch" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#skinGrain)" />
+        </svg>
+        <div className="si-light" />
         <div className="si-grid" />
         <div className="si-scan" />
         <span className="si-pt si-pt-1" />
@@ -51,20 +60,13 @@ export function HomeHero() {
           </span>
           <h1>{t.headline}</h1>
           <p className="hhero-sub">{t.sub}</p>
-          <div className="hhero-paths">
-            <a className="hpath hpath-pro" href={t.pathPro.href} data-cta="hero_pro">
-              <span className="hpath-label">{t.pathPro.label}</span>
-              <span className="hpath-cta">
-                {t.pathPro.cta}
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
-              </span>
+          <div className="hhero-cta">
+            <a className="btn btn-primary btn-lg" href={t.pathPro.href} data-cta="hero_pro">
+              {t.pathPro.cta}
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
             </a>
-            <a className="hpath hpath-sena" href={t.pathPat.href} data-cta="hero_sena">
-              <span className="hpath-label">{t.pathPat.label}</span>
-              <span className="hpath-cta">
-                {t.pathPat.cta}
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
-              </span>
+            <a className="btn btn-outline btn-lg" href={t.pathPat.href} data-cta="hero_sena">
+              {t.pathPat.cta}
             </a>
           </div>
         </div>
