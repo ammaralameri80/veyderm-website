@@ -69,6 +69,12 @@ const paths: Record<string, React.ReactNode> = {
       <circle cx="12" cy="15" r="1.1" />
     </>
   ),
+  aperture: (
+    <>
+      <circle cx="12" cy="12" r="8.4" />
+      <path d="M12 3.6l3.6 6.2M20.4 12l-7.2 0M12 20.4l-3.6-6.2M3.6 12l7.2 0M15.6 18.2l-3.6-6.2M8.4 5.8l3.6 6.2" />
+    </>
+  ),
   box: (
     <>
       <path d="M4 8l8-4 8 4-8 4-8-4Z" />

@@ -1,5 +1,6 @@
 import { homeContent } from "@/lib/content";
 import { Icon, Arrow, SkinPrintMark } from "./Icons";
+import { PhotoSlot } from "./PhotoSlot";
 
 /**
  * veyderm Professional — the clinical console (with a SkinPrint-matched Tailored
@@ -93,6 +94,11 @@ export function ProWorld() {
             </li>
           ))}
         </ul>
+
+        <div className="vpro-photo">
+          <PhotoSlot label="Clinician consultation" file="consultation.jpg" ratio="5 / 4" />
+          <p className="vpro-photo-note">{t.photo.note}</p>
+        </div>
 
         <div className="btn-wrap">
           <a className="btn btn-primary btn-lg" href="#access" data-role={t.role} data-cta="pro_access">

@@ -471,6 +471,7 @@ export const homeContent = {
     ],
     cta: "Request clinician access",
     role: "Dermatologist / Clinic",
+    photo: { note: "A licensed dermatologist reviews, adjusts and signs every Tailored Plan." },
   },
   brands: {
     kicker: "For skincare brands & distributors",
@@ -484,6 +485,7 @@ export const homeContent = {
     ],
     cta: "Become a brand partner",
     role: "Skincare brand / Distributor",
+    shelf: { label: "The Verified Shelf", note: "Authorized products from verified UAE distributors." },
     // Evidence Match mini-visual (right column).
     match: {
       skinprint: `${T.skinprint} · Combination III`,

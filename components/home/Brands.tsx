@@ -1,12 +1,14 @@
 import { homeContent } from "@/lib/content";
 import { Arrow, SkinPrintMark, Icon } from "./Icons";
+import { PhotoSlot } from "./PhotoSlot";
 
 export function Brands() {
   const t = homeContent.brands;
   const m = t.match;
   return (
     <section className="vbrands" id="brands">
-      <div className="wrap vbrands-grid">
+      <div className="wrap">
+        <div className="vbrands-grid">
         <div className="vbrands-copy">
           <span className="v-kicker sage"><span className="dot" />{t.kicker}</span>
           <h2>{t.h2}</h2>
@@ -43,6 +45,16 @@ export function Brands() {
                 <span className="note">{m.productNote}</span>
               </div>
             </div>
+          </div>
+        </div>
+        </div>
+
+        <div className="vshelf">
+          <span className="vshelf-label">{t.shelf.label}<em> — {t.shelf.note}</em></span>
+          <div className="vshelf-row">
+            <PhotoSlot label="Product" file="product-1.jpg" ratio="3 / 4" />
+            <PhotoSlot label="Product" file="product-2.jpg" ratio="3 / 4" />
+            <PhotoSlot label="Product" file="product-3.jpg" ratio="3 / 4" />
           </div>
         </div>
       </div>
