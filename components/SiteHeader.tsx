@@ -1,7 +1,7 @@
 import { HeaderLogo } from "./Logo";
 import { homeContent } from "@/lib/content";
 
-// Header for the English multi-product site (Home / veyderm Pro / Sena / FAQ).
+// Header for the Veyderm platform site.
 export function SiteHeader() {
   const t = homeContent.nav;
   return (
@@ -10,10 +10,10 @@ export function SiteHeader() {
         <nav>
           <HeaderLogo href="/" />
           <div className="navlinks">
-            <a href="/">{t.home}</a>
-            <a href="/pro">{t.pro}</a>
+            <a href="/#platform">{t.platform}</a>
+            <a href="/professional">{t.professionals}</a>
             <a href="/sena">{t.sena}</a>
-            <a href="/#faq">{t.faq}</a>
+            <a href="mailto:info@veyderm.com">{t.contact}</a>
           </div>
           <div className="nav-right">
             <a className="btn btn-primary nav-cta" href="/#access" data-cta="header">

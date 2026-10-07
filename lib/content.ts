@@ -13,8 +13,8 @@ export type Lang = "en" | "ar";
 // to restore the Arabic version.
 export const ENABLE_ARABIC = false;
 
-// Product names kept as single constants so they can be renamed in one place.
-export const PRODUCT_PRO_NAME = "veyderm Pro";
+// Solution names kept as single constants so they can be renamed in one place.
+export const PRODUCT_PRO_NAME = "Veyderm Professional";
 export const PRODUCT_SENA_NAME = "Sena";
 
 export const LANGS: Lang[] = ["en", "ar"];
@@ -373,58 +373,85 @@ export const content: Record<Lang, Dict> = {
 
 export const homeContent = {
   nav: {
-    home: "Home",
-    pro: PRODUCT_PRO_NAME,
+    platform: "Platform",
+    professionals: "For Professionals",
     sena: PRODUCT_SENA_NAME,
-    faq: "FAQ",
-    cta: "Request early access",
+    contact: "Contact",
+    cta: "Explore Veyderm",
   },
   hero: {
-    eyebrow: "A dermatology platform, built for the UAE",
-    headline: "A dermatology platform with two products.",
-    sub: `${PRODUCT_PRO_NAME} for dermatologists, clinics and distributors. ${PRODUCT_SENA_NAME}, an AI skin assistant for patients. Both connected, doctor-led.`,
-    ctaPro: "For Doctors & Clinics",
-    ctaSena: "Meet Sena",
+    eyebrow: "AI-powered dermatology",
+    headline: "Intelligence for every skin decision.",
+    sub: "Veyderm brings AI-powered dermatology intelligence to professionals and patients.",
+    pathPro: { label: "For Professionals", cta: `Explore ${PRODUCT_PRO_NAME}`, href: "/professional" },
+    pathPat: { label: "For Patients", cta: `Meet ${PRODUCT_SENA_NAME}`, href: "/sena" },
   },
-  split: {
-    pro: {
-      name: PRODUCT_PRO_NAME,
-      audience: "For doctors, clinics & distributors",
-      promise: "AI-assisted plans the doctor approves.",
-      bullets: ["Evidence-based treatment plans", "Verified, authorized products", "RFQs and WhatsApp follow-up"],
-      cta: "Explore " + PRODUCT_PRO_NAME,
-      href: "/pro",
-    },
-    sena: {
-      name: PRODUCT_SENA_NAME,
-      audience: "For patients",
-      promise: "Your AI skin assistant, on chat.",
-      bullets: ["Share a photo for analysis", "Get product suggestions", "Book a dermatologist"],
-      cta: "Meet " + PRODUCT_SENA_NAME,
-      href: "/sena",
-    },
-  },
-  connects: {
-    tag: "How it connects",
-    h2: "One connected loop.",
-    steps: [
-      { title: "Patient", sub: `Chats with ${PRODUCT_SENA_NAME}` },
-      { title: "Doctor", sub: `Plans in ${PRODUCT_PRO_NAME}` },
-      { title: "Products", sub: "Verified & delivered" },
+  platform: {
+    tag: "The platform",
+    h2: "One platform. Multiple dermatology experiences.",
+    sub: "Veyderm is the AI dermatology intelligence layer — powering a professional clinical system and a patient companion.",
+    core: { name: "Veyderm", sub: "AI dermatology intelligence" },
+    nodes: [
+      { name: PRODUCT_PRO_NAME, audience: "For professionals", desc: "Clinical intelligence for dermatologists, aesthetic doctors and clinics.", href: "/professional", cta: "Explore" },
+      { name: PRODUCT_SENA_NAME, audience: "For patients", desc: "An AI dermatology companion that guides you and connects you to a doctor.", href: "/sena", cta: "Meet Sena" },
     ],
   },
-  trust: [
-    { title: "Doctor-led", body: "A doctor approves every plan." },
-    { title: "Authorized products", body: "Verified distributors only." },
-    { title: "Privacy & consent", body: "Your data, your choice." },
-    { title: "UAE-built", body: "Made for the region." },
-  ],
+  professional: {
+    tag: PRODUCT_PRO_NAME,
+    audience: "For dermatology professionals",
+    h2: "Clinical intelligence, in the flow of care.",
+    sub: "Assess cases, understand products and safety, and plan treatment — AI-assisted, clinician-led.",
+    capabilities: [
+      { t: "Assess", d: "AI-assisted case assessment" },
+      { t: "Understand", d: "Product, ingredient & safety intelligence" },
+      { t: "Decide", d: "Evidence-based decision support" },
+      { t: "Build", d: "Personalized treatment plans" },
+      { t: "Engage", d: "Patient communication & follow-up" },
+    ],
+    cta: `Explore ${PRODUCT_PRO_NAME}`,
+    href: "/professional",
+  },
+  sena: {
+    tag: PRODUCT_SENA_NAME,
+    audience: "For patients",
+    h2: "Meet Sena. Your AI dermatology companion.",
+    sub: "Chat about your skin, share a photo, get AI-assisted guidance — and connect with a dermatologist when it matters.",
+    chat: [
+      { from: "user", text: "My skin has been getting more irritated recently." },
+      { from: "sena", text: "Let's take a closer look — share a photo and I'll analyze it." },
+    ],
+    analysis: "Likely mild irritant reaction",
+    rec: "Gentle barrier repair + SPF",
+    book: "Book a dermatologist",
+    cta: `Meet ${PRODUCT_SENA_NAME}`,
+    href: "/sena",
+  },
+  ai: {
+    tag: "The intelligence",
+    h2: "AI across every step.",
+    sub: "From a skin concern to considered care — intelligence connects it all.",
+    flow: ["Skin", "Analysis", "Intelligence", "Recommendation", "Care"],
+  },
+  trust: {
+    tag: "Trust & safety",
+    h2: "AI-assisted. Clinician-centered. Safety-first.",
+    points: [
+      { t: "Evidence-informed", d: "Guidance grounded in clinical evidence." },
+      { t: "Safety-aware", d: "Interactions and cautions flagged early." },
+      { t: "Human in the loop", d: "A dermatologist decides — AI never replaces them." },
+    ],
+  },
   faqTitle: { tag: "FAQ", h2: "Quick answers." },
   faq: [
-    { q: "What is veyderm?", a: `A dermatology platform with two products: ${PRODUCT_PRO_NAME} for clinicians, and ${PRODUCT_SENA_NAME}, an AI assistant for patients.` },
-    { q: `What's the difference between ${PRODUCT_PRO_NAME} and ${PRODUCT_SENA_NAME}?`, a: `${PRODUCT_PRO_NAME} is the clinical system doctors and distributors use. ${PRODUCT_SENA_NAME} is the patient app that connects you to a dermatologist.` },
-    { q: "Does Sena diagnose my skin?", a: "No. Sena analyzes and suggests, then connects you with a licensed dermatologist who decides." },
-    { q: "Are the products genuine?", a: "Yes. Everything comes from authorized distributors and brands — no fakes, no grey market." },
-    { q: "Who can join now?", a: "Doctors and distributors can request early access. Patients can join the Sena waitlist." },
+    { q: "What is Veyderm?", a: `Veyderm is an AI-powered dermatology intelligence platform. It powers ${PRODUCT_PRO_NAME} for clinicians and ${PRODUCT_SENA_NAME}, an AI companion for patients.` },
+    { q: `What's the difference between ${PRODUCT_PRO_NAME} and ${PRODUCT_SENA_NAME}?`, a: `${PRODUCT_PRO_NAME} is the clinical intelligence system professionals use. ${PRODUCT_SENA_NAME} is the patient-facing assistant that guides you and connects you to a dermatologist.` },
+    { q: "Does Sena diagnose my skin?", a: "No. Sena analyzes and suggests, then connects you with a licensed dermatologist who makes the clinical decision." },
+    { q: "Is the AI a replacement for a doctor?", a: "No. Veyderm is AI-assisted and clinician-centered — a dermatologist stays in the loop for decisions." },
+    { q: "Who is Veyderm for?", a: "Dermatologists, aesthetic doctors and clinics use Veyderm Professional; patients use Sena for guidance and to reach a dermatologist." },
   ],
+  finalCta: {
+    tag: "Get started",
+    h2: "The future of dermatology is intelligent.",
+    sub: "Explore Veyderm — join early as a professional, or get on the Sena waitlist.",
+  },
 };

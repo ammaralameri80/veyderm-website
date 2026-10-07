@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { HomeHero } from "@/components/home/HomeHero";
-import { ProductSplit } from "@/components/home/ProductSplit";
-import { HowItConnects } from "@/components/home/HowItConnects";
-import { TrustRow } from "@/components/home/TrustRow";
+import { PlatformSection } from "@/components/home/PlatformSection";
+import { ProfessionalTeaser } from "@/components/home/ProfessionalTeaser";
+import { SenaTeaser } from "@/components/home/SenaTeaser";
+import { AiFlow } from "@/components/home/AiFlow";
+import { TrustSection } from "@/components/home/TrustSection";
 import { Faq } from "@/components/Faq";
 import { CtaForm } from "@/components/CtaForm";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -12,9 +14,9 @@ import { homeContent, ENABLE_ARABIC } from "@/lib/content";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
-const title = "Veyderm — a dermatology platform with two products";
+const title = "Veyderm — AI-powered dermatology intelligence";
 const description =
-  "Veyderm is a dermatology platform with two products: veyderm Pro for dermatologists, clinics and distributors, and Sena, an AI skin assistant for patients. Doctor-led, authorized products only.";
+  "Veyderm is an AI-powered dermatology intelligence platform. Veyderm Professional gives clinicians case assessment, product and safety intelligence and treatment planning; Sena is an AI dermatology companion for patients.";
 
 export const metadata: Metadata = {
   title,
@@ -61,9 +63,11 @@ export default function Home() {
       <SiteHeader />
       <main id="top">
         <HomeHero />
-        <ProductSplit />
-        <HowItConnects />
-        <TrustRow />
+        <PlatformSection />
+        <ProfessionalTeaser />
+        <SenaTeaser />
+        <AiFlow />
+        <TrustSection />
         <Faq items={homeContent.faq} tag={homeContent.faqTitle.tag} title={homeContent.faqTitle.h2} />
         <CtaForm lang="en" />
       </main>

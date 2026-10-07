@@ -10,9 +10,9 @@ export function SiteFooter() {
         <div className="fgrid">
           <FooterLogo href="/" />
           <div className="flinks">
-            <a href="/pro">{nav.pro}</a>
+            <a href="/#platform">{nav.platform}</a>
+            <a href="/professional">{nav.professionals}</a>
             <a href="/sena">{nav.sena}</a>
-            <a href="/#faq">{nav.faq}</a>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
           </div>
