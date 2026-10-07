@@ -767,3 +767,10 @@ nav{height:74px}
   .jtiles{grid-template-columns:1fr}
   .ft-bar{flex-direction:column;gap:6px}
 }
+
+/* Keep shared sections (FAQ, form) on the Geist system */
+.faq h2,.cta h2,.legal h1,.legal h2{font-family:var(--sans)}
+.faq h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.04em;font-weight:500}
+.faq .sec-tag,.cta .sec-tag{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--muted)}
+
+.sw{overflow:hidden}

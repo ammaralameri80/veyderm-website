@@ -477,3 +477,19 @@ export const homeContent = {
     pat: { label: "I'm a patient", cta: "Join the Sena waitlist", role: "Patient — Sena waitlist" },
   },
 };
+
+export const proFaq = [
+  { q: "What is veyderm Professional?", a: "A clinical intelligence system for dermatologists, aesthetic doctors and clinics — case assessment, product and safety intelligence, and treatment planning." },
+  { q: "Does the AI make the decision?", a: "No. The AI suggests evidence-ranked options and flags safety issues; the dermatologist reviews and approves every plan." },
+  { q: "How are products verified?", a: "Recommendations come from authorized distributors and brands, with the product's regulatory status checked before it appears." },
+  { q: "Can I order and follow up?", a: "Yes. Send RFQs to distributors, convert to orders, and follow up with patients on WhatsApp." },
+  { q: "How do I get access?", a: "Request early access below. We verify your medical license or distribution authorization before activating your account." },
+];
+
+export const senaFaq = [
+  { q: "What is Sena?", a: "Sena is an AI dermatology companion. Chat about your skin, share a photo, and get guidance — plus a dermatologist when you need one." },
+  { q: "Does Sena diagnose my skin?", a: "No. Sena analyzes and suggests, then connects you with a licensed dermatologist who makes the clinical decision." },
+  { q: "What can I share?", a: "A short description, a photo or a video of the area you're concerned about. You choose what to share." },
+  { q: "Is my data private?", a: "Yes. Your information is used to help with your skin and to connect you to care — never sold." },
+  { q: "How much does it cost?", a: "Sena is launching soon. Join the waitlist to be among the first to try it." },
+];
