@@ -1,23 +1,30 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Hanken_Grotesk, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { content, isLang, type Lang } from "@/lib/content";
 
 // Self-hosted at build time (no external runtime font requests).
-const fraunces = Fraunces({
+const geist = Geist({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const hanken = Hanken_Grotesk({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-hanken",
+  weight: ["400", "500"],
+  variable: "--font-geist-mono",
+  display: "swap",
+});
+
+const instrument = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
   display: "swap",
 });
 
@@ -93,7 +100,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html
       lang={content[lang].htmlLang}
       dir={dir}
-      className={`${fraunces.variable} ${hanken.variable} ${plexArabic.variable}`}
+      className={`${geist.variable} ${geistMono.variable} ${instrument.variable} ${plexArabic.variable}`}
     >
       <body>
         {children}

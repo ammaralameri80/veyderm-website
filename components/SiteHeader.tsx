@@ -2,7 +2,6 @@ import { HeaderLogo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
 import { homeContent } from "@/lib/content";
 
-// Header for the Veyderm platform site.
 export function SiteHeader() {
   const t = homeContent.nav;
   return (
@@ -11,15 +10,12 @@ export function SiteHeader() {
         <nav>
           <HeaderLogo href="/" />
           <div className="navlinks">
-            <a href="/#platform">{t.platform}</a>
-            <a href="/professional">{t.professionals}</a>
-            <a href="/sena">{t.sena}</a>
-            <a href="mailto:info@veyderm.com">{t.contact}</a>
+            {t.links.map((l) => (
+              <a href={l.href} key={l.href}>{l.label}</a>
+            ))}
           </div>
           <div className="nav-right">
-            <a className="btn btn-primary nav-cta" href="/#access" data-cta="header">
-              {t.cta}
-            </a>
+            <a className="btn btn-dark nav-cta" href="/#access" data-cta="header">{t.cta}</a>
             <MobileMenu />
           </div>
         </nav>

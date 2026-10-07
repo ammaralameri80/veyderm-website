@@ -4,14 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { content, type Lang } from "@/lib/content";
 
-// Canonical role values sent to the API (must match the server's VALID_ROLES).
-// Display labels are localized; values stay in English.
+// Role values sent to the API (must match the server's VALID_ROLES). These
+// double as the display labels. The home/door/path CTAs preselect via data-role.
 const ROLE_VALUES = [
-  "Dermatologist",
-  "Clinic / Hospital",
-  "Authorized Distributor",
-  "Patient",
-  "Other",
+  "Dermatologist / Clinic",
+  "Distributor / Brand",
+  "Patient — Sena waitlist",
 ] as const;
 
 export function CtaForm({ lang }: { lang: Lang }) {
@@ -79,10 +77,10 @@ export function CtaForm({ lang }: { lang: Lang }) {
             <h2>{t.h2}</h2>
             <p>{t.p}</p>
             <div className="cta-roles">
-              <a className="btn btn-mint" href="#access" data-role="Dermatologist" data-cta="cta_doctor">
+              <a className="btn btn-mint" href="#access" data-role="Dermatologist / Clinic" data-cta="cta_doctor">
                 {t.roleDoctor}
               </a>
-              <a className="btn btn-outline-light" href="#access" data-role="Authorized Distributor" data-cta="cta_distributor">
+              <a className="btn btn-outline-light" href="#access" data-role="Distributor / Brand" data-cta="cta_distributor">
                 {t.roleDistributor}
               </a>
             </div>
@@ -116,9 +114,9 @@ export function CtaForm({ lang }: { lang: Lang }) {
                   <option value="" disabled>
                     {t.roleSelect}
                   </option>
-                  {ROLE_VALUES.map((value, i) => (
+                  {ROLE_VALUES.map((value) => (
                     <option key={value} value={value}>
-                      {t.roles[i]}
+                      {value}
                     </option>
                   ))}
                 </select>

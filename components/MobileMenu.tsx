@@ -25,11 +25,10 @@ export function MobileMenu() {
         <>
           <div className="menu-scrim" onClick={close} />
           <div className="menu-panel" role="menu">
-            <a href="/#platform" onClick={close}>{t.platform}</a>
-            <a href="/professional" onClick={close}>{t.professionals}</a>
-            <a href="/sena" onClick={close}>{t.sena}</a>
-            <a href="mailto:info@veyderm.com" onClick={close}>{t.contact}</a>
-            <a className="btn btn-primary" href="/#access" onClick={close}>{t.cta}</a>
+            {t.links.map((l) => (
+              <a href={l.href} key={l.href} onClick={close}>{l.label}</a>
+            ))}
+            <a className="btn btn-dark" href="/#access" onClick={close}>{t.cta}</a>
           </div>
         </>
       )}

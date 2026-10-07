@@ -5,11 +5,9 @@ import { createServerClient } from "@/lib/supabase/server";
 export const dynamic = "force-dynamic";
 
 const VALID_ROLES = new Set([
-  "Dermatologist",
-  "Clinic / Hospital",
-  "Authorized Distributor",
-  "Patient",
-  "Other",
+  "Dermatologist / Clinic",
+  "Distributor / Brand",
+  "Patient — Sena waitlist",
 ]);
 
 // Simple, dependency-free email sanity check (mirrors the client's type=email).

@@ -1,22 +1,21 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
-import { HomeHero } from "@/components/home/HomeHero";
-import { PlatformSection } from "@/components/home/PlatformSection";
-import { ProfessionalTeaser } from "@/components/home/ProfessionalTeaser";
-import { SenaTeaser } from "@/components/home/SenaTeaser";
-import { AiFlow } from "@/components/home/AiFlow";
-import { TrustSection } from "@/components/home/TrustSection";
-import { Faq } from "@/components/Faq";
+import { HeroTW } from "@/components/home/HeroTW";
+import { Doors } from "@/components/home/Doors";
+import { ProWorld } from "@/components/home/ProWorld";
+import { SenaWorld } from "@/components/home/SenaWorld";
+import { JourneyTiles } from "@/components/home/JourneyTiles";
+import { SafetyStatement } from "@/components/home/SafetyStatement";
+import { Paths } from "@/components/home/Paths";
 import { CtaForm } from "@/components/CtaForm";
 import { SiteFooter } from "@/components/SiteFooter";
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { homeContent, ENABLE_ARABIC } from "@/lib/content";
+import { ENABLE_ARABIC } from "@/lib/content";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
-const title = "veyderm — AI-powered dermatology intelligence";
+const title = "veyderm — skin intelligence, two ways in";
 const description =
-  "veyderm is an AI-powered dermatology intelligence platform. veyderm Professional gives clinicians case assessment, product and safety intelligence and treatment planning; Sena is an AI dermatology companion for patients.";
+  "veyderm is the dermatology intelligence platform. A clinical system for doctors, and Sena, an AI skin assistant for patients. AI suggests; your dermatologist decides.";
 
 export const metadata: Metadata = {
   title,
@@ -43,15 +42,6 @@ const jsonLd = {
       address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
     },
     { "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "veyderm", url: siteUrl, publisher: { "@id": `${siteUrl}/#organization` } },
-    {
-      "@type": "FAQPage",
-      "@id": `${siteUrl}/#faq`,
-      mainEntity: homeContent.faq.map((item) => ({
-        "@type": "Question",
-        name: item.q,
-        acceptedAnswer: { "@type": "Answer", text: item.a },
-      })),
-    },
   ],
 };
 
@@ -59,16 +49,15 @@ export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ScrollReveal />
       <SiteHeader />
       <main id="top">
-        <HomeHero />
-        <PlatformSection />
-        <ProfessionalTeaser />
-        <SenaTeaser />
-        <AiFlow />
-        <TrustSection />
-        <Faq items={homeContent.faq} tag={homeContent.faqTitle.tag} title={homeContent.faqTitle.h2} />
+        <HeroTW />
+        <Doors />
+        <ProWorld />
+        <SenaWorld />
+        <JourneyTiles />
+        <SafetyStatement />
+        <Paths />
         <CtaForm lang="en" />
       </main>
       <SiteFooter />
