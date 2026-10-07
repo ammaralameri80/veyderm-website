@@ -1,27 +1,39 @@
 import { homeContent } from "@/lib/content";
 
-function HeroVisual() {
+// Signature hero visual: a dermatology skin field being analysed, with
+// intelligence layers annotated around it. Built in CSS/SVG (no stock photo).
+function SkinIntelligence() {
   return (
-    <div className="hv" aria-hidden="true">
-      <div className="hv-scan">
-        <div className="hv-skin" />
-        <div className="hv-line" />
-        <span className="hv-marker m1" />
-        <span className="hv-marker m2" />
-        <span className="hv-marker m3" />
+    <div className="si" aria-hidden="true">
+      <div className="si-frame">
+        <div className="si-skin" />
+        <div className="si-grid" />
+        <div className="si-scan" />
+        <span className="si-pt si-pt-1" />
+        <span className="si-pt si-pt-2" />
+        <span className="si-pt si-pt-3" />
+        <div className="si-badge">
+          <span className="si-badge-dot" /> Analyzing skin
+        </div>
       </div>
-      <div className="hv-card">
-        <div className="hv-card-head">
-          <span className="hv-dot" />
-          AI analysis
-          <span className="hv-sample">Illustrative</span>
+
+      <div className="si-ann si-ann-1">
+        <span className="si-ann-k">Pigmentation</span>
+        <span className="si-ann-v">Uneven tone detected</span>
+      </div>
+      <div className="si-ann si-ann-2">
+        <span className="si-ann-k">Barrier</span>
+        <span className="si-ann-v">Support suggested</span>
+      </div>
+
+      <div className="si-panel">
+        <div className="si-panel-head">
+          <span className="si-panel-dot" /> AI analysis
+          <span className="si-sample">Illustrative</span>
         </div>
-        <div className="hv-chip">Dryness detected</div>
-        <div className="hv-chip">Barrier support suggested</div>
-        <div className="hv-conf">
-          <span>Confidence</span>
-          <span className="hv-bar"><i /></span>
-        </div>
+        <div className="si-panel-row"><span>Hydration</span><span className="si-meter"><i style={{ width: "72%" }} /></span></div>
+        <div className="si-panel-row"><span>Barrier</span><span className="si-meter"><i style={{ width: "54%" }} /></span></div>
+        <div className="si-panel-rec">Recommend: gentle barrier repair + SPF</div>
       </div>
     </div>
   );
@@ -33,7 +45,7 @@ export function HomeHero() {
     <section className="hhero">
       <div className="wrap hhero-grid">
         <div className="hhero-copy">
-          <span className="eyebrow">
+          <span className="eyebrow eyebrow-up">
             <span className="dot" />
             {t.eyebrow}
           </span>
@@ -57,7 +69,7 @@ export function HomeHero() {
           </div>
         </div>
         <div className="hhero-visual">
-          <HeroVisual />
+          <SkinIntelligence />
         </div>
       </div>
     </section>
