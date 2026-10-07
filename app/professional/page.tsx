@@ -26,7 +26,7 @@ export default function ProfessionalPage() {
       <main id="top">
         <ProWorld />
         <SafetyStatement />
-        <Faq items={proFaq} tag="FAQ · Professional" title="For dermatology teams." />
+        <Faq items={proFaq} tag="Common questions" title="For dermatology teams." />
         <CtaForm lang="en" />
       </main>
       <SiteFooter />

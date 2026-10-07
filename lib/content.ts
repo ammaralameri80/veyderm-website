@@ -401,7 +401,7 @@ export const homeContent = {
     cta: "Get early access",
   },
   hero: {
-    kicker: "AI dermatology platform · Built in the UAE",
+    kicker: "The AI dermatology platform, built in the UAE",
     h1: "Every skin deserves its own plan.",
     sub: `veyderm turns each patient's skin into a ${T.skinprint}, then builds a ${T.tailoredPlan} their dermatologist approves.`,
     micro: "AI prepares. Dermatologists decide.",
@@ -431,7 +431,7 @@ export const homeContent = {
     ],
   },
   pro: {
-    kicker: "veyderm Professional · for dermatologists & clinics",
+    kicker: "For dermatologists & clinics",
     h2: "Prescribe with precision. In minutes, not hours.",
     p: `Your expertise, amplified by AI. Every ${T.tailoredPlan} stays yours to sign.`,
     console: {
@@ -473,7 +473,7 @@ export const homeContent = {
     role: "Dermatologist / Clinic",
   },
   brands: {
-    kicker: "veyderm for brands · dermocosmetics",
+    kicker: "For skincare brands & distributors",
     h2: "Where great formulas meet the right skin.",
     p: "Put your clinical-grade products in front of dermatologists, matched to patients who need them.",
     benefits: [
@@ -496,7 +496,7 @@ export const homeContent = {
     },
   },
   sena: {
-    kicker: "Sena · AI skin assistant for patients",
+    kicker: "Sena, your AI skin assistant",
     h2: "Meet Sena. Your skin, finally understood.",
     sub: "Chat, share a photo or video, and get guidance made for your skin.",
     reassure: "Sena suggests. Your dermatologist decides.",

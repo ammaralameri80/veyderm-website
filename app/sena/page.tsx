@@ -26,7 +26,7 @@ export default function SenaPage() {
       <main id="top">
         <SenaWorld />
         <SafetyStatement />
-        <Faq items={senaFaq} tag="FAQ · Sena" title="Good to know." />
+        <Faq items={senaFaq} tag="Common questions" title="Good to know." />
         <CtaForm lang="en" />
       </main>
       <SiteFooter />

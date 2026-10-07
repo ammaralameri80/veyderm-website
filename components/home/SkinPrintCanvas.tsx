@@ -154,8 +154,9 @@ export function SkinPrintCanvas({ chips, label }: { chips: string[]; label: stri
       const sweep = (t / 2600) * Math.PI * 2;
       const ringAlpha = Math.max(0, Math.min(1, (t - 760) / 820));
 
-      // ring strokes (through current particle positions)
-      groups.forEach((g) => {
+      // ring strokes (through current particle positions) — inner rings read
+      // heavier than outer ones, so the whorl has depth rather than a flat even weight.
+      groups.forEach((g, gi) => {
         ctx.beginPath();
         g.forEach((p, i) => {
           const tt = Math.max(0, Math.min(1, (t - p.delay) / FORM));
@@ -166,8 +167,8 @@ export function SkinPrintCanvas({ chips, label }: { chips: string[]; label: stri
           else ctx.lineTo(x, y);
         });
         ctx.closePath();
-        ctx.lineWidth = 1 * dpr;
-        ctx.strokeStyle = `rgba(139,129,232,${0.34 * ringAlpha})`;
+        ctx.lineWidth = Math.max(0.6, 1.12 - gi * 0.07) * dpr;
+        ctx.strokeStyle = `rgba(139,129,232,${(0.46 - gi * 0.03) * ringAlpha})`;
         ctx.stroke();
       });
 
@@ -265,7 +266,12 @@ export function SkinPrintCanvas({ chips, label }: { chips: string[]; label: stri
               );
             })}
             {RINGS.map((r, i) => (
-              <path key={i} d={ringPath(r)} className="skp-ring" />
+              <path
+                key={i}
+                d={ringPath(r)}
+                className="skp-ring"
+                style={{ opacity: Math.max(0.3, 0.64 - i * 0.045), strokeWidth: 0.6 - i * 0.03 }}
+              />
             ))}
           </svg>
         )}

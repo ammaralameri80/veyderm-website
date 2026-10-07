@@ -51,7 +51,7 @@ ul{margin:0;padding:0;list-style:none}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
 
 /* ---- shared bits ---- */
-.v-kicker{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--brand-deep)}
+.v-kicker{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;letter-spacing:-.005em;color:var(--brand-deep)}
 .v-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(108,101,194,.16)}
 .v-kicker.clin{color:var(--clin-ink)}
 .v-kicker.clin .dot{background:var(--clin-ink);box-shadow:0 0 0 4px rgba(63,96,144,.14)}
@@ -301,7 +301,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:76px}
 /* ============ FORM / CTA ============ */
 .cta{background:var(--lav);border-top:1px solid var(--lav-line);padding:clamp(60px,8vw,96px) 0}
 .cta .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,5vw,56px);align-items:start}
-.sec-tag{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-deep);margin-bottom:14px}
+.sec-tag{font-size:14px;font-weight:600;letter-spacing:-.005em;color:var(--brand-deep);margin-bottom:14px}
 .cta h2{font-family:var(--sans);font-size:clamp(30px,4.2vw,46px);font-weight:600;letter-spacing:-.03em;color:var(--ink);max-width:16ch}
 .cta p{margin-top:16px;color:var(--ink-soft);max-width:44ch;font-size:17px;line-height:1.5}
 .cta-roles{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
@@ -550,4 +550,26 @@ nav{display:flex;align-items:center;justify-content:space-between;height:76px}
 @media(max-width:560px){
   .vbenefits{grid-template-columns:1fr}
   .vtrust-grid{grid-template-columns:1fr}
+}
+
+/* ============ CRAFT POLISH ============ */
+/* Balanced headline wrapping (progressive — natural wrap fallback). */
+h1,h2,h3{text-wrap:balance}
+.vhero-sub,.vhead p,.vbrands-copy p,.vsena-sub,.vfinal p,.cta p,.vtrust-d,.vbenefits .bd,.vblist .bd{text-wrap:pretty}
+/* Don't suffix every button with an arrow — keep arrows only on the
+   final role-card links, where they read as "go". */
+.btn .ar{display:none}
+/* Nav links: an underline that grows on hover, not a colour swap. */
+.navlinks a{position:relative}
+.navlinks a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1.5px;background:var(--brand);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+.navlinks a:hover::after{transform:scaleX(1)}
+/* Depth behind the SkinPrint — a soft lavender light source. */
+.skp{isolation:isolate}
+.skp-stage{z-index:1}
+.skp::before{content:"";position:absolute;inset:4%;z-index:0;border-radius:50%;background:radial-gradient(closest-side,rgba(146,134,236,.22),rgba(146,134,236,.06) 58%,transparent 72%);filter:blur(10px);pointer-events:none}
+/* A warm, barely-there wash at the top of the page so the hero isn't flat. */
+.vhero{background:radial-gradient(120% 90% at 82% 0%,rgba(146,134,236,.07),transparent 46%),radial-gradient(90% 70% at 0% 0%,rgba(203,220,240,.1),transparent 50%)}
+@media(prefers-reduced-motion:no-preference){
+  .skp::before{animation:skpGlow 6s ease-in-out infinite}
+  @keyframes skpGlow{0%,100%{opacity:.82}50%{opacity:1}}
 }
