@@ -7,14 +7,20 @@ export function FinalCta() {
     <section className="vfinal">
       <div className="wrap">
         <h2>{t.h2}</h2>
-        <p>{t.p}</p>
-        <div className="vfinal-paths">
-          <a className="btn btn-primary btn-lg" href="#access" data-role={t.rolePro} data-cta="final_pro">
-            {t.ctaPro}<Arrow className="ar" />
-          </a>
-          <a className="btn btn-light btn-lg" href="#access" data-role={t.rolePat} data-cta="final_pat">
-            {t.ctaSena}<Arrow className="ar" />
-          </a>
+        <div className="vfinal-cards">
+          {t.cards.map((c) => (
+            <a
+              key={c.role}
+              className={`vfcard tone-${c.tone}`}
+              href="#access"
+              data-role={c.role}
+              data-cta={`final_${c.tone}`}
+            >
+              <span className="vfcard-tag">{c.tag}</span>
+              <span className="vfcard-label">{c.label}</span>
+              <span className="vfcard-cta">{c.cta}<Arrow size={16} className="ar" /></span>
+            </a>
+          ))}
         </div>
       </div>
     </section>

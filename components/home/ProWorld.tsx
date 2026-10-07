@@ -1,12 +1,12 @@
 import { homeContent } from "@/lib/content";
-import { Icon, Arrow } from "./Icons";
+import { Icon, Arrow, SkinPrintMark } from "./Icons";
 
 /**
- * veyderm Professional — the clinical console, with floating AI/evidence/safety
- * layers, followed by the doctor-workflow pipeline (case → AI → products →
- * plan → approve → patient). `page="solo"` points the CTA at the access form.
+ * veyderm Professional — the clinical console (with a SkinPrint-matched Tailored
+ * Plan and floating Evidence Match / SafeCheck / Doctor-Signed layers), then the
+ * benefits row. `page="solo"` points the CTA at the access form.
  */
-export function ProWorld({ page = "home" }: { page?: "home" | "solo" }) {
+export function ProWorld() {
   const t = homeContent.pro;
   const c = t.console;
   const floatIcon: Record<string, string> = { ev: "check", ai: "spark", safe: "check" };
@@ -41,7 +41,7 @@ export function ProWorld({ page = "home" }: { page?: "home" | "solo" }) {
                 </div>
                 <div className="vc-panels">
                   <div className="vc-panel">
-                    <div className="vc-panel-t"><span className="ai"><Icon name="spark" size={13} /></span>{c.assessment.t}</div>
+                    <div className="vc-panel-t"><span className="ai"><SkinPrintMark size={14} /></span>{c.assessment.t}</div>
                     {c.assessment.rows.map(([label, val]) => (
                       <div className="vbar-row" key={label}>
                         <span className="lab">{label}</span>
@@ -51,7 +51,10 @@ export function ProWorld({ page = "home" }: { page?: "home" | "solo" }) {
                     ))}
                   </div>
                   <div className="vc-panel">
-                    <div className="vc-panel-t">{c.plan.t}</div>
+                    <div className="vc-panel-t">
+                      {c.plan.t}
+                      <span className="vc-badge"><SkinPrintMark size={12} />{c.plan.badge}</span>
+                    </div>
                     <div className="vc-plan">
                       {c.plan.items.map((p) => (
                         <div className="vc-plan-item" key={p.n}>
@@ -77,28 +80,19 @@ export function ProWorld({ page = "home" }: { page?: "home" | "solo" }) {
           ))}
         </div>
 
-        <div className="vpipe">
-          {t.pipe.map((s) => (
-            <div className={`vstage${s.hl ? " hl" : ""}`} key={s.t}>
-              <span className="vstage-k">{s.k}</span>
-              <h3>{s.t}</h3>
-              <ul>
-                {s.items.map((it) => <li key={it}>{it}</li>)}
-              </ul>
-            </div>
+        <ul className="vbenefits">
+          {t.benefits.map((b) => (
+            <li key={b.t}>
+              <span className="bt">{b.t}</span>
+              <span className="bd">{b.d}</span>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="btn-wrap">
-          {page === "solo" ? (
-            <a className="btn btn-primary btn-lg" href="#access" data-role={t.role} data-cta="pro_access">
-              Request early access<Arrow className="ar" />
-            </a>
-          ) : (
-            <a className="btn btn-primary btn-lg" href="/professional" data-cta="pro_explore">
-              {t.cta}<Arrow className="ar" />
-            </a>
-          )}
+          <a className="btn btn-primary btn-lg" href="#access" data-role={t.role} data-cta="pro_access">
+            {t.cta}<Arrow className="ar" />
+          </a>
         </div>
       </div>
     </section>

@@ -41,9 +41,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com";
 // noindex so the review environment is never indexed.
 const isProduction = siteUrl.replace(/\/$/, "") === "https://www.veyderm.com";
 
-const title = "veyderm — UAE's first AI-powered dermatology platform";
+const title = "veyderm — the intelligence layer for dermatology";
 const description =
-  "veyderm is the UAE's first AI-powered dermatology platform. AI-assisted clinical decision support for dermatologists, and intelligent guidance for patients through Sena. AI assists; dermatologists decide.";
+  "veyderm turns each patient's skin into a SkinPrint, then builds a Tailored Plan their dermatologist approves. AI prepares; dermatologists decide. Built in the UAE.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     description,
     url: siteUrl,
     locale: "en_US",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "veyderm — UAE's first AI-powered dermatology platform." }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "veyderm — the intelligence layer for dermatology." }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/og-image.png"] },
   category: "health",

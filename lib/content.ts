@@ -200,13 +200,13 @@ export const content: Record<Lang, Dict> = {
     ],
     cta: {
       tag: "Early access", h2: "Request your invitation.", p: "Tell us who you are and we'll reach out when your access is ready.",
-      roleDoctor: "I'm a professional", roleDistributor: "I'm a patient",
-      formTitle: "Request early access", hint: "We'll reach out with your invitation when your region goes live.",
+      roleDoctor: "I'm a dermatologist", roleDistributor: "I'm a patient",
+      formTitle: "Request your invitation", hint: "We'll reach out with your invitation when your access is ready.",
       name: "Full name", namePh: "Dr. Full Name", email: "Work email", emailPh: "you@clinic.com", role: "I am a…", roleSelect: "Select one",
-      roles: ["Dermatologist", "Clinic / Hospital", "Authorized Distributor", "Patient", "Other"],
-      submit: "Request Early Access", sending: "Sending…",
+      roles: ["Dermatologist / Clinic", "Skincare brand / Distributor", "Patient (Sena waitlist)"],
+      submit: "Request your invitation", sending: "Sending…",
       privacy: "Your information is only used to contact you about veyderm access. We never share your data.",
-      okTitle: "You're on the list.", okP: "We'll be in touch at the email you provided.",
+      okTitle: "You're in.", okP: "We'll be in touch personally.",
     },
     footer: {
       links: [
@@ -373,187 +373,202 @@ export const content: Record<Lang, Dict> = {
 
 
 // Home content (English). Light clinical-AI direction.
-// The UAE positioning claim is a single editable string (`uaeClaim`) so it can
-// be softened or removed in one place if the marketing/legal wording changes.
-export const uaeClaim = "UAE's first AI-powered dermatology platform";
+//
+// Owned brand vocabulary is kept in `TERMS` so a name can be renamed in one
+// place — SkinPrint especially, which is pending a trademark check. Content
+// strings interpolate these rather than spelling the terms out, and never use
+// the generic equivalents.
+export const TERMS = {
+  skinprint: "SkinPrint",
+  tailoredPlan: "Tailored Plan",
+  evidenceMatch: "Evidence Match",
+  safeCheck: "SafeCheck",
+  doctorSigned: "Doctor-Signed",
+  verifiedShelf: "Verified Shelf",
+} as const;
+const T = TERMS;
+
+export const PLATFORM_TAGLINE = "The intelligence layer for dermatology.";
 
 export const homeContent = {
   nav: {
     links: [
       { label: "Platform", href: "/#how" },
-      { label: "For professionals", href: "/professional" },
-      { label: "For patients", href: "/sena" },
+      { label: "For Dermatologists", href: "/professional" },
+      { label: "For Brands", href: "/#brands" },
+      { label: "For Patients", href: "/sena" },
     ],
     cta: "Get early access",
   },
   hero: {
-    kicker: uaeClaim,
-    h1: "Better dermatology decisions, made with AI.",
-    sub: "AI-assisted clinical decision support for dermatologists — and intelligent guidance for patients navigating their skin.",
-    ctaPro: "Explore veyderm Professional",
-    ctaSena: "Meet Sena",
-    note: "AI assists. A licensed dermatologist reviews every plan.",
-    scan: {
-      chip: "AI-assisted assessment",
-      markers: ["Pigmentation", "Texture", "Barrier"],
-      flow: [
-        { k: "Assessment", v: "Uneven pigmentation" },
-        { k: "Clinical context", v: "Fitzpatrick III · photo-aggravated" },
-        { k: "Recommended step", v: "Azelaic acid + daily SPF" },
-      ],
-      derm: { k: "Dermatologist", v: "Reviews & approves" },
-      evidence: "Evidence: strong",
-    },
-  },
-  ecosystem: {
-    h2: "One platform. Two journeys.",
-    p: "AI connects both sides of dermatology — the patient navigating their skin, and the doctor making the call.",
-    nodes: [
-      { r: "Patient", n: "Has a concern", ic: "user" },
-      { r: "Sena", n: "AI guidance", ic: "spark", ai: true },
-      { r: "Dermatologist", n: "Reviews & decides", ic: "steth" },
-      { r: "veyderm Professional", n: "Plans & prescribes", ic: "grid", ai: true },
-      { r: "Treatment", n: "Delivered & tracked", ic: "check" },
+    kicker: "AI dermatology platform · Built in the UAE",
+    h1: "Every skin deserves its own plan.",
+    sub: `veyderm turns each patient's skin into a ${T.skinprint}, then builds a ${T.tailoredPlan} their dermatologist approves.`,
+    micro: "AI prepares. Dermatologists decide.",
+    ctas: [
+      { label: "I'm a dermatologist", role: "Dermatologist / Clinic", href: "#access" },
+      { label: "I'm a skincare brand", role: "Skincare brand / Distributor", href: "#access" },
+      { label: "Meet Sena", role: "", href: "/sena" },
     ],
-    loop: "Progress and follow-up flow back to the patient — and into the next visit.",
+    // Glass chips that fill in around the forming SkinPrint. Last one pulses.
+    chipLabel: `${T.skinprint} forming`,
+    chips: [
+      "Skin type: Combination · III",
+      "Climate: High UV · Dubai",
+      "Goal: Even tone",
+      `${T.tailoredPlan} ready · ${T.doctorSigned}`,
+    ],
   },
   how: {
-    h2: "From information to action.",
-    p: "One flow turns scattered information into a clear, doctor-approved next step.",
+    h2: "From one skin to one plan.",
+    p: `Every ${T.tailoredPlan} begins with a ${T.skinprint} and ends with a dermatologist's signature.`,
     steps: [
-      { t: "Understand", d: "AI reads the patient's concerns, history, images and relevant context." },
-      { t: "Assist", d: "It surfaces relevant evidence, products and safety signals for the case." },
-      { t: "Plan", d: "The dermatologist creates or approves a personalized treatment plan." },
-      { t: "Deliver", d: "The patient receives clear guidance and recommendations." },
-      { t: "Continue", d: "Sena supports the patient between visits, and back to a doctor when needed." },
+      { t: "Capture", d: "Concerns, photos and history, in minutes." },
+      { t: T.skinprint, d: "AI maps the skin's unique profile." },
+      { t: T.evidenceMatch, d: "Products ranked by clinical evidence." },
+      { t: T.doctorSigned, d: "The dermatologist reviews, adjusts, approves." },
+      { t: "Follow-through", d: "Sena guides the patient between visits." },
     ],
   },
   pro: {
     kicker: "veyderm Professional · for dermatologists & clinics",
-    h2: "AI-assisted clinical decisions, inside the dermatologist's workflow.",
-    p: "Veyderm removes the information burden — assessment, evidence, safety and ordering in one place — so the decision stays with the doctor, made faster and better informed.",
+    h2: "Prescribe with precision. In minutes, not hours.",
+    p: `Your expertise, amplified by AI. Every ${T.tailoredPlan} stays yours to sign.`,
     console: {
       url: "app.veyderm.com",
-      nav: ["Today", "Patients", "Treatment plans", "Product catalog", "Orders & RFQs"],
+      nav: ["Today", "Patients", T.tailoredPlan + "s", "Product catalog", "Orders & RFQs"],
       patient: "Lana H. · Melasma",
       patientTag: "Fitzpatrick III",
       sample: "Illustrative example",
       assessment: {
-        t: "AI-assisted assessment",
+        t: T.skinprint,
         rows: [["Pigmentation", 78], ["Barrier", 54], ["Sensitivity", 32]] as [string, number][],
       },
       plan: {
-        t: "Suggested plan",
+        t: T.tailoredPlan,
+        badge: T.skinprint,
         items: [
           { time: "AM", n: "Broad-spectrum SPF 50", ev: "Strong", lvl: "s" as const },
           { time: "PM", n: "Azelaic acid 20%", ev: "Strong", lvl: "s" as const },
           { time: "PM", n: "Niacinamide 10%", ev: "Moderate", lvl: "m" as const },
         ],
       },
-      safePass: "Safety check passed",
+      safePass: `${T.safeCheck} passed`,
       safeWarn: "Pregnancy: avoid retinoids",
-      approve: "Approve & send",
+      approve: "Approve & sign",
       floats: [
-        { t: "Evidence level", k: "ev" as const },
-        { t: "Ingredient compatibility", k: "ai" as const },
-        { t: "Safety check", k: "safe" as const },
+        { t: T.evidenceMatch, k: "ev" as const },
+        { t: T.safeCheck, k: "safe" as const },
+        { t: T.doctorSigned, k: "ai" as const },
       ],
     },
-    pipe: [
-      { k: "Input", t: "Patient case", items: ["Symptoms", "Skin type", "Concern", "Images"] },
-      { k: "AI", t: "AI-assisted assessment", items: ["Potential concerns", "Clinical context", "Important signals"] },
-      { k: "AI", t: "Product intelligence", items: ["Relevant products", "Ingredients & evidence", "Contraindications"] },
-      { k: "Plan", t: "Treatment plan", items: ["AM / PM routine", "Products", "Instructions"] },
-      { k: "Decision", t: "Doctor approves", items: ["Reviews the evidence", "Edits as needed", "Signs off"], hl: true },
-      { k: "Output", t: "Patient receives", items: ["Clear guidance", "Products", "Follow-up"], hl: true },
+    benefits: [
+      { t: T.tailoredPlan + "s", d: "Built around each patient's SkinPrint." },
+      { t: T.evidenceMatch, d: "Ranked ingredients, not marketing claims." },
+      { t: T.safeCheck, d: "Interactions and pregnancy flags, automatic." },
+      { t: T.verifiedShelf, d: "Order authorized products in one click." },
+      { t: "Patient follow-through", d: "Adherence tracked between visits." },
     ],
-    cta: "Explore veyderm Professional",
+    cta: "Request clinician access",
     role: "Dermatologist / Clinic",
+  },
+  brands: {
+    kicker: "veyderm for brands · dermocosmetics",
+    h2: "Where great formulas meet the right skin.",
+    p: "Put your clinical-grade products in front of dermatologists, matched to patients who need them.",
+    benefits: [
+      { t: "Clinical visibility", d: "Recommended on evidence, not ad spend." },
+      { t: "Dermatologist network", d: "Reach verified UAE clinics directly." },
+      { t: "Market insight", d: "Anonymised, aggregated trends on what's prescribed." },
+      { t: T.verifiedShelf, d: "Authorized distribution, no grey market." },
+    ],
+    cta: "Become a brand partner",
+    role: "Skincare brand / Distributor",
+    // Evidence Match mini-visual (right column).
+    match: {
+      skinprint: `${T.skinprint} · Combination III`,
+      goal: "Goal: Even tone",
+      product: "Your serum",
+      productNote: "Azelaic + niacinamide",
+      label: T.evidenceMatch,
+      rank: "Top match",
+      ev: "Strong evidence",
+    },
   },
   sena: {
     kicker: "Sena · AI skin assistant for patients",
-    h2: "Guidance when you need it. A dermatologist when it matters.",
-    sub: "Sena is your AI companion for the skin journey — from your first question to your next dermatologist visit.",
+    h2: "Meet Sena. Your skin, finally understood.",
+    sub: "Chat, share a photo or video, and get guidance made for your skin.",
+    reassure: "Sena suggests. Your dermatologist decides.",
     points: [
-      "Ask about your skin in plain language",
-      "Share a photo for AI-assisted observations",
-      "See relevant options, then book a dermatologist",
+      "Ask anything",
+      "Share a photo or video",
+      `Get your ${T.skinprint}`,
+      "See your options",
+      "Book a dermatologist",
     ],
-    cta: "Meet Sena",
-    role: "Patient — Sena waitlist",
+    cta: "Join the Sena waitlist",
+    role: "Patient (Sena waitlist)",
     sample: "Illustrative example",
     chat: {
       user: "I've noticed dark spots and some irritation.",
       photo: "Photo shared",
       sena1: "Thanks — let's take a closer look.",
+      skinprint: `Your ${T.skinprint} is ready`,
+      skinprintSub: "Combination · III · High UV",
       analysisCap: "AI-assisted observations",
-      analysisTitle: "Uneven pigmentation, mild irritation",
-      obs: ["Uneven pigmentation", "Mild irritation", "Barrier looks stressed"],
-      note: "Sena analyzes and suggests — it doesn't diagnose.",
+      analysisTitle: "Uneven tone, mild irritation",
+      obs: ["Uneven tone", "Mild irritation", "Barrier looks stressed"],
+      note: "Sena suggests. Your dermatologist decides.",
       recs: [
         { n: "Gentle barrier cream", tag: "Soothing" },
         { n: "Broad-spectrum SPF 50", tag: "Daily" },
       ],
       book: { t: "Book a dermatologist", s: "3 verified clinics near you", b: "Find" },
     },
-    journey: [
-      { t: "Ask", d: "Tell Sena what's going on.", w: "16%" },
-      { t: "Share", d: "Add a photo or video.", w: "33%" },
-      { t: "Understand", d: "Get AI-assisted observations.", w: "50%" },
-      { t: "Discover", d: "See relevant options.", w: "67%" },
-      { t: "Connect", d: "Find a dermatologist.", w: "83%" },
-      { t: "Book", d: "Book an appointment.", w: "100%" },
-    ],
   },
   safety: {
     badge: "Human in the loop",
-    a: "AI assists.",
+    a: "AI prepares.",
     b: "Dermatologists decide.",
-    pro: {
-      k: "In the clinic",
-      p: "Veyderm organizes information, surfaces relevant insights and supports the workflow. Clinical decisions stay with the qualified dermatologist.",
-    },
-    sena: {
-      k: "With Sena",
-      p: "Guidance when you need it, and a licensed dermatologist when it matters. Sena never diagnoses.",
-    },
+    pro: { k: "In the clinic", p: `Every ${T.tailoredPlan} is reviewed, adjusted and signed by a licensed dermatologist.` },
+    sena: { k: "With Sena", p: "Sena suggests and guides. Your dermatologist makes the clinical call." },
   },
-  cred: {
-    kicker: "Built in the UAE",
-    h2: "Built for dermatology in the UAE. Designed to scale globally.",
-    p: "Veyderm starts where care happens — with the dermatologists, clinics, patients and authorized products of the UAE — on an architecture ready to grow beyond it.",
-    chain: [
-      { n: "UAE", d: "Where veyderm is built", ic: "pin" },
-      { n: "Dermatologists & clinics", d: "Licensed and verified", ic: "steth" },
-      { n: "Patients", d: "Guided end to end", ic: "user" },
-      { n: "Authorized products", d: "Verified distributors only", ic: "box" },
-      { n: "AI", d: "Connecting every step", ic: "spark", ai: true },
+  trust: {
+    h2: "Intelligent by design. Human by decision.",
+    points: [
+      { t: T.doctorSigned, d: "No plan reaches a patient unapproved.", ic: "check" },
+      { t: "Private by default", d: "Your data, encrypted and consent-led.", ic: "lock" },
+      { t: T.verifiedShelf, d: "Authorized products, verified distributors.", ic: "box" },
+      { t: "Built in the UAE", d: "For UAE skin, climate and regulation.", ic: "pin" },
     ],
-    standardsLabel: "Built around recognised standards",
-    standards: ["EU 1223/2009", "EU 655/2013", "ISO 22716", "UAE MOHAP"],
   },
   final: {
-    h2: "The next generation of dermatology starts here.",
-    p: "We're onboarding a limited number of dermatologists, clinics and patients in the UAE.",
-    ctaPro: "Explore veyderm Professional",
-    ctaSena: "Meet Sena",
-    rolePro: "Dermatologist / Clinic",
-    rolePat: "Patient — Sena waitlist",
+    h2: "Be among the first to prescribe the future.",
+    cards: [
+      { tag: "For dermatologists", label: "Dermatologist / Clinic", cta: "Request early access", role: "Dermatologist / Clinic", tone: "clin" },
+      { tag: "For brands", label: "Skincare brand", cta: "Become a partner", role: "Skincare brand / Distributor", tone: "sage" },
+      { tag: "For patients", label: "Patient · Sena", cta: "Join the waitlist", role: "Patient (Sena waitlist)", tone: "lav" },
+    ],
+  },
+  footer: {
+    line: `veyderm · ${PLATFORM_TAGLINE} · Dubai, UAE.`,
+    disclaimer: "Sena provides AI guidance, not a medical diagnosis.",
   },
 };
 
 export const proFaq = [
-  { q: "What is veyderm Professional?", a: "A clinical intelligence system for dermatologists, aesthetic doctors and clinics — case assessment, product and safety intelligence, and treatment planning." },
-  { q: "Does the AI make the decision?", a: "No. The AI suggests evidence-ranked options and flags safety issues; the dermatologist reviews and approves every plan." },
-  { q: "How are products verified?", a: "Recommendations come from authorized distributors and brands, with the product's regulatory status checked before it appears." },
-  { q: "Can I order and follow up?", a: "Yes. Send RFQs to distributors, convert to orders, and follow up with patients on WhatsApp." },
-  { q: "How do I get access?", a: "Request early access below. We verify your medical license or distribution authorization before activating your account." },
+  { q: "What is veyderm Professional?", a: `A clinical system that turns each patient into a ${TERMS.skinprint} and a ${TERMS.tailoredPlan} you review, adjust and sign.` },
+  { q: "Does the AI make the decision?", a: `No. AI prepares the ${TERMS.tailoredPlan}; the dermatologist reviews, adjusts and signs it. Every plan is ${TERMS.doctorSigned}.` },
+  { q: "How are products chosen?", a: `${TERMS.evidenceMatch} ranks authorized products from the ${TERMS.verifiedShelf} by clinical evidence — not by ad spend.` },
+  { q: "What is SafeCheck?", a: `${TERMS.safeCheck} flags interactions, pregnancy cautions and sensitivities automatically, before you sign the plan.` },
+  { q: "How do I get access?", a: "Request clinician access below. We verify your medical license before activating your account." },
 ];
 
 export const senaFaq = [
-  { q: "What is Sena?", a: "Sena is an AI dermatology companion. Chat about your skin, share a photo, and get guidance — plus a dermatologist when you need one." },
-  { q: "Does Sena diagnose my skin?", a: "No. Sena analyzes and suggests, then connects you with a licensed dermatologist who makes the clinical decision." },
-  { q: "What can I share?", a: "A short description, a photo or a video of the area you're concerned about. You choose what to share." },
-  { q: "Is my data private?", a: "Yes. Your information is used to help with your skin and to connect you to care — never sold." },
-  { q: "How much does it cost?", a: "Sena is launching soon. Join the waitlist to be among the first to try it." },
+  { q: "What is Sena?", a: `Sena is an AI skin assistant. Chat, share a photo, and get your ${TERMS.skinprint} with guidance made for your skin.` },
+  { q: "Can Sena replace a doctor?", a: "No. Sena suggests and guides; a licensed dermatologist makes every clinical decision and signs every plan." },
+  { q: "What is a SkinPrint?", a: `Your ${TERMS.skinprint} is an AI profile of your skin — from your concerns, photos, skin type and the UAE climate.` },
+  { q: "Is my data private?", a: "Yes. Your information is encrypted, consent-led and used only to help with your skin — never sold." },
+  { q: "When can I use it?", a: "Sena is launching soon. Join the waitlist to be among the first to try it." },
 ];

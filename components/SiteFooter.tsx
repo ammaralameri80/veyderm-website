@@ -17,8 +17,8 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="wrap ft-bar">
-        <span>© 2026 veyderm · Dubai, UAE</span>
-        <span>AI-assisted. A licensed dermatologist reviews every plan.</span>
+        <span>{homeContent.footer.line}</span>
+        <span>{homeContent.footer.disclaimer}</span>
       </div>
     </footer>
   );

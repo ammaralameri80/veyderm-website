@@ -377,10 +377,11 @@ nav{display:flex;align-items:center;justify-content:space-between;height:76px}
   @keyframes vglow{0%,100%{box-shadow:0 8px 22px rgba(82,74,174,.32)}50%{box-shadow:0 8px 30px rgba(82,74,174,.5)}}
   .vorb{animation:vbreathe 4s ease-in-out infinite}
   @keyframes vbreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-  .vapp .vmsg,.vapp .vphoto,.vapp .vanalysis,.vapp .vrecs,.vapp .vbook{opacity:0;transform:translateY(10px)}
-  .vapp.in .vmsg,.vapp.in .vphoto,.vapp.in .vanalysis,.vapp.in .vrecs,.vapp.in .vbook{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+  .vapp .vmsg,.vapp .vphoto,.vapp .vspcard,.vapp .vanalysis,.vapp .vrecs,.vapp .vbook{opacity:0;transform:translateY(10px)}
+  .vapp.in .vmsg,.vapp.in .vphoto,.vapp.in .vspcard,.vapp.in .vanalysis,.vapp.in .vrecs,.vapp.in .vbook{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
   .vapp.in .d1{transition-delay:.05s}.vapp.in .d2{transition-delay:.4s}.vapp.in .d3{transition-delay:.75s}
   .vapp.in .d4{transition-delay:1.15s}.vapp.in .d5{transition-delay:1.55s}.vapp.in .d6{transition-delay:1.95s}
+  .vapp.in .d7{transition-delay:2.35s}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
@@ -433,3 +434,120 @@ nav{display:flex;align-items:center;justify-content:space-between;height:76px}
 [dir="rtl"] body{font-family:var(--sans)}
 [dir="rtl"] em{font-style:normal}
 [dir="rtl"] .v-arrow svg,[dir="rtl"] .veco-arrow svg,[dir="rtl"] .vhero-cta .ar,[dir="rtl"] .vfinal .ar{transform:scaleX(-1)}
+
+/* ============ SKINPRINT HERO VISUAL ============ */
+.vhero-visual{display:flex;justify-content:center}
+.skp{position:relative;width:100%;max-width:468px;aspect-ratio:1/1;margin-inline:auto;--px:0;--py:0}
+.skp-stage{position:absolute;inset:0}
+.skp-canvas{position:absolute;inset:0;margin:auto;display:block}
+.skp-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.skp-ring{fill:none;stroke:#8b81e8;stroke-width:.5;opacity:.5}
+.skp-conn{stroke:#8b81e8;stroke-width:.5;opacity:.5}
+.skp-label{position:absolute;top:1%;left:50%;transform:translateX(-50%);font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;font-weight:600;color:var(--brand-deep);opacity:.7;white-space:nowrap}
+.skp-chip{position:absolute;display:inline-flex;align-items:center;gap:7px;max-width:64%;font-size:11.5px;font-weight:600;color:var(--ink);background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.85);box-shadow:var(--sh-md);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:13px;padding:8px 12px;line-height:1.25;transform:translate(calc(var(--px)*14px),calc(var(--py)*14px))}
+.skp-chip .tick{color:var(--sage-ink);font-weight:700}
+.skp-chip.d1{transform:translate(calc(var(--px)*20px),calc(var(--py)*20px))}
+.skp-chip.d2{transform:translate(calc(var(--px)*12px),calc(var(--py)*12px))}
+.skp-chip.d3{transform:translate(calc(var(--px)*16px),calc(var(--py)*16px))}
+.skp-chip.d4{transform:translate(calc(var(--px)*10px),calc(var(--py)*10px))}
+.skp-chip.final{color:var(--brand-deep);border-color:var(--lav-line)}
+@media(prefers-reduced-motion:no-preference){
+  .skp-canvas ~ .skp-chip{opacity:0;animation:skpfade .6s ease forwards}
+  .skp-canvas ~ .skp-chip.d1{animation-delay:1.8s}
+  .skp-canvas ~ .skp-chip.d2{animation-delay:2.3s}
+  .skp-canvas ~ .skp-chip.d3{animation-delay:2.8s}
+  .skp-canvas ~ .skp-chip.d4,.skp-canvas ~ .skp-chip.final{animation:skpfade .6s ease 3.4s forwards,skppulse 2.8s ease-in-out 4.6s infinite}
+  @keyframes skpfade{from{opacity:0}to{opacity:1}}
+  @keyframes skppulse{0%,100%{box-shadow:var(--sh-md)}50%{box-shadow:0 2px 6px rgba(33,31,42,.05),0 10px 30px rgba(82,74,174,.34)}}
+}
+
+/* ============ PROFESSIONAL — SkinPrint badge + benefits ============ */
+.vc-badge{margin-inline-start:auto;display:inline-flex;align-items:center;gap:5px;font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--brand-deep);background:var(--lav);border-radius:var(--r-pill);padding:3px 9px}
+.vbenefits{margin-top:clamp(36px,4.6vw,56px);display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
+.vbenefits li{padding:22px 20px 2px;border-inline-start:1px solid var(--line);display:flex;flex-direction:column;gap:5px}
+.vbenefits li:first-child{border-inline-start:0;padding-inline-start:0}
+.vbenefits .bt{font-weight:600;font-size:15px}
+.vbenefits .bd{font-size:13px;color:var(--muted);line-height:1.45}
+
+/* ============ FOR BRANDS ============ */
+.v-kicker.sage{color:var(--sage-ink)}
+.v-kicker.sage .dot{background:var(--sage-ink);box-shadow:0 0 0 4px rgba(79,122,98,.14)}
+.vbrands{background:var(--paper);border-top:1px solid var(--line);padding:clamp(54px,6.4vw,92px) 0}
+.vbrands-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(36px,5vw,64px);align-items:center}
+.vbrands-copy .v-kicker{margin-bottom:18px}
+.vbrands-copy h2{font-size:clamp(28px,4vw,46px);letter-spacing:-.03em;font-weight:600;max-width:16ch}
+.vbrands-copy p{margin-top:14px;color:var(--muted);font-size:17px;max-width:46ch;line-height:1.5}
+.vblist{margin:24px 0 28px;border-top:1px solid var(--line)}
+.vblist li{display:flex;flex-direction:column;gap:3px;padding:15px 2px;border-bottom:1px solid var(--line)}
+.vblist .bt{font-weight:600;font-size:15px}
+.vblist .bd{font-size:13.5px;color:var(--muted)}
+.vbrands-visual{display:flex;justify-content:center}
+.vmatch{width:100%;max-width:384px;background:linear-gradient(180deg,#fbfaff,#fff);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:22px}
+.vmatch-sp{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14px;color:var(--brand-deep)}
+.vmatch-sp svg{color:var(--brand)}
+.vmatch-goal{margin-top:9px;display:inline-flex;font-size:12px;color:var(--muted);background:var(--lav);border-radius:var(--r-pill);padding:4px 11px}
+.vmatch-link{display:flex;align-items:center;gap:10px;margin:16px 0}
+.vmatch-label{font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-ink);background:var(--sage);border-radius:var(--r-pill);padding:4px 10px;white-space:nowrap}
+.vmatch-line{flex:1;height:1px;background:linear-gradient(90deg,var(--sage-ink),transparent)}
+.vmatch-product{border:1px solid var(--line);border-radius:var(--r-md);padding:14px;background:#fff}
+.vmatch-p-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.vmatch-p-top .pn{font-weight:600;font-size:15px}
+.vmatch-p-top .rank{font-size:10.5px;font-weight:600;color:var(--sage-ink);background:var(--sage);border-radius:var(--r-pill);padding:3px 9px}
+.vmatch-bar{height:7px;border-radius:999px;background:#eef1f7;overflow:hidden;margin:12px 0 10px}
+.vmatch-bar i{display:block;height:100%;width:88%;border-radius:999px;background:linear-gradient(90deg,#6c65c2,#b3aaf0)}
+.vmatch-p-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.vmatch-p-foot .ev{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--ok)}
+.vmatch-p-foot .note{font-size:12px;color:var(--muted)}
+
+/* ============ SENA — SkinPrint card + reassurance ============ */
+.vspcard{align-self:stretch;display:flex;align-items:center;gap:11px;background:linear-gradient(120deg,#efeafe,#f7f4ff);border:1px solid var(--lav-line);border-radius:14px;padding:12px}
+.vsp-ic{flex:none;width:34px;height:34px;border-radius:10px;background:#fff;color:var(--brand);display:grid;place-items:center;box-shadow:var(--sh-sm)}
+.vsp-tx{display:flex;flex-direction:column;gap:1px}
+.vsp-t{font-weight:600;font-size:13.5px;color:var(--brand-deep)}
+.vsp-s{font-size:11.5px;color:var(--muted)}
+.vsena-reassure{display:flex;align-items:center;gap:9px;margin:4px 0 22px;font-size:14px;color:var(--ink-soft);font-weight:500}
+.vsena-reassure svg{color:var(--sage-ink);flex:none}
+
+/* ============ TRUST ============ */
+.vtrust{border-top:1px solid var(--line);padding:clamp(54px,6.4vw,92px) 0;text-align:center}
+.vtrust-h{font-size:clamp(28px,4.2vw,48px);letter-spacing:-.03em;font-weight:600;max-width:20ch;margin:0 auto}
+.vtrust-grid{margin-top:clamp(34px,4.5vw,52px);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);text-align:start}
+.vtrust-grid li{padding:26px 22px 8px;border-inline-start:1px solid var(--line);display:flex;flex-direction:column;gap:9px}
+.vtrust-grid li:first-child{border-inline-start:0;padding-inline-start:0}
+.vtrust-ic{width:40px;height:40px;border-radius:12px;background:var(--lav);color:var(--brand-deep);display:grid;place-items:center}
+.vtrust-t{font-weight:600;font-size:16px}
+.vtrust-d{font-size:13.5px;color:var(--muted);line-height:1.45}
+
+/* ============ FINAL CTA — three role cards ============ */
+.vfinal-cards{margin-top:clamp(28px,3.5vw,38px);display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:start}
+.vfcard{display:flex;flex-direction:column;gap:8px;min-height:168px;border-radius:var(--r-lg);padding:26px;border:1px solid var(--line);background:var(--paper);transition:transform .18s ease,box-shadow .18s ease}
+.vfcard:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+.vfcard-tag{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.vfcard-label{font-size:clamp(20px,2.1vw,25px);font-weight:600;letter-spacing:-.02em;margin-top:auto}
+.vfcard-cta{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--brand-deep)}
+.vfcard.tone-clin{background:var(--clin);border-color:var(--clin-line)}
+.vfcard.tone-clin .vfcard-tag,.vfcard.tone-clin .vfcard-cta{color:var(--clin-ink)}
+.vfcard.tone-sage{background:var(--sage);border-color:#cfe0d4}
+.vfcard.tone-sage .vfcard-tag,.vfcard.tone-sage .vfcard-cta{color:var(--sage-ink)}
+.vfcard.tone-lav{background:var(--lav);border-color:var(--lav-line)}
+
+/* ============ RESPONSIVE (new sections) ============ */
+@media(max-width:960px){
+  .vbenefits{grid-template-columns:1fr 1fr}
+  .vbenefits li{border-inline-start:0;border-top:1px solid var(--line);padding:18px 2px 6px}
+  .vbenefits li:first-child{border-top:0}
+  .vtrust-grid{grid-template-columns:1fr 1fr}
+  .vtrust-grid li{border-inline-start:0;border-top:1px solid var(--line);padding:22px 2px 8px}
+  .vtrust-grid li:first-child{border-top:0}
+}
+@media(max-width:860px){
+  .vbrands-grid{grid-template-columns:1fr;gap:34px}
+  .vbrands-visual{order:-1}
+}
+@media(max-width:760px){
+  .vfinal-cards{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .vbenefits{grid-template-columns:1fr}
+  .vtrust-grid{grid-template-columns:1fr}
+}

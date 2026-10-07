@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Hero } from "@/components/home/Hero";
-import { Ecosystem } from "@/components/home/Ecosystem";
 import { HowVeydermWorks } from "@/components/home/HowVeydermWorks";
 import { ProWorld } from "@/components/home/ProWorld";
+import { Brands } from "@/components/home/Brands";
 import { SenaWorld } from "@/components/home/SenaWorld";
-import { SafetyStatement } from "@/components/home/SafetyStatement";
-import { Credibility } from "@/components/home/Credibility";
+import { Trust } from "@/components/home/Trust";
 import { FinalCta } from "@/components/home/FinalCta";
 import { CtaForm } from "@/components/CtaForm";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -14,9 +13,9 @@ import { ENABLE_ARABIC } from "@/lib/content";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
-const title = "veyderm — UAE's first AI-powered dermatology platform";
+const title = "veyderm — the intelligence layer for dermatology";
 const description =
-  "veyderm is the UAE's first AI-powered dermatology platform. AI-assisted clinical decision support for dermatologists, and intelligent guidance for patients through Sena. AI assists; dermatologists decide.";
+  "veyderm turns each patient's skin into a SkinPrint, then builds a Tailored Plan their dermatologist approves. AI prepares; dermatologists decide. Built in the UAE.";
 
 export const metadata: Metadata = {
   title,
@@ -53,12 +52,11 @@ export default function Home() {
       <SiteHeader />
       <main id="top">
         <Hero />
-        <Ecosystem />
         <HowVeydermWorks />
         <ProWorld />
+        <Brands />
         <SenaWorld />
-        <SafetyStatement />
-        <Credibility />
+        <Trust />
         <FinalCta />
         <CtaForm lang="en" />
       </main>

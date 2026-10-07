@@ -8,8 +8,8 @@ import { content, type Lang } from "@/lib/content";
 // double as the display labels. The home/door/path CTAs preselect via data-role.
 const ROLE_VALUES = [
   "Dermatologist / Clinic",
-  "Distributor / Brand",
-  "Patient — Sena waitlist",
+  "Skincare brand / Distributor",
+  "Patient (Sena waitlist)",
 ] as const;
 
 export function CtaForm({ lang }: { lang: Lang }) {
@@ -80,7 +80,7 @@ export function CtaForm({ lang }: { lang: Lang }) {
               <a className="btn btn-mint" href="#access" data-role="Dermatologist / Clinic" data-cta="cta_doctor">
                 {t.roleDoctor}
               </a>
-              <a className="btn btn-outline-light" href="#access" data-role="Patient — Sena waitlist" data-cta="cta_patient">
+              <a className="btn btn-outline-light" href="#access" data-role="Patient (Sena waitlist)" data-cta="cta_patient">
                 {t.roleDistributor}
               </a>
             </div>

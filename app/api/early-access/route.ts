@@ -6,8 +6,8 @@ export const dynamic = "force-dynamic";
 
 const VALID_ROLES = new Set([
   "Dermatologist / Clinic",
-  "Distributor / Brand",
-  "Patient — Sena waitlist",
+  "Skincare brand / Distributor",
+  "Patient (Sena waitlist)",
 ]);
 
 // Simple, dependency-free email sanity check (mirrors the client's type=email).
