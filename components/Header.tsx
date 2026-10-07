@@ -1,5 +1,5 @@
 import { HeaderLogo } from "./Logo";
-import { content, localizedPath, type Lang } from "@/lib/content";
+import { content, localizedPath, ENABLE_ARABIC, type Lang } from "@/lib/content";
 
 export function Header({ lang }: { lang: Lang }) {
   const t = content[lang].nav;
@@ -17,14 +17,16 @@ export function Header({ lang }: { lang: Lang }) {
             <a href="#distributors">{t.distributors}</a>
           </div>
           <div className="nav-right">
-            <a
-              className="lang-switch"
-              href={localizedPath(other, "/")}
-              hrefLang={other}
-              aria-label={t.switchLabel}
-            >
-              {t.switch}
-            </a>
+            {ENABLE_ARABIC && (
+              <a
+                className="lang-switch"
+                href={localizedPath(other, "/")}
+                hrefLang={other}
+                aria-label={t.switchLabel}
+              >
+                {t.switch}
+              </a>
+            )}
             <a className="btn btn-primary nav-cta" href="#access" data-cta="header">
               {t.cta}
             </a>

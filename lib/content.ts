@@ -8,6 +8,15 @@
 
 export type Lang = "en" | "ar";
 
+// Feature flag: when false, Arabic is hidden everywhere (switcher, /ar routes,
+// sitemap, hreflang) but all AR code/content/fonts stay in place. Flip to true
+// to restore the Arabic version.
+export const ENABLE_ARABIC = false;
+
+// Product names kept as single constants so they can be renamed in one place.
+export const PRODUCT_PRO_NAME = "veyderm Pro";
+export const PRODUCT_SENA_NAME = "Sena";
+
 export const LANGS: Lang[] = ["en", "ar"];
 
 export function isLang(v: string | undefined): v is Lang {

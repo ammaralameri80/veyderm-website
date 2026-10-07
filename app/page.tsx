@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
+import { ENABLE_ARABIC } from "@/lib/content";
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
-    languages: { en: "/", ar: "/ar", "x-default": "/" },
+    languages: ENABLE_ARABIC ? { en: "/", ar: "/ar", "x-default": "/" } : undefined,
   },
 };
 
