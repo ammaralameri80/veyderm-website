@@ -1,10 +1,10 @@
 import { homeContent } from "@/lib/content";
-import { SenaChatDemo } from "./SenaChatDemo";
+import { PlatformMap } from "./PlatformMap";
 
 export function Hero() {
   const t = homeContent.hero;
   return (
-    <section className="ai-hero">
+    <section className="ai-hero" id="platform">
       <div className="wrap ai-hero-grid">
         <div className="ai-hero-copy">
           <p className="ai-pill">
@@ -23,7 +23,7 @@ export function Hero() {
           </div>
         </div>
         <div className="ai-hero-demo">
-          <SenaChatDemo />
+          <PlatformMap />
         </div>
       </div>
     </section>

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Hero } from "@/components/home/Hero";
-import { AiTrace } from "@/components/home/AiTrace";
-import { Products } from "@/components/home/Products";
+import { ProSection } from "@/components/home/ProSection";
+import { SenaSection } from "@/components/home/SenaSection";
+import { BrandsSection } from "@/components/home/BrandsSection";
 import { Guardrails } from "@/components/home/Guardrails";
 import { CtaForm } from "@/components/CtaForm";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -10,7 +11,7 @@ import { ENABLE_ARABIC } from "@/lib/content";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
-const title = "veyderm — the intelligence layer for dermatology";
+const title = "veyderm — the UAE's first AI platform for dermatology";
 const description =
   "veyderm turns each patient's skin into a SkinPrint, then builds a Tailored Plan their dermatologist approves. AI prepares; dermatologists decide. Built in the UAE.";
 
@@ -49,8 +50,9 @@ export default function Home() {
       <SiteHeader />
       <main id="top">
         <Hero />
-        <AiTrace />
-        <Products />
+        <ProSection />
+        <SenaSection />
+        <BrandsSection />
         <Guardrails />
         <CtaForm lang="en" />
       </main>
