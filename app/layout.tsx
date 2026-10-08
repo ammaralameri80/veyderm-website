@@ -1,26 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Schibsted_Grotesk, Newsreader, Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Archivo, Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { content, isLang, type Lang } from "@/lib/content";
 
 // Self-hosted at build time (no external runtime font requests).
-// Schibsted Grotesk carries all marketing voice; Geist + Geist Mono are
-// confined to the simulated product UIs so the mockups read as real software.
-const schibsted = Schibsted_Grotesk({
+// Archivo carries all marketing voice: its width axis gives condensed display
+// headlines (pharma-label feel) and normal-width body from one family. Geist +
+// Geist Mono stay confined to the simulated product UIs.
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-schibsted",
-  display: "swap",
-});
-
-// Editorial serif for display headings only (h1/h2).
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
-  variable: "--font-newsreader",
+  axes: ["wdth"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
@@ -97,7 +89,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#F7F5F0",
+  themeColor: "#FFFFFF",
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -110,7 +102,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html
       lang={content[lang].htmlLang}
       dir={dir}
-      className={`${schibsted.variable} ${newsreader.variable} ${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
+      className={`${archivo.variable} ${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
     >
       <body>
         {children}

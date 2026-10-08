@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Hero } from "@/components/home/Hero";
-import { HowVeydermWorks } from "@/components/home/HowVeydermWorks";
-import { ProWorld } from "@/components/home/ProWorld";
-import { Brands } from "@/components/home/Brands";
-import { SenaWorld } from "@/components/home/SenaWorld";
+import { PlanAnatomy } from "@/components/home/PlanAnatomy";
+import { PlanPeople } from "@/components/home/PlanPeople";
+import { Climate } from "@/components/home/Climate";
 import { CtaForm } from "@/components/CtaForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ENABLE_ARABIC } from "@/lib/content";
@@ -50,10 +49,9 @@ export default function Home() {
       <SiteHeader />
       <main id="top">
         <Hero />
-        <HowVeydermWorks />
-        <ProWorld />
-        <Brands />
-        <SenaWorld />
+        <PlanAnatomy />
+        <PlanPeople />
+        <Climate />
         <CtaForm lang="en" />
       </main>
       <SiteFooter />

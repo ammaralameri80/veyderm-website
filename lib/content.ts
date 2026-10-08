@@ -393,27 +393,93 @@ export const PLATFORM_TAGLINE = "The intelligence layer for dermatology.";
 export const homeContent = {
   nav: {
     links: [
-      { label: "Platform", href: "/#how" },
+      { label: "How it works", href: "/#plan" },
       { label: "For Dermatologists", href: "/professional" },
-      { label: "For Brands", href: "/#brands" },
+      { label: "For Brands", href: "/#people-brand" },
       { label: "For Patients", href: "/sena" },
     ],
     cta: "Request access",
   },
   hero: {
-    kicker: "Clinical AI for dermatology · UAE",
-    h1: "Every skin deserves its own plan.",
-    sub: `veyderm turns each patient's skin into a ${T.skinprint}, then builds a ${T.tailoredPlan} their dermatologist approves.`,
-    micro: "AI prepares. Dermatologists decide.",
-    cta: { label: "Request access", role: "Dermatologist / Clinic", href: "#access" },
-    secondary: { label: "See how it works", href: "#how" },
-    // Glass chips that fill in around the forming SkinPrint. Last one pulses.
-    chipLabel: `${T.skinprint} forming`,
-    chips: [
-      "Skin type: Combination · III",
-      "Climate: High UV · Dubai",
-      "Goal: Even tone",
-      `${T.tailoredPlan} ready · ${T.doctorSigned}`,
+    h1: "Your patient's plan, drafted before they sit down.",
+    sub: "veyderm reads the intake, the skin type and the Dubai climate, drafts an evidence-ranked routine, and checks it for pregnancy and interaction risks. You edit it, sign it, and the patient follows it with Sena.",
+    cta: { label: "Request clinician access", role: "Dermatologist / Clinic", href: "#access" },
+    others: [
+      { label: "I make skincare", href: "#people-brand" },
+      { label: "I'm looking after my skin", href: "#people-patient" },
+    ],
+  },
+  // One illustrative plan, reused by the hero and the anatomy section.
+  plan: {
+    title: "Tailored plan",
+    patient: "Lana H., 34",
+    profile: ["Melasma", "Skin type IV", "Dubai, July"],
+    note: "Illustrative example",
+    steps: [
+      { time: "AM", n: "Gentle gel cleanser", how: "Lukewarm water, 30 seconds", ev: 1 },
+      { time: "AM", n: "Niacinamide 10% serum", how: "Two drops, before sunscreen", ev: 2 },
+      { time: "AM", n: "Broad-spectrum SPF 50", how: "Reapply every 2 hours outdoors", ev: 3 },
+      { time: "PM", n: "Azelaic acid 20%", how: "Thin layer on dark patches", ev: 3 },
+      { time: "PM", n: "Ceramide barrier cream", how: "Last step, every night", ev: 2 },
+    ],
+    evidenceLabel: ["Supportive", "Moderate evidence", "Strong evidence"],
+    safety: "Retinoids left out: patient is planning a pregnancy.",
+    checked: "No interactions found",
+    doctor: "Dr. Sara M., Dermatologist",
+    signedAt: "Signed 09:42",
+  },
+  anatomy: {
+    h2: "What goes into a plan",
+    p: "Every plan has the same five parts. Here is what each one does, and who it's for.",
+    parts: [
+      { k: "profile", t: "A profile of this patient's skin", d: "Built from the intake: skin type, concerns, history and where they live. Skin in Dubai in July needs a different plan from skin in London in July." },
+      { k: "steps", t: "Products ranked by evidence", d: "Each product is ranked by the strength of clinical evidence for this concern. Brands can't pay to move up." },
+      { k: "safety", t: "Safety, checked first", d: "Pregnancy, breastfeeding, allergies and interactions are checked before you see the draft, and anything risky is left out with the reason shown." },
+      { k: "sign", t: "Your signature", d: "Nothing reaches the patient until you approve it. Change any line, add your own products, or start again." },
+      { k: "follow", t: "Follow-up between visits", d: "Sena reminds the patient of each step and tracks whether they're keeping to the routine, so the next visit starts with facts." },
+    ],
+  },
+  people: {
+    h2: "One plan, three people",
+    rows: [
+      {
+        id: "people-derm",
+        who: "Dermatologist",
+        verb: "You sign it.",
+        d: "Drafts are ready before the consultation. Edit any line, approve in one tap, and order authorized products from verified UAE distributors.",
+        cta: "Request clinician access",
+        role: "Dermatologist / Clinic",
+      },
+      {
+        id: "people-brand",
+        who: "Skincare brand",
+        verb: "Your product is ranked in it.",
+        d: "When your formula has the strongest evidence for a patient's concern, it ranks first, in front of dermatologists across the UAE. You also see anonymised data on what gets prescribed.",
+        cta: "Become a brand partner",
+        role: "Skincare brand / Distributor",
+      },
+      {
+        id: "people-patient",
+        who: "Patient",
+        verb: "You follow it.",
+        d: "Ask Sena about your skin, share a photo, get matched with a dermatologist, and keep up with your routine with a reminder at each step.",
+        cta: "Join the Sena waitlist",
+        role: "Patient (Sena waitlist)",
+      },
+    ],
+    fragments: {
+      derm: { pending: "Draft ready for Lana H.", action: "Approve and sign" },
+      brand: { rows: [["Your azelaic serum", "1st"], ["Brand B", "2nd"], ["Brand C", "3rd"]] as [string, string][], caption: "Ranking for melasma, skin type IV" },
+      patient: { from: "Sena", msg: "Time for your evening step: azelaic acid, thin layer on the dark patches.", done: "Done" },
+    },
+  },
+  climate: {
+    h2: "Written for skin that lives here",
+    p: "Plans account for the sun, the heat and the dry indoor air: which textures stay on, how often to reapply, and when to use what.",
+    facts: [
+      { v: "11+", d: "UV index on summer days, rated extreme" },
+      { v: "45°C", d: "Summer afternoon highs" },
+      { v: "Indoors", d: "Long hours in air-conditioning that dries skin out" },
     ],
   },
   how: {

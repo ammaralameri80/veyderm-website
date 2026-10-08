@@ -57,7 +57,7 @@ export function SenaWorld() {
               </div>
               <div className="vapp-body">
                 <div className="vmsg user d1">{ch.user}</div>
-                <div className="vphoto d2"><span className="th" />{ch.photo}</div>
+                <div className="vphoto d2"><Icon name="aperture" size={14} />{ch.photo}</div>
                 <div className="vmsg sena d3">{ch.sena1}</div>
                 <div className="vspcard d4">
                   <span className="vsp-ic"><SkinPrintMark size={22} /></span>
@@ -68,7 +68,6 @@ export function SenaWorld() {
                 </div>
                 <div className="vanalysis d5">
                   <div className="vanalysis-top">
-                    <span className="vanalysis-img"><span className="ring" /></span>
                     <span className="vanalysis-cap">{ch.analysisCap}<b>{ch.analysisTitle}</b></span>
                   </div>
                   <ul className="vobs">

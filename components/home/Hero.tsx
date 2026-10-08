@@ -1,50 +1,36 @@
 import { homeContent } from "@/lib/content";
-import { Arrow } from "./Icons";
-import { SkinPrintCanvas } from "./SkinPrintCanvas";
+import { PlanSheet } from "./PlanSheet";
 
 /**
- * One primary action (clinicians are the customer), one quiet secondary, and a
- * single line routing brands and patients. The four trust principles sit under
- * the fold line as a proof strip instead of a section of their own.
+ * Leads with the product itself — a signed treatment plan — rather than an
+ * abstract visual. One primary action for clinicians; brands and patients
+ * jump to their own row further down.
  */
 export function Hero() {
   const t = homeContent.hero;
   return (
-    <section className="vhero">
-      <div className="wrap vhero-grid">
-        <div className="vhero-copy">
-          <p className="eyebrow">{t.kicker}</p>
-          <h1 className="vhero-h1">
-            Every skin deserves <em>its own</em> plan.
-          </h1>
-          <p className="vhero-sub">{t.sub}</p>
-          <div className="vhero-cta">
+    <section className="h3ro">
+      <div className="wrap h3ro-grid">
+        <div className="h3ro-copy">
+          <h1 className="h3ro-h1">{t.h1}</h1>
+          <p className="h3ro-sub">{t.sub}</p>
+          <div className="h3ro-cta">
             <a className="btn btn-primary btn-lg" href={t.cta.href} data-role={t.cta.role} data-cta="hero_0">
               {t.cta.label}
             </a>
-            <a className="link-arrow" href={t.secondary.href} data-cta="hero_1">
-              {t.secondary.label}
-              <Arrow size={16} />
-            </a>
           </div>
-          <p className="vhero-also">
-            Also for <a href="#brands">skincare brands</a> and <a href="/sena">patients</a>.
-          </p>
+          <ul className="h3ro-others">
+            {t.others.map((o) => (
+              <li key={o.href}>
+                <a href={o.href}>{o.label}</a>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        <div className="vhero-visual">
-          <SkinPrintCanvas chips={t.chips} label={t.chipLabel} />
+        <div className="h3ro-visual">
+          <PlanSheet live />
         </div>
       </div>
-
-      <ul className="wrap vproof" aria-label="Principles">
-        {homeContent.trust.points.map((p) => (
-          <li key={p.t}>
-            <span className="vproof-t">{p.t}</span>
-            <span className="vproof-d">{p.d}</span>
-          </li>
-        ))}
-      </ul>
     </section>
   );
 }
