@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Schibsted_Grotesk, Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Schibsted_Grotesk, Newsreader, Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
@@ -12,6 +12,15 @@ const schibsted = Schibsted_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-schibsted",
+  display: "swap",
+});
+
+// Editorial serif for display headings only (h1/h2).
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
   display: "swap",
 });
 
@@ -88,7 +97,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#6C65C2",
+  themeColor: "#F7F5F0",
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -101,7 +110,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html
       lang={content[lang].htmlLang}
       dir={dir}
-      className={`${schibsted.variable} ${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
+      className={`${schibsted.variable} ${newsreader.variable} ${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
     >
       <body>
         {children}

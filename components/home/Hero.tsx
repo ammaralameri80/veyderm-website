@@ -1,38 +1,34 @@
 import { homeContent } from "@/lib/content";
-import { Icon } from "./Icons";
+import { Arrow } from "./Icons";
 import { SkinPrintCanvas } from "./SkinPrintCanvas";
 
+/**
+ * One primary action (clinicians are the customer), one quiet secondary, and a
+ * single line routing brands and patients. The four trust principles sit under
+ * the fold line as a proof strip instead of a section of their own.
+ */
 export function Hero() {
   const t = homeContent.hero;
   return (
     <section className="vhero">
       <div className="wrap vhero-grid">
         <div className="vhero-copy">
-          <span className="v-kicker"><span className="dot" />{t.kicker}</span>
-          <h1 className="vhero-h1">{t.h1}</h1>
+          <p className="eyebrow">{t.kicker}</p>
+          <h1 className="vhero-h1">
+            Every skin deserves <em>its own</em> plan.
+          </h1>
           <p className="vhero-sub">{t.sub}</p>
           <div className="vhero-cta">
-            {t.ctas.map((c, i) =>
-              c.role ? (
-                <a
-                  key={c.label}
-                  className={`btn btn-lg ${i === 0 ? "btn-primary" : "btn-light"}`}
-                  href={c.href}
-                  data-role={c.role}
-                  data-cta={`hero_${i}`}
-                >
-                  {c.label}
-                </a>
-              ) : (
-                <a key={c.label} className="btn btn-lg btn-light" href={c.href} data-cta={`hero_${i}`}>
-                  {c.label}
-                </a>
-              )
-            )}
+            <a className="btn btn-primary btn-lg" href={t.cta.href} data-role={t.cta.role} data-cta="hero_0">
+              {t.cta.label}
+            </a>
+            <a className="link-arrow" href={t.secondary.href} data-cta="hero_1">
+              {t.secondary.label}
+              <Arrow size={16} />
+            </a>
           </div>
-          <p className="vhero-note">
-            <span className="tick"><Icon name="check" size={17} /></span>
-            {t.micro}
+          <p className="vhero-also">
+            Also for <a href="#brands">skincare brands</a> and <a href="/sena">patients</a>.
           </p>
         </div>
 
@@ -40,6 +36,15 @@ export function Hero() {
           <SkinPrintCanvas chips={t.chips} label={t.chipLabel} />
         </div>
       </div>
+
+      <ul className="wrap vproof" aria-label="Principles">
+        {homeContent.trust.points.map((p) => (
+          <li key={p.t}>
+            <span className="vproof-t">{p.t}</span>
+            <span className="vproof-d">{p.d}</span>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

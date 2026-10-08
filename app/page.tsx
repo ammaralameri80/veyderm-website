@@ -5,8 +5,6 @@ import { HowVeydermWorks } from "@/components/home/HowVeydermWorks";
 import { ProWorld } from "@/components/home/ProWorld";
 import { Brands } from "@/components/home/Brands";
 import { SenaWorld } from "@/components/home/SenaWorld";
-import { Trust } from "@/components/home/Trust";
-import { FinalCta } from "@/components/home/FinalCta";
 import { CtaForm } from "@/components/CtaForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ENABLE_ARABIC } from "@/lib/content";
@@ -56,8 +54,6 @@ export default function Home() {
         <ProWorld />
         <Brands />
         <SenaWorld />
-        <Trust />
-        <FinalCta />
         <CtaForm lang="en" />
       </main>
       <SiteFooter />

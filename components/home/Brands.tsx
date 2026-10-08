@@ -1,6 +1,5 @@
 import { homeContent } from "@/lib/content";
-import { Arrow, SkinPrintMark, Icon } from "./Icons";
-import { PhotoSlot } from "./PhotoSlot";
+import { SkinPrintMark, Icon } from "./Icons";
 
 export function Brands() {
   const t = homeContent.brands;
@@ -10,7 +9,7 @@ export function Brands() {
       <div className="wrap">
         <div className="vbrands-grid">
         <div className="vbrands-copy">
-          <span className="v-kicker sage"><span className="dot" />{t.kicker}</span>
+          <p className="eyebrow">{t.kicker}</p>
           <h2>{t.h2}</h2>
           <p>{t.p}</p>
           <ul className="vblist">
@@ -22,7 +21,7 @@ export function Brands() {
             ))}
           </ul>
           <a className="btn btn-primary btn-lg" href="#access" data-role={t.role} data-cta="brand_partner">
-            {t.cta}<Arrow className="ar" />
+            {t.cta}
           </a>
         </div>
 
@@ -49,14 +48,6 @@ export function Brands() {
         </div>
         </div>
 
-        <div className="vshelf">
-          <span className="vshelf-label">{t.shelf.label}<em> — {t.shelf.note}</em></span>
-          <div className="vshelf-row">
-            <PhotoSlot label="Product" file="product-1.jpg" ratio="3 / 4" />
-            <PhotoSlot label="Product" file="product-2.jpg" ratio="3 / 4" />
-            <PhotoSlot label="Product" file="product-3.jpg" ratio="3 / 4" />
-          </div>
-        </div>
       </div>
     </section>
   );

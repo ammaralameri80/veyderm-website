@@ -38,14 +38,14 @@ function buildRings(): Pt[][] {
   return rings;
 }
 
-const RINGS = buildRings();
-const ringPath = (pts: Pt[]) =>
+export const RINGS = buildRings();
+export const ringPath = (pts: Pt[]) =>
   pts.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(" ") + "Z";
 
 // Ambient "captured data" points scattered around the whorl on a golden-angle
 // spiral — suggests the signal being read into the SkinPrint.
 const round = (n: number, d = 3) => Math.round(n * 10 ** d) / 10 ** d;
-const FIELD = Array.from({ length: 26 }, (_, i) => {
+export const FIELD = Array.from({ length: 26 }, (_, i) => {
   const a = i * 2.399963;
   const r = 24 + ((i * 7) % 30);
   return {

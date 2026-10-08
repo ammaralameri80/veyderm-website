@@ -31,7 +31,7 @@ export function SenaWorld() {
       <div className="wrap">
         <div className="vsena-grid">
           <div className="vsena-copy">
-            <span className="v-kicker"><span className="dot" />{t.kicker}</span>
+            <p className="eyebrow">{t.kicker}</p>
             <h2 className="vsena-h2">{t.h2}</h2>
             <p className="vsena-sub">{t.sub}</p>
             <ol className="vsena-points">
