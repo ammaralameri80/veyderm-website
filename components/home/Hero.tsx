@@ -1,5 +1,5 @@
 import { homeContent } from "@/lib/content";
-import { PlatformMap } from "./PlatformMap";
+import { PlatformFeed } from "./PlatformFeed";
 
 export function Hero() {
   const t = homeContent.hero;
@@ -23,7 +23,7 @@ export function Hero() {
           </div>
         </div>
         <div className="ai-hero-demo">
-          <PlatformMap />
+          <PlatformFeed />
         </div>
       </div>
     </section>
