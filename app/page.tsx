@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Hero } from "@/components/home/Hero";
-import { PlanAnatomy } from "@/components/home/PlanAnatomy";
-import { PlanPeople } from "@/components/home/PlanPeople";
-import { Climate } from "@/components/home/Climate";
+import { AiTrace } from "@/components/home/AiTrace";
+import { Products } from "@/components/home/Products";
+import { Guardrails } from "@/components/home/Guardrails";
 import { CtaForm } from "@/components/CtaForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ENABLE_ARABIC } from "@/lib/content";
@@ -49,9 +49,9 @@ export default function Home() {
       <SiteHeader />
       <main id="top">
         <Hero />
-        <PlanAnatomy />
-        <PlanPeople />
-        <Climate />
+        <AiTrace />
+        <Products />
+        <Guardrails />
         <CtaForm lang="en" />
       </main>
       <SiteFooter />

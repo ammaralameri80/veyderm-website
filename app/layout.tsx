@@ -1,24 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { content, isLang, type Lang } from "@/lib/content";
 
 // Self-hosted at build time (no external runtime font requests).
-// Archivo carries all marketing voice: its width axis gives condensed display
-// headlines (pharma-label feel) and normal-width body from one family. Geist +
-// Geist Mono stay confined to the simulated product UIs.
-const archivo = Archivo({
-  subsets: ["latin"],
-  axes: ["wdth"],
-  variable: "--font-archivo",
-  display: "swap",
-});
-
+// Geist carries the whole site — marketing and product UI alike — so the
+// page and the AI product read as one system. Geist Mono is for model output.
 const geist = Geist({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-geist",
   display: "swap",
 });
@@ -102,7 +94,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html
       lang={content[lang].htmlLang}
       dir={dir}
-      className={`${archivo.variable} ${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
+      className={`${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
     >
       <body>
         {children}

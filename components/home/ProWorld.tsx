@@ -17,7 +17,7 @@ export function ProWorld() {
     <section className="vpro" id="professional">
       <div className="wrap">
         <div className="vhead vpro-head">
-          <p className="eyebrow">{t.kicker}</p>
+          <p className="ai-pill"><span className="ai-pill-dot" aria-hidden="true" />{t.kicker}</p>
           <h2>{t.h2}</h2>
           <p>{t.p}</p>
         </div>
