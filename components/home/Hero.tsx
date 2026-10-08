@@ -1,5 +1,5 @@
 import { homeContent } from "@/lib/content";
-import { PlatformFeed } from "./PlatformFeed";
+import { AiCore } from "./AiCore";
 
 export function Hero() {
   const t = homeContent.hero;
@@ -23,7 +23,7 @@ export function Hero() {
           </div>
         </div>
         <div className="ai-hero-demo">
-          <PlatformFeed />
+          <AiCore />
         </div>
       </div>
     </section>

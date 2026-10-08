@@ -405,29 +405,6 @@ export const homeContent = {
     sub: "veyderm connects dermatologists, patients and skincare brands through one clinical AI. Doctors get a portal that drafts evidence-based plans. Patients get Sena, an AI agent that listens and guides. Brands see how their products perform in real care.",
     primary: { label: "Request access", role: "Dermatologist / Clinic", href: "#access" },
     secondary: { label: "Meet Sena", href: "#sena" },
-    feed: {
-      title: "veyderm AI",
-      live: "Live",
-      caption: "Illustrative activity",
-      legend: [
-        { k: "ai", t: "veyderm AI" },
-        { k: "pro", t: "veyderm Pro" },
-        { k: "sena", t: "Sena" },
-        { k: "brand", t: "Brands" },
-      ],
-      events: [
-        { k: "ai", t: "Intake received", d: "Lana H., melasma, skin type IV, Dubai" },
-        { k: "ai", t: "Draft plan ready", d: "3 products, ranked by clinical evidence" },
-        { k: "ai", t: "Safety check passed", d: "Retinoids excluded: pregnancy planned" },
-        { k: "pro", t: "Plan signed", d: "Dr. Sara M. reviewed and approved" },
-        { k: "sena", t: "Routine sent to Lana", d: "On WhatsApp, with how to use each step" },
-        { k: "sena", t: "Question answered in 2s", d: "“Can I use this with vitamin C?”" },
-        { k: "brand", t: "Azelaic serum 20% ranked #1", d: "For melasma, this week, across UAE clinics" },
-        { k: "sena", t: "Evening reminder delivered", d: "Azelaic acid, thin layer. Marked done" },
-        { k: "pro", t: "Follow-up booked", d: "In 4 weeks, with progress photos" },
-        { k: "brand", t: "Adherence update", d: "82% of patients kept to the routine, +6 pts" },
-      ],
-    },
   },
   // Scripted, illustrative Sena conversation used by the hero and /sena.
   chat: {
