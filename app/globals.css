@@ -472,8 +472,6 @@ html{scroll-padding-top:84px}
 }
 .vsena-points{padding:0;list-style:none}
 .ai-hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,600px)}
-.core{position:relative;width:100%;aspect-ratio:1/1;max-width:600px;margin-inline:auto}
-.core-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .feat{padding:var(--s-24) 0}
 .feat-pro{background:#fff}
 .feat-sena{background:var(--surface);border-block:1px solid var(--line-soft)}
@@ -594,3 +592,40 @@ html{scroll-padding-top:84px}
 .consent-actions .btn{padding:12px 18px;min-height:44px}
 .btn-primary:focus-visible,.btn-dark:focus-visible,.btn-mint:focus-visible{outline-offset:3px}
 @media(max-width:640px){.consent{padding:var(--s-2) var(--s-4) calc(var(--s-2) + env(safe-area-inset-bottom,0px))}}
+
+/* ---------- Devices (hero) ---------- */
+.ai-hero-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center}
+.dev{position:relative;width:100%;padding:var(--s-4) 0 var(--s-12) 0}
+.dev-laptop{position:relative;width:88%}
+.dev-lid{background:#1A1C2B;border-radius:18px 18px 6px 6px;padding:12px 12px 14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 30px 60px -24px rgba(19,21,43,.45)}
+.dev-screen{position:relative;overflow:hidden;border-radius:8px;background:var(--surface)}
+.dev-fit{transform-origin:top left;will-change:transform}
+.dev-base{height:14px;margin:0 -3%;background:linear-gradient(#E9EBF2,#C9CDDB);border-radius:0 0 16px 16px;box-shadow:0 10px 24px -12px rgba(19,21,43,.35)}
+.dev-base::before{content:"";position:absolute;left:50%;transform:translateX(-50%);width:16%;height:5px;margin-top:0;background:#B6BBCC;border-radius:0 0 6px 6px}
+.dev-phone{position:absolute;right:0;bottom:0;width:30%;max-width:230px;padding:8px;background:#1A1C2B;border-radius:28px;box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 28px 50px -20px rgba(19,21,43,.5)}
+.dev-pscreen{position:relative;overflow:hidden;border-radius:21px;background:#fff}
+/* Inside the devices the demos lose their chrome: floating labels, captions, replay. */
+.dev .vconsole-wrap{margin:0}
+.dev .vconsole{border:0;border-radius:0;box-shadow:none}
+.dev .vc-float,.dev .sc-cap,.dev .sc-replay{display:none}
+.dev .sc{border:0;border-radius:0;box-shadow:none}
+.dev .sc-body{height:520px}
+@media(max-width:960px){
+  .ai-hero-grid{grid-template-columns:1fr}
+  .dev{max-width:620px;margin-inline:auto}
+}
+@media(max-width:480px){
+  .dev-laptop{width:100%}
+  .dev-phone{position:static;width:58%;margin:var(--s-6) auto 0}
+  .dev{padding-bottom:0}
+}
+.dev-laptop{width:100%}
+.dev-base{position:relative}
+.dev-phone{width:27%;max-width:200px;right:-2%;bottom:-4%}
+.dev .sc-body{height:430px}
+.dev{padding:var(--s-4) 0 var(--s-10)}
+@media(max-width:480px){.dev-phone{width:58%;max-width:none;right:auto;bottom:auto}}
+/* The scaled screens must not contribute intrinsic width to the grid. */
+.dev-fit{position:absolute;top:0;left:0}
+.dev,.dev-laptop,.dev-lid,.dev-screen,.dev-phone,.dev-pscreen,.ai-hero-demo{min-width:0}
+@media(max-width:960px){.ai-hero-grid{grid-template-columns:minmax(0,1fr)}}
