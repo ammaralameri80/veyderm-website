@@ -70,6 +70,7 @@ export function ProConsole() {
           </div>
         </div>
       </div>
+      <p className="sc-cap">{c.sample}</p>
       {c.floats.map((f, i) => (
         <span key={f.t} className={`vc-float ${f.k} f${i + 1}`}>
           <span className="fi"><Icon name={floatIcon[f.k]} size={14} /></span>{f.t}

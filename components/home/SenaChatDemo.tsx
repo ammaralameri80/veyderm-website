@@ -82,10 +82,16 @@ export function SenaChatDemo() {
           <b>{C.title}</b>
           <span>{C.status}</span>
         </span>
-        {at(LAST) && animate && (
-          <button type="button" className="sc-replay" onClick={() => setRun((r) => r + 1)}>
-            {C.replay}
-          </button>
+        {animate && (
+          at(LAST) ? (
+            <button type="button" className="sc-replay" onClick={() => setRun((r) => r + 1)}>
+              {C.replay}
+            </button>
+          ) : (
+            <button type="button" className="sc-replay" onClick={() => setBeat(LAST)}>
+              {C.skip}
+            </button>
+          )
         )}
       </div>
 

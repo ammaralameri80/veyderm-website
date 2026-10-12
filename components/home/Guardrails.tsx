@@ -9,14 +9,14 @@ export function Guardrails() {
           <h2>{t.h2}</h2>
           <p>{t.p}</p>
         </div>
-        <ul className="guard-list">
+        <dl className="guard-list">
           {t.items.map((it) => (
-            <li key={it.t}>
-              <b>{it.t}</b>
-              <span>{it.d}</span>
-            </li>
+            <div key={it.t}>
+              <dt>{it.t}</dt>
+              <dd>{it.d}</dd>
+            </div>
           ))}
-        </ul>
+        </dl>
       </div>
     </section>
   );

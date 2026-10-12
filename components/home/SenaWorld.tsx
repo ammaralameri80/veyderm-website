@@ -10,7 +10,7 @@ export function SenaWorld() {
       <div className="wrap">
         <div className="vsena-grid">
           <div className="vsena-copy">
-            <p className="ai-pill"><span className="ai-pill-dot" aria-hidden="true" />{t.kicker}</p>
+            <p className="feat-name">{t.kicker}</p>
             <h2 className="vsena-h2">{t.h2}</h2>
             <p className="vsena-sub">{t.sub}</p>
             <ol className="vsena-points">

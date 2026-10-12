@@ -97,6 +97,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       className={`${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
     >
       <body>
+        <a className="skip" href="#top">Skip to content</a>
         {children}
         <ConsentBanner lang={lang} />
       </body>

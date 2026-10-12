@@ -202,7 +202,7 @@ export const content: Record<Lang, Dict> = {
       tag: "Early access", h2: "Get early access to veyderm.", p: "Tell us who you are and we'll reach out personally when your access is ready.",
       roleDoctor: "I'm a dermatologist", roleDistributor: "I'm a patient",
       formTitle: "Request access", hint: "We'll reach out with your invitation when your access is ready.",
-      name: "Full name", namePh: "Dr. Full Name", email: "Work email", emailPh: "you@clinic.com", role: "I am a…", roleSelect: "Select one",
+      name: "Full name", namePh: "Your name", email: "Email", emailPh: "you@example.com", role: "I am a…", roleSelect: "Select one",
       roles: ["Dermatologist / Clinic", "Skincare brand / Distributor", "Patient (Sena waitlist)"],
       submit: "Request access", sending: "Sending…",
       privacy: "Your information is only used to contact you about veyderm access. We never share your data.",
@@ -400,9 +400,8 @@ export const homeContent = {
     cta: "Request access",
   },
   hero: {
-    pill: "The first of its kind in the UAE",
-    h1: "One AI platform for dermatology.",
-    sub: "veyderm connects dermatologists, patients and skincare brands through one clinical AI. Doctors get a portal that drafts evidence-based plans. Patients get Sena, an AI agent that listens and guides. Brands see how their products perform in real care.",
+    h1: "The UAE's first AI platform for dermatology.",
+    sub: "One clinical AI behind a portal for dermatologists, an assistant for patients, and performance insight for skincare brands. Built for UAE skin and climate.",
     primary: { label: "Request access", role: "Dermatologist / Clinic", href: "#access" },
     secondary: { label: "Meet Sena", href: "#sena" },
   },
@@ -434,6 +433,7 @@ export const homeContent = {
     },
     input: "Ask Sena anything about your skin",
     replay: "Replay conversation",
+    skip: "Skip to the end",
   },
   proSection: {
     name: "veyderm Pro",
@@ -505,9 +505,9 @@ export const homeContent = {
     ],
   },
   pro: {
-    kicker: "veyderm Pro, the clinical portal",
-    h2: "Prescribe with precision. In minutes, not hours.",
-    p: `Your expertise, amplified by AI. Every ${T.tailoredPlan} stays yours to sign.`,
+    kicker: "veyderm Pro",
+    h2: "The clinical portal for dermatologists.",
+    p: "Every patient arrives with a plan already drafted: ranked by clinical evidence, checked for safety, built for UAE skin and climate. You review, adjust and sign. Nothing reaches a patient without you.",
     console: {
       url: "app.veyderm.com",
       nav: ["Today", "Patients", T.tailoredPlan + "s", "Product catalog", "Orders & RFQs"],
@@ -572,9 +572,9 @@ export const homeContent = {
     },
   },
   sena: {
-    kicker: "Sena, the UAE's first AI skin agent",
-    h2: "Meet Sena. Your skin, finally understood.",
-    sub: "Chat, share a photo or video, and get guidance made for your skin.",
+    kicker: "Sena",
+    h2: "An AI agent that looks after the patient.",
+    sub: "Sena is the first AI skin agent built for the UAE. It listens, suggests the right products, finds a dermatologist nearby, and answers questions any hour, online or in the clinic.",
     reassure: "Sena suggests. Your dermatologist decides.",
     points: [
       "Ask anything",

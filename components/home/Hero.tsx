@@ -7,10 +7,6 @@ export function Hero() {
     <section className="ai-hero" id="platform">
       <div className="wrap ai-hero-grid">
         <div className="ai-hero-copy">
-          <p className="ai-pill">
-            <span className="ai-pill-dot" aria-hidden="true" />
-            {t.pill}
-          </p>
           <h1>{t.h1}</h1>
           <p className="ai-hero-sub">{t.sub}</p>
           <div className="ai-hero-cta">

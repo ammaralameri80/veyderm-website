@@ -18,6 +18,8 @@ export function CtaForm({ lang }: { lang: Lang }) {
   const [role, setRole] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [pending, setPending] = useState(false);
+  const [error, setError] = useState("");
+  const okRef = useRef<HTMLHeadingElement>(null);
 
   // Wire every [data-role] control on the page to preselect the role.
   useEffect(() => {
@@ -48,6 +50,7 @@ export function CtaForm({ lang }: { lang: Lang }) {
     };
 
     setPending(true);
+    setError("");
     try {
       const res = await fetch("/api/early-access", {
         method: "POST",
@@ -56,14 +59,17 @@ export function CtaForm({ lang }: { lang: Lang }) {
       });
       if (!res.ok) {
         const body = (await res.json().catch(() => null)) as { error?: string } | null;
-        form.setAttribute("data-error", body?.error || "Something went wrong. Please try again.");
+        setError(body?.error || "We couldn't send your request. Please try again.");
         setPending(false);
         return;
       }
       trackEvent("generate_lead", { role: payload.role });
       setSubmitted(true);
+      // Announce the result and move focus to it, so keyboard and screen-reader
+      // users aren't left on a button that just disappeared.
+      requestAnimationFrame(() => okRef.current?.focus());
     } catch {
-      form.setAttribute("data-error", "Network error. Please check your connection and try again.");
+      setError("You appear to be offline. Check your connection and try again.");
       setPending(false);
     }
   }
@@ -91,6 +97,7 @@ export function CtaForm({ lang }: { lang: Lang }) {
               ref={formRef}
               noValidate
               onSubmit={onSubmit}
+              onChange={() => error && setError("")}
               style={{ display: submitted ? "none" : undefined }}
             >
               <h3>{t.formTitle}</h3>
@@ -102,11 +109,11 @@ export function CtaForm({ lang }: { lang: Lang }) {
               </div>
               <div className="field">
                 <label htmlFor="name">{t.name}</label>
-                <input id="name" name="name" type="text" required placeholder={t.namePh} />
+                <input id="name" name="name" type="text" required autoComplete="name" placeholder={t.namePh} />
               </div>
               <div className="field">
                 <label htmlFor="email">{t.email}</label>
-                <input id="email" name="email" type="email" required placeholder={t.emailPh} />
+                <input id="email" name="email" type="email" required autoComplete="email" inputMode="email" placeholder={t.emailPh} />
               </div>
               <div className="field">
                 <label htmlFor="role">{t.role}</label>
@@ -121,14 +128,20 @@ export function CtaForm({ lang }: { lang: Lang }) {
                   ))}
                 </select>
               </div>
-              <button type="submit" className="btn btn-primary" disabled={pending}>
+              {error && (
+                <p className="form-error" role="alert">
+                  {error}
+                </p>
+              )}
+              <button type="submit" className="btn btn-primary" disabled={pending} aria-busy={pending}>
+                {pending && <span className="spin" aria-hidden="true" />}
                 {pending ? t.sending : t.submit}
               </button>
               <p className="privacy">{t.privacy}</p>
             </form>
-            <div className={`ok${submitted ? " show" : ""}`} id="okState">
+            <div className={`ok${submitted ? " show" : ""}`} id="okState" role="status">
               <div className="tick">✓</div>
-              <h3>{t.okTitle}</h3>
+              <h3 ref={okRef} tabIndex={-1}>{t.okTitle}</h3>
               <p>{t.okP}</p>
             </div>
           </div>
