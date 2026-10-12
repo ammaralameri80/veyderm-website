@@ -1,5 +1,5 @@
 import { homeContent } from "@/lib/content";
-import { HeroStack } from "./HeroStack";
+import { HeroPhoto } from "./HeroPhoto";
 
 export function Hero() {
   const t = homeContent.hero;
@@ -19,7 +19,7 @@ export function Hero() {
           </div>
         </div>
         <div className="ai-hero-demo">
-          <HeroStack />
+          <HeroPhoto />
         </div>
       </div>
     </section>
