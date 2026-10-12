@@ -587,3 +587,10 @@ html{scroll-padding-top:84px}
 @media(max-width:640px){.guard-list{grid-template-columns:1fr}}
 /* The mobile panel is a <nav> too; undo the header-bar flex row for it. */
 .menu-panel{height:auto;flex-direction:column;align-items:stretch;justify-content:flex-start}
+.menu-panel[hidden]{display:none}
+/* Re-audit fixes */
+.cta .form-error{color:#8A2F0E}
+.menu-btn{padding:11px}
+.consent-actions .btn{padding:12px 18px;min-height:44px}
+.btn-primary:focus-visible,.btn-dark:focus-visible,.btn-mint:focus-visible{outline-offset:3px}
+@media(max-width:640px){.consent{padding:var(--s-2) var(--s-4) calc(var(--s-2) + env(safe-area-inset-bottom,0px))}}

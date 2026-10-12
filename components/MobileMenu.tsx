@@ -40,17 +40,14 @@ export function MobileMenu() {
           {open ? <><path d="M6 6l12 12" /><path d="M18 6 6 18" /></> : <><path d="M3 6h18" /><path d="M3 12h18" /><path d="M3 18h18" /></>}
         </svg>
       </button>
-      {open && (
-        <>
-          <div className="menu-scrim" onClick={close} />
-          <nav className="menu-panel" id="mobile-nav" ref={panel} aria-label="Main">
-            {t.links.map((l) => (
-              <a href={l.href} key={l.href} onClick={close}>{l.label}</a>
-            ))}
-            <a className="btn btn-dark" href="/#access" onClick={close}>{t.cta}</a>
-          </nav>
-        </>
-      )}
+      {open && <div className="menu-scrim" onClick={close} />}
+      {/* Always in the DOM (hidden when closed) so aria-controls resolves before JS runs. */}
+      <nav className="menu-panel" id="mobile-nav" ref={panel} aria-label="Main" hidden={!open}>
+        {t.links.map((l) => (
+          <a href={l.href} key={l.href} onClick={close}>{l.label}</a>
+        ))}
+        <a className="btn btn-dark" href="/#access" onClick={close}>{t.cta}</a>
+      </nav>
     </div>
   );
 }
