@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Geist, Geist_Mono, IBM_Plex_Sans_Arabic, Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
@@ -8,6 +8,23 @@ import { content, isLang, type Lang } from "@/lib/content";
 // Self-hosted at build time (no external runtime font requests).
 // Geist carries the whole site — marketing and product UI alike — so the
 // page and the AI product read as one system. Geist Mono is for model output.
+// Luxury beauty-tech type: Plus Jakarta Sans carries the voice; Instrument
+// Serif italic is reserved for the accent phrase in each headline.
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
+const instrument = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
+  display: "swap",
+});
+
 const geist = Geist({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -94,7 +111,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html
       lang={content[lang].htmlLang}
       dir={dir}
-      className={`${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
+      className={`${jakarta.variable} ${instrument.variable} ${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
     >
       <body>
         <a className="skip" href="#top">Skip to content</a>

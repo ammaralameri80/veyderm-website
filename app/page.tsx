@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
-import { Hero } from "@/components/home/Hero";
-import { ProSection } from "@/components/home/ProSection";
-import { SenaSection } from "@/components/home/SenaSection";
-import { BrandsSection } from "@/components/home/BrandsSection";
-import { Guardrails } from "@/components/home/Guardrails";
+import { LuxHero } from "@/components/home/LuxHero";
+import { LuxTrust, LuxFeatures, LuxGuard } from "@/components/home/LuxSections";
 import { CtaForm } from "@/components/CtaForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ENABLE_ARABIC } from "@/lib/content";
@@ -48,12 +45,11 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteHeader />
-      <main id="top">
-        <Hero />
-        <ProSection />
-        <SenaSection />
-        <BrandsSection />
-        <Guardrails />
+      <main id="top" className="lx">
+        <LuxHero />
+        <LuxTrust />
+        <LuxFeatures />
+        <LuxGuard />
         <CtaForm lang="en" />
       </main>
       <SiteFooter />
