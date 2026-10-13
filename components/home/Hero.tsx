@@ -1,14 +1,19 @@
 import { homeContent } from "@/lib/content";
-import { HeroPhoto } from "./HeroPhoto";
+import { HeroScene } from "./HeroScene";
 
 export function Hero() {
   const t = homeContent.hero;
   return (
-    <section className="ai-hero" id="platform">
-      <div className="wrap ai-hero-grid">
-        <div className="ai-hero-copy">
+    <section className="cine" id="platform">
+      <HeroScene />
+      <div className="wrap cine-content">
+        <div className="cine-copy">
+          <p className="cine-pill">
+            <span className="ai-pill-dot" aria-hidden="true" />
+            Dermatology, powered by AI
+          </p>
           <h1>{t.h1}</h1>
-          <p className="ai-hero-sub">{t.sub}</p>
+          <p className="cine-sub">{t.sub}</p>
           <div className="ai-hero-cta">
             <a className="btn btn-primary btn-lg" href={t.primary.href} data-role={t.primary.role} data-cta="hero_0">
               {t.primary.label}
@@ -18,10 +23,8 @@ export function Hero() {
             </a>
           </div>
         </div>
-        <div className="ai-hero-demo">
-          <HeroPhoto />
-        </div>
       </div>
+      <p className="cine-cap">Illustrative scene. AI-generated image, finished in Adobe Photoshop.</p>
     </section>
   );
 }
