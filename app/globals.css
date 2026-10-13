@@ -669,3 +669,55 @@ html{scroll-padding-top:84px}
   .ai-hero-grid{grid-template-columns:minmax(0,1fr)}
   .ai-hero-demo{max-width:560px;width:100%;margin-inline:auto}
 }
+
+/* ---------- Hero photo: hologram motion + card layout around it ---------- */
+/* Card positions keep the face, tablet and hologram clear. */
+.hp-pro{left:0;top:20px;width:222px}
+.hp-safe{left:0;top:438px;width:238px}
+.hp-sena{left:404px;top:404px;width:196px}
+.hp-brand{left:226px;top:572px;width:196px}
+.hp-card{z-index:3}
+.hp-photo{z-index:1}
+
+/* Ken Burns wrapper carries the photo and every overlay together. */
+.hp-kb{position:absolute;inset:0;transform-origin:50% 42%}
+/* Overlays in photo-frame coordinates (frame 470×620; hologram centre ≈ 237,255). */
+.hp-holo-glow{position:absolute;left:117px;top:135px;width:240px;height:240px;border-radius:50%;background:radial-gradient(closest-side,rgba(160,140,255,.55),rgba(79,141,247,.25) 45%,transparent 72%);mix-blend-mode:screen;opacity:.55;pointer-events:none}
+.hp-holo-rings{position:absolute;left:137px;top:155px;width:200px;height:200px;overflow:visible;mix-blend-mode:screen;pointer-events:none}
+.hp-holo-rings ellipse{fill:none;stroke-linecap:round}
+.hp-holo-rings .r1{stroke:rgba(130,220,255,.85);stroke-width:1.4;stroke-dasharray:.12 .08}
+.hp-holo-rings .r2{stroke:rgba(190,170,255,.8);stroke-width:1.1;stroke-dasharray:.05 .06}
+.hp-scan{position:absolute;left:150px;top:172px;width:176px;height:146px;border-radius:50%;overflow:hidden;mix-blend-mode:screen;pointer-events:none}
+.hp-scan i{position:absolute;left:0;right:0;top:-24px;height:22px;background:linear-gradient(180deg,transparent,rgba(170,200,255,.75),transparent)}
+.hp-particles{position:absolute;left:186px;top:236px;width:110px;height:112px;pointer-events:none;mix-blend-mode:screen}
+.hp-particles i{position:absolute;bottom:0;width:3px;height:3px;border-radius:50%;background:#CFE4FF;box-shadow:0 0 6px 2px rgba(139,124,255,.8);opacity:0}
+
+/* Threads between photo and cards */
+.hp-threads{position:absolute;inset:0;width:600px;height:640px;z-index:2;overflow:visible;pointer-events:none}
+.hp-track{fill:none;stroke:rgba(255,255,255,.55);stroke-width:1.2;stroke-dasharray:2 5}
+.hp-pulse{fill:none;stroke:url(#hp-t);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:.18 .82;stroke-dashoffset:1;opacity:0}
+
+@media(prefers-reduced-motion:no-preference){
+  .hp-kb{animation:hpKb 22s ease-in-out infinite alternate}
+  @keyframes hpKb{from{transform:scale(1)}to{transform:scale(1.06) translate(-1%,-1%)}}
+  .hp-holo-glow{animation:hpPulseGlow 3.6s ease-in-out infinite}
+  @keyframes hpPulseGlow{0%,100%{opacity:.4;transform:scale(.96)}50%{opacity:.85;transform:scale(1.05)}}
+  .hp-holo-rings .r1{animation:hpSpin 6s linear infinite}
+  .hp-holo-rings .r2{animation:hpSpin 4.5s linear infinite reverse}
+  @keyframes hpSpin{to{stroke-dashoffset:-1}}
+  .hp-scan i{animation:hpScan 3.2s cubic-bezier(.45,0,.55,1) 1.2s infinite}
+  @keyframes hpScan{0%{transform:translateY(0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateY(190px);opacity:0}}
+  .hp-particles i{animation-name:hpRise;animation-timing-function:ease-out;animation-iteration-count:infinite}
+  @keyframes hpRise{0%{transform:translateY(0) scale(.6);opacity:0}20%{opacity:1}100%{transform:translateY(-120px) scale(1);opacity:0}}
+  .hp-pulse{animation:hpThread 3s linear infinite}
+  .hp-pulse.t1{animation-delay:1.4s}.hp-pulse.t2{animation-delay:2.1s}.hp-pulse.t3{animation-delay:2.8s}.hp-pulse.t4{animation-delay:3.5s}
+  @keyframes hpThread{0%{stroke-dashoffset:1;opacity:0}10%{opacity:1}90%{opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+}
+@media(prefers-reduced-motion:reduce){
+  .hp-pulse{opacity:.8;stroke-dashoffset:.5}
+  .hp-particles{display:none}
+}
+.hp-safe{width:262px}
+.hp-brand{left:196px;top:574px;width:236px}
+.hp-cap{left:0;right:auto}
+.hp-brand{top:552px}
