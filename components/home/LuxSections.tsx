@@ -96,7 +96,7 @@ export function LuxFeatures() {
           {L.features.map((f, i) => (
             <article className={`lx-feature${i % 2 ? " rev" : ""}`} id={f.id === "brands" ? "brands" : f.id} key={f.id}>
               <div className="lx-photo">
-                <Image src={f.img} alt={f.alt} fill sizes="(max-width: 960px) 100vw, 46vw" style={{ objectFit: "cover", objectPosition: f.id === "pro" ? "28% 50%" : f.id === "brands" ? "50% 62%" : "50% 30%" }} />
+                <Image src={f.img} alt={f.alt} fill sizes="(max-width: 960px) 100vw, 46vw" style={{ objectFit: "cover", objectPosition: f.id === "pro" ? "50% 30%" : f.id === "brands" ? "50% 60%" : "60% 40%" }} />
                 <div aria-hidden="true"><Overlay id={f.id} /></div>
               </div>
               <div className="lx-copy">

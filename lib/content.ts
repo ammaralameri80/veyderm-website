@@ -429,8 +429,8 @@ export const homeContent = {
     features: [
       {
         id: "pro",
-        img: "/images/photo-derm-2.webp",
-        alt: "A dermatologist examining a patient's skin in a bright modern clinic",
+        img: "/images/photo-pro-3.webp",
+        alt: "A dermatologist in a white coat holding a magnifying glass up to the camera",
         name: "veyderm Pro",
         h2a: "The clinical portal",
         h2em: "for dermatologists.",
@@ -442,8 +442,8 @@ export const homeContent = {
       },
       {
         id: "sena",
-        img: "/images/photo-sena.webp",
-        alt: "A woman applying a drop of facial serum from a glass dropper",
+        img: "/images/photo-sena-3.webp",
+        alt: "A woman checking her phone at night, her face lit by the screen",
         name: "Sena",
         h2a: "An AI agent that",
         h2em: "looks after your skin.",
@@ -455,8 +455,8 @@ export const homeContent = {
       },
       {
         id: "brands",
-        img: "/images/photo-brands-2.webp",
-        alt: "A collection of violet skincare bottles",
+        img: "/images/photo-brands-3.webp",
+        alt: "A glass serum bottle on a violet set with floating droplets",
         name: "For skincare brands",
         h2a: "See how your products",
         h2em: "perform in real care.",
