@@ -1,14 +1,15 @@
 # Images
 
-All homepage photography is real photography from Unsplash. No AI-generated
+The hero is a real photograph; the three feature sections use abstract 3D renders (glass, liquid, light) as one matched set. All are from Unsplash. No AI-generated
 images are used on the site.
 
 | File | Used by | Source | Licence |
 | --- | --- | --- | --- |
 | `photo-hero.webp` | Hero (`components/home/LuxHero.tsx`), with the AI mesh drawn in code over it | Unsplash, photo `3TLl_97HNJo` | Unsplash Licence |
-| `photo-pro-4.webp` | veyderm Pro feature (`components/home/LuxSections.tsx`) | Unsplash, photo `Usta3S9mjTg`. The green phone screen is replaced with a veyderm Pro screen designed for the site, and the magenta backdrop shifted to violet | Unsplash Licence |
-| `photo-sena-ai.webp` | Sena feature | Unsplash, photo `eL0aM8Go5I8` (3D render of a humanoid AI) | Unsplash Licence |
-| `photo-brands-3.webp` | Brands feature, and the product thumbnail in the hero recommendation card | Unsplash, photo `yXcBwMp05Us` (3D render). Placeholder label removed and colour shifted from blue to violet | Unsplash Licence |
+| `photo-pro-glass.webp` | veyderm Pro feature (`components/home/LuxSections.tsx`) | Unsplash, photo `BOp5ryQqu3c` (3D render, iridescent glass rings) | Unsplash Licence |
+| `photo-sena-glass.webp` | Sena feature | Unsplash, photo `Gh6l07ydq40` (3D render, glass sphere on violet) | Unsplash Licence |
+| `photo-brands-glass.webp` | Brands feature | Unsplash, photo `0GhqVphJhOo` (3D render, violet liquid metal) | Unsplash Licence |
+| `photo-brands-3.webp` | Product thumbnail in the hero recommendation card | Unsplash, photo `yXcBwMp05Us` (3D render). Placeholder label removed and colour shifted from blue to violet | Unsplash Licence |
 
 Unsplash Licence: https://unsplash.com/license. It allows free commercial use
 with no attribution required. Unsplash+ (paid) images were excluded.

@@ -429,8 +429,8 @@ export const homeContent = {
     features: [
       {
         id: "pro",
-        img: "/images/photo-pro-4.webp",
-        alt: "A dermatologist holding up a phone showing a patient plan in veyderm Pro",
+        img: "/images/photo-pro-glass.webp",
+        alt: "Iridescent glass rings refracting violet light",
         name: "veyderm Pro",
         h2a: "The clinical portal",
         h2em: "for dermatologists.",
@@ -442,8 +442,8 @@ export const homeContent = {
       },
       {
         id: "sena",
-        img: "/images/photo-sena-ai.webp",
-        alt: "A glossy violet humanoid AI face, representing Sena",
+        img: "/images/photo-sena-glass.webp",
+        alt: "A clear glass sphere floating on a violet background",
         name: "Sena",
         h2a: "An AI agent that",
         h2em: "looks after your skin.",
@@ -455,8 +455,8 @@ export const homeContent = {
       },
       {
         id: "brands",
-        img: "/images/photo-brands-3.webp",
-        alt: "A glass serum bottle on a violet set with floating droplets",
+        img: "/images/photo-brands-glass.webp",
+        alt: "Flowing violet and copper liquid metal",
         name: "For skincare brands",
         h2a: "See how your products",
         h2em: "perform in real care.",
