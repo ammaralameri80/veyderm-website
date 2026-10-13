@@ -415,7 +415,6 @@ export const homeContent = {
       progress: { t: "Skin progress", v: "+18%", d: "since last visit", n: "Lana H." },
       rec: { k: "Recommended by your dermatologist", n: "Azelaic serum 20%", s: "Strong evidence" },
       scan: { t: "AI skin analysis", s: "SkinPrint ready" },
-      caption: "AI-generated image. Illustrative example.",
     },
     trust: [
       { t: "Every plan signed by a dermatologist", ic: "sign" },
@@ -430,8 +429,8 @@ export const homeContent = {
     features: [
       {
         id: "pro",
-        img: "/images/lux-derm.webp",
-        alt: "A dermatologist in a white coat holding a tablet",
+        img: "/images/photo-derm.webp",
+        alt: "A dermatologist examining a patient's skin in a bright modern clinic",
         name: "veyderm Pro",
         h2a: "The clinical portal",
         h2em: "for dermatologists.",
@@ -443,8 +442,8 @@ export const homeContent = {
       },
       {
         id: "sena",
-        img: "/images/lux-sena.webp",
-        alt: "A young woman smiling at her phone",
+        img: "/images/photo-sena.webp",
+        alt: "A woman applying a drop of facial serum from a glass dropper",
         name: "Sena",
         h2a: "An AI agent that",
         h2em: "looks after your skin.",
@@ -456,8 +455,8 @@ export const homeContent = {
       },
       {
         id: "brands",
-        img: "/images/lux-brands.webp",
-        alt: "Unbranded skincare bottles on lilac pedestals",
+        img: "/images/photo-brands.webp",
+        alt: "A collection of violet skincare bottles",
         name: "For skincare brands",
         h2a: "See how your products",
         h2em: "perform in real care.",

@@ -1,28 +1,23 @@
-# Image slots
+# Images
 
-Only **two** places on the site are meant to hold photography. The hero stays
-100% graphic (the SkinPrint) — no skin photo, not even a subtle underlay.
+All homepage photography is real, licensed photography. No AI-generated images
+are used on the site.
 
-Until a file is dropped here, each place shows a light, on-brand placeholder
-frame (a reserved media slot, not a broken box). Use only **licensed/consented**
-photography. No AI-generated skin, faces, or clinical imagery, and no stock that
-implies real patients or before/after results.
+| File | Used by | Source | Licence |
+| --- | --- | --- | --- |
+| `photo-hero.webp` | Hero (`components/home/LuxHero.tsx`) — AI mesh is drawn in code over it | Unsplash, photo `3TLl_97HNJo` | Unsplash Licence (free commercial use, no attribution required) |
+| `photo-derm.webp` | veyderm Pro feature (`components/home/LuxSections.tsx`) | Adobe Stock #630884606, "Dermatologist touching woman face examining skin in modern cosmetology clinic" | Adobe Stock standard licence, licensed to the owner's Adobe account on 2026-10-13 |
+| `photo-sena.webp` | Sena feature | Unsplash, photo `w1an547rkxo` | Unsplash Licence |
+| `photo-brands.webp` | Brands feature, and the product thumbnail in the hero recommendation card | Unsplash, photo `OXYOFT9gTOE` | Unsplash Licence |
 
-| File | Used by | Suggested |
-| --- | --- | --- |
-| `consultation.jpg` | veyderm Professional — `PhotoSlot` in `components/home/ProWorld.tsx` | A genuine dermatologist / consultation moment, landscape ~1200×960, sRGB |
-| `product-1.jpg`, `product-2.jpg`, `product-3.jpg` | Verified Shelf — `PhotoSlot` row in `components/home/Brands.tsx` | Real product packshots on white, portrait ~900×1200, sRGB |
+Unsplash Licence: https://unsplash.com/license — Unsplash+ (paid) images were
+excluded. Products in `photo-brands.webp` are unbranded.
 
-## Activating a slot
+## Replacing a photo
 
-The placeholders are pure CSS/SVG (no `<img>` is requested yet, so there are no
-404s). When you have a licensed file, replace that `PhotoSlot` with a
-`next/image`, e.g.:
+Use a **new file name** when swapping an image (e.g. `photo-hero-2.webp`):
+Next.js caches optimised images by URL, so reusing a name can keep serving the
+old picture. If you replace the hero portrait, the AI mesh landmarks in
+`LuxHero.tsx` (`P`) must be re-registered to the new face.
 
-```tsx
-import Image from "next/image";
-<Image src="/images/consultation.jpg" alt="Dermatologist reviewing a treatment plan"
-       width={1200} height={960} className="vphoto-live" />
-```
-
-Recommended: optimized JP/WebP, sRGB, no text baked in.
+Recommended: WebP, sRGB, ≤1600px wide, no text baked in.

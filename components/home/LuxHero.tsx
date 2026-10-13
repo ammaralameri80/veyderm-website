@@ -4,31 +4,50 @@ import { homeContent } from "@/lib/content";
 const H = homeContent.lux.hero;
 const CTA = homeContent.hero;
 
-// Glowing nodes of the AI mesh painted into the portrait (as % of the
-// 960×1280 image). Drawn again in code so they can twinkle.
-const NODES = [
-  [63.3, 19.0], [71.9, 25.8], [74.2, 33.4], [67.7, 38.0], [77.9, 40.6],
-  [74.8, 42.8], [71.9, 45.3], [74.6, 47.4], [65.1, 49.4], [61.8, 52.2],
-] as const;
+// AI analysis mesh registered to the portrait's facial landmarks, in a
+// 100×125 space that matches the photo's 4:5 frame.
+const P: Record<string, [number, number]> = {
+  fh: [56.0, 34.0], tl: [44.6, 42.4], tr: [69.1, 41.4],
+  nb: [57.8, 50.0], nt: [58.3, 60.0],
+  cl: [49.3, 55.5], cl2: [47.5, 62.2], cr: [66.8, 56.1], cr2: [68.2, 62.7],
+  jl: [49.8, 70.6], jr: [67.0, 70.6], ch: [58.8, 76.2],
+};
+const EDGES: [string, string][] = [
+  ["fh", "tl"], ["fh", "tr"], ["fh", "nb"], ["tl", "cl"], ["tr", "cr"], ["nb", "cl"], ["nb", "cr"],
+  ["nb", "nt"], ["cl", "nt"], ["cr", "nt"], ["cl", "cl2"], ["cr", "cr2"], ["cl2", "jl"], ["cr2", "jr"],
+  ["nt", "cl2"], ["nt", "cr2"], ["jl", "ch"], ["jr", "ch"], ["nt", "ch"],
+];
 
 export function LuxHero() {
   return (
     <section className="lx-hero" id="platform">
-      <div className="lx-hero-art" aria-hidden="false">
-        <Image
-          src="/images/lux-hero.webp"
-          alt="A woman in profile with a fine glowing AI analysis mesh across her cheek"
-          fill
-          priority
-          sizes="(max-width: 960px) 100vw, 46vw"
-          style={{ objectFit: "cover", objectPosition: "50% 0%" }}
-        />
-        <span className="lx-scan" aria-hidden="true"><i /></span>
-        <span className="lx-nodes" aria-hidden="true">
-          {NODES.map(([x, y], i) => (
-            <i key={i} style={{ left: `${x}%`, top: `${y}%`, animationDelay: `${(i * 0.37) % 2.4}s` }} />
-          ))}
-        </span>
+      <div className="lx-hero-art">
+        <div className="lx-hero-frame">
+          <Image
+            src="/images/photo-hero.webp"
+            alt="Portrait of a woman lit in violet light, with an AI skin analysis mesh across her face"
+            fill
+            priority
+            sizes="(max-width: 960px) 100vw, 52vw"
+            style={{ objectFit: "cover", objectPosition: "50% 0%" }}
+          />
+          <svg className="lx-mesh" viewBox="0 0 100 125" aria-hidden="true">
+            <defs>
+              <radialGradient id="lx-node">
+                <stop offset="0" stopColor="#fff" />
+                <stop offset=".45" stopColor="#D9CCFF" stopOpacity=".9" />
+                <stop offset="1" stopColor="#B7A4FF" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            {EDGES.map(([a, b], i) => (
+              <line key={i} className="lx-edge" x1={P[a][0]} y1={P[a][1]} x2={P[b][0]} y2={P[b][1]} pathLength={1} style={{ animationDelay: `${0.6 + i * 0.05}s` }} />
+            ))}
+            {Object.values(P).map(([x, y], i) => (
+              <circle key={i} className="lx-node" cx={x} cy={y} r="1.6" fill="url(#lx-node)" style={{ animationDelay: `${(i * 0.31) % 2.4}s` }} />
+            ))}
+          </svg>
+          <span className="lx-scan" aria-hidden="true"><i /></span>
+        </div>
 
         <div className="lx-glass lx-rec" aria-hidden="true">
           <span className="lx-rec-img" />
@@ -42,7 +61,6 @@ export function LuxHero() {
           <span className="lx-scan-ic" />
           <span><b>{H.scan.t}</b><small>{H.scan.s}</small></span>
         </div>
-        <p className="lx-cap">{H.caption}</p>
       </div>
 
       <div className="lx-wrap lx-hero-copy">
