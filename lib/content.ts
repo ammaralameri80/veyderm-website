@@ -429,7 +429,7 @@ export const homeContent = {
     features: [
       {
         id: "pro",
-        img: "/images/photo-derm.webp",
+        img: "/images/photo-derm-2.webp",
         alt: "A dermatologist examining a patient's skin in a bright modern clinic",
         name: "veyderm Pro",
         h2a: "The clinical portal",
@@ -455,7 +455,7 @@ export const homeContent = {
       },
       {
         id: "brands",
-        img: "/images/photo-brands.webp",
+        img: "/images/photo-brands-2.webp",
         alt: "A collection of violet skincare bottles",
         name: "For skincare brands",
         h2a: "See how your products",

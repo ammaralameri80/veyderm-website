@@ -865,7 +865,7 @@ nav{height:76px}
 .lx-scan i{position:absolute;left:0;right:0;top:-12%;height:10%;background:linear-gradient(180deg,transparent,rgba(214,200,255,.75),transparent)}
 .lx-nodes i{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:radial-gradient(circle,#fff 0 30%,rgba(190,170,255,.8) 45%,transparent 70%);mix-blend-mode:screen}
 .lx-rec{position:absolute;top:9%;right:6%;display:flex;gap:var(--s-3);align-items:center;padding:var(--s-3);padding-right:var(--s-5);max-width:300px}
-.lx-rec-img{flex:none;width:58px;height:58px;border-radius:14px;background:#F2ECF7 url("/images/photo-brands.webp") 22% 70%/240% no-repeat}
+.lx-rec-img{flex:none;width:58px;height:58px;border-radius:14px;background:#F2ECF7 url("/images/photo-brands-2.webp") 22% 70%/240% no-repeat}
 .lx-rec-tx b{margin:2px 0 4px}
 .lx-ev{display:inline-block;font-size:11px;font-weight:600;color:#1B6E45;background:#E4F4EA;border-radius:999px;padding:2px 8px}
 .lx-scanchip{position:absolute;left:14%;top:58%;display:flex;align-items:center;gap:var(--s-3);padding:var(--s-3) var(--s-5) var(--s-3) var(--s-3)}
@@ -1001,7 +1001,7 @@ nav{height:76px}
 .lx-scan{left:38%;top:24%;width:40%;height:42%}
 .lx-nodes{display:none}
 .lx-rec{top:12%;right:5%}
-.lx-rec-img{background:#EEE8F7 url("/images/photo-brands.webp") 50% 58%/180% no-repeat}
+.lx-rec-img{background:#EEE8F7 url("/images/photo-brands-2.webp") 50% 58%/180% no-repeat}
 .lx-scanchip{left:10%;top:56%}
 .lx-cap{display:none}
 
@@ -1015,3 +1015,6 @@ nav{height:76px}
   .lx-hero-art{width:100%;-webkit-mask-image:none;mask-image:none}
   .lx-scanchip{left:var(--s-3);top:auto;bottom:var(--s-10)}
 }
+
+/* Image upgrade pass: opaque header so content never shows through */
+header{background:#FBF8FB}
