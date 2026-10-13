@@ -41,23 +41,8 @@ function Spark() {
 
 /** The floating glass cards that sit on each feature photo. */
 function Overlay({ id }: { id: string }) {
-  if (id === "pro") {
-    return (
-      <>
-        <div className="lx-glass lx-ov o1">
-          <small className="lx-ov-k">veyderm Pro</small>
-          <div className="lx-row">
-            <span className="lx-av">LH</span>
-            <span><b>Lana H.</b><small>Draft plan ready</small></span>
-            <span className="lx-chipbtn">Review</span>
-          </div>
-        </div>
-        <div className="lx-glass lx-ov o2">
-          <span className="lx-okdot" /><span><b>Safety check passed</b><small>Retinoids excluded: pregnancy planned</small></span>
-        </div>
-      </>
-    );
-  }
+  // The Pro photo already shows the portal on the phone, so it needs no cards.
+  if (id === "pro") return null;
   if (id === "sena") {
     return (
       <>
@@ -96,7 +81,7 @@ export function LuxFeatures() {
           {L.features.map((f, i) => (
             <article className={`lx-feature${i % 2 ? " rev" : ""}`} id={f.id === "brands" ? "brands" : f.id} key={f.id}>
               <div className="lx-photo">
-                <Image src={f.img} alt={f.alt} fill sizes="(max-width: 960px) 100vw, 46vw" style={{ objectFit: "cover", objectPosition: f.id === "pro" ? "50% 30%" : f.id === "brands" ? "50% 60%" : "60% 40%" }} />
+                <Image src={f.img} alt={f.alt} fill sizes="(max-width: 960px) 100vw, 46vw" style={{ objectFit: "cover", objectPosition: f.id === "pro" ? "50% 30%" : f.id === "brands" ? "50% 60%" : "50% 40%" }} />
                 <div aria-hidden="true"><Overlay id={f.id} /></div>
               </div>
               <div className="lx-copy">

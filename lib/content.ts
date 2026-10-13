@@ -429,8 +429,8 @@ export const homeContent = {
     features: [
       {
         id: "pro",
-        img: "/images/photo-pro-3.webp",
-        alt: "A dermatologist in a white coat holding a magnifying glass up to the camera",
+        img: "/images/photo-pro-4.webp",
+        alt: "A dermatologist holding up a phone showing a patient plan in veyderm Pro",
         name: "veyderm Pro",
         h2a: "The clinical portal",
         h2em: "for dermatologists.",
@@ -442,8 +442,8 @@ export const homeContent = {
       },
       {
         id: "sena",
-        img: "/images/photo-sena-3.webp",
-        alt: "A woman checking her phone at night, her face lit by the screen",
+        img: "/images/photo-sena-ai.webp",
+        alt: "A glossy violet humanoid AI face, representing Sena",
         name: "Sena",
         h2a: "An AI agent that",
         h2em: "looks after your skin.",

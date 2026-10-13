@@ -1021,3 +1021,9 @@ header{background:#FBF8FB}
 
 /* Sena photo on phones: keep the face clear */
 @media(max-width:640px){#sena .lx-ov.o1{top:auto;bottom:var(--s-3)}#sena .lx-ov.o2{display:none}}
+
+/* Sena AI portrait: keep both cards off the face */
+@media(min-width:641px){
+  #sena .lx-ov.o1{top:auto;bottom:7%}
+  #sena .lx-ov.o2{bottom:auto;top:9%}
+}
