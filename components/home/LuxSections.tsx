@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ProStage, SenaStage, BrandStage } from "./LuxProduct";
 import { homeContent } from "@/lib/content";
 
 const L = homeContent.lux;
@@ -24,63 +24,26 @@ export function LuxTrust() {
   );
 }
 
-function Spark() {
-  return (
-    <svg className="lx-spark" viewBox="0 0 160 44" aria-hidden="true">
-      <defs>
-        <linearGradient id="lx-sf" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#8B7CFF" stopOpacity=".3" />
-          <stop offset="1" stopColor="#8B7CFF" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <path d="M0 38 L18 34 L34 36 L52 27 L70 29 L88 21 L106 23 L124 13 L142 10 L160 3 L160 44 L0 44Z" fill="url(#lx-sf)" />
-      <path className="lx-spark-l" pathLength={1} d="M0 38 L18 34 L34 36 L52 27 L70 29 L88 21 L106 23 L124 13 L142 10 L160 3" />
-    </svg>
-  );
-}
-
-/** The floating glass cards that sit on each feature photo. */
+/** One floating glass note per stage: a fact the screen itself doesn't show. */
 function Overlay({ id }: { id: string }) {
   if (id === "pro") {
     return (
-      <>
-        <div className="lx-glass lx-ov o1">
-          <small className="lx-ov-k">veyderm Pro</small>
-          <div className="lx-row">
-            <span className="lx-av">LH</span>
-            <span><b>Lana H.</b><small>Draft plan ready</small></span>
-            <span className="lx-chipbtn">Review</span>
-          </div>
-        </div>
-        <div className="lx-glass lx-ov o2">
-          <span className="lx-okdot" /><span><b>Safety check passed</b><small>Retinoids excluded: pregnancy planned</small></span>
-        </div>
-      </>
+      <div className="lx-glass lx-ov o2">
+        <span className="lx-okdot" /><span><b>Plan signed in 40 seconds</b><small>Sent to Lana&rsquo;s Sena app</small></span>
+      </div>
     );
   }
   if (id === "sena") {
     return (
-      <>
-        <div className="lx-glass lx-ov o1">
-          <div className="lx-row"><span className="lx-orb" /><span><b>Sena</b><small>AI skin agent</small></span></div>
-          <p className="lx-bubble">Your routine is approved. Start tonight with azelaic acid.</p>
-        </div>
-        <div className="lx-glass lx-ov o2">
-          <span className="lx-pin" /><span><b>3 dermatologists near you</b><small>Book in the chat</small></span>
-        </div>
-      </>
+      <div className="lx-glass lx-ov o2">
+        <span className="lx-lang" lang="ar">ع</span><span><b>Arabic and English</b><small>Online, and in the clinic</small></span>
+      </div>
     );
   }
   return (
-    <>
-      <div className="lx-glass lx-ov o1">
-        <div className="lx-row lx-between"><span><b>Brand insights</b><small>Azelaic serum 20%</small></span><span className="lx-up">+18%</span></div>
-        <Spark />
-      </div>
-      <div className="lx-glass lx-ov o2">
-        <span className="lx-rank">#1</span><span><b>For melasma</b><small>of 14 products this month</small></span>
-      </div>
-    </>
+    <div className="lx-glass lx-ov o2">
+      <span className="lx-okdot" /><span><b>Fully anonymised</b><small>No patient is ever identifiable</small></span>
+    </div>
   );
 }
 
@@ -96,7 +59,7 @@ export function LuxFeatures() {
           {L.features.map((f, i) => (
             <article className={`lx-feature${i % 2 ? " rev" : ""}`} id={f.id === "brands" ? "brands" : f.id} key={f.id}>
               <div className="lx-photo">
-                <Image src={f.img} alt={f.alt} fill sizes="(max-width: 960px) 100vw, 46vw" style={{ objectFit: "cover", objectPosition: "50% 50%" }} />
+                {f.id === "pro" ? <ProStage /> : f.id === "sena" ? <SenaStage /> : <BrandStage />}
                 <div aria-hidden="true"><Overlay id={f.id} /></div>
               </div>
               <div className="lx-copy">
