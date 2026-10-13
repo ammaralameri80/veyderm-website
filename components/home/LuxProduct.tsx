@@ -109,56 +109,93 @@ export function SenaStage() {
   );
 }
 
-export function BrandStage() {
-  // a gently rising 12-week trend
-  const pts = [38, 41, 39, 46, 44, 52, 55, 53, 61, 64, 70, 76];
-  const w = 300, h = 96;
-  const xy = pts.map((v, i) => [Math.round((i / (pts.length - 1)) * w), Math.round(h - (v / 84) * h)] as const);
-  const line = xy.map(([x, y], i) => `${i ? "L" : "M"}${x} ${y}`).join(" ");
-  const area = `${line} L${w} ${h} L0 ${h}Z`;
-  const bars = [
-    { n: "Melasma", v: 46 },
-    { n: "Post-acne marks", v: 31 },
-    { n: "Uneven tone", v: 23 },
-  ];
+function Spark() {
   return (
-    <div className="lx-stage st-brand" role="img" aria-label="veyderm brand insights for Azelaic serum 20%: ranked number 1 of 14 for melasma, prescriptions up 18% this month, 82% of patients still using it after 8 weeks.">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9z" />
+      <path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z" opacity=".7" />
+    </svg>
+  );
+}
+
+/**
+ * Brands: ask veyderm AI a question in plain language; it answers from
+ * anonymised prescriptions, shows what dermatologists switched from, and
+ * flags signals it spotted. Figures are illustrative.
+ */
+export function BrandStage() {
+  // "What it replaced": a small flow (Sankey) from previous products into the serum.
+  const src = [
+    { n: "Hydroquinone 4%", v: 148, c: "#5B4FE0" },
+    { n: "Tretinoin 0.05%", v: 96, c: "#8E80F0" },
+    { n: "Vitamin C serum", v: 61, c: "#BDB2F7" },
+  ];
+  const total = src.reduce((a, b) => a + b.v, 0);
+  const H = 104, gap = 7, top = 8;
+  const k = (H - gap * (src.length - 1)) / total;
+  const x0 = 80, x1 = 86, x2 = 262, x3 = 268;
+  let ly = top, ry = top + gap; // right node is centred against the stack
+  const bands = src.map((d) => {
+    const h = d.v * k;
+    const l0 = ly, l1 = ly + h, r0 = ry, r1 = ry + h;
+    ly += h + gap; ry += h;
+    const m = (x1 + x2) / 2;
+    return {
+      ...d, l0, l1,
+      path: `M${x1} ${l0} C${m} ${l0} ${m} ${r0} ${x2} ${r0} L${x2} ${r1} C${m} ${r1} ${m} ${l1} ${x1} ${l1} Z`,
+    };
+  });
+  const rTop = top + gap, rBot = ry;
+  return (
+    <div className="lx-stage st-brand" role="img" aria-label="veyderm brand insights: a brand asks why its azelaic serum grew in Dubai, veyderm AI answers from anonymised prescriptions, shows which products dermatologists switched from, and flags a rising opportunity and an early drop-off.">
       <div className="ui ui-win brand-win" aria-hidden="true">
         <div className="ui-bar">
           <span className="ui-brand"><Mark />Brand insights</span>
-          <span className="ui-seg"><span>4 wks</span><span className="on">12 wks</span><span>1 yr</span></span>
+          <span className="brand-tag"><span className="prod sm" />Azelaic serum 20%</span>
         </div>
         <div className="brand-body">
-          <p className="brand-prod"><span className="prod sm" /><span><b>Azelaic serum 20%</b><small>All UAE clinics on veyderm</small></span></p>
-          <div className="kpis">
-            <div className="kpi"><small>Rank for melasma</small><b>#1<em>of 14</em></b></div>
-            <div className="kpi"><small>Prescriptions</small><b>+18%<em className="up">this month</em></b></div>
-            <div className="kpi"><small>Still using at 8 wks</small><b>82%<em>adherence</em></b></div>
+          <div className="ask">
+            <span className="ask-ic"><Spark /></span>
+            <span className="ask-q">Why did our serum grow in Dubai this summer?</span>
+            <span className="ask-k">Ask</span>
           </div>
-          <div className="chart">
-            <p className="ui-h">Weekly prescriptions<span>12 weeks</span></p>
-            <svg viewBox={`0 0 ${w} ${h + 2}`} preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="brand-fill" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" stopColor="#7C6CF2" stopOpacity=".28" />
-                  <stop offset="1" stopColor="#7C6CF2" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              {[0.25, 0.5, 0.75].map((g) => <line key={g} x1="0" x2={w} y1={h * g} y2={h * g} className="grid" />)}
-              <path d={area} fill="url(#brand-fill)" />
-              <path d={line} className="trend" pathLength={1} />
-              <circle cx={xy[xy.length - 1][0]} cy={xy[xy.length - 1][1]} r="3.6" className="dot" />
+          <div className="ans">
+            <span className="ui-orb sm" />
+            <div>
+              <p>
+                Dubai dermatologists prescribed it <mark>18% more</mark> since June, mostly as a
+                pregnancy-safe switch from hydroquinone. <mark>3 in 4</mark> switches cite pregnancy
+                plans or sensitive skin.
+              </p>
+              <span className="src">From 1,240 anonymised plans across 38 clinics</span>
+            </div>
+          </div>
+          <div className="flow">
+            <p className="ui-h">What it replaced<span>{total} switches, 12 weeks</span></p>
+            <svg viewBox="0 0 320 124">
+              {bands.map((b) => (
+                <path key={b.n} d={b.path} fill={b.c} opacity=".34" />
+              ))}
+              {bands.map((b) => (
+                <g key={b.n + "l"}>
+                  <rect x={x0} y={b.l0} width={x1 - x0} height={b.l1 - b.l0} rx="2" fill={b.c} />
+                  <text x={x0 - 6} y={(b.l0 + b.l1) / 2 - 1} textAnchor="end" className="fl-n">{b.n}</text>
+                  <text x={x0 - 6} y={(b.l0 + b.l1) / 2 + 9} textAnchor="end" className="fl-v">{b.v}</text>
+                </g>
+              ))}
+              <rect x={x2} y={rTop} width={x3 - x2} height={rBot - rTop} rx="2" fill="#1C1722" />
+              <text x={x3 + 6} y={(rTop + rBot) / 2 - 2} className="fl-n strong">Your</text>
+              <text x={x3 + 6} y={(rTop + rBot) / 2 + 9} className="fl-n strong">serum</text>
             </svg>
           </div>
-          <div className="bars">
-            <p className="ui-h">Prescribed for<span>share of scripts</span></p>
-            {bars.map((b) => (
-              <div className="bar" key={b.n}>
-                <span>{b.n}</span>
-                <span className="track"><i style={{ width: `${b.v * 2}%` }} /></span>
-                <b>{b.v}%</b>
-              </div>
-            ))}
+          <p className="ui-h">Signals veyderm AI spotted</p>
+          <div className="sig">
+            <span className="sig-ic up">↗</span>
+            <span><b>Post-acne marks rising in teens, Sharjah</b><small>+24% in 6 weeks. Few products are prescribed for it yet.</small></span>
+          </div>
+          <div className="sig">
+            <span className="sig-ic warn">!</span>
+            <span><b>Patients drop off at week 6</b><small>They mention stinging. A starter strength could keep them.</small></span>
           </div>
         </div>
       </div>

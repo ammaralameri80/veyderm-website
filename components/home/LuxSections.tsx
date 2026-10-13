@@ -40,11 +40,8 @@ function Overlay({ id }: { id: string }) {
       </div>
     );
   }
-  return (
-    <div className="lx-glass lx-ov o2">
-      <span className="lx-okdot" /><span><b>Fully anonymised</b><small>No patient is ever identifiable</small></span>
-    </div>
-  );
+  // Brands: the screen already states its source, so no extra note.
+  return null;
 }
 
 export function LuxFeatures() {
