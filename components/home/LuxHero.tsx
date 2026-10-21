@@ -47,6 +47,18 @@ export function LuxHero() {
             ))}
           </svg>
           <span className="lx-scan" aria-hidden="true"><i /></span>
+
+          <div className="lx-pins" aria-hidden="true">
+            {H.pins.map((p, i) => (
+              <span
+                key={p.label}
+                className="lx-pin-chip"
+                style={{ left: `${p.x}%`, top: `${p.y}%`, animationDelay: `${1 + i * 0.18}s` }}
+              >
+                {p.label}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="lx-glass lx-rec" aria-hidden="true">

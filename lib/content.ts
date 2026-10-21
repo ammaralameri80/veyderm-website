@@ -415,6 +415,13 @@ export const homeContent = {
       progress: { t: "Skin progress", v: "+18%", d: "since last visit", n: "Lana H." },
       rec: { k: "Recommended by your dermatologist", n: "Azelaic serum 20%", s: "Strong evidence" },
       scan: { t: "AI skin analysis", s: "SkinPrint ready" },
+      // Metrics pinned to the face mesh — they show, at a glance, what SkinPrint reads.
+      // x / y are percentages of the 4:5 portrait frame, placed on facial landmarks.
+      pins: [
+        { label: "Pigmentation", x: 67, y: 36 },
+        { label: "Texture", x: 45, y: 51 },
+        { label: "Hydration 72%", x: 64, y: 61 },
+      ],
     },
     trust: [
       { t: "Every plan signed by a dermatologist", ic: "sign" },
@@ -462,6 +469,105 @@ export const homeContent = {
       },
     ],
     guard: { h2a: "AI prepares.", h2em: "Dermatologists decide." },
+    // Interactive Sena on the home page Sena row. Every reply is pre-written and
+    // clinically conservative: the visitor steers, Sena never free-generates advice.
+    senaLive: {
+      name: "Sena",
+      status: {
+        idle: "Online",
+        listening: "Thinking…",
+        analysing: "Analysing your skin…",
+        review: "Draft with a dermatologist",
+        approved: "Plan approved",
+      },
+      greeting: "Hi, I'm Sena. Tell me what's bothering your skin, or pick one:",
+      placeholder: "Describe your skin, in English or Arabic…",
+      send: "Send",
+      feelQuestion: "Got it. One more thing: how does your skin usually feel by midday?",
+      feelFallback: "I'll assume combination for now, your dermatologist can adjust it.",
+      fallback: "I can help with dark spots, breakouts, dryness, redness or fine lines. Which is closest?",
+      redFlag: "That's something a dermatologist should look at in person, soon, rather than a routine from me. I can book you into a verified clinic nearby.",
+      redFlagCta: "Find a clinic near me",
+      analysing: "Thanks. Give me a moment to look at this properly.",
+      sent: "I've drafted a routine and sent it to a dermatologist. Nothing starts until they've signed it.",
+      restart: "Ask about something else",
+      caption: "Illustrative demo. Sena gives AI guidance, not a diagnosis.",
+      doctor: "Approved by Dr. Sara M., dermatologist",
+      pending: "Waiting for dermatologist review",
+      signals: {
+        climate: "Climate: UV index 11, Dubai, high humidity",
+        safety: "Safety check: no conflicting actives",
+      },
+      printLabels: ["Pigmentation", "Hydration", "Texture", "Barrier"],
+      feels: [
+        { id: "oily", chip: "Oily", say: "It gets oily by midday.", moisturiser: "Light gel moisturiser" },
+        { id: "dry", chip: "Dry", say: "It feels dry and tight.", moisturiser: "Ceramide cream" },
+        { id: "combo", chip: "Combination", say: "Oily T-zone, dry cheeks.", moisturiser: "Gel-cream moisturiser" },
+        { id: "sensitive", chip: "Sensitive", say: "It reacts to most products.", moisturiser: "Fragrance-free barrier cream" },
+      ],
+      concerns: [
+        {
+          id: "spots",
+          chip: "Dark spots",
+          say: "My skin gets darker spots every summer.",
+          pattern: "Pattern: sun-triggered pigmentation on the cheeks",
+          print: [72, 58, 40, 62],
+          explain: "That pattern usually tracks UV and heat, which is why summer makes it worse here. Daily protection does most of the work; a gentle brightening active does the rest.",
+          routine: [
+            { time: "AM", n: "Broad-spectrum SPF 50", ev: "Strong evidence" },
+            { time: "PM", n: "Azelaic acid 10%", ev: "Strong evidence" },
+          ],
+        },
+        {
+          id: "acne",
+          chip: "Breakouts",
+          say: "I keep getting breakouts that come back.",
+          pattern: "Pattern: recurring comedonal breakouts",
+          print: [35, 48, 70, 50],
+          explain: "Heat and humidity keep pores busy, so the aim is to keep them clear without stripping the skin. Consistency matters more than strength.",
+          routine: [
+            { time: "PM", n: "Salicylic acid 2% cleanser", ev: "Strong evidence" },
+            { time: "AM", n: "Oil-free SPF 50", ev: "Strong evidence" },
+          ],
+        },
+        {
+          id: "dry",
+          chip: "Dryness",
+          say: "My skin feels dry and tight after cleansing.",
+          pattern: "Pattern: barrier dryness, worse with air conditioning",
+          print: [20, 28, 45, 38],
+          explain: "Indoor air conditioning pulls water out of the skin all day. The fix is a gentler cleanse and rebuilding the barrier rather than adding more actives.",
+          routine: [
+            { time: "AM", n: "Hyaluronic acid serum", ev: "Moderate evidence" },
+            { time: "AM", n: "Broad-spectrum SPF 50", ev: "Strong evidence" },
+          ],
+        },
+        {
+          id: "red",
+          chip: "Redness",
+          say: "My face gets red and flares up in the heat.",
+          pattern: "Pattern: heat-triggered flushing with a sensitive barrier",
+          print: [30, 50, 35, 32],
+          explain: "Heat is the main trigger here, so the routine is deliberately short: calm the skin, protect it, and avoid anything that stings.",
+          routine: [
+            { time: "AM", n: "Mineral SPF 50, fragrance-free", ev: "Strong evidence" },
+            { time: "PM", n: "Azelaic acid 10%", ev: "Strong evidence" },
+          ],
+        },
+        {
+          id: "lines",
+          chip: "Fine lines",
+          say: "Fine lines are starting to show.",
+          pattern: "Pattern: early photo-ageing around the eyes",
+          print: [40, 44, 66, 58],
+          explain: "Most early lines here are sun-driven, so protection comes first. A low-strength retinoid a few nights a week is the best-evidenced step after that.",
+          routine: [
+            { time: "AM", n: "Broad-spectrum SPF 50", ev: "Strong evidence" },
+            { time: "PM", n: "Retinal 0.05%, 3 nights a week", ev: "Strong evidence" },
+          ],
+        },
+      ],
+    },
   },
   // Scripted, illustrative Sena conversation used by the hero and /sena.
   chat: {

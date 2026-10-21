@@ -1,4 +1,5 @@
-import { ProStage, SenaStage, BrandStage } from "./LuxProduct";
+import { ProStage, BrandStage } from "./LuxProduct";
+import { SenaLive } from "./SenaLive";
 import { homeContent } from "@/lib/content";
 
 const L = homeContent.lux;
@@ -55,10 +56,14 @@ export function LuxFeatures() {
         <div className="lx-features">
           {L.features.map((f, i) => (
             <article className={`lx-feature${i % 2 ? " rev" : ""}`} id={f.id === "brands" ? "brands" : f.id} key={f.id}>
-              <div className="lx-photo">
-                {f.id === "pro" ? <ProStage /> : f.id === "sena" ? <SenaStage /> : <BrandStage />}
-                <div aria-hidden="true"><Overlay id={f.id} /></div>
-              </div>
+              {f.id === "sena" ? (
+                <div className="lx-chat-media"><SenaLive /></div>
+              ) : (
+                <div className="lx-photo">
+                  {f.id === "pro" ? <ProStage /> : <BrandStage />}
+                  <div aria-hidden="true"><Overlay id={f.id} /></div>
+                </div>
+              )}
               <div className="lx-copy">
                 <p className="lx-kicker">{f.name}</p>
                 <h2>{f.h2a} <em>{f.h2em}</em></h2>

@@ -1,6 +1,5 @@
 import { headers } from "next/headers";
 import { HeaderLogo } from "./Logo";
-import { MobileMenu } from "./MobileMenu";
 import { homeContent } from "@/lib/content";
 
 export async function SiteHeader() {
@@ -24,7 +23,6 @@ export async function SiteHeader() {
           </div>
           <div className="nav-right">
             <a className="btn btn-dark nav-cta" href="/#access" data-cta="header">{t.cta}</a>
-            <MobileMenu />
           </div>
         </nav>
       </div>
