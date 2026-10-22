@@ -1,0 +1,52 @@
+import {
+  ShieldCheck,
+  Lock,
+  Check,
+  Info,
+  Stethoscope,
+  MessagesSquare,
+  Building2,
+  BadgeCheck,
+  Sun,
+  PackageCheck,
+  ArrowDown,
+  ArrowUpRight,
+  Sparkles,
+  Camera,
+  Globe,
+  BookOpen,
+  Target,
+  Briefcase,
+  ShoppingCart,
+  type LucideProps,
+} from "lucide-react";
+
+const MAP = {
+  shield: ShieldCheck,
+  lock: Lock,
+  check: Check,
+  info: Info,
+  stethoscope: Stethoscope,
+  message: MessagesSquare,
+  building: Building2,
+  badge: BadgeCheck,
+  sun: Sun,
+  package: PackageCheck,
+  "arrow-down": ArrowDown,
+  "arrow-up-right": ArrowUpRight,
+  sparkles: Sparkles,
+  camera: Camera,
+  globe: Globe,
+  book: BookOpen,
+  target: Target,
+  briefcase: Briefcase,
+  cart: ShoppingCart,
+} as const;
+
+export type IconName = keyof typeof MAP;
+
+/** Single-stroke lucide icons, 1.5px, inheriting color from the parent. */
+export function Icon({ name, ...props }: { name: IconName } & LucideProps) {
+  const C = MAP[name];
+  return <C strokeWidth={1.5} absoluteStrokeWidth {...props} />;
+}
