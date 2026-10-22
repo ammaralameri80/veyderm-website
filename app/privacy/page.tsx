@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Nav } from "@/components/ui/Nav";
+import { Footer } from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -26,7 +28,9 @@ function DraftNote() {
 
 export default function PrivacyPage() {
   return (
-    <section className="sec legal">
+    <>
+      <Nav />
+      <main className="sec legal" id="top">
       <div className="wrap">
         <DraftNote />
         <h1>Privacy Policy</h1>
@@ -116,6 +120,8 @@ export default function PrivacyPage() {
 
         <a className="back" href="/">← Back to home</a>
       </div>
-    </section>
+      </main>
+      <Footer />
+    </>
   );
 }

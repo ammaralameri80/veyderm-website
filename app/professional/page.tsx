@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/SiteHeader";
-import { ProWorld } from "@/components/home/ProWorld";
-import { SafetyStatement } from "@/components/home/SafetyStatement";
-import { Faq } from "@/components/Faq";
-import { CtaForm } from "@/components/CtaForm";
-import { SiteFooter } from "@/components/SiteFooter";
-import { proFaq } from "@/lib/content";
+import { Nav } from "@/components/ui/Nav";
+import { Footer } from "@/components/ui/Footer";
+import { PageHero, FeatureGrid, Closer } from "@/components/ui/PageParts";
+import { Section } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
+import { DeviceFrame, ProScreen } from "@/components/home/Screens";
+import { PRO_PAGE } from "@/lib/site";
 
-const title = "veyderm Professional — prescribe with precision";
-const description =
-  "veyderm Professional turns each patient into a SkinPrint and a Tailored Plan — Evidence Match, SafeCheck and one-click ordering. AI prepares; the dermatologist reviews, adjusts and signs.";
+const title = "veyderm Pro — the professional platform for dermatologists";
+const description = "AI prepares every consultation. veyderm Pro drafts treatment plans, matches authorized products, and carries secure patient communication. You stay in control.";
 
 export const metadata: Metadata = {
   title,
@@ -22,14 +21,22 @@ export const metadata: Metadata = {
 export default function ProfessionalPage() {
   return (
     <>
-      <SiteHeader />
-      <main id="top">
-        <ProWorld />
-        <SafetyStatement />
-        <Faq items={proFaq} tag="Common questions" title="For dermatology teams." />
-        <CtaForm lang="en" />
+      <Nav />
+      <main>
+        <PageHero kicker={PRO_PAGE.kicker} heading={PRO_PAGE.h1} sub={PRO_PAGE.sub} />
+        <Section tight>
+          <Reveal>
+            <div style={{ maxWidth: 760, marginInline: "auto" }}>
+              <DeviceFrame><ProScreen /></DeviceFrame>
+            </div>
+          </Reveal>
+        </Section>
+        <Section tight>
+          <FeatureGrid items={PRO_PAGE.features} icons={["sparkles", "package", "message", "sun"]} />
+        </Section>
+        <Closer heading="Bring AI-prepared consultations to your clinic." cta={PRO_PAGE.cta} />
       </main>
-      <SiteFooter />
+      <Footer />
     </>
   );
 }

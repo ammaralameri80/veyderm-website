@@ -9,8 +9,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const entries: MetadataRoute.Sitemap = [
     { url: siteUrl, lastModified, changeFrequency: "weekly", priority: 1, alternates: languages ? { languages } : undefined },
-    { url: `${siteUrl}/pro`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteUrl}/professional`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/sena`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteUrl}/brands`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteUrl}/company`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/privacy`, lastModified, changeFrequency: "yearly", priority: 0.3 },
     { url: `${siteUrl}/terms`, lastModified, changeFrequency: "yearly", priority: 0.3 },
   ];

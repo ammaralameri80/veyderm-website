@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SenaWorld } from "@/components/home/SenaWorld";
-import { SafetyStatement } from "@/components/home/SafetyStatement";
-import { Faq } from "@/components/Faq";
-import { CtaForm } from "@/components/CtaForm";
-import { SiteFooter } from "@/components/SiteFooter";
-import { senaFaq } from "@/lib/content";
+import { Nav } from "@/components/ui/Nav";
+import { Footer } from "@/components/ui/Footer";
+import { PageHero, FeatureGrid, Closer } from "@/components/ui/PageParts";
+import { Section } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
+import { SenaChat } from "@/components/home/SenaChat";
+import { SENA_PAGE } from "@/lib/site";
 
-const title = "Sena — your skin, finally understood";
-const description =
-  "Sena is veyderm's AI skin assistant. Chat, share a photo or video, get your SkinPrint, see your options, and book a dermatologist. Sena provides AI guidance, not a medical diagnosis.";
+const title = "Sena — your AI skin companion";
+const description = "Sena is the AI agent that looks after your skin — on WhatsApp and in store. Share a photo, get an analysis, and receive a plan approved by a licensed dermatologist. Guidance, not a medical diagnosis.";
 
 export const metadata: Metadata = {
   title,
@@ -22,14 +21,21 @@ export const metadata: Metadata = {
 export default function SenaPage() {
   return (
     <>
-      <SiteHeader />
-      <main id="top">
-        <SenaWorld />
-        <SafetyStatement />
-        <Faq items={senaFaq} tag="Common questions" title="Good to know." />
-        <CtaForm lang="en" />
+      <Nav />
+      <main>
+        <PageHero kicker={SENA_PAGE.kicker} heading={SENA_PAGE.h1} sub={SENA_PAGE.sub} />
+        <Section tight>
+          <Reveal>
+            <SenaChat />
+            <p className="demo-caption">Illustrative demo. {SENA_PAGE.disclaimer}</p>
+          </Reveal>
+        </Section>
+        <Section tight>
+          <FeatureGrid items={SENA_PAGE.features} icons={["globe", "camera", "badge"]} />
+        </Section>
+        <Closer heading="Your skin, finally understood." cta={SENA_PAGE.cta} />
       </main>
-      <SiteFooter />
+      <Footer />
     </>
   );
 }

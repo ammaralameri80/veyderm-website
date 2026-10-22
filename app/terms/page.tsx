@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Nav } from "@/components/ui/Nav";
+import { Footer } from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
@@ -25,7 +27,9 @@ function DraftNote() {
 
 export default function TermsPage() {
   return (
-    <section className="sec legal">
+    <>
+      <Nav />
+      <main className="sec legal" id="top">
       <div className="wrap">
         <DraftNote />
         <h1>Terms of Use</h1>
@@ -100,6 +104,8 @@ export default function TermsPage() {
 
         <a className="back" href="/">← Back to home</a>
       </div>
-    </section>
+      </main>
+      <Footer />
+    </>
   );
 }
