@@ -119,7 +119,7 @@ export function Hero() {
         </div>
 
         <div className="scan" role="img" aria-label="An AI skin analysis scanning a patient's face in real time">
-          <Image src="/images/people-hero.jpg" alt="" fill priority sizes="(max-width: 920px) 90vw, 46vw" />
+          <Image src="/images/hero-portrait.jpg" alt="" fill priority sizes="(max-width: 920px) 90vw, 46vw" />
           <span className="scan-ring" aria-hidden="true" />
           <svg className="scan-mesh" viewBox="0 0 100 125" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
             {EDGES.map(([a, b], i) => (
