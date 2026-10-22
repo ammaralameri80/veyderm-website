@@ -36,7 +36,7 @@ export function Hero() {
         </div>
 
         <div className="scan" role="img" aria-label="An AI skin analysis of a patient, with a recommended plan and skin-progress reading.">
-          <Image src="/images/hero-portrait-3.jpg" alt="" fill priority sizes="(max-width: 920px) 90vw, 46vw" />
+          <Image src="/images/hero-ai.png" alt="" fill priority sizes="(max-width: 920px) 90vw, 46vw" />
           <span className="scan-ring" aria-hidden="true" />
           <span className="scan-beam" aria-hidden="true" />
 
