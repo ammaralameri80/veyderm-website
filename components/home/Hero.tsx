@@ -6,16 +6,14 @@ import { useReducedMotion } from "framer-motion";
 import { Button, TextLink } from "@/components/ui/Button";
 import { HOME } from "@/lib/site";
 
-// Stylised facial-landmark mesh in a 100×125 space over the portrait.
-const P: Record<string, [number, number]> = {
-  fh: [52, 26], tl: [40, 36], tr: [64, 36], nb: [52, 46], nt: [52, 58],
-  cl: [42, 50], cl2: [41, 60], cr: [63, 50], cr2: [64, 60],
-  jl: [43, 70], jr: [63, 70], ch: [52, 80],
-};
-const EDGES: [string, string][] = [
-  ["fh", "tl"], ["fh", "tr"], ["fh", "nb"], ["tl", "cl"], ["tr", "cr"], ["nb", "cl"], ["nb", "cr"],
-  ["nb", "nt"], ["cl", "nt"], ["cr", "nt"], ["cl", "cl2"], ["cr", "cr2"], ["cl2", "jl"], ["cr2", "jr"],
-  ["nt", "cl2"], ["nt", "cr2"], ["jl", "ch"], ["jr", "ch"], ["nt", "ch"],
+// Analysis points on skin zones (100×125 space over the portrait).
+const DOTS: [number, number][] = [
+  [50, 27], [40, 52], [61, 52], [50, 47], [50, 68], [44, 44], [57, 44],
+];
+// Callout lines from a zone to a data chip at the frame edge.
+const LEADS: [number, number, number, number][] = [
+  [50, 27, 17, 15], // forehead → Hydration chip (top-left)
+  [61, 52, 86, 49], // cheek → Pigmentation chip (right)
 ];
 
 const READOUTS = [{ from: 68, to: 74 }];
@@ -58,11 +56,15 @@ export function Hero() {
           <Image src="/images/hero-portrait-3.jpg" alt="" fill priority sizes="(max-width: 920px) 90vw, 46vw" />
           <span className="scan-ring" aria-hidden="true" />
           <svg className="scan-mesh" viewBox="0 0 100 125" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-            {EDGES.map(([a, b], i) => (
-              <line key={i} className="scan-edge" x1={P[a][0]} y1={P[a][1]} x2={P[b][0]} y2={P[b][1]} pathLength={1} style={{ animationDelay: `${0.6 + i * 0.04}s` }} />
+            <circle className="scan-reticle" cx="50" cy="48" r="26" pathLength={1} />
+            {LEADS.map(([x1, y1, x2, y2], i) => (
+              <g key={`l${i}`}>
+                <line className="scan-lead" x1={x1} y1={y1} x2={x2} y2={y2} pathLength={1} style={{ animationDelay: `${0.9 + i * 0.25}s` }} />
+                <circle className="scan-lead-end" cx={x2} cy={y2} r="0.7" />
+              </g>
             ))}
-            {Object.values(P).map(([x, y], i) => (
-              <circle key={i} className="scan-node" cx={x} cy={y} r="0.9" style={{ animationDelay: `${(i % 6) * 0.3}s` }} />
+            {DOTS.map(([x, y], i) => (
+              <circle key={i} className="scan-dot" cx={x} cy={y} r="1" style={{ animationDelay: `${i * 0.32}s` }} />
             ))}
           </svg>
           <span className="scan-beam" aria-hidden="true" />

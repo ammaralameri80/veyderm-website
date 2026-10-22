@@ -169,10 +169,17 @@ h4 { font-weight: 700; }
 .scan::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(123, 110, 224, 0.18), transparent 55%); mix-blend-mode: multiply; }
 .scan-ring { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 0 1px rgba(123, 110, 224, 0.25); }
 .scan-mesh { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; }
-.scan-edge { stroke: rgba(123, 110, 224, 0.85); stroke-width: 0.3; fill: none; filter: drop-shadow(0 0 1px rgba(123,110,224,0.6)); stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.3s var(--ease) forwards; }
+/* a slowly rotating focus reticle around the analysis area */
+.scan-reticle { fill: none; stroke: rgba(123, 110, 224, 0.5); stroke-width: 0.22; stroke-dasharray: 2 3.4; transform-box: fill-box; transform-origin: center; opacity: 0; animation: ret-in 1.1s var(--ease) 0.4s forwards, ret-spin 18s linear infinite; }
+@keyframes ret-in { to { opacity: 1; } }
+@keyframes ret-spin { to { transform: rotate(360deg); } }
+/* callout lines from a skin zone to a reading */
+.scan-lead { stroke: rgba(123, 110, 224, 0.75); stroke-width: 0.28; fill: none; filter: drop-shadow(0 0 1px rgba(123, 110, 224, 0.6)); stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1s var(--ease) forwards; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
-.scan-node { fill: #fff; filter: drop-shadow(0 0 2px rgba(123, 110, 224, 0.9)); animation: pulse 2.4s ease-in-out infinite; }
-@keyframes pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+.scan-lead-end { fill: rgba(123, 110, 224, 0.95); }
+/* analysis points on the skin */
+.scan-dot { fill: #fff; filter: drop-shadow(0 0 2.5px rgba(123, 110, 224, 0.95)); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
 .scan-beam { position: absolute; left: 0; right: 0; height: 30%; top: -30%; z-index: 4; pointer-events: none; background: linear-gradient(180deg, transparent, rgba(123, 110, 224, 0.2) 65%, rgba(146, 132, 230, 0.4) 92%, transparent); border-bottom: 1.5px solid rgba(146, 132, 230, 0.9); box-shadow: 0 0 26px rgba(123, 110, 224, 0.5); animation: beam 4.2s cubic-bezier(0.5, 0, 0.5, 1) infinite; }
 @keyframes beam { 0% { top: -30%; } 60%, 100% { top: 100%; } }
 .scan-chip { position: absolute; z-index: 5; display: flex; align-items: center; gap: 9px; padding: 9px 13px; border-radius: 12px; background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: var(--sh-md); font-size: 0.82rem; }
@@ -186,8 +193,8 @@ h4 { font-weight: 700; }
 .scan-tag { position: absolute; top: 16px; left: 16px; z-index: 5; display: inline-flex; align-items: center; gap: 8px; font-size: 0.74rem; font-weight: 700; color: var(--v-700); background: rgba(255, 255, 255, 0.88); padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); box-shadow: var(--sh-sm); }
 .scan-tag .live { width: 7px; height: 7px; border-radius: 999px; background: var(--success); box-shadow: 0 0 8px rgba(28, 154, 107, 0.8); animation: pulse 1.6s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
-  .scan-edge { stroke-dashoffset: 0; animation: none; }
-  .scan-node, .scan-tag .live { animation: none; opacity: 1; }
+  .scan-lead { stroke-dashoffset: 0; animation: none; }
+  .scan-dot, .scan-reticle, .scan-tag .live { animation: none; opacity: 1; transform: none; }
   .scan-beam, .sc-1, .sc-2, .sc-3 { animation: none; }
   .scan-beam { display: none; }
 }
