@@ -23,7 +23,7 @@ export function Nav() {
 
   return (
     <nav className={`nav${scrolled ? " scrolled" : ""}`} aria-label="Main">
-      <div className="wrap nav-in">
+      <div className="wrap"><div className="nav-in">
         <HeaderLogo href="/" />
         <div className="nav-links">
           {NAV.links.map((l) => (
@@ -48,7 +48,7 @@ export function Nav() {
             </svg>
           </button>
         </div>
-      </div>
+      </div></div>
       {open && (
         <div className="nav-sheet">
           <div className="wrap">
