@@ -1,24 +1,20 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/SiteHeader";
-import { LuxHero } from "@/components/home/LuxHero";
-import { LuxTrust, LuxFeatures, LuxGuard } from "@/components/home/LuxSections";
+import { Nav } from "@/components/ui/Nav";
+import { Footer } from "@/components/ui/Footer";
+import { Hero } from "@/components/home/Hero";
+import { ProofBar, Platform, Features, TrustBand, CompanyStrip } from "@/components/home/HomeSections";
 import { CtaForm } from "@/components/CtaForm";
-import { SiteFooter } from "@/components/SiteFooter";
-import { ENABLE_ARABIC } from "@/lib/content";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
 const title = "veyderm — the UAE's first AI platform for dermatology";
 const description =
-  "veyderm turns each patient's skin into a SkinPrint, then builds a Tailored Plan their dermatologist approves. AI prepares; dermatologists decide. Built in the UAE.";
+  "veyderm is the UAE's first AI platform for dermatology. AI prepares every recommendation; a licensed dermatologist approves it. Built in the UAE.";
 
 export const metadata: Metadata = {
   title,
   description,
-  alternates: {
-    canonical: "/",
-    languages: ENABLE_ARABIC ? { en: "/", ar: "/ar", "x-default": "/" } : undefined,
-  },
+  alternates: { canonical: "/" },
   openGraph: { title, description, url: "/" },
   twitter: { title, description },
 };
@@ -44,15 +40,17 @@ export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <SiteHeader />
-      <main id="top" className="lx">
-        <LuxHero />
-        <LuxTrust />
-        <LuxFeatures />
-        <LuxGuard />
+      <Nav />
+      <main>
+        <Hero />
+        <ProofBar />
+        <Platform />
+        <Features />
+        <TrustBand />
+        <CompanyStrip />
         <CtaForm lang="en" />
       </main>
-      <SiteFooter />
+      <Footer />
     </>
   );
 }
