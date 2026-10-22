@@ -24,7 +24,12 @@ export default function CompanyPage() {
     <>
       <Nav />
       <main>
-        <PageHero kicker={COMPANY_PAGE.kicker} heading={COMPANY_PAGE.h1} sub={COMPANY_PAGE.sub} center />
+        <PageHero
+          kicker={COMPANY_PAGE.kicker}
+          heading={COMPANY_PAGE.h1}
+          sub={COMPANY_PAGE.sub}
+          photo={{ src: "/images/page-company.jpg", alt: "A portrait representing veyderm's mission" }}
+        />
         <Section tight>
           <div className="company">
             <Reveal className="company-copy" >

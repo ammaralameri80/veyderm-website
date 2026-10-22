@@ -1,36 +1,48 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
 import { Icon, type IconName } from "./Icon";
 
-/** Shared sub-page hero: kicker + headline (with accent) + sub. */
+/** Shared sub-page hero: kicker + serif headline + sub, beside a photograph.
+ *  Pass `center` (no photo) for pages like /company that lead with a diagram. */
 export function PageHero({
   kicker,
   heading,
   sub,
+  photo,
   center,
   children,
 }: {
   kicker: string;
   heading: string[];
   sub: string;
+  photo?: { src: string; alt: string };
   center?: boolean;
   children?: ReactNode;
 }) {
   const [lead, accent, tail] = heading;
+  const copy = (
+    <Reveal>
+      <span className="kicker">{kicker}</span>
+      <h1 className="display">
+        {lead}
+        {accent && <span className="accent">{accent}</span>}
+        {tail}
+      </h1>
+      <p className="lead">{sub}</p>
+      {children}
+    </Reveal>
+  );
   return (
     <section className={`page-hero${center ? " center" : ""}`} id="top">
-      <div className="wrap">
-        <Reveal>
-          <span className="kicker">{kicker}</span>
-          <h1 className="display">
-            {lead}
-            {accent && <span className="accent">{accent}</span>}
-            {tail}
-          </h1>
-          <p className="lead">{sub}</p>
-          {children}
-        </Reveal>
+      <div className="wrap page-hero-grid">
+        {copy}
+        {photo && (
+          <Reveal className="page-hero-photo" delay={0.08}>
+            <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 860px) 92vw, 46vw" priority />
+          </Reveal>
+        )}
       </div>
     </section>
   );

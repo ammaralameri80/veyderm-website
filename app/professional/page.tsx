@@ -3,8 +3,6 @@ import { Nav } from "@/components/ui/Nav";
 import { Footer } from "@/components/ui/Footer";
 import { PageHero, FeatureGrid, Closer } from "@/components/ui/PageParts";
 import { Section } from "@/components/ui/Section";
-import { Reveal } from "@/components/ui/Reveal";
-import { DeviceFrame, ProScreen } from "@/components/home/Screens";
 import { PRO_PAGE } from "@/lib/site";
 
 const title = "veyderm Pro — the professional platform for dermatologists";
@@ -23,15 +21,13 @@ export default function ProfessionalPage() {
     <>
       <Nav />
       <main>
-        <PageHero kicker={PRO_PAGE.kicker} heading={PRO_PAGE.h1} sub={PRO_PAGE.sub} />
-        <Section tight>
-          <Reveal>
-            <div style={{ maxWidth: 760, marginInline: "auto" }}>
-              <DeviceFrame><ProScreen /></DeviceFrame>
-            </div>
-          </Reveal>
-        </Section>
-        <Section tight>
+        <PageHero
+          kicker={PRO_PAGE.kicker}
+          heading={PRO_PAGE.h1}
+          sub={PRO_PAGE.sub}
+          photo={{ src: "/images/page-pro.jpg", alt: "A dermatologist in consultation" }}
+        />
+        <Section tight className="section--mist">
           <FeatureGrid items={PRO_PAGE.features} icons={["sparkles", "package", "message", "sun"]} />
         </Section>
         <Closer heading="Bring AI-prepared consultations to your clinic." cta={PRO_PAGE.cta} />

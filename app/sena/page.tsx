@@ -3,8 +3,6 @@ import { Nav } from "@/components/ui/Nav";
 import { Footer } from "@/components/ui/Footer";
 import { PageHero, FeatureGrid, Closer } from "@/components/ui/PageParts";
 import { Section } from "@/components/ui/Section";
-import { Reveal } from "@/components/ui/Reveal";
-import { SenaChat } from "@/components/home/SenaChat";
 import { SENA_PAGE } from "@/lib/site";
 
 const title = "Sena — your AI skin companion";
@@ -23,15 +21,15 @@ export default function SenaPage() {
     <>
       <Nav />
       <main>
-        <PageHero kicker={SENA_PAGE.kicker} heading={SENA_PAGE.h1} sub={SENA_PAGE.sub} />
-        <Section tight>
-          <Reveal>
-            <SenaChat />
-            <p className="demo-caption">Illustrative demo. {SENA_PAGE.disclaimer}</p>
-          </Reveal>
-        </Section>
-        <Section tight>
+        <PageHero
+          kicker={SENA_PAGE.kicker}
+          heading={SENA_PAGE.h1}
+          sub={SENA_PAGE.sub}
+          photo={{ src: "/images/page-sena.jpg", alt: "A person caring for their skin at home" }}
+        />
+        <Section tight className="section--mist">
           <FeatureGrid items={SENA_PAGE.features} icons={["globe", "camera", "badge"]} />
+          <p className="feature-caption" style={{ textAlign: "center", marginTop: 28 }}>{SENA_PAGE.disclaimer}</p>
         </Section>
         <Closer heading="Your skin, finally understood." cta={SENA_PAGE.cta} />
       </main>
