@@ -1,18 +1,11 @@
 import type { ReactNode } from "react";
-import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { Button, TextLink } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
+import { DeviceFrame, ProScreen, BrandScreen } from "./Screens";
+import { SenaChat } from "./SenaChat";
 import { HOME } from "@/lib/site";
-
-function FeaturePhoto({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="feature-photo">
-      <Image src={src} alt={alt} fill sizes="(max-width: 860px) 92vw, 46vw" />
-    </div>
-  );
-}
 
 /* ---------------------------------------------------------- Proof bar */
 const PROOF_ICONS: IconName[] = ["badge", "sun", "package"];
@@ -97,7 +90,7 @@ export function Features() {
         heading={pro.h2}
         body={pro.body}
         points={pro.points}
-        media={<FeaturePhoto src="/images/feat-pro.jpg" alt="A dermatologist reviewing a treatment plan with a patient" />}
+        media={<DeviceFrame><ProScreen /></DeviceFrame>}
       >
         <Button href={pro.ctas.primary.href} role={pro.ctas.primary.role} cta="feature_pro" arrow>
           {pro.ctas.primary.label}
@@ -113,7 +106,12 @@ export function Features() {
           body={sena.body}
           points={sena.points}
           reversed
-          media={<FeaturePhoto src="/images/feat-sena.jpg" alt="A person chatting with Sena on their phone at home" />}
+          media={
+            <div>
+              <SenaChat />
+              <p className="demo-caption">{sena.caption}</p>
+            </div>
+          }
         >
           <Button href={sena.ctas.primary.href} role={sena.ctas.primary.role} cta="feature_sena" arrow>
             {sena.ctas.primary.label}
@@ -129,7 +127,7 @@ export function Features() {
           heading={brands.h2}
           body={brands.body}
           points={brands.points}
-          media={<FeaturePhoto src="/images/feat-brands.jpg" alt="Authorized dermatology skincare products" />}
+          media={<DeviceFrame><BrandScreen /></DeviceFrame>}
         >
           <Button href={brands.cta.href} role={brands.cta.role} cta="feature_brands" arrow>
             {brands.cta.label}
