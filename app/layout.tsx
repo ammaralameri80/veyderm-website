@@ -1,18 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, IBM_Plex_Sans_Arabic, Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
+import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { content, isLang, type Lang } from "@/lib/content";
 
-// Self-hosted at build time (no external runtime font requests).
-// Geist carries the whole site — marketing and product UI alike — so the
-// page and the AI product read as one system. Geist Mono is for model output.
-// Luxury beauty-tech type: Plus Jakarta Sans carries the voice; Instrument
-// Serif italic is reserved for the accent phrase in each headline.
+// Exactly two families, self-hosted at build time (no runtime font requests).
+// Plus Jakarta Sans carries the whole site — UI, headings, body. Instrument
+// Serif (italic) is reserved for the accent phrase inside a headline.
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "800"],
   variable: "--font-jakarta",
   display: "swap",
 });
@@ -25,35 +23,14 @@ const instrument = Instrument_Serif({
   display: "swap",
 });
 
-const geist = Geist({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-geist",
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-geist-mono",
-  display: "swap",
-});
-
-const plexArabic = IBM_Plex_Sans_Arabic({
-  subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-plex-arabic",
-  display: "swap",
-});
-
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com";
 // Only the production canonical should be indexable — preview / dev domains stay
 // noindex so the review environment is never indexed.
 const isProduction = siteUrl.replace(/\/$/, "") === "https://www.veyderm.com";
 
-const title = "veyderm — the intelligence layer for dermatology";
+const title = "veyderm — the UAE's first AI platform for dermatology";
 const description =
-  "veyderm turns each patient's skin into a SkinPrint, then builds a Tailored Plan their dermatologist approves. AI prepares; dermatologists decide. Built in the UAE.";
+  "veyderm is the UAE's first AI platform for dermatology. AI prepares every recommendation; a licensed dermatologist approves it. Built in the UAE.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -88,7 +65,7 @@ export const metadata: Metadata = {
     description,
     url: siteUrl,
     locale: "en_US",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "veyderm — the intelligence layer for dermatology." }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "veyderm — the UAE's first AI platform for dermatology." }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/og-image.png"] },
   category: "health",
@@ -98,7 +75,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#FFFFFF",
+  themeColor: "#FBFAFF",
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -108,11 +85,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const dir = content[lang].dir;
 
   return (
-    <html
-      lang={content[lang].htmlLang}
-      dir={dir}
-      className={`${jakarta.variable} ${instrument.variable} ${geist.variable} ${geistMono.variable} ${plexArabic.variable}`}
-    >
+    <html lang={content[lang].htmlLang} dir={dir} className={`${jakarta.variable} ${instrument.variable}`}>
       <body>
         <a className="skip" href="#top">Skip to content</a>
         {children}
