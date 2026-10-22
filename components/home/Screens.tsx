@@ -65,57 +65,50 @@ export function ProScreen() {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [seen, reduce]);
 
-  const today = [
-    { t: "09:30", n: "Omar K.", c: "Acne", s: "Signed", k: "done" as const },
-    { t: "10:30", n: "Lana H.", c: "Melasma", s: "Draft ready", k: "draft" as const, on: true },
-    { t: "11:15", n: "Mira S.", c: "Rosacea", s: "Draft ready", k: "draft" as const },
-  ];
   const plan = [
-    { n: "Azelaic acid 20%", d: "Twice daily, 12 weeks", e: "Strong" },
+    { n: "Azelaic acid 20%", d: "Twice daily · 12 weeks", e: "Strong" },
     { n: "Tranexamic acid 5%", d: "Evenings", e: "Strong" },
-    { n: "Mineral SPF 50+", d: "Outdoors", e: "Essential" },
+    { n: "Mineral SPF 50+", d: "Daily, outdoors", e: "Essential" },
   ];
 
   return (
     <div ref={ref} className="win pro-win" role="img" aria-label="veyderm Pro: an AI-drafted plan for Lana H. that passes the safety check and is approved, then sent to the patient's Sena.">
       <div className="win-bar" aria-hidden="true">
-        <span className="win-brand"><span className="win-mark">v</span>veyderm <b>Pro</b></span>
+        <span className="win-brand"><span className="win-mark">v</span>veyderm&nbsp;<b>Pro</b></span>
         <span className="win-tag">Today · 3 patients</span>
       </div>
-      <div className="pro-body" aria-hidden="true">
-        <div className="pro-col">
-          <p className="col-h">Schedule <span>Dubai clinic</span></p>
-          {today.map((r) => (
-            <div className={`pro-pt${r.on ? " on" : ""}`} key={r.n}>
-              <span className="pt-av">{r.n.split(" ").map((w) => w[0]).join("")}</span>
-              <span><b>{r.n}</b><small>{r.t} · {r.c}</small></span>
-              <span className={`tag tag-${r.k} st`}>{r.s}</span>
-            </div>
-          ))}
+      <div className="pro-single" aria-hidden="true">
+        <div className="pro-pt">
+          <span className="pt-av">LH</span>
+          <span className="pro-pt-tx"><b>Lana H., 29</b><small>Melasma · skin type IV · 10:30</small></span>
+          <span className="tag tag-draft">Draft ready</span>
         </div>
-        <div className="pro-col">
-          <p className="col-h">AI draft plan <span>Lana H. · type IV</span></p>
+
+        <p className="col-h">AI-drafted plan <span>ranked by evidence</span></p>
+        <div className="plan-list">
           {plan.map((p, i) => (
-            <div className="plan-item" key={p.n} style={{ opacity: beat >= 1 ? 1 : 0, transition: "opacity .4s", transitionDelay: `${i * 90}ms` }}>
+            <div className="plan-item" key={p.n} style={{ opacity: beat >= 1 ? 1 : 0, transform: beat >= 1 ? "none" : "translateY(6px)", transition: "opacity .45s var(--ease), transform .45s var(--ease)", transitionDelay: `${i * 100}ms` }}>
               <span className="plan-num">{i + 1}</span>
-              <span><b>{p.n}</b><small>{p.d}</small></span>
+              <span className="plan-main"><b>{p.n}</b><small>{p.d}</small></span>
               <span className="tag tag-ev">{p.e}</span>
             </div>
           ))}
-          <div className="pro-safe" style={{ opacity: beat >= 2 ? 1 : 0, transform: beat >= 2 ? "none" : "translateY(6px)", transition: "opacity .4s, transform .4s" }}>
-            <span className="ok"><Check /></span>
-            <span><b>Safety check passed</b><small>Retinoids excluded · pregnancy planned</small></span>
-          </div>
-          <div className="pro-approve">
-            {beat >= 3 ? (
-              <span className="approved"><Check /> Approved · sent to Sena</span>
-            ) : (
-              <>
-                <span className="ui-btn ghost">Edit</span>
-                <span className="ui-btn dark">Review &amp; sign</span>
-              </>
-            )}
-          </div>
+        </div>
+
+        <div className="pro-safe" style={{ opacity: beat >= 2 ? 1 : 0, transform: beat >= 2 ? "none" : "translateY(6px)", transition: "opacity .45s var(--ease), transform .45s var(--ease)" }}>
+          <span className="ok"><Check /></span>
+          <span className="pro-safe-tx"><b>Safety check passed</b><small>Retinoids excluded — pregnancy planned</small></span>
+        </div>
+
+        <div className="pro-foot">
+          {beat >= 3 ? (
+            <span className="pro-approved"><span className="ok sm"><Check /></span>Plan approved — sent to Sena</span>
+          ) : (
+            <>
+              <span className="ui-btn ghost">Edit</span>
+              <span className="ui-btn dark">Review &amp; sign</span>
+            </>
+          )}
         </div>
       </div>
     </div>
