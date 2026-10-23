@@ -25,7 +25,7 @@ export default function BrandsPage() {
           kicker={BRANDS_PAGE.kicker}
           heading={BRANDS_PAGE.h1}
           sub={BRANDS_PAGE.sub}
-          photo={{ src: "/images/page-brands.jpg", alt: "Skincare brand representatives" }}
+          print
         />
         <Section tight className="section--mist">
           <FeatureGrid items={BRANDS_PAGE.features} icons={["book", "target", "briefcase", "cart"]} />

@@ -28,7 +28,7 @@ export default function CompanyPage() {
           kicker={COMPANY_PAGE.kicker}
           heading={COMPANY_PAGE.h1}
           sub={COMPANY_PAGE.sub}
-          photo={{ src: "/images/page-company.jpg", alt: "A portrait representing veyderm's mission" }}
+          print
         />
         <Section tight>
           <div className="company">

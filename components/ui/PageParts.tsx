@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
 import { Icon, type IconName } from "./Icon";
+import { SkinPrint } from "@/components/home/SkinPrint";
 
 /** Shared sub-page hero: kicker + serif headline + sub, beside a photograph.
  *  Pass `center` (no photo) for pages like /company that lead with a diagram. */
@@ -11,6 +12,7 @@ export function PageHero({
   heading,
   sub,
   photo,
+  print,
   center,
   children,
 }: {
@@ -18,6 +20,8 @@ export function PageHero({
   heading: string[];
   sub: string;
   photo?: { src: string; alt: string };
+  /** lead with the SkinPrint contour instead of a photograph */
+  print?: boolean;
   center?: boolean;
   children?: ReactNode;
 }) {
@@ -38,7 +42,12 @@ export function PageHero({
     <section className={`page-hero${center ? " center" : ""}`} id="top">
       <div className="wrap page-hero-grid">
         {copy}
-        {photo && (
+        {print && (
+          <Reveal className="page-hero-photo page-hero-print" delay={0.08}>
+            <SkinPrint />
+          </Reveal>
+        )}
+        {photo && !print && (
           <Reveal className="page-hero-photo" delay={0.08}>
             <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 860px) 92vw, 46vw" priority />
           </Reveal>

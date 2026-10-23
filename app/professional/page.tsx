@@ -25,7 +25,7 @@ export default function ProfessionalPage() {
           kicker={PRO_PAGE.kicker}
           heading={PRO_PAGE.h1}
           sub={PRO_PAGE.sub}
-          photo={{ src: "/images/page-pro.jpg", alt: "A dermatologist in consultation" }}
+          print
         />
         <Section tight className="section--mist">
           <FeatureGrid items={PRO_PAGE.features} icons={["sparkles", "package", "message", "sun"]} />
