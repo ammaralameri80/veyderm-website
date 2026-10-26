@@ -1,21 +1,15 @@
-import { Button, TextLink } from "@/components/ui/Button";
-import { SkinPrint } from "./SkinPrint";
 import Image from "next/image";
+import { Button, TextLink } from "@/components/ui/Button";
+import { AiReading } from "./AiReading";
 import { HOME } from "@/lib/site";
 
-function Check() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12.5l4.5 4.5L19 7.5" />
-    </svg>
-  );
-}
-
+/** Centered headline, then the product at work: a real consultation with the
+ *  AI's reading streaming over it. Pattern: Product Demo + Features. */
 export function Hero() {
   const [h1a, h1em, h1b] = HOME.hero.h1;
   return (
     <header className="hero" id="top">
-      <div className="wrap hero-grid">
+      <div className="wrap">
         <div className="hero-copy">
           <span className="kicker">{HOME.hero.kicker}</span>
           <h1 className="display">
@@ -34,19 +28,16 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="portrait" role="img" aria-label="A studio portrait of a woman with healthy skin, overlaid with a SkinPrint: the AI's reading of her skin as contour lines, approved by a licensed dermatologist.">
-          <div className="portrait-frame">
-            <Image src="/images/portrait-studio-front.webp" alt="" fill priority sizes="(max-width: 920px) 92vw, 46vw" />
-            <SkinPrint className="portrait-print" />
-          </div>
-          <div className="print-note pn-a" aria-hidden="true">
-            <small>Hydration</small>
-            <b>74<span>%</span></b>
-          </div>
-          <div className="print-note pn-b" aria-hidden="true">
-            <span className="ok"><Check /></span>
-            <span><b>Plan approved</b><small>Dr. Noor · licensed dermatologist</small></span>
-          </div>
+        <div className="stage" role="img" aria-label="A dermatologist examines a patient's cheek in a bright clinic while veyderm's AI streams its reading: analysis, a drafted plan, a passed safety check, and the dermatologist's approval.">
+          <Image src="/images/clinic-consult.webp" alt="" fill priority sizes="(max-width: 1248px) 100vw, 1200px" className="stage-img" />
+          <div className="stage-shade" />
+          <span className="illustrative">Illustrative</span>
+          <AiReading />
+          <ul className="stage-chips" aria-hidden="true">
+            {HOME.proof.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </header>

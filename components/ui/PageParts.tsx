@@ -19,7 +19,7 @@ export function PageHero({
   kicker: string;
   heading: string[];
   sub: string;
-  photo?: { src: string; alt: string };
+  photo?: { src: string; alt: string; position?: string };
   /** lead with the SkinPrint contour instead of a photograph */
   print?: boolean;
   center?: boolean;
@@ -49,7 +49,7 @@ export function PageHero({
         )}
         {photo && !print && (
           <Reveal className="page-hero-photo" delay={0.08}>
-            <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 860px) 92vw, 46vw" priority />
+            <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 860px) 92vw, 46vw" priority style={{ objectPosition: photo.position ?? "50% 20%" }} />
           </Reveal>
         )}
       </div>
