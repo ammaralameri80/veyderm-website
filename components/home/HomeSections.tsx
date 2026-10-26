@@ -108,7 +108,7 @@ export function Features() {
           reversed
           media={
             <div>
-              <SenaChat />
+              <DeviceFrame label="Live demo"><SenaChat /></DeviceFrame>
               <p className="demo-caption">{sena.caption}</p>
             </div>
           }

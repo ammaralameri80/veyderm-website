@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { useReducedMotion } from "framer-motion";
 
-/** Clean device frame: a soft violet stage with an "Illustrative" badge. */
+/** Clean device frame: a soft violet stage with a small badge. */
 export function DeviceFrame({ children, label }: { children: ReactNode; label?: string }) {
   return (
     <div className="device">
@@ -45,71 +44,77 @@ function Check() {
   );
 }
 
+function Shield() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6z" />
+      <path d="M9 12l2 2 4-4" />
+    </svg>
+  );
+}
+
+const ROSTER = [
+  { t: "09:30", n: "Omar K.", c: "Acne", s: "Signed", tag: "tag-done" },
+  { t: "10:30", n: "Lana H.", c: "Melasma", s: "Draft ready", tag: "tag-draft", on: true },
+  { t: "11:15", n: "Mira S.", c: "Rosacea", s: "Draft ready", tag: "tag-draft" },
+  { t: "12:00", n: "Yousef A.", c: "Eczema", s: "Intake", tag: "tag-ev" },
+  { t: "14:30", n: "Huda R.", c: "Acne", s: "Intake", tag: "tag-ev" },
+];
+
+const PLAN = [
+  { n: "Azelaic acid 20%", d: "Twice daily · 12 weeks", e: "Strong" },
+  { n: "Tranexamic acid 5%", d: "Evenings", e: "Strong" },
+  { n: "Mineral SPF 50+", d: "Every 2 hours outdoors", e: "Essential" },
+];
+
 /**
- * veyderm Pro — three beats: the AI draft appears, the safety check ticks,
- * then the plan is approved. Runs once on view; reduced motion shows the end.
+ * veyderm Pro — a clinician's day: the patient roster on the left, the
+ * selected patient's AI-drafted plan on the right, and the moment it's signed.
+ * Illustrative; fictional patients.
  */
 export function ProScreen() {
-  const reduce = useReducedMotion();
   const { ref, seen } = useInViewOnce<HTMLDivElement>();
-  // Start at beat 0 on both server and client to avoid a hydration mismatch;
-  // reduced motion jumps to the final beat after mount.
-  const [beat, setBeat] = useState(0);
-
-  useEffect(() => {
-    if (reduce) { setBeat(3); return; }
-    if (!seen) return;
-    const t1 = setTimeout(() => setBeat(1), 500);
-    const t2 = setTimeout(() => setBeat(2), 1500);
-    const t3 = setTimeout(() => setBeat(3), 2500);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-  }, [seen, reduce]);
-
-  const plan = [
-    { n: "Azelaic acid 20%", d: "Twice daily · 12 weeks", e: "Strong" },
-    { n: "Tranexamic acid 5%", d: "Evenings", e: "Strong" },
-    { n: "Mineral SPF 50+", d: "Daily, outdoors", e: "Essential" },
-  ];
-
   return (
-    <div ref={ref} className="win pro-win" role="img" aria-label="veyderm Pro: an AI-drafted plan for Lana H. that passes the safety check and is approved, then sent to the patient's Sena.">
-      <div className="win-bar" aria-hidden="true">
-        <span className="win-brand"><span className="win-mark">v</span>veyderm&nbsp;<b>Pro</b></span>
-        <span className="win-tag">Today · 3 patients</span>
-      </div>
-      <div className="pro-single" aria-hidden="true">
-        <div className="pro-pt">
-          <span className="pt-av">LH</span>
-          <span className="pro-pt-tx"><b>Lana H., 29</b><small>Melasma · skin type IV · 10:30</small></span>
-          <span className="tag tag-draft">Draft ready</span>
+    <div className="proportal" ref={ref} role="img" aria-label="The veyderm Pro console: today's patient roster beside Lana H.'s AI-drafted, safety-checked plan, signed and sent to her Sena in forty seconds. Illustrative.">
+      <div className="pp-grid" aria-hidden="true">
+        <div className="pp-list">
+          <div className="pp-list-h">Today<span>5 patients</span></div>
+          <ul>
+            {ROSTER.map((p) => (
+              <li key={p.n} className={p.on ? "on" : undefined}>
+                <time>{p.t}</time>
+                <div className="pp-who"><b>{p.n}</b><small>{p.c}</small></div>
+                <span className={`tag ${p.tag}`}>{p.s}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        <p className="col-h">AI-drafted plan <span>ranked by evidence</span></p>
-        <div className="plan-list">
-          {plan.map((p, i) => (
-            <div className="plan-item" key={p.n} style={{ opacity: beat >= 1 ? 1 : 0, transform: beat >= 1 ? "none" : "translateY(6px)", transition: "opacity .45s var(--ease), transform .45s var(--ease)", transitionDelay: `${i * 100}ms` }}>
+        <div className="pp-main">
+          <div className="pp-pt">
+            <span className="pt-av">LH</span>
+            <span className="pro-pt-tx"><b>Lana H., 29</b><small>Melasma · skin type IV · visit 10:30</small></span>
+          </div>
+          <p className="col-h">AI draft plan <span>ranked by evidence</span></p>
+          {PLAN.map((p, i) => (
+            <div className="plan-item" key={p.n}>
               <span className="plan-num">{i + 1}</span>
               <span className="plan-main"><b>{p.n}</b><small>{p.d}</small></span>
               <span className="tag tag-ev">{p.e}</span>
             </div>
           ))}
+          <div className="pp-safe">
+            <span className="ok"><Check /></span>
+            <span className="pro-safe-tx"><b>Safety check passed</b><small>Retinoids excluded — pregnancy planned</small></span>
+          </div>
+          <div className="pp-foot">
+            <span className="ui-btn ghost">Edit plan</span>
+            <span className="ui-btn dark">Review &amp; sign</span>
+          </div>
         </div>
-
-        <div className="pro-safe" style={{ opacity: beat >= 2 ? 1 : 0, transform: beat >= 2 ? "none" : "translateY(6px)", transition: "opacity .45s var(--ease), transform .45s var(--ease)" }}>
-          <span className="ok"><Check /></span>
-          <span className="pro-safe-tx"><b>Safety check passed</b><small>Retinoids excluded — pregnancy planned</small></span>
-        </div>
-
-        <div className="pro-foot">
-          {beat >= 3 ? (
-            <span className="pro-approved"><span className="ok sm"><Check /></span>Plan approved — sent to Sena</span>
-          ) : (
-            <>
-              <span className="ui-btn ghost">Edit</span>
-              <span className="ui-btn dark">Review &amp; sign</span>
-            </>
-          )}
-        </div>
+      </div>
+      <div className={`pp-float${seen ? " in" : ""}`} aria-hidden="true">
+        <span className="ppf-ic"><Shield /></span>
+        <span><b>Plan signed in 40 seconds</b><small>Sent to Lana&rsquo;s Sena app</small></span>
       </div>
     </div>
   );

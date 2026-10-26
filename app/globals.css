@@ -187,8 +187,8 @@ h4 { font-weight: 700; }
 .feature { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 80px); align-items: center; }
 .feature + .feature { margin-top: clamp(72px, 9vw, 120px); }
 .feature.rev .feature-media { order: 2; }
-.feature-media { position: relative; }
-.feature-copy { max-width: 42ch; }
+.feature-media { position: relative; min-width: 0; }
+.feature-copy { max-width: 42ch; min-width: 0; }
 .feature-copy .kicker { margin-bottom: 16px; }
 .feature-copy h2 { margin-bottom: 16px; }
 .feature-copy .feature-p { color: var(--ink-soft); font-size: 1.06rem; margin-bottom: 24px; }
@@ -323,8 +323,9 @@ h4 { font-weight: 700; }
 /* =========================================================================
    Product screens
    ========================================================================= */
-.device { position: relative; }
-.device-stage { position: relative; border-radius: var(--r-stage); background: linear-gradient(160deg, #f5f3fc, #e9e5f6); padding: clamp(22px, 3.4vw, 44px); }
+.device { position: relative; min-width: 0; }
+.proportal, .senachat, .win, .phone { min-width: 0; }
+.device-stage { position: relative; min-width: 0; border-radius: var(--r-stage); background: linear-gradient(160deg, #f5f3fc, #e9e5f6); padding: clamp(22px, 3.4vw, 44px); }
 .illustrative { position: absolute; top: 14px; right: 16px; z-index: 6; font-size: 0.7rem; font-weight: 600; color: var(--ink-soft); padding: 4px 10px; border-radius: 999px; background: #fff; border: 1px solid var(--line); }
 .win { position: relative; container-type: inline-size; background: #fff; border-radius: 18px; box-shadow: 0 1px 2px rgba(21, 18, 31, 0.05), 0 22px 50px rgba(60, 50, 120, 0.14); overflow: hidden; border: 1px solid var(--line); }
 .win-bar { display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
@@ -410,3 +411,59 @@ h4 { font-weight: 700; }
 .phone-input { margin: 0 14px 16px; padding: 11px 14px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--line); color: var(--ink-faint); font-size: 0.82rem; }
 @media (prefers-reduced-motion: reduce) { .typing i { animation: none; } }
 .demo-caption { margin-top: 14px; text-align: center; font-size: 0.8rem; color: var(--ink-faint); }
+
+/* ---- veyderm Pro console (roster + plan + signed) ---- */
+.proportal { position: relative; container-type: inline-size; padding-bottom: 14px; }
+.pp-grid { display: grid; grid-template-columns: 0.62fr 1fr; background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: 0 1px 2px rgba(21, 18, 31, 0.05), 0 22px 50px rgba(60, 50, 120, 0.14); }
+.pp-list { border-right: 1px solid var(--line); background: var(--bg-2); padding: 14px 12px; min-width: 0; }
+.pp-list-h { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: 0.8rem; padding: 2px 6px 12px; }
+.pp-list-h span { color: var(--ink-faint); font-weight: 500; font-size: 0.74rem; }
+.pp-list ul { display: grid; gap: 2px; }
+.pp-list li { display: grid; gap: 1px; padding: 9px 10px; border-radius: 12px; }
+.pp-list li.on { background: #fff; box-shadow: var(--sh-sm); }
+.pp-list time { font-size: 0.72rem; color: var(--ink-faint); font-weight: 600; }
+.pp-who { min-width: 0; }
+.pp-who b { display: block; font-size: 0.85rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pp-who small { display: block; color: var(--ink-soft); font-size: 0.74rem; }
+.pp-list .tag { justify-self: start; margin-top: 5px; padding: 3px 9px; font-size: 0.64rem; }
+.pp-main { padding: clamp(13px, 2.4cqi, 18px); min-width: 0; }
+.pp-main .plan-item .tag { font-size: 0.66rem; padding: 3px 8px; }
+.pp-main .plan-main b { font-size: 0.88rem; }
+.pp-pt { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.pp-main .col-h { margin: 14px 2px 6px; }
+.pp-safe { display: flex; align-items: center; gap: 11px; margin-top: 14px; padding: 11px 12px; border-radius: 12px; background: rgba(28, 154, 107, 0.08); }
+.pp-safe .ok { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; background: var(--success); color: #fff; flex: none; }
+.pp-safe .ok svg { width: 14px; height: 14px; }
+.pp-foot { display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px; }
+.pp-float { position: absolute; left: 50%; bottom: -26px; transform: translate(-50%, 12px); display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; box-shadow: var(--sh-lg); opacity: 0; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); white-space: nowrap; }
+.pp-float.in { opacity: 1; transform: translate(-50%, 0); }
+.ppf-ic { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--success); color: #fff; flex: none; }
+.ppf-ic svg { width: 18px; height: 18px; }
+.pp-float b { display: block; font-size: 0.88rem; }
+.pp-float small { color: var(--ink-faint); font-size: 0.76rem; }
+@media (prefers-reduced-motion: reduce) { .pp-float { opacity: 1; transform: translateX(-50%); transition: none; } }
+@container (max-width: 430px) { .pp-grid { grid-template-columns: 1fr; } .pp-list { display: none; } }
+@media (max-width: 560px) { .pp-float { position: static; transform: none; margin: 14px auto 0; width: max-content; max-width: 100%; } .pp-float.in { transform: none; } }
+
+/* ---- Sena chat card ---- */
+.senachat { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: 0 1px 2px rgba(21, 18, 31, 0.05), 0 22px 50px rgba(60, 50, 120, 0.14); min-height: 440px; }
+.sc-top { display: flex; align-items: center; gap: 11px; padding: 15px 18px; border-bottom: 1px solid var(--line); }
+.sc-id { flex: 1; min-width: 0; }
+.sc-id b { display: block; font-size: 0.95rem; }
+.sc-id small { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); font-size: 0.76rem; }
+.sc-lang { font-size: 0.72rem; font-weight: 600; color: var(--v-700); background: var(--v-50); border: 1px solid var(--v-100); padding: 5px 10px; border-radius: 999px; }
+.sc-body { flex: 1; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.sc-msg { max-width: 88%; padding: 11px 14px; font-size: 0.9rem; line-height: 1.5; border-radius: 16px; }
+.sc-msg.sena { align-self: flex-start; background: var(--bg-2); border-bottom-left-radius: 5px; }
+.sc-msg.me { align-self: flex-end; background: var(--v-500); color: #fff; border-bottom-right-radius: 5px; }
+.sc-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.sc-chips li { font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); background: #fff; border: 1px solid var(--line-strong); padding: 7px 14px; border-radius: 999px; transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease); }
+.sc-chips li.on { color: var(--v-700); border-color: var(--v-300); background: var(--v-50); }
+.sc-reply { display: grid; gap: 10px; }
+.sc-approve { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: var(--success); }
+.sc-approve .ok { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 999px; background: var(--success); color: #fff; flex: none; }
+.sc-approve .ok svg { width: 11px; height: 11px; }
+.sc-input { display: flex; align-items: center; gap: 12px; margin: 0 14px 14px; padding: 10px 10px 10px 16px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-faint); font-size: 0.86rem; }
+.sc-input span:first-child { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sc-send { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 999px; background: var(--v-500); color: #fff; flex: none; }
+.sc-send svg { width: 16px; height: 16px; }
