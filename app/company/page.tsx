@@ -28,7 +28,7 @@ export default function CompanyPage() {
           kicker={COMPANY_PAGE.kicker}
           heading={COMPANY_PAGE.h1}
           sub={COMPANY_PAGE.sub}
-          photo={{ src: "/images/portrait-studio-side.webp", alt: "A woman with calm, healthy skin in soft studio light", position: "50% 36%" }}
+          photo={{ src: "/images/portrait-studio-side.webp", alt: "A woman with calm, healthy skin in soft studio light", position: "50% 16%" }}
         />
         <Section tight>
           <div className="company">
