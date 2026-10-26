@@ -25,7 +25,7 @@ export default function SenaPage() {
           kicker={SENA_PAGE.kicker}
           heading={SENA_PAGE.h1}
           sub={SENA_PAGE.sub}
-          print
+          photo={{ src: "/images/portrait-studio-side.webp", alt: "A woman with calm, healthy skin in soft studio light" }}
         />
         <Section tight className="section--mist">
           <FeatureGrid items={SENA_PAGE.features} icons={["globe", "camera", "badge"]} />

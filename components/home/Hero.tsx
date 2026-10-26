@@ -1,5 +1,6 @@
 import { Button, TextLink } from "@/components/ui/Button";
 import { SkinPrint } from "./SkinPrint";
+import Image from "next/image";
 import { HOME } from "@/lib/site";
 
 function Check() {
@@ -16,7 +17,7 @@ export function Hero() {
     <header className="hero" id="top">
       <div className="wrap hero-grid">
         <div className="hero-copy">
-          <span className="kicker">SkinPrint · a live reading</span>
+          <span className="kicker">{HOME.hero.kicker}</span>
           <h1 className="display">
             {h1a}
             <span className="accent">{h1em}</span>
@@ -33,8 +34,11 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="print-stage" role="img" aria-label="A SkinPrint: an AI reading of a patient's skin, rendered as living contour lines and approved by a licensed dermatologist.">
-          <SkinPrint />
+        <div className="portrait" role="img" aria-label="A studio portrait of a woman with healthy skin, overlaid with a SkinPrint: the AI's reading of her skin as contour lines, approved by a licensed dermatologist.">
+          <div className="portrait-frame">
+            <Image src="/images/portrait-studio-front.webp" alt="" fill priority sizes="(max-width: 920px) 92vw, 46vw" />
+            <SkinPrint className="portrait-print" />
+          </div>
           <div className="print-note pn-a" aria-hidden="true">
             <small>Hydration</small>
             <b>74<span>%</span></b>
