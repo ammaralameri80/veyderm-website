@@ -91,7 +91,7 @@ h4 { font-weight: 600; }
 .nav.scrolled .nav-in { height: 54px; background: rgba(255, 255, 255, 0.92); border-color: rgba(23, 20, 28, 0.06); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 1px 2px rgba(16, 24, 40, 0.06), 0 12px 30px -8px rgba(16, 24, 40, 0.16), 0 22px 44px -24px rgba(74, 63, 196, 0.3); }
 @media (prefers-reduced-motion: reduce) { .nav, .nav-in { transition: none; } }
 .nav .brand { grid-column: 1; justify-self: start; display: inline-flex; align-items: center; }
-.nav .logo-full { height: 24px; width: auto; }
+.nav .logo-full { height: 29px; width: auto; }
 .logo-small, .logo-icon { display: none; }
 .nav-links { grid-column: 2; justify-self: center; display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: var(--r-pill); background: rgba(19, 16, 28, 0.045); box-shadow: inset 0 1px 2px rgba(19, 16, 28, 0.05); }
 .nav-links a { padding: 8px 18px; border-radius: var(--r-pill); font-weight: 500; font-size: 0.94rem; letter-spacing: -0.01em; color: var(--ink-soft); transition: color 0.2s var(--ease), background 0.2s var(--ease); }
@@ -113,7 +113,7 @@ h4 { font-weight: 600; }
 /* ---- hero: a warm full-bleed stage the nav floats over; the message on the
    left, a luminous portrait on the right whose sand backdrop melts into the
    stage. An AI scan window sweeps the face and leaves the skin brighter. ---- */
-.hero { position: relative; min-height: clamp(680px, 100svh, 940px); overflow: hidden; display: flex; align-items: center; background: radial-gradient(48% 60% at 0% 0%, rgba(238, 235, 251, 0.85), transparent 70%), linear-gradient(90deg, #fbf8f4 0%, #f6ede1 30%, #ebd1a8 52%, #e5c391 64%); }
+.hero { position: relative; min-height: clamp(680px, 100svh, 940px); overflow: hidden; display: flex; align-items: center; background: radial-gradient(30% 42% at 78% 40%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 70%), radial-gradient(60% 70% at 100% 100%, rgba(183, 172, 228, 0.45), transparent 70%), linear-gradient(100deg, #fcfbff 0%, #f4f2fb 42%, #e9e5f6 100%); }
 .hero-inner { position: relative; z-index: 4; width: 100%; padding-top: clamp(124px, 16vh, 170px); padding-bottom: clamp(56px, 8vh, 104px); }
 .hero-copy { max-width: 620px; }
 .hero-copy .kicker { margin-bottom: 26px; background: rgba(255, 255, 255, 0.78); border-color: rgba(255, 255, 255, 0.95); color: var(--ink-soft); box-shadow: 0 1px 2px rgba(19, 16, 28, 0.05); }
@@ -126,10 +126,10 @@ h4 { font-weight: 600; }
 .hero-proof li { display: flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 0.9rem; font-weight: 500; color: var(--ink-soft); }
 .hero-proof li svg { width: 15px; height: 15px; color: var(--v-500); flex: none; }
 
-/* the portrait keeps its own 2:3 frame, full height on the right; the face
+/* the portrait is a cut-out in its own 2:3 frame, full height on the right; the face
    window (--st/--sr/--sb/--sl) is expressed in that frame's percentages */
 .hero-visual { --st: 21%; --sr: 21%; --sb: 25%; --sl: 15%; position: absolute; top: 0; bottom: 0; right: 0; aspect-ratio: 2 / 3; z-index: 1; }
-.hero-bg { position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%), linear-gradient(180deg, transparent 0%, #000 16%); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0%, #000 30%), linear-gradient(180deg, transparent 0%, #000 16%); mask-composite: intersect; }
+.hero-bg { position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 16%, #000 92%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 16%, #000 92%, transparent 100%); }
 .hero-img { object-fit: cover; object-position: 50% 0%; }
 .hero-img-after { filter: brightness(1.14) contrast(0.94) saturate(0.88); -webkit-mask-image: radial-gradient(34% 30% at 48% 47%, #000 55%, transparent 100%); mask-image: radial-gradient(34% 30% at 48% 47%, #000 55%, transparent 100%); clip-path: inset(var(--st) 0 var(--sb) 0); animation: reveal 9s var(--ease) infinite; }
 @keyframes reveal {
@@ -140,7 +140,7 @@ h4 { font-weight: 600; }
 
 /* the scan window: viewfinder corners + the sweeping line */
 .scan { position: absolute; top: var(--st); right: var(--sr); bottom: var(--sb); left: var(--sl); z-index: 2; pointer-events: none; }
-.scan-frame { position: absolute; inset: 0; --c: rgba(255, 255, 255, 0.95); --l: 26px; --w: 1.5px;
+.scan-frame { position: absolute; inset: 0; --c: rgba(108, 101, 194, 0.85); --l: 26px; --w: 1.5px;
   background:
     linear-gradient(var(--c), var(--c)) top left / var(--l) var(--w),
     linear-gradient(var(--c), var(--c)) top left / var(--w) var(--l),
@@ -150,9 +150,9 @@ h4 { font-weight: 600; }
     linear-gradient(var(--c), var(--c)) bottom left / var(--w) var(--l),
     linear-gradient(var(--c), var(--c)) bottom right / var(--l) var(--w),
     linear-gradient(var(--c), var(--c)) bottom right / var(--w) var(--l);
-  background-repeat: no-repeat; filter: drop-shadow(0 0 6px rgba(108, 101, 194, 0.55)); animation: frame 9s var(--ease) infinite; }
+  background-repeat: no-repeat; filter: drop-shadow(0 0 6px rgba(108, 101, 194, 0.35)); animation: frame 9s var(--ease) infinite; }
 @keyframes frame { 0% { opacity: 0; transform: scale(1.05); } 6%, 84% { opacity: 1; transform: none; } 94%, 100% { opacity: 0; transform: none; } }
-.scan-line { position: absolute; left: 2%; right: 2%; top: 0; height: 2px; border-radius: 2px; background: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent); box-shadow: 0 0 16px 3px rgba(145, 132, 214, 0.8), 0 0 42px 8px rgba(255, 255, 255, 0.35); animation: sweep 9s var(--ease) infinite; }
+.scan-line { position: absolute; left: 2%; right: 2%; top: 0; height: 2px; border-radius: 2px; background: linear-gradient(90deg, rgba(108, 101, 194, 0), rgba(108, 101, 194, 0.8) 12%, #fff 30%, #fff 70%, rgba(108, 101, 194, 0.8) 88%, rgba(108, 101, 194, 0)); box-shadow: 0 0 16px 3px rgba(145, 132, 214, 0.8), 0 0 42px 8px rgba(255, 255, 255, 0.35); animation: sweep 9s var(--ease) infinite; }
 @keyframes sweep { 0%, 7% { top: 0; opacity: 0; } 9%, 43% { opacity: 1; } 46%, 100% { top: 100%; opacity: 0; } }
 
 /* measurement probes: a point on the skin, a hairline, a reading */
@@ -162,12 +162,12 @@ h4 { font-weight: 600; }
 .probe i { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 4px rgba(108, 101, 194, 0.35), 0 0 14px rgba(108, 101, 194, 0.7); }
 .probe span { position: absolute; top: 0; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; white-space: nowrap; font-size: 0.76rem; font-weight: 500; color: var(--ink-soft); background: rgba(255, 255, 255, 0.86); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.95); box-shadow: 0 8px 22px -10px rgba(48, 43, 94, 0.35); }
 .probe span b { font-weight: 600; color: var(--ink); }
-.probe span::before { content: ""; position: absolute; top: 50%; width: 30px; height: 1px; background: rgba(255, 255, 255, 0.9); }
+.probe span::before { content: ""; position: absolute; top: 50%; width: 30px; height: 1px; background: rgba(108, 101, 194, 0.55); }
 .probe-tone span { right: 36px; } .probe-tone span::before { left: 100%; }
 .probe-hydra span { left: 36px; } .probe-hydra span::before { right: 100%; }
 @keyframes probe { 0%, 46% { opacity: 0; transform: translateY(4px); } 52%, 82% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; transform: none; } }
 
-.hcard { position: absolute; z-index: 5; background: rgba(255, 255, 255, 0.84); -webkit-backdrop-filter: blur(16px) saturate(1.6); backdrop-filter: blur(16px) saturate(1.6); border: 1px solid rgba(255, 255, 255, 0.95); border-radius: 18px; box-shadow: 0 1px 2px rgba(19, 16, 28, 0.05), 0 18px 40px -12px rgba(72, 48, 24, 0.28); animation: float 7s ease-in-out infinite; }
+.hcard { position: absolute; z-index: 5; background: rgba(255, 255, 255, 0.84); -webkit-backdrop-filter: blur(16px) saturate(1.6); backdrop-filter: blur(16px) saturate(1.6); border: 1px solid rgba(255, 255, 255, 0.95); border-radius: 18px; box-shadow: 0 1px 2px rgba(19, 16, 28, 0.05), 0 18px 40px -12px rgba(48, 43, 94, 0.24); animation: float 7s ease-in-out infinite; }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .hc-ic { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: var(--v-50); color: var(--v-600); flex: none; }
 .hc-ic svg { width: 18px; height: 18px; }
@@ -182,13 +182,12 @@ h4 { font-weight: 600; }
 }
 @media (max-width: 1180px) { .hero-copy { max-width: 480px; } .hcard-progress { left: 2%; } }
 @media (max-width: 920px) {
-  .hero { flex-direction: column; align-items: stretch; min-height: 0; background: radial-gradient(70% 40% at 0% 0%, rgba(238, 235, 251, 0.85), transparent 70%), linear-gradient(180deg, #fbf8f4 0%, #f5eadb 48%, #e5c391 80%); }
+  .hero { flex-direction: column; align-items: stretch; min-height: 0; background: radial-gradient(60% 30% at 50% 72%, rgba(255, 255, 255, 0.95), transparent 70%), radial-gradient(80% 40% at 100% 100%, rgba(183, 172, 228, 0.45), transparent 70%), linear-gradient(180deg, #fcfbff 0%, #f4f2fb 45%, #e9e5f6 100%); }
   .hero-inner { order: 1; padding-top: clamp(112px, 24vw, 140px); padding-bottom: 0; }
   .hero-copy { max-width: none; }
   .hero h1 { max-width: 12ch; }
   /* 4:5 crop of the 2:3 frame (object-position 50% 55%) — face window re-mapped */
   .hero-visual { --st: 14%; --sb: 21%; order: 2; position: relative; top: auto; right: auto; bottom: auto; width: min(100%, 560px); margin: 12px auto 0; aspect-ratio: 4 / 5; }
-  .hero-bg { -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 16%); mask-image: linear-gradient(180deg, transparent 0%, #000 16%); }
   .hero-img { object-position: 50% 55%; }
   .probe-tone { left: 33%; top: 59%; } .probe-hydra { top: 54%; }
   .hcard-progress { left: auto; right: 4%; bottom: 3%; padding-block: 9px; }

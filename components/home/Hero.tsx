@@ -11,11 +11,11 @@ function Check() {
   );
 }
 
-const PORTRAIT = "/images/hero-radiance.webp";
+const PORTRAIT = "/images/hero-radiance-cut.webp";
 const SIZES = "(max-width: 920px) 100vw, 44vw";
 
-/** Hero: a warm full-bleed stage the nav floats over — the message on the
- *  left, a luminous portrait on the right. An AI scan window sweeps the face
+/** Hero: a cool lavender stage the nav floats over — the message on the
+ *  left, a luminous cut-out portrait on the right. An AI scan window sweeps the face
  *  and leaves the skin brighter and more even behind it: the analysis and
  *  the result in one moment. */
 export function Hero() {

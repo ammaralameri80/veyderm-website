@@ -68,22 +68,29 @@ const ICON_V_PATH = `M404 2341 c-14 -15 3 -34 49 -55 77 -34 110 -84 212 -321 26 
 export function HeaderLogo({ href = "/" }: { href?: string }) {
   return (
     <a className="brand" href={href} aria-label="veyderm home">
-      {/* Full wordmark — default */}
+      {/* Full wordmark — default. A light stroke over the fill keeps the
+          hairline "derm" crisp at header size. */}
       <svg
         className="logo logo-full"
         aria-hidden="true"
-        viewBox="39 39 1010 253"
+        viewBox="34 34 1020 263"
         role="img"
       >
         <g
           transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)"
-          fill="#6c65c2"
+          fill="#5b52b4"
+          stroke="#5b52b4"
+          strokeWidth="28"
+          strokeLinejoin="round"
         >
           <path d={WORDMARK_PATH_PURPLE} />
         </g>
         <g
           transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)"
-          fill="#111111"
+          fill="#13101c"
+          stroke="#13101c"
+          strokeWidth="52"
+          strokeLinejoin="round"
         >
           <path d={WORDMARK_PATH_INK} />
         </g>
