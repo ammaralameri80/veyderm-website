@@ -185,7 +185,9 @@ h4 { font-weight: 700; }
 
 /* ---- feature rows ---- */
 .feature { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 80px); align-items: center; }
-.feature + .feature { margin-top: clamp(72px, 9vw, 120px); }
+/* Even vertical rhythm between the three product rows (the Sena/Brands rows
+   are wrapped in anchor divs, so a .feature+.feature margin never matched). */
+.features .wrap { display: flex; flex-direction: column; gap: clamp(84px, 10vw, 144px); }
 .feature.rev .feature-media { order: 2; }
 .feature-media { position: relative; min-width: 0; }
 .feature-copy { max-width: 42ch; min-width: 0; }

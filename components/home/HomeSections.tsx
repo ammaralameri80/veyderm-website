@@ -83,7 +83,7 @@ function FeatureRow({
 export function Features() {
   const { pro, sena, brands } = HOME;
   return (
-    <Section id="pro">
+    <Section id="pro" className="features">
       <FeatureRow
         id="pro-feature"
         kicker={pro.kicker}
