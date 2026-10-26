@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { Button, TextLink } from "@/components/ui/Button";
@@ -229,35 +228,3 @@ export function ProductCards() {
   );
 }
 
-/* ---------------------------------------------------------- Human: photo + pillars */
-export function Human() {
-  const { trust } = HOME;
-  const [lead, accent, tail] = trust.h2;
-  return (
-    <Section className="human-sec">
-      <div className="human">
-        <Reveal className="human-photo">
-          <Image src="/images/clinic-consult.webp" alt="A dermatologist examining a patient's cheek in a bright Dubai clinic" fill sizes="(max-width: 900px) 92vw, 50vw" />
-        </Reveal>
-        <Reveal className="human-copy" delay={0.08}>
-          <span className="kicker">{trust.kicker}</span>
-          <h2 className="heading">
-            {lead}
-            {accent && <span className="accent">{accent}</span>}
-            {tail}
-          </h2>
-          <p className="human-sub">{trust.sub}</p>
-          <ul className="pillars">
-            {trust.pillars.map((p) => (
-              <li className="pillar" key={p.t}>
-                <span className="p-ic"><Icon name={p.ic as IconName} /></span>
-                <h3>{p.t}</h3>
-                <p>{p.d}</p>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </div>
-    </Section>
-  );
-}

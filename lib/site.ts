@@ -22,6 +22,11 @@ export const NAV = {
 
 export const FOOTER = {
   email: "info@veyderm.com",
+  tagline: "The intelligence layer for dermatology, built in the UAE.",
+  social: [
+    { label: "Instagram", href: "https://instagram.com/veyderm", brand: "instagram" as const },
+    { label: "LinkedIn", href: "https://linkedin.com/company/veyderm", brand: "linkedin" as const },
+  ],
   groups: [
     {
       title: "Platform",
