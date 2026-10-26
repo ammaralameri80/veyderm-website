@@ -11,25 +11,19 @@ function Check() {
   );
 }
 
-/** Face-analysis mesh drawn over the portrait: nodes joined into a light net,
- *  the way veyderm's AI "reads" a face. Decorative. */
+/** Face-analysis mesh traced along the profile — forehead, brow, eye, nose,
+ *  lips, chin, cheek and temple — the way veyderm's AI "reads" a face. */
 const NODES: Record<string, [number, number]> = {
-  f1: [49, 36], f2: [61, 36],
-  t1: [42, 44], t2: [68, 44],
-  e1: [50, 48], e2: [60, 48],
-  n: [55, 56],
-  c1: [45, 60], c2: [65, 60],
-  m: [55, 66],
-  j1: [47, 72], j2: [63, 72],
-  ch: [55, 78],
+  fh: [29, 9], tm: [54, 31], br: [24, 43], ey: [35, 53],
+  nb: [20, 60], nt: [6, 75], sn: [14, 84], cb: [45, 65],
+  ck: [48, 86], ul: [12, 93], lp: [15, 102], ch: [23, 119], jw: [45, 115],
 };
 const EDGES: [string, string][] = [
-  ["f1", "f2"], ["f1", "t1"], ["f2", "t2"], ["f1", "e1"], ["f2", "e2"],
-  ["t1", "e1"], ["t2", "e2"], ["t1", "c1"], ["t2", "c2"],
-  ["e1", "e2"], ["e1", "n"], ["e2", "n"], ["e1", "c1"], ["e2", "c2"],
-  ["c1", "n"], ["c2", "n"], ["c1", "m"], ["c2", "m"], ["n", "m"],
-  ["c1", "j1"], ["c2", "j2"], ["m", "j1"], ["m", "j2"],
-  ["j1", "ch"], ["j2", "ch"], ["m", "ch"], ["j1", "j2"],
+  ["fh", "br"], ["fh", "tm"], ["br", "tm"], ["br", "ey"], ["ey", "tm"],
+  ["br", "nb"], ["ey", "nb"], ["nb", "nt"], ["nt", "sn"], ["sn", "ul"],
+  ["ul", "lp"], ["lp", "ch"], ["ey", "cb"], ["tm", "cb"], ["nb", "cb"],
+  ["sn", "cb"], ["cb", "ck"], ["sn", "ck"], ["lp", "ck"], ["ck", "ch"],
+  ["ck", "jw"], ["ch", "jw"],
 ];
 
 function FaceMesh() {
@@ -59,16 +53,16 @@ export function Hero() {
     <header className="hero" id="top">
       <div className="hero-visual" role="img" aria-label="A portrait lit in clinical light while veyderm's AI reads the skin — pigmentation, texture and hydration — with a plan recommended by a dermatologist.">
         <div className="hero-bg" aria-hidden="true">
-          <Image src="/images/hero-scan.webp" alt="" fill priority sizes="(max-width: 920px) 100vw, 52vw" className="scan-img" />
+          <Image src="/images/hero-skin-ritual.webp" alt="" fill priority sizes="(max-width: 920px) 100vw, 52vw" className="scan-img" />
           <span className="hero-bg-fade" />
         </div>
         <div className="scan" aria-hidden="true">
           <FaceMesh />
           <span className="scan-line" />
           <ul className="scan-chips">
-            <li style={{ left: "44%", top: "41%" }}><i />Pigmentation</li>
-            <li style={{ left: "26%", top: "57%" }}><i />Texture</li>
-            <li style={{ left: "54%", top: "65%" }}><i />Hydration 72%</li>
+            <li style={{ left: "56%", top: "56%" }}><i />Pigmentation</li>
+            <li style={{ left: "36%", top: "19%" }}><i />Texture</li>
+            <li style={{ left: "44%", top: "80%" }}><i />Hydration 72%</li>
           </ul>
         </div>
 

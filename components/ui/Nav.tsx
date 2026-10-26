@@ -33,7 +33,7 @@ export function Nav() {
           ))}
         </div>
         <div className="nav-right">
-          <Button href={NAV.cta.href} cta="nav" className="nav-cta">
+          <Button href={NAV.cta.href} cta="nav" className="nav-cta" arrow>
             {NAV.cta.label}
           </Button>
           <button

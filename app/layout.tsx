@@ -1,20 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { content, isLang, type Lang } from "@/lib/content";
 
-// Exactly two families, self-hosted at build time (no runtime font requests).
-// Plus Jakarta Sans carries the whole site — UI, headings, body. Instrument
-// Serif (italic) is reserved for the accent phrase inside a headline.
-const jakarta = Plus_Jakarta_Sans({
+// One superfamily, self-hosted at build time (no runtime font requests).
+// Instrument Sans carries the site — UI, headings, body. Instrument Serif
+// (italic) is reserved for the accent phrase inside a headline.
+const sans = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["400", "600", "800"],
-  variable: "--font-jakarta",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
   display: "swap",
 });
-
+const serif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com";
 // Only the production canonical should be indexable — preview / dev domains stay
@@ -78,7 +84,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const dir = content[lang].dir;
 
   return (
-    <html lang={content[lang].htmlLang} dir={dir} className={jakarta.variable}>
+    <html lang={content[lang].htmlLang} dir={dir} className={`${sans.variable} ${serif.variable}`}>
       <body>
         <a className="skip" href="#top">Skip to content</a>
         {children}
