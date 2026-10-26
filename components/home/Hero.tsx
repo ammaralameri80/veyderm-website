@@ -34,7 +34,7 @@ const EDGES: [string, string][] = [
 
 function FaceMesh() {
   return (
-    <svg className="mesh" viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <svg className="mesh" viewBox="0 0 100 125" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       <g className="mesh-lines">
         {EDGES.map(([a, b], i) => {
           const [x1, y1] = NODES[a];
@@ -51,13 +51,46 @@ function FaceMesh() {
   );
 }
 
-/** Hero: the message on the left, the AI reading a real face on the right —
- *  the single characteristic thing veyderm does. */
+/** Hero: the message on the left over a light field, the AI reading a real
+ *  face on the right as a full-height image the nav floats over. */
 export function Hero() {
   const [h1a, h1em, h1b] = HOME.hero.h1;
   return (
     <header className="hero" id="top">
-      <div className="wrap hero-grid">
+      <div className="hero-visual" role="img" aria-label="A portrait lit in clinical light while veyderm's AI reads the skin — pigmentation, texture and hydration — with a plan recommended by a dermatologist.">
+        <div className="hero-bg" aria-hidden="true">
+          <Image src="/images/hero-scan.webp" alt="" fill priority sizes="(max-width: 920px) 100vw, 52vw" className="scan-img" />
+          <span className="hero-bg-fade" />
+        </div>
+        <div className="scan" aria-hidden="true">
+          <FaceMesh />
+          <span className="scan-line" />
+          <ul className="scan-chips">
+            <li style={{ left: "44%", top: "41%" }}><i />Pigmentation</li>
+            <li style={{ left: "26%", top: "57%" }}><i />Texture</li>
+            <li style={{ left: "54%", top: "65%" }}><i />Hydration 72%</li>
+          </ul>
+        </div>
+
+        <div className="hcard hcard-analysis" aria-hidden="true">
+          <span className="hc-ic"><Icon name="sparkles" /></span>
+          <span><small>AI skin analysis</small><b>SkinPrint ready</b></span>
+        </div>
+        <div className="hcard hcard-reco" aria-hidden="true">
+          <small>Recommended by your dermatologist</small>
+          <b>Azelaic serum 20%</b>
+          <span className="hc-pill">Strong evidence</span>
+        </div>
+        <div className="hcard hcard-progress" aria-hidden="true">
+          <span className="pt-av">LH</span>
+          <span className="hc-prog">
+            <small>Lana H. · Skin progress</small>
+            <b>+18%<em>since last visit</em></b>
+          </span>
+        </div>
+      </div>
+
+      <div className="wrap hero-inner">
         <div className="hero-copy">
           <span className="kicker"><Icon name="sparkles" />{HOME.hero.kicker}</span>
           <h1 className="display">
@@ -79,40 +112,6 @@ export function Hero() {
               <li key={p}><Check />{p}</li>
             ))}
           </ul>
-        </div>
-
-        <div className="hero-visual">
-          <div className="scan-wrap">
-            <div className="scan" role="img" aria-label="A portrait lit in clinical light while veyderm's AI reads the skin — pigmentation, texture and hydration — with a plan recommended by a dermatologist.">
-              <Image src="/images/hero-scan.webp" alt="" fill priority sizes="(max-width: 920px) 86vw, 460px" className="scan-img" />
-              <FaceMesh />
-              <span className="scan-line" aria-hidden="true" />
-              <ul className="scan-chips" aria-hidden="true">
-                <li style={{ left: "44%", top: "41%" }}><i />Pigmentation</li>
-                <li style={{ left: "26%", top: "57%" }}><i />Texture</li>
-                <li style={{ left: "54%", top: "65%" }}><i />Hydration 72%</li>
-              </ul>
-            </div>
-
-            <div className="hcard hcard-analysis" aria-hidden="true">
-              <span className="hc-ic"><Icon name="sparkles" /></span>
-              <span><small>AI skin analysis</small><b>SkinPrint ready</b></span>
-            </div>
-
-            <div className="hcard hcard-reco" aria-hidden="true">
-              <small>Recommended by your dermatologist</small>
-              <b>Azelaic serum 20%</b>
-              <span className="hc-pill">Strong evidence</span>
-            </div>
-
-            <div className="hcard hcard-progress" aria-hidden="true">
-              <span className="pt-av">LH</span>
-              <span className="hc-prog">
-                <small>Lana H. · Skin progress</small>
-                <b>+18%<em>since last visit</em></b>
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </header>
