@@ -61,15 +61,15 @@ export const FOOTER = {
 
 export const HOME = {
   hero: {
-    kicker: "Built in the UAE",
-    h1: ["The UAE's first ", "AI platform", " for dermatology."],
-    sub: "Intelligent skin care for doctors, patients, and brands — every recommendation approved by a licensed dermatologist.",
+    kicker: "The UAE’s first AI dermatology platform",
+    h1: "Dermatology, made intelligent.",
+    sub: "AI that reads skin with a specialist’s eye — and a licensed dermatologist who approves every recommendation. For clinics, patients and skincare brands across the UAE.",
     primary: { label: "Request access", href: "#access", role: ROLES.derm },
     secondary: { label: "Meet Sena", href: "/sena" },
   },
   proof: [
-    "Approved by licensed dermatologists",
-    "Built for UAE skin and climate",
+    "Dermatologist-approved",
+    "Built for UAE skin & climate",
     "Authorized products only",
   ],
   platform: {
