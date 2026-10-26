@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Nav } from "@/components/ui/Nav";
 import { Footer } from "@/components/ui/Footer";
 import { Hero } from "@/components/home/Hero";
-import { ProofBar, Platform, Features, TrustBand } from "@/components/home/HomeSections";
+import { Platform, ProductCards, Features, Human } from "@/components/home/HomeSections";
 import { CtaForm } from "@/components/CtaForm";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
@@ -43,10 +43,10 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <ProofBar />
         <Platform />
+        <ProductCards />
         <Features />
-        <TrustBand />
+        <Human />
         <CtaForm lang="en" />
       </main>
       <Footer />

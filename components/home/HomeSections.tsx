@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { Button, TextLink } from "@/components/ui/Button";
@@ -197,6 +198,64 @@ export function CompanyStrip() {
           <div className="dcore">One clinical AI core<small>Trained for UAE skin and climate</small></div>
           <div className="dflow"><Icon name="arrow-down" /></div>
           <div className="dbase"><Icon name="shield" />Licensed dermatologists approve every output</div>
+        </Reveal>
+      </div>
+    </Section>
+  );
+}
+
+/* ---------------------------------------------------------- Product cards */
+export function ProductCards() {
+  const { pro, sena, brands } = HOME;
+  const cards: { ic: IconName; kicker: string; h: string[]; p: string; href: string; label: string }[] = [
+    { ic: "stethoscope", kicker: pro.kicker, h: pro.h2, p: pro.body, href: "/professional", label: pro.ctas.secondary.label },
+    { ic: "message", kicker: sena.kicker, h: sena.h2, p: sena.body, href: "/sena", label: sena.ctas.secondary.label },
+    { ic: "building", kicker: brands.kicker, h: brands.h2, p: brands.body, href: "/brands", label: "For brands" },
+  ];
+  return (
+    <div className="wrap pcards">
+      {cards.map((c, i) => (
+        <Reveal key={c.href} delay={i * 0.06}>
+          <a className="pcard" href={c.href}>
+            <span className="pc-ic"><Icon name={c.ic} /></span>
+            <span className="pc-k">{c.kicker}</span>
+            <h3>{c.h.join("")}</h3>
+            <p>{c.p}</p>
+            <span className="pc-more">{c.label}<Icon name="arrow-up-right" /></span>
+          </a>
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------- Human: photo + pillars */
+export function Human() {
+  const { trust } = HOME;
+  const [lead, accent, tail] = trust.h2;
+  return (
+    <Section className="human-sec">
+      <div className="human">
+        <Reveal className="human-photo">
+          <Image src="/images/clinic-consult.webp" alt="A dermatologist examining a patient's cheek in a bright Dubai clinic" fill sizes="(max-width: 900px) 92vw, 50vw" />
+        </Reveal>
+        <Reveal className="human-copy" delay={0.08}>
+          <span className="kicker">{trust.kicker}</span>
+          <h2 className="heading">
+            {lead}
+            {accent && <span className="accent">{accent}</span>}
+            {tail}
+          </h2>
+          <p className="human-sub">{trust.sub}</p>
+          <ul className="pillars">
+            {trust.pillars.map((p) => (
+              <li className="pillar" key={p.t}>
+                <span className="p-ic"><Icon name={p.ic as IconName} /></span>
+                <h3>{p.t}</h3>
+                <p>{p.d}</p>
+              </li>
+            ))}
+          </ul>
         </Reveal>
       </div>
     </Section>

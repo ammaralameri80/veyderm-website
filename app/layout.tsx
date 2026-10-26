@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
@@ -15,13 +15,6 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument",
-  display: "swap",
-});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com";
 // Only the production canonical should be indexable — preview / dev domains stay
@@ -85,7 +78,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const dir = content[lang].dir;
 
   return (
-    <html lang={content[lang].htmlLang} dir={dir} className={`${jakarta.variable} ${instrument.variable}`}>
+    <html lang={content[lang].htmlLang} dir={dir} className={jakarta.variable}>
       <body>
         <a className="skip" href="#top">Skip to content</a>
         {children}
