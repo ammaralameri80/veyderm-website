@@ -82,22 +82,22 @@ h4 { font-weight: 700; }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; transition: none; } }
 
-/* ---- nav ---- */
-.nav { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.85); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color 0.3s var(--ease); }
-.nav.scrolled { border-bottom-color: var(--line); }
-.nav-in { display: flex; align-items: center; gap: 28px; height: 72px; }
+/* ---- nav: a floating pill, like the live site ---- */
+.nav { position: sticky; top: 0; z-index: 100; padding-top: 16px; }
+.nav-in { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 58px; padding: 0 10px 0 24px; border-radius: 999px; background: rgba(255, 255, 255, 0.8); -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4); border: 1px solid rgba(255, 255, 255, 0.7); box-shadow: 0 30px 60px -30px rgba(74, 63, 196, 0.3); transition: box-shadow 0.3s var(--ease), background 0.3s var(--ease); }
+.nav.scrolled .nav-in { background: rgba(255, 255, 255, 0.92); box-shadow: 0 24px 50px -24px rgba(74, 63, 196, 0.4); }
 .nav .brand { display: inline-flex; align-items: center; }
-.nav .logo-full { height: 26px; width: auto; }
+.nav .logo-full { height: 25px; width: auto; }
 .logo-small, .logo-icon { display: none; }
-.nav-links { display: flex; align-items: center; gap: 6px; margin-left: 8px; }
-.nav-links a { padding: 9px 14px; border-radius: var(--r-pill); font-weight: 600; font-size: 0.95rem; color: var(--ink-soft); transition: color 0.2s var(--ease), background 0.2s var(--ease); }
+.nav-links { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 4px; }
+.nav-links a { padding: 9px 15px; border-radius: var(--r-pill); font-weight: 600; font-size: 0.95rem; color: var(--ink-soft); transition: color 0.2s var(--ease), background 0.2s var(--ease); }
 .nav-links a:hover { color: var(--ink); background: var(--bg-2); }
 .nav-links a[aria-current="page"] { color: var(--v-700); background: var(--v-50); }
-.nav-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.nav-right { display: flex; align-items: center; gap: 10px; }
 .nav-right .btn { padding: 11px 20px; font-size: 0.93rem; }
-.nav-toggle { display: none; width: 42px; height: 42px; padding: 0; border-radius: 999px; }
+.nav-toggle { display: none; width: 40px; height: 40px; padding: 0; border-radius: 999px; }
 .nav-toggle svg { width: 20px; min-width: 20px; height: 20px; max-width: none; flex: none; }
-.nav-sheet { border-top: 1px solid var(--line); background: #fff; }
+.nav-sheet { margin-top: 8px; border-radius: 20px; background: #fff; border: 1px solid var(--line); box-shadow: var(--sh-md); }
 .nav-sheet .wrap { display: grid; gap: 2px; padding-block: 12px 16px; }
 .nav-sheet a { padding: 13px 10px; border-radius: 12px; font-weight: 600; color: var(--ink); }
 .nav-sheet a:hover, .nav-sheet a[aria-current="page"] { background: var(--v-50); color: var(--v-700); }
@@ -122,15 +122,18 @@ h4 { font-weight: 700; }
 .scan { position: relative; aspect-ratio: 4 / 5; border-radius: var(--r-stage); overflow: hidden; background: var(--bg-deep); box-shadow: var(--sh-lg); isolation: isolate; }
 .scan-img { object-fit: cover; object-position: 50% 24%; }
 .scan::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(21, 18, 31, 0) 62%, rgba(21, 18, 31, 0.28)); pointer-events: none; }
-.mesh { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; overflow: visible; }
-.mesh-lines line { stroke: rgba(255, 255, 255, 0.5); stroke-width: 0.22; }
-.mesh-nodes circle { fill: #fff; opacity: 0.85; }
+.mesh { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; overflow: visible; animation: meshGlow 6s ease-in-out infinite; }
+.mesh-lines line { stroke: rgba(255, 255, 255, 0.6); stroke-width: 0.22; opacity: 0.45; animation: edgePulse 3.2s ease-in-out infinite; }
+.mesh-nodes circle { fill: #fff; opacity: 0.55; animation: nodePulse 2.6s ease-in-out infinite; }
 .mesh-nodes circle:nth-child(3n) { fill: var(--v-200); }
+@keyframes meshGlow { 0%, 100% { opacity: 0.82; } 50% { opacity: 1; } }
+@keyframes edgePulse { 0%, 100% { opacity: 0.32; } 50% { opacity: 0.95; } }
+@keyframes nodePulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 .scan-line { position: absolute; left: 6%; right: 6%; top: 24%; height: 1.5px; z-index: 3; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), transparent); box-shadow: 0 0 18px rgba(183, 172, 228, 0.95); animation: scan 5.5s ease-in-out infinite; }
 @keyframes scan { 0%, 100% { top: 26%; opacity: 0; } 12%, 88% { opacity: 1; } 50% { top: 72%; } }
 .scan-chips li { position: absolute; z-index: 4; display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px 6px 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.9); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.9); font-size: 0.76rem; font-weight: 600; color: var(--ink); white-space: nowrap; box-shadow: var(--sh-sm); transform: translate(-50%, -50%); }
 .scan-chips li i { width: 7px; height: 7px; border-radius: 999px; background: var(--v-500); box-shadow: 0 0 0 3px rgba(108, 101, 194, 0.22); flex: none; }
-@media (prefers-reduced-motion: reduce) { .scan-line { animation: none; opacity: 0.55; top: 48%; } }
+@media (prefers-reduced-motion: reduce) { .scan-line { animation: none; opacity: 0.55; top: 48%; } .mesh, .mesh-lines line, .mesh-nodes circle { animation: none; } .mesh-lines line { opacity: 0.5; } .mesh-nodes circle { opacity: 0.9; } }
 
 .hcard { position: absolute; z-index: 5; background: rgba(255, 255, 255, 0.94); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.95); border-radius: 16px; box-shadow: var(--sh-md); }
 .hcard-analysis { top: 8%; left: -9%; display: flex; align-items: center; gap: 11px; padding: 11px 14px; }

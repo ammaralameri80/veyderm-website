@@ -36,15 +36,15 @@ function FaceMesh() {
   return (
     <svg className="mesh" viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <g className="mesh-lines">
-        {EDGES.map(([a, b]) => {
+        {EDGES.map(([a, b], i) => {
           const [x1, y1] = NODES[a];
           const [x2, y2] = NODES[b];
-          return <line key={`${a}-${b}`} x1={x1} y1={y1} x2={x2} y2={y2} />;
+          return <line key={`${a}-${b}`} x1={x1} y1={y1} x2={x2} y2={y2} style={{ animationDelay: `${(i % 9) * 0.34}s` }} />;
         })}
       </g>
       <g className="mesh-nodes">
-        {Object.entries(NODES).map(([k, [x, y]]) => (
-          <circle key={k} cx={x} cy={y} r={0.8} />
+        {Object.entries(NODES).map(([k, [x, y]], i) => (
+          <circle key={k} cx={x} cy={y} r={0.8} style={{ animationDelay: `${(i % 6) * 0.42}s` }} />
         ))}
       </g>
     </svg>

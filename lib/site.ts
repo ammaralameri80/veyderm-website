@@ -14,8 +14,7 @@ export const NAV = {
   links: [
     { label: "veyderm Pro", href: "/professional" },
     { label: "Sena", href: "/sena" },
-    { label: "For Brands", href: "/brands" },
-    { label: "Company", href: "/company" },
+    { label: "For brands", href: "/brands" },
   ],
   cta: { label: "Request access", href: "/#access" },
 };
