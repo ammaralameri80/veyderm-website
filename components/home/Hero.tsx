@@ -11,7 +11,7 @@ function Check() {
   );
 }
 
-const PORTRAIT = "/images/hero-portrait-grid.webp";
+const PORTRAIT = "/images/hero-portrait-grid3.webp";
 const SIZES = "(max-width: 920px) 100vw, 44vw";
 
 /** Hero: a cool lavender stage the nav floats over — the message on the
@@ -33,8 +33,8 @@ export function Hero() {
           <span className="scan-line" />
         </div>
         <ul className="probes" aria-hidden="true">
-          <li className="probe probe-tone"><i /><span>Pigmentation<b>mapped</b></span></li>
-          <li className="probe probe-hydra"><i /><span>Texture<b>analyzed</b></span></li>
+          <li className="probe probe-tone"><i /><span><em className="pdot" />Pigmentation<b>mapped</b></span></li>
+          <li className="probe probe-hydra"><i /><span><em className="pdot" />Texture<b>analyzed</b></span></li>
         </ul>
 
         <div className="hcard hcard-progress" aria-hidden="true">
