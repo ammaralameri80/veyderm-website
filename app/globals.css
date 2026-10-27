@@ -111,7 +111,7 @@ h4 { font-weight: 600; }
 /* ---- hero: a warm full-bleed stage the nav floats over; the message on the
    left, a luminous portrait on the right whose sand backdrop melts into the
    stage. An AI scan window sweeps the face and leaves the skin brighter. ---- */
-.hero { position: relative; min-height: clamp(680px, 100svh, 940px); overflow: hidden; display: flex; align-items: center; background: radial-gradient(34% 46% at 77% 42%, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0) 72%), radial-gradient(46% 56% at 82% 48%, rgba(167, 154, 223, 0.28), transparent 72%), radial-gradient(60% 70% at 100% 100%, rgba(183, 172, 228, 0.45), transparent 70%), linear-gradient(100deg, #fcfbff 0%, #f4f2fb 42%, #e9e5f6 100%); }
+.hero { position: relative; min-height: clamp(620px, 86svh, 820px); overflow: hidden; display: flex; align-items: center; background: radial-gradient(34% 46% at 74% 42%, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0) 72%), radial-gradient(42% 54% at 80% 48%, rgba(167, 154, 223, 0.26), transparent 72%), radial-gradient(60% 70% at 100% 100%, rgba(183, 172, 228, 0.42), transparent 70%), linear-gradient(100deg, #fcfbff 0%, #f4f2fb 44%, #e9e5f6 100%); }
 .hero-inner { position: relative; z-index: 4; width: 100%; padding-top: clamp(124px, 16vh, 170px); padding-bottom: clamp(56px, 8vh, 104px); }
 .hero-copy { max-width: 620px; }
 .hero-copy .kicker { margin-bottom: 26px; background: rgba(255, 255, 255, 0.78); border-color: rgba(255, 255, 255, 0.95); color: var(--ink-soft); box-shadow: 0 1px 2px rgba(19, 16, 28, 0.05); }
@@ -127,10 +127,9 @@ h4 { font-weight: 600; }
 /* the portrait is a full-height panel bleeding to the top/right/bottom edges;
    its left edge dissolves into the lavender stage where the copy sits — one
    continuous surface, not a framed card. --st/--sr/--sb/--sl = scan window. */
-.hero-visual { --st: 13%; --sr: 22%; --sb: 32%; --sl: 28%; position: absolute; top: 0; right: 0; bottom: 0; width: clamp(480px, 50%, 860px); }
-.hero-bg { position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%), linear-gradient(180deg, transparent 0%, #000 12%, #000 84%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0%, #000 32%), linear-gradient(180deg, transparent 0%, #000 12%, #000 84%, transparent 100%); mask-composite: intersect; }
-.hero-visual::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(248, 247, 255, 0.72) 0%, rgba(248, 247, 255, 0.3) 18%, rgba(248, 247, 255, 0) 36%); }
-.hero-img { object-fit: cover; object-position: 52% 24%; }
+.hero-visual { --st: 13%; --sr: 22%; --sb: 32%; --sl: 28%; position: absolute; top: 0; right: 0; bottom: 0; width: clamp(420px, 44%, 760px); }
+.hero-bg { position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40%), linear-gradient(180deg, transparent 0%, #000 12%, #000 84%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0%, #000 40%), linear-gradient(180deg, transparent 0%, #000 12%, #000 84%, transparent 100%); mask-composite: intersect; }
+.hero-img { object-fit: cover; object-position: 52% 26%; }
 /* a soft "analyzing" lift that tracks the scan beam down the face oval */
 .hero-img-after { filter: brightness(1.09) contrast(0.97) saturate(0.95); -webkit-mask-image: radial-gradient(38% 30% at 52% 40%, #000 52%, transparent 100%); mask-image: radial-gradient(38% 30% at 52% 40%, #000 52%, transparent 100%); clip-path: inset(0 0 100% 0); animation: reveal 5s var(--ease) infinite; }
 @keyframes reveal {
@@ -158,8 +157,8 @@ h4 { font-weight: 600; }
 
 /* smart tags: a live pulsing sensor on the skin + a readout with a status chip */
 .probe { position: absolute; width: 0; height: 0; z-index: 3; animation: probe-in 0.7s var(--ease) both; }
-.probe-tone { left: 40%; top: 58%; animation-delay: 0.5s; }
-.probe-hydra { left: 62%; top: 34%; animation-delay: 0.75s; }
+.probe-tone { left: 48%; top: 58%; animation-delay: 0.5s; }
+.probe-hydra { left: 64%; top: 33%; animation-delay: 0.75s; }
 @keyframes probe-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .probe i { display: none; }
 .probe span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 10px; border-radius: 999px; white-space: nowrap; font-size: 0.78rem; font-weight: 500; color: var(--ink-soft); background: rgba(255, 255, 255, 0.9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.95); box-shadow: 0 10px 26px -12px rgba(48, 43, 94, 0.4); }
