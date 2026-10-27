@@ -5,7 +5,7 @@ import { Button, TextLink } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { DeviceFrame, ProScreen, BrandScreen } from "./Screens";
 import { SenaChat } from "./SenaChat";
-import { PlatformTabs } from "./PlatformTabs";
+import { ProductShowcase } from "./ProductShowcase";
 import { HOME } from "@/lib/site";
 
 /* ---------------------------------------------------------- Proof bar */
@@ -35,9 +35,7 @@ export function Platform() {
         <h2 className="heading">{platform.h2.join("")}</h2>
         <p>{platform.sub}</p>
       </Reveal>
-      <Reveal delay={0.08}>
-        <PlatformTabs />
-      </Reveal>
+      <ProductShowcase />
     </Section>
   );
 }
