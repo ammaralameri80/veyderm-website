@@ -11,7 +11,7 @@ function Check() {
   );
 }
 
-const PORTRAIT = "/images/hero-cutout2.webp";
+const PORTRAIT = "/images/hero-cutout3.webp";
 const SIZES = "(max-width: 920px) 100vw, 46vw";
 
 /** Hero: a cool lavender stage the nav floats over — the message on the

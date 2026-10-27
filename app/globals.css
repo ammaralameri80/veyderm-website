@@ -127,8 +127,10 @@ h4 { font-weight: 600; }
 /* the portrait is a cut-out standing on the same lavender stage as the copy —
    no backdrop of its own. Its box has the photo's aspect ratio and is anchored
    bottom-right, so the scan window, tags and card are placed in the figure's
-   own percentages at every size. Top/bottom fades are baked into the image. */
-.hero-visual { --st: 14%; --sr: 36%; --sb: 38%; --sl: 22%; position: absolute; right: clamp(0px, 3vw, 64px); bottom: 0; height: calc(100% - 140px); aspect-ratio: 1260 / 1141; max-width: 44%; }
+   own percentages at every size. The photo's crop cuts the top of her hair, so
+   the box starts behind the fixed menu bar and her head runs up under it; the
+   bottom fade is baked into the image. */
+.hero-visual { --st: 14%; --sr: 36%; --sb: 38%; --sl: 22%; position: absolute; top: 34px; right: clamp(0px, 3vw, 64px); width: clamp(420px, 44%, 760px); aspect-ratio: 1260 / 1141; }
 .hero-bg { position: absolute; inset: 0; }
 .hero-img { object-fit: contain; object-position: 50% 100%; }
 /* a soft "analyzing" lift that tracks the scan beam down the face oval */
@@ -185,11 +187,12 @@ h4 { font-weight: 600; }
 @media (max-width: 1180px) { .hero-copy { max-width: 480px; } .hcard-progress { right: 3%; } }
 @media (max-width: 920px) {
   .hero { flex-direction: column; align-items: stretch; min-height: 0; background: linear-gradient(180deg, rgba(255, 255, 255, 0) 82%, #fff 100%), radial-gradient(60% 30% at 50% 72%, rgba(255, 255, 255, 0.95), transparent 70%), radial-gradient(80% 40% at 100% 100%, rgba(183, 172, 228, 0.45), transparent 70%), linear-gradient(180deg, #fcfbff 0%, #f4f2fb 45%, #e9e5f6 100%); }
-  .hero-inner { order: 1; padding-top: clamp(112px, 24vw, 140px); padding-bottom: 0; }
+  .hero-inner { order: 1; padding-top: 8px; padding-bottom: 56px; }
   .hero-copy { max-width: none; }
   .hero h1 { max-width: 12ch; }
   /* 4:5 crop of the 2:3 frame (object-position 50% 55%) — face window re-mapped */
-  .hero-visual { order: 2; position: relative; right: auto; bottom: auto; height: auto; max-width: none; width: min(100%, 520px); margin: 8px auto 0; }
+  /* phones: the portrait leads, her head tucked under the menu bar as on desktop */
+  .hero-visual { order: 0; position: relative; top: auto; right: auto; width: min(100%, 520px); margin: 58px auto 0; }
   .hcard-progress { left: auto; right: 4%; bottom: 3%; padding-block: 9px; }
   .hc-prog b { font-size: 1.3rem; }
 }
