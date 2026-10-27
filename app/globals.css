@@ -128,9 +128,9 @@ h4 { font-weight: 600; }
    its left edge dissolves into the lavender stage where the copy sits — one
    continuous surface, not a framed card. --st/--sr/--sb/--sl = scan window. */
 .hero-visual { --st: 13%; --sr: 22%; --sb: 32%; --sl: 28%; position: absolute; top: 0; right: 0; bottom: 0; width: clamp(560px, 62%, 1060px); }
-.hero-bg { position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%), linear-gradient(180deg, #000 85%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0%, #000 32%), linear-gradient(180deg, #000 85%, transparent 100%); mask-composite: intersect; }
+.hero-bg { position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%), linear-gradient(180deg, transparent 0%, #000 12%, #000 84%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0%, #000 32%), linear-gradient(180deg, transparent 0%, #000 12%, #000 84%, transparent 100%); mask-composite: intersect; }
 .hero-visual::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(248, 247, 255, 0.72) 0%, rgba(248, 247, 255, 0.3) 18%, rgba(248, 247, 255, 0) 36%); }
-.hero-img { object-fit: cover; object-position: 60% 14%; }
+.hero-img { object-fit: cover; object-position: 52% 24%; }
 /* a soft "analyzing" lift that tracks the scan beam down the face oval */
 .hero-img-after { filter: brightness(1.09) contrast(0.97) saturate(0.95); -webkit-mask-image: radial-gradient(38% 30% at 52% 40%, #000 52%, transparent 100%); mask-image: radial-gradient(38% 30% at 52% 40%, #000 52%, transparent 100%); clip-path: inset(0 0 100% 0); animation: reveal 5s var(--ease) infinite; }
 @keyframes reveal {
@@ -141,7 +141,7 @@ h4 { font-weight: 600; }
 
 /* the scan window: a calm violet frame + a lush beam that sweeps the face web */
 .scan { position: absolute; top: var(--st); right: var(--sr); bottom: var(--sb); left: var(--sl); z-index: 2; pointer-events: none; }
-.scan-frame { position: absolute; inset: 0; --c: rgba(124, 116, 214, 0.5); --l: 24px; --w: 1.5px;
+.scan-frame { display: none; position: absolute; inset: 0; --c: rgba(124, 116, 214, 0.5); --l: 24px; --w: 1.5px;
   background:
     linear-gradient(var(--c), var(--c)) top left / var(--l) var(--w),
     linear-gradient(var(--c), var(--c)) top left / var(--w) var(--l),
@@ -158,25 +158,20 @@ h4 { font-weight: 600; }
 
 /* smart tags: a live pulsing sensor on the skin + a readout with a status chip */
 .probe { position: absolute; width: 0; height: 0; z-index: 3; animation: probe-in 0.7s var(--ease) both; }
-.probe-tone { left: 33%; top: 56%; animation-delay: 0.5s; }
-.probe-hydra { left: 66%; top: 36%; animation-delay: 0.75s; }
+.probe-tone { left: 40%; top: 58%; animation-delay: 0.5s; }
+.probe-hydra { left: 62%; top: 34%; animation-delay: 0.75s; }
 @keyframes probe-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-.probe i { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 4px rgba(124, 116, 214, 0.28), 0 0 14px rgba(124, 116, 214, 0.65); }
-.probe i::after { content: ""; position: absolute; inset: -3px; border-radius: 999px; border: 1.5px solid rgba(124, 116, 214, 0.55); animation: ping 2.4s ease-out infinite; }
-@keyframes ping { 0% { transform: scale(0.6); opacity: 0.8; } 70%, 100% { transform: scale(2.2); opacity: 0; } }
-.probe span { position: absolute; top: 0; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 8px; padding: 6px 11px 6px 9px; border-radius: 999px; white-space: nowrap; font-size: 0.76rem; font-weight: 500; color: var(--ink-soft); background: rgba(255, 255, 255, 0.88); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.95); box-shadow: 0 8px 22px -10px rgba(48, 43, 94, 0.35); }
+.probe i { display: none; }
+.probe span { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 10px; border-radius: 999px; white-space: nowrap; font-size: 0.78rem; font-weight: 500; color: var(--ink-soft); background: rgba(255, 255, 255, 0.9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.95); box-shadow: 0 10px 26px -12px rgba(48, 43, 94, 0.4); }
 .probe span .pdot { width: 7px; height: 7px; border-radius: 999px; background: var(--v-500); box-shadow: 0 0 0 3px rgba(124, 116, 214, 0.16); flex: none; animation: livedot 1.8s ease-in-out infinite; }
 .probe span b { font-weight: 600; font-size: 0.95em; color: var(--v-700); background: var(--v-50); padding: 2px 8px; border-radius: 999px; }
 @keyframes livedot { 0%, 100% { opacity: 0.5; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1); } }
-.probe span::before { content: ""; position: absolute; top: 50%; width: 30px; height: 1px; background: rgba(124, 116, 214, 0.5); }
-.probe-tone span { right: 36px; } .probe-tone span::before { left: 100%; }
-.probe-hydra span { left: 36px; } .probe-hydra span::before { right: 100%; }
 
 .hcard { position: absolute; z-index: 5; background: rgba(255, 255, 255, 0.84); -webkit-backdrop-filter: blur(16px) saturate(1.6); backdrop-filter: blur(16px) saturate(1.6); border: 1px solid rgba(255, 255, 255, 0.95); border-radius: 18px; box-shadow: 0 1px 2px rgba(19, 16, 28, 0.05), 0 18px 40px -12px rgba(48, 43, 94, 0.24); animation: float 7s ease-in-out infinite; }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .hc-ic { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: var(--v-50); color: var(--v-600); flex: none; }
 .hc-ic svg { width: 18px; height: 18px; }
-.hcard-progress { bottom: 14%; left: 4%; display: flex; align-items: center; gap: 12px; padding: 13px 18px 13px 13px; }
+.hcard-progress { bottom: 12%; right: 5%; left: auto; display: flex; align-items: center; gap: 12px; padding: 13px 18px 13px 13px; }
 .hc-case small { display: block; font-size: 0.74rem; color: var(--ink-faint); margin-bottom: 2px; }
 .hc-case b { display: block; font-size: 0.95rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
 .hc-prog small { display: block; font-size: 0.74rem; color: var(--ink-faint); margin-bottom: 1px; }
@@ -187,7 +182,7 @@ h4 { font-weight: 600; }
   .hero-img-after, .scan-line, .probe, .probe i::after, .probe span .pdot, .hcard { animation: none; }
   .scan-line, .probe i::after { opacity: 0; }
 }
-@media (max-width: 1180px) { .hero-copy { max-width: 480px; } .hcard-progress { left: 2%; } }
+@media (max-width: 1180px) { .hero-copy { max-width: 480px; } .hcard-progress { right: 3%; } }
 @media (max-width: 920px) {
   .hero { flex-direction: column; align-items: stretch; min-height: 0; background: radial-gradient(60% 30% at 50% 72%, rgba(255, 255, 255, 0.95), transparent 70%), radial-gradient(80% 40% at 100% 100%, rgba(183, 172, 228, 0.45), transparent 70%), linear-gradient(180deg, #fcfbff 0%, #f4f2fb 45%, #e9e5f6 100%); }
   .hero-inner { order: 1; padding-top: clamp(112px, 24vw, 140px); padding-bottom: 0; }
@@ -202,7 +197,7 @@ h4 { font-weight: 600; }
   .hcard-progress { left: auto; right: 4%; bottom: 3%; padding-block: 9px; }
   .hc-prog b { font-size: 1.3rem; }
 }
-@media (max-width: 600px) { .probe span { font-size: 0.68rem; padding: 4px 8px; gap: 6px; } .probe span b { padding: 2px 6px; } .probe-tone span { right: 8px; } .probe-hydra span { left: 8px; } .probe span::before { display: none; } }
+@media (max-width: 600px) { .probe span { font-size: 0.7rem; padding: 4px 9px; gap: 6px; } .probe span b { padding: 2px 7px; } }
 
 /* ---- section heads ---- */
 .sec-head { max-width: 680px; margin-bottom: clamp(36px, 5vw, 56px); }
