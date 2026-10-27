@@ -11,13 +11,19 @@ export const ROLES = {
 } as const;
 
 export const NAV = {
+  /** shown in the Platform menu (desktop) and the mobile sheet */
+  products: [
+    { label: "veyderm Pro", href: "/professional", ic: "stethoscope", tone: "pro", desc: "AI-drafted treatment plans you review and sign." },
+    { label: "Sena", href: "/sena", ic: "message", tone: "sena", desc: "An AI skin companion for patients, on WhatsApp." },
+    { label: "For brands", href: "/brands", ic: "building", tone: "brand", desc: "Reach and inform dermatologists across the UAE." },
+  ],
+  note: "The same clinical AI powers every product. A licensed dermatologist approves every output.",
   links: [
-    { label: "veyderm Pro", href: "/professional" },
-    { label: "Sena", href: "/sena" },
-    { label: "For brands", href: "/brands" },
+    { label: "Company", href: "/company" },
+    { label: "Contact", href: "mailto:info@veyderm.com" },
   ],
   cta: { label: "Request access", href: "/#access" },
-};
+} as const;
 
 export const FOOTER = {
   email: "info@veyderm.com",
@@ -61,16 +67,15 @@ export const FOOTER = {
 
 export const HOME = {
   hero: {
-    kicker: "The UAE’s first AI dermatology platform",
+    kicker: "Clinical AI for dermatology in the UAE",
     h1: "Dermatology, made intelligent.",
     sub: "AI that reads skin with a specialist’s eye — and a licensed dermatologist who approves every recommendation. For clinics, patients and skincare brands across the UAE.",
     primary: { label: "Request access", href: "#access", role: ROLES.derm },
     secondary: { label: "Meet Sena", href: "/sena" },
   },
   proof: [
-    "Dermatologist-approved",
-    "Built for UAE skin & climate",
-    "Authorized products only",
+    "Dermatologist review built in",
+    "Authorized UAE product data",
   ],
   platform: {
     kicker: "One platform",

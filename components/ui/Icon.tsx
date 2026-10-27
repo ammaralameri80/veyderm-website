@@ -18,6 +18,11 @@ import {
   Target,
   Briefcase,
   ShoppingCart,
+  ChevronDown,
+  ScanFace,
+  Palette,
+  Layers,
+  CircleCheck,
   type LucideProps,
 } from "lucide-react";
 
@@ -41,6 +46,11 @@ const MAP = {
   target: Target,
   briefcase: Briefcase,
   cart: ShoppingCart,
+  "chevron-down": ChevronDown,
+  "scan-face": ScanFace,
+  palette: Palette,
+  layers: Layers,
+  "circle-check": CircleCheck,
 } as const;
 
 export type IconName = keyof typeof MAP;

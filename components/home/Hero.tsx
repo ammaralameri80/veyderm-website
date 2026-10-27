@@ -1,23 +1,16 @@
 import Image from "next/image";
 import { Button, TextLink } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import { HOME } from "@/lib/site";
-
-function Check() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12.5l4.5 4.5L19 7.5" />
-    </svg>
-  );
-}
 
 const PORTRAIT = "/images/hero-cutout3.webp";
 const SIZES = "(max-width: 920px) 100vw, 46vw";
+const PROOF_ICONS: IconName[] = ["shield", "package"];
 
-/** Hero: a cool lavender stage the nav floats over — the message on the
- *  left, a studio portrait on the right whose white backdrop melts into the
- *  stage (multiply). An AI scan window sweeps the face, maps what it reads,
- *  and hands the case on for dermatologist review — no invented results. */
+/** Hero: a cool lavender stage the nav floats over — the message on the left,
+ *  a cut-out portrait on the right standing on the same stage. An AI scan
+ *  sweeps the face, the readouts report what it mapped, and the case is handed
+ *  on for dermatologist review — status only, no invented results. */
 export function Hero() {
   const { hero } = HOME;
   return (
@@ -33,12 +26,24 @@ export function Hero() {
           <span className="scan-line" />
         </div>
         <ul className="probes" aria-hidden="true">
-          <li className="probe probe-tone"><i /><span><em className="pdot" />Pigmentation<b>mapped</b></span></li>
-          <li className="probe probe-hydra"><i /><span><em className="pdot" />Texture<b>analyzed</b></span></li>
+          <li className="probe probe-tone">
+            <span className="aitag">
+              <span className="aitag-ic"><Icon name="palette" /></span>
+              <span className="aitag-tx"><small>Pigmentation</small><b>Mapped</b></span>
+              <Icon name="circle-check" className="aitag-ok" />
+            </span>
+          </li>
+          <li className="probe probe-hydra">
+            <span className="aitag">
+              <span className="aitag-ic"><Icon name="layers" /></span>
+              <span className="aitag-tx"><small>Texture</small><b>Analyzed</b></span>
+              <Icon name="circle-check" className="aitag-ok" />
+            </span>
+          </li>
         </ul>
 
         <div className="hcard hcard-progress" aria-hidden="true">
-          <span className="hc-ic"><Icon name="sparkles" /></span>
+          <span className="hc-ic"><Icon name="scan-face" /></span>
           <span className="hc-case">
             <small>AI case assessment</small>
             <b>Ready for dermatologist review</b>
@@ -48,7 +53,7 @@ export function Hero() {
 
       <div className="wrap hero-inner">
         <div className="hero-copy">
-          <span className="kicker"><Icon name="sparkles" />{hero.kicker}</span>
+          <span className="kicker"><span className="kdot" aria-hidden="true" />{hero.kicker}</span>
           <h1 className="display">{hero.h1}</h1>
           <p className="lead">{hero.sub}</p>
           <div className="hero-cta">
@@ -60,8 +65,8 @@ export function Hero() {
             </TextLink>
           </div>
           <ul className="hero-proof" aria-label="What veyderm promises">
-            {HOME.proof.map((p) => (
-              <li key={p}><Check />{p}</li>
+            {HOME.proof.map((p, i) => (
+              <li key={p}><span className="pf-ic"><Icon name={PROOF_ICONS[i]} aria-hidden="true" /></span>{p}</li>
             ))}
           </ul>
         </div>
