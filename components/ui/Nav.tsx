@@ -8,21 +8,13 @@ import { NAV } from "@/lib/site";
 
 export function Nav() {
   const pathname = usePathname() || "/";
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Close the mobile menu on route change.
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <nav className={`nav${scrolled ? " scrolled" : ""}`} aria-label="Main">
+    <nav className="nav" aria-label="Main">
       <div className="wrap"><div className="nav-in">
         <HeaderLogo href="/" />
         <div className="nav-links">
