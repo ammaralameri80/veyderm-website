@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button, TextLink } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { HOME } from "@/lib/site";
 
@@ -52,9 +52,9 @@ export function Hero() {
             <Button href={hero.primary.href} role={hero.primary.role} cta="hero_primary" arrow>
               {hero.primary.label}
             </Button>
-            <TextLink href={hero.secondary.href} cta="hero_secondary">
+            <Button href={hero.secondary.href} variant="soft" spark cta="hero_secondary">
               {hero.secondary.label}
-            </TextLink>
+            </Button>
           </div>
           <ul className="hero-proof" aria-label="What veyderm promises">
             {HOME.proof.map((p, i) => (
