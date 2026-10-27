@@ -27,18 +27,10 @@ export function Hero() {
         </div>
         <ul className="probes" aria-hidden="true">
           <li className="probe probe-tone">
-            <span className="aitag">
-              <span className="aitag-ic"><Icon name="palette" /></span>
-              <span className="aitag-tx"><small>Pigmentation</small><b>Mapped</b></span>
-              <Icon name="circle-check" className="aitag-ok" />
-            </span>
+            <span className="aitag"><span className="aitag-pt" /><b>Pigmentation</b>mapped</span>
           </li>
           <li className="probe probe-hydra">
-            <span className="aitag">
-              <span className="aitag-ic"><Icon name="layers" /></span>
-              <span className="aitag-tx"><small>Texture</small><b>Analyzed</b></span>
-              <Icon name="circle-check" className="aitag-ok" />
-            </span>
+            <span className="aitag"><span className="aitag-pt" /><b>Texture</b>analyzed</span>
           </li>
         </ul>
 
