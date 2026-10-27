@@ -11,18 +11,18 @@ function Check() {
   );
 }
 
-const PORTRAIT = "/images/hero-radiance-cut.webp";
+const PORTRAIT = "/images/hero-portrait-grid.webp";
 const SIZES = "(max-width: 920px) 100vw, 44vw";
 
 /** Hero: a cool lavender stage the nav floats over — the message on the
- *  left, a luminous cut-out portrait on the right. An AI scan window sweeps the face
- *  and leaves the skin brighter and more even behind it: the analysis and
- *  the result in one moment. */
+ *  left, a studio portrait on the right whose white backdrop melts into the
+ *  stage (multiply). An AI scan window sweeps the face, maps what it reads,
+ *  and hands the case on for dermatologist review — no invented results. */
 export function Hero() {
   const { hero } = HOME;
   return (
     <header className="hero" id="top">
-      <div className="hero-visual" role="img" aria-label="A portrait with luminous, even skin. veyderm's AI scans the face, measures tone and hydration, and previews a brighter, more even result approved by a dermatologist.">
+      <div className="hero-visual" role="img" aria-label="A portrait while veyderm's AI scans the face, maps pigmentation and texture, and prepares the case for dermatologist review.">
         <div className="hero-bg" aria-hidden="true">
           <Image src={PORTRAIT} alt="" fill priority sizes={SIZES} className="hero-img" />
           {/* the same frame, brightened and evened, revealed by the scan */}
@@ -33,15 +33,15 @@ export function Hero() {
           <span className="scan-line" />
         </div>
         <ul className="probes" aria-hidden="true">
-          <li className="probe probe-tone"><i /><span>Even tone<b>92%</b></span></li>
-          <li className="probe probe-hydra"><i /><span>Hydration<b>78%</b></span></li>
+          <li className="probe probe-tone"><i /><span>Pigmentation<b>mapped</b></span></li>
+          <li className="probe probe-hydra"><i /><span>Texture<b>analyzed</b></span></li>
         </ul>
 
         <div className="hcard hcard-progress" aria-hidden="true">
           <span className="hc-ic"><Icon name="sparkles" /></span>
-          <span className="hc-prog">
-            <small>Radiance in 8 weeks</small>
-            <b>+24%<em>Approved by Dr. Noor</em></b>
+          <span className="hc-case">
+            <small>AI case assessment</small>
+            <b>Ready for dermatologist review</b>
           </span>
         </div>
       </div>
