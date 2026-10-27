@@ -81,6 +81,46 @@ export const HOME = {
     kicker: "One platform",
     h2: ["One platform. ", "Three products."],
     sub: "The same clinical AI powers every experience. A licensed dermatologist approves every output.",
+    /** the audience switcher; steps paraphrase the approved product copy */
+    tabs: [
+      {
+        id: "pro", tab: "Dermatologists", product: "veyderm Pro", audience: "For dermatologists and clinics", ic: "stethoscope", tone: "pro",
+        h: "Built for dermatologists.",
+        body: "AI prepares every consultation. You stay in control.",
+        steps: [
+          { t: "AI drafts the treatment plan", d: "Ready before the consultation." },
+          { t: "Matched to the right products", d: "Drawn from authorized UAE product data." },
+          { t: "You review, adjust and sign", d: "Then message your patient securely." },
+        ],
+        primary: { label: "Request clinician access", href: "#access", role: ROLES.derm },
+        secondary: { label: "Explore veyderm Pro", href: "/professional" },
+      },
+      {
+        id: "sena", tab: "Patients", product: "Sena", audience: "For patients, on WhatsApp and in store", ic: "message", tone: "sena",
+        h: "Your AI skin companion.",
+        body: "Ask anything about your skin, any time — with a dermatologist behind every plan.",
+        steps: [
+          { t: "Share a photo", d: "On WhatsApp or in a partner store." },
+          { t: "Get an AI skin analysis", d: "Sena explains what it sees, in plain language." },
+          { t: "Receive an approved plan", d: "Reviewed by a licensed dermatologist before it reaches you." },
+        ],
+        note: "Sena provides guidance, not a medical diagnosis.",
+        primary: { label: "Join the Sena waitlist", href: "#access", role: ROLES.patient },
+        secondary: { label: "Meet Sena", href: "/sena" },
+      },
+      {
+        id: "brands", tab: "Brands", product: "For skincare brands", audience: "For brands and distributors", ic: "building", tone: "brand",
+        h: "Reach every dermatologist in the UAE.",
+        body: "From medical education to the order — one place to work with the clinicians who prescribe.",
+        steps: [
+          { t: "Share the science", d: "Medical updates delivered to verified dermatologists." },
+          { t: "Generate qualified leads", d: "Reach the clinicians treating the conditions you serve." },
+          { t: "Ordering, simplified", d: "Clinics order through verified UAE distributors." },
+        ],
+        primary: { label: "Become a brand partner", href: "#access", role: ROLES.brand },
+        secondary: { label: "Explore the brand platform", href: "/brands" },
+      },
+    ],
   },
   pro: {
     kicker: "veyderm Pro",

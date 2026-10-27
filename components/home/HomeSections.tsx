@@ -5,6 +5,7 @@ import { Button, TextLink } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { DeviceFrame, ProScreen, BrandScreen } from "./Screens";
 import { SenaChat } from "./SenaChat";
+import { PlatformTabs } from "./PlatformTabs";
 import { HOME } from "@/lib/site";
 
 /* ---------------------------------------------------------- Proof bar */
@@ -27,9 +28,16 @@ export function ProofBar() {
 
 /* ---------------------------------------------------------- Platform */
 export function Platform() {
+  const { platform } = HOME;
   return (
-    <Section id="products" tight>
-      <SectionHeader kicker={HOME.platform.kicker} heading={HOME.platform.h2} sub={HOME.platform.sub} center />
+    <Section id="products" className="platform">
+      <Reveal className="pl-head">
+        <h2 className="heading">{platform.h2.join("")}</h2>
+        <p>{platform.sub}</p>
+      </Reveal>
+      <Reveal delay={0.08}>
+        <PlatformTabs />
+      </Reveal>
     </Section>
   );
 }
@@ -204,27 +212,3 @@ export function CompanyStrip() {
 }
 
 /* ---------------------------------------------------------- Product cards */
-export function ProductCards() {
-  const { pro, sena, brands } = HOME;
-  const cards: { ic: IconName; kicker: string; h: string[]; p: string; href: string; label: string }[] = [
-    { ic: "stethoscope", kicker: pro.kicker, h: pro.h2, p: pro.body, href: "/professional", label: pro.ctas.secondary.label },
-    { ic: "message", kicker: sena.kicker, h: sena.h2, p: sena.body, href: "/sena", label: sena.ctas.secondary.label },
-    { ic: "building", kicker: brands.kicker, h: brands.h2, p: brands.body, href: "/brands", label: "For brands" },
-  ];
-  return (
-    <div className="wrap pcards">
-      {cards.map((c, i) => (
-        <Reveal key={c.href} delay={i * 0.06}>
-          <a className="pcard" href={c.href}>
-            <span className="pc-ic"><Icon name={c.ic} /></span>
-            <span className="pc-k">{c.kicker}</span>
-            <h3>{c.h.join("")}</h3>
-            <p>{c.p}</p>
-            <span className="pc-more">{c.label}<Icon name="arrow-up-right" /></span>
-          </a>
-        </Reveal>
-      ))}
-    </div>
-  );
-}
-
