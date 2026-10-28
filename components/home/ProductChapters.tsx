@@ -2,19 +2,20 @@ import type { CSSProperties, ReactNode } from "react";
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
-import { Icon, type IconName } from "@/components/ui/Icon";
+import { Icon } from "@/components/ui/Icon";
+import { ProductMark, SenaOrb, type ProductKind } from "@/components/ui/ProductMark";
 import { HOME } from "@/lib/site";
 
 /* ------------------------------------------------------------------ chapter
    One product per chapter: an identity row, an obsidian headline, a short
-   paragraph and three points on the hero's measurement dots, beside a glass
-   stage that holds an illustrative, code-built product screen. */
+   paragraph and three points on the hero's measurement dots, beside a plum
+   stage that an illustrative, code-built product screen rises out of. */
 
 type ChapterProps = {
   id: string;
   product: string;
   audience: string;
-  ic: string;
+  mark: ProductKind;
   heading: string;
   body: string;
   points: string[];
@@ -24,13 +25,13 @@ type ChapterProps = {
   reversed?: boolean;
 };
 
-function Chapter({ id, product, audience, ic, heading, body, points, ctas, stage, caption, reversed }: ChapterProps) {
+function Chapter({ id, product, audience, mark, heading, body, points, ctas, stage, caption, reversed }: ChapterProps) {
   return (
     <section id={id} className={`chapter${reversed ? " rev" : ""}`}>
       <div className="wrap ch-grid">
         <Reveal className="ch-copy">
           <div className="ch-id">
-            <span className="np-ic"><Icon name={ic as IconName} aria-hidden="true" /></span>
+            <ProductMark kind={mark} />
             <span><b>{product}</b><small>{audience}</small></span>
           </div>
           <h2>{heading}</h2>
@@ -62,7 +63,7 @@ export function ProductChapters() {
         id="pro"
         product={pro.product}
         audience={pro.audience}
-        ic={pro.ic}
+        mark={pro.mark}
         heading={pro.h2.join("")}
         body={pro.body}
         points={pro.points}
@@ -79,12 +80,12 @@ export function ProductChapters() {
         reversed
         product={sena.product}
         audience={sena.audience}
-        ic={sena.ic}
+        mark={sena.mark}
         heading={sena.h2.join("")}
         body={sena.body}
         points={sena.points}
         caption={sena.caption}
-        stage={<SenaWhatsAppStage />}
+        stage={<SenaChatStage />}
         ctas={
           <>
             <Button href={sena.ctas.primary.href} role={sena.ctas.primary.role} cta="feature_sena" arrow>{sena.ctas.primary.label}</Button>
@@ -96,7 +97,7 @@ export function ProductChapters() {
         id="brands"
         product={brands.product}
         audience={brands.audience}
-        ic={brands.ic}
+        mark={brands.mark}
         heading={brands.h2.join("")}
         body={brands.body}
         points={brands.points}
@@ -202,63 +203,43 @@ function ProPlanStage() {
 }
 
 /* ---------------------------------------------------------- Sena
-   The patient's WhatsApp: she describes her concern, shares a photo, and the
-   dermatologist-approved plan comes back in the chat — the same plan the
-   doctor approved in veyderm Pro. */
+   Sena's own chat: the patient describes her concern and shares a photo, Sena
+   explains what it sees, and the plan comes back approved by a licensed
+   dermatologist — the same plan the doctor approved in veyderm Pro. */
 
-function Ticks() {
-  return <Icon name="check-check" className="wa-ticks" />;
-}
-
-function SenaWhatsAppStage() {
+function SenaChatStage() {
   return (
     <>
-      <div className="scr wa-phone" role="img" aria-label="Sena on WhatsApp: the patient describes dark patches on her cheeks that get worse in summer and shares a daylight photo; Sena explains what it sees, sends a plan to a licensed dermatologist, and the approved morning and evening plan arrives in the chat. Illustrative.">
-        <div className="wa-screen" aria-hidden="true">
-          <div className="wa-status"><b>9:41</b><span><i /><i /><i /></span></div>
-          <div className="wa-top">
-            <Icon name="chevron-left" />
-            <span className="wa-av">S</span>
-            <span className="wa-name"><b>Sena</b><small>online</small></span>
-            <Icon name="video" />
-            <Icon name="phone" />
+      <div className="scr sc" role="img" aria-label="A chat with Sena, the AI skincare assistant: the patient describes dark patches on her cheeks that get worse in summer and shares a daylight photo; Sena explains what it sees, sends a care plan to a licensed dermatologist, and the approved morning and evening plan arrives in the chat. Illustrative.">
+        <div className="sc-top" aria-hidden="true">
+          <span className="sc-av"><svg viewBox="0 0 24 24" fill="none"><SenaOrb /></svg></span>
+          <span className="sc-name"><b>Sena</b><small><i />AI skincare assistant</small></span>
+          <span className="sc-badge"><Icon name="shield" />Dermatologist-reviewed</span>
+        </div>
+        <div className="sc-chat" aria-hidden="true">
+          <p className="sc-msg ai">Hello, I’m Sena, your AI skincare assistant. Tell me what’s bothering your skin, and I’ll help you find the right care.</p>
+          <p className="sc-msg me">I’ve noticed dark patches on my cheeks. They get worse every summer.</p>
+          <p className="sc-msg ai">Thank you for sharing. Could you send a photo taken in daylight, without makeup? It helps me see the pattern clearly.</p>
+          <div className="sc-msg me sc-photo">
+            <span className="sc-img"><Image src="/images/sena-selfie.webp" alt="" fill sizes="200px" /></span>
           </div>
-          <div className="wa-chat">
-            <span className="wa-day">Today</span>
-            <p className="wa-msg in">Hi, I’m Sena. What’s bothering your skin today?<time>9:38</time></p>
-            <p className="wa-msg out">I have dark patches on my cheeks. They get worse every summer.<time>9:38<Ticks /></time></p>
-            <p className="wa-msg in">Thanks for telling me. Could you send a photo in daylight, without makeup?<time>9:39</time></p>
-            <div className="wa-msg out wa-photo">
-              <span className="wa-img">
-                <Image src="/images/sena-selfie.webp" alt="" fill sizes="200px" />
-              </span>
-              <time>9:39<Ticks /></time>
+          <p className="sc-msg ai">I can see uneven pigmentation across both cheeks. I’ve prepared a care plan and sent it to a licensed dermatologist for review.</p>
+          <div className="sc-plan">
+            <div className="sc-plan-h">
+              <b>Your care plan</b>
+              <small><Icon name="circle-check" />Approved by a licensed dermatologist</small>
             </div>
-            <p className="wa-msg in">I can see uneven pigmentation on both cheeks. I’ve prepared a plan and sent it to a licensed dermatologist to review.<time>9:40</time></p>
-            <div className="wa-msg in wa-card">
-              <div className="wa-card-h">
-                <b>Your skin plan</b>
-                <small><Icon name="badge" />Approved by a licensed dermatologist</small>
-              </div>
-              <div className="wa-card-b">
-                <p><Icon name="sun" /><span><b>Morning</b>Gentle cleanser · niacinamide serum · tinted SPF 50+</span></p>
-                <p><Icon name="moon" /><span><b>Evening</b>Gentle cleanser · azelaic acid 20% · barrier cream</span></p>
-              </div>
-              <time>9:41</time>
-            </div>
-            <div className="wa-actions">
-              <span>View my products</span>
-              <span>Ask a question</span>
-            </div>
+            <p><Icon name="sun" /><span><b>Morning</b>Gentle cleanser, niacinamide serum, tinted SPF 50+</span></p>
+            <p><Icon name="moon" /><span><b>Evening</b>Gentle cleanser, azelaic acid 20%, barrier cream</span></p>
+            <div className="sc-acts"><span>View my products</span><span>Ask a question</span></div>
           </div>
-          <div className="wa-input">
-            <span className="wa-field"><Icon name="plus" />Message</span>
-            <span className="wa-mic"><Icon name="mic" /></span>
-          </div>
+        </div>
+        <div className="sc-input" aria-hidden="true">
+          <span className="sc-field"><Icon name="plus" />Ask Sena anything</span>
+          <span className="sc-send"><Icon name="mic" /></span>
         </div>
       </div>
       <Tag className="t-sena-1">Photo-based AI analysis</Tag>
-      <Tag className="t-sena-2">Approved by a dermatologist</Tag>
     </>
   );
 }

@@ -1,7 +1,6 @@
 // Inline SVG wordmark, ported 1:1 from the design reference.
 // Three responsive variants swap via CSS (.logo-full / .logo-small / .logo-icon).
-// The footer sits on the night block, so it uses the reversed variant
-// (light brand violet + white) — same glyphs, colours flipped for dark.
+// The footer uses the same violet + ink colours as the header.
 
 const WORDMARK_PATH_PURPLE = `M2315 2374 c-158 -38 -237 -74 -330 -151 -191 -157 -291 -399 -270
 -652 25 -305 192 -516 465 -588 86 -22 243 -22 329 1 129 35 255 118 324 215
@@ -163,8 +162,8 @@ export function FooterLogo({ href = "/" }: { href?: string }) {
       >
         <g
           transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)"
-          fill="#b7ace4"
-          stroke="#b7ace4"
+          fill="#6c65c2"
+          stroke="#6c65c2"
           strokeWidth="70"
           strokeLinejoin="round"
         >
@@ -172,8 +171,8 @@ export function FooterLogo({ href = "/" }: { href?: string }) {
         </g>
         <g
           transform="translate(0.000000,331.000000) scale(0.100000,-0.100000)"
-          fill="#ffffff"
-          stroke="#ffffff"
+          fill="#111111"
+          stroke="#111111"
           strokeWidth="70"
           strokeLinejoin="round"
         >

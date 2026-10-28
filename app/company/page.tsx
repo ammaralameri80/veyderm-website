@@ -4,7 +4,8 @@ import { Footer } from "@/components/ui/Footer";
 import { PageHero } from "@/components/ui/PageParts";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
-import { Icon, type IconName } from "@/components/ui/Icon";
+import { Icon } from "@/components/ui/Icon";
+import { ProductMark } from "@/components/ui/ProductMark";
 import { COMPANY_PAGE } from "@/lib/site";
 
 const title = "Company — building the AI infrastructure for dermatology";
@@ -30,7 +31,7 @@ export default function CompanyPage() {
           sub={COMPANY_PAGE.sub}
           photo={{ src: "/images/portrait-studio-side.webp", alt: "A woman with calm, healthy skin in soft studio light", position: "50% 16%" }}
         />
-        <Section tight className="section--mist">
+        <Section tight>
           <div className="company">
             <Reveal className="company-copy" >
               <div style={{ maxWidth: "46ch" }}>
@@ -47,7 +48,7 @@ export default function CompanyPage() {
               <div className="diagram-row">
                 {diagram.nodes.map((n) => (
                   <div className="dnode" key={n.t}>
-                    <span className="d-ic"><Icon name={n.ic as IconName} /></span>
+                    <ProductMark kind={n.mark} />
                     <b>{n.t}</b>
                     <small>{n.d}</small>
                   </div>

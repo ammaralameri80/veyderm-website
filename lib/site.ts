@@ -13,9 +13,9 @@ export const ROLES = {
 export const NAV = {
   /** shown in the Platform menu (desktop) and the mobile sheet */
   products: [
-    { label: "veyderm Pro", href: "/professional", ic: "stethoscope", desc: "AI-drafted treatment plans you review and sign." },
-    { label: "Sena", href: "/sena", ic: "message", desc: "An AI skin companion for patients, on WhatsApp." },
-    { label: "For brands", href: "/brands", ic: "building", desc: "Reach and inform dermatologists across the UAE." },
+    { label: "veyderm Pro", href: "/professional", ic: "stethoscope", mark: "pro" as const, desc: "AI-drafted treatment plans you review and sign." },
+    { label: "Sena", href: "/sena", ic: "message", mark: "sena" as const, desc: "An AI skin companion for patients, on WhatsApp." },
+    { label: "For brands", href: "/brands", ic: "building", mark: "brands" as const, desc: "Reach and inform dermatologists across the UAE." },
   ],
   note: "The same clinical AI powers every product. A licensed dermatologist approves every output.",
   links: [
@@ -80,7 +80,7 @@ export const HOME = {
   pro: {
     product: "veyderm Pro",
     audience: "For dermatologists and clinics",
-    ic: "stethoscope",
+    ic: "stethoscope", mark: "pro" as const,
     kicker: "veyderm Pro",
     h2: ["Built for ", "dermatologists."],
     body: "Prescribe the way you always do. veyderm’s AI builds the complete treatment plan around it — the routine, the timing and the right authorized products — ready for you to review, adjust and approve.",
@@ -93,7 +93,7 @@ export const HOME = {
   sena: {
     product: "Sena",
     audience: "For patients, on WhatsApp and in store",
-    ic: "message",
+    ic: "message", mark: "sena" as const,
     kicker: "Sena",
     h2: ["Your AI skin ", "companion."],
     body: "Patients chat with Sena on WhatsApp, describe what’s bothering their skin and share a photo. Sena prepares a plan, a licensed dermatologist approves it, and it arrives right in the chat.",
@@ -107,7 +107,7 @@ export const HOME = {
   brands: {
     product: "For skincare brands",
     audience: "For brands and distributors",
-    ic: "building",
+    ic: "building", mark: "brands" as const,
     kicker: "For skincare brands",
     h2: ["Reach every ", "dermatologist", " in the UAE."],
     body: "See how dermatologists use and talk about your products — what they prescribe them for, what they ask, and where interest is growing — then respond with the latest medical information.",
@@ -186,9 +186,9 @@ export const COMPANY_PAGE = {
   ],
   diagram: {
     nodes: [
-      { ic: "stethoscope", t: "veyderm Pro", d: "Doctors" },
-      { ic: "message", t: "Sena", d: "Patients" },
-      { ic: "building", t: "Brand platform", d: "Industry" },
+      { ic: "stethoscope", mark: "pro" as const, t: "veyderm Pro", d: "Doctors" },
+      { ic: "message", mark: "sena" as const, t: "Sena", d: "Patients" },
+      { ic: "building", mark: "brands" as const, t: "Brand platform", d: "Industry" },
     ],
     core: "One clinical AI core",
     base: "Licensed dermatologists approve every output",
