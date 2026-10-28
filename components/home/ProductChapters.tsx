@@ -41,7 +41,7 @@ function Chapter({ id, product, audience, heading, body, points, icons, ctas, st
         </Reveal>
         <Reveal className="ch-media" delay={0.08}>
           <div className="ch-stage">{stage}</div>
-          <p className="ch-caption">{caption ?? "Illustrative"}</p>
+          {caption && <p className="ch-caption">{caption}</p>}
         </Reveal>
       </div>
     </section>
@@ -59,7 +59,7 @@ export function ProductChapters() {
         heading={pro.h2.join("")}
         body={pro.body}
         points={pro.points}
-        icons={["search", "plan", "message"]}
+        icons={["search", "sparkles", "badge"]}
         stage={<ProPlanStage />}
         ctas={
           <>
@@ -76,7 +76,7 @@ export function ProductChapters() {
         heading={sena.h2.join("")}
         body={sena.body}
         points={sena.points}
-        icons={["badge", "bell", "scan"]}
+        icons={["message", "badge", "scan"]}
         caption={sena.caption}
         stage={<SenaChatStage />}
         ctas={
@@ -93,7 +93,7 @@ export function ProductChapters() {
         heading={brands.h2.join("")}
         body={brands.body}
         points={brands.points}
-        icons={["chart", "help", "shield"]}
+        icons={["sparkles", "help", "shield"]}
         stage={<BrandInsightsStage />}
         ctas={
           <>
@@ -159,7 +159,7 @@ function PlanColumn({ label, icon, rows }: { label: string; icon: "sun" | "moon"
 function ProPlanStage() {
   return (
     <>
-      <div className="scr ps px" role="img" aria-label="veyderm Pro: the doctor describes a patient with epidermal melasma, skin type IV, and their prescription of azelaic acid 20% at night in an AI search form; veyderm returns a 12-week morning and evening treatment plan built around the prescription, matched to authorized UAE products and ready to approve. Illustrative.">
+      <div className="scr ps px" role="img" aria-label="veyderm Pro: the doctor describes a patient with epidermal melasma, skin type IV, and their prescription of azelaic acid 20% at night in an AI search form; veyderm returns a 12-week morning and evening treatment plan built around the prescription, matched to authorized UAE products and ready to approve.">
         <div className="ps-bar" aria-hidden="true">
           <span className="ps-dots"><i /><i /><i /></span>
           <span className="ps-app"><span className="ps-mark">v</span>veyderm Pro</span>
@@ -207,7 +207,7 @@ function ProPlanStage() {
 
 function SenaChatStage() {
   return (
-    <div className="scr sc" role="img" aria-label="A chat with Sena, the AI skincare assistant: the patient describes dark patches on her cheeks that get worse in summer and shares a daylight photo of her cheek; Sena marks the uneven pigmentation on the photo, summarises its findings, sends a care plan to a licensed dermatologist, and the approved morning and evening plan arrives in the chat. Illustrative.">
+    <div className="scr sc" role="img" aria-label="A chat with Sena, the AI skincare assistant: the patient describes dark patches on her cheeks that get worse in summer and shares a daylight photo of her cheek; Sena marks the uneven pigmentation on the photo, summarises its findings, sends a care plan to a licensed dermatologist, and the approved morning and evening plan arrives in the chat.">
       <div className="sc-top" aria-hidden="true">
         <span className="sc-av"><svg viewBox="0 0 24 24" fill="none"><SenaOrb /></svg></span>
         <span className="sc-name"><b>Sena</b><small><i />AI skincare assistant</small></span>
@@ -264,7 +264,7 @@ const THEMES = ["Well tolerated with daily SPF", "Requested patient samples", "A
 function BrandInsightsStage() {
   return (
     <>
-      <div className="scr bi" role="img" aria-label="veyderm for brands: insights from verified dermatologists about an azelaic acid serum — an AI summary, which concerns dermatologists prescribe it for, the questions they ask, and the themes in their feedback. Illustrative.">
+      <div className="scr bi" role="img" aria-label="veyderm for brands: insights from verified dermatologists about an azelaic acid serum — an AI summary, which concerns dermatologists prescribe it for, the questions they ask, and the themes in their feedback.">
         <div className="ps-bar" aria-hidden="true">
           <span className="ps-dots"><i /><i /><i /></span>
           <span className="ps-app"><span className="ps-mark">v</span>veyderm for brands</span>

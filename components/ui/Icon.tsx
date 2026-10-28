@@ -1,8 +1,6 @@
 import {
   ShieldCheck,
   Search,
-  ClipboardList,
-  Bell,
   ScanBarcode,
   ChartColumnIncreasing,
   Lock,
@@ -48,8 +46,6 @@ const MAP = {
   info: Info,
   stethoscope: Stethoscope,
   search: Search,
-  plan: ClipboardList,
-  bell: Bell,
   scan: ScanBarcode,
   message: MessagesSquare,
   building: Building2,
