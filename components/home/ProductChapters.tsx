@@ -59,7 +59,7 @@ export function ProductChapters() {
         heading={pro.h2.join("")}
         body={pro.body}
         points={pro.points}
-        icons={["pen", "package", "lock"]}
+        icons={["search", "plan", "message"]}
         stage={<ProPlanStage />}
         ctas={
           <>
@@ -76,7 +76,7 @@ export function ProductChapters() {
         heading={sena.h2.join("")}
         body={sena.body}
         points={sena.points}
-        icons={["message", "scan-face", "badge"]}
+        icons={["badge", "bell", "scan"]}
         caption={sena.caption}
         stage={<SenaChatStage />}
         ctas={
@@ -93,7 +93,7 @@ export function ProductChapters() {
         heading={brands.h2.join("")}
         body={brands.body}
         points={brands.points}
-        icons={["chart", "help", "target"]}
+        icons={["chart", "help", "shield"]}
         stage={<BrandInsightsStage />}
         ctas={
           <>
