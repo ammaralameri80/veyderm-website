@@ -122,7 +122,6 @@ h4 { font-weight: 600; }
 .nav-link { position: relative; display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border: 0; border-radius: var(--r-pill); background: transparent; font: inherit; font-weight: 500; font-size: 0.94rem; letter-spacing: -0.01em; color: var(--ink-soft); cursor: pointer; transition: color 0.2s var(--ease), background 0.2s var(--ease); }
 .nav-link:hover { color: var(--ink); background: rgba(108, 101, 194, 0.08); }
 .nav-link[aria-current] { color: var(--ink); }
-.nav-link[aria-current]::after { content: ""; position: absolute; left: 50%; bottom: 2px; width: 4px; height: 4px; border-radius: 999px; background: var(--v-500); transform: translateX(-50%); }
 
 /* the Platform panel (no backdrop blur: the capsule's own blur would clip it) */
 .np-tx b { display: block; font-size: 0.95rem; font-weight: 600; letter-spacing: -0.01em; }
