@@ -201,43 +201,50 @@ function ProPlanStage() {
 
 /* ---------------------------------------------------------- Sena
    Sena's own chat: the patient describes her concern and shares a photo, Sena
-   explains what it sees, and the plan comes back approved by a licensed
-   dermatologist — the same plan the doctor approved in veyderm Pro. */
+   maps what it sees on the photo itself, and the care plan comes back
+   approved by a licensed dermatologist — the same plan the doctor approved in
+   veyderm Pro. Photo: licensed Adobe Stock (AdobeStock_1895086210). */
 
 function SenaChatStage() {
   return (
-    <>
-      <div className="scr sc" role="img" aria-label="A chat with Sena, the AI skincare assistant: the patient describes dark patches on her cheeks that get worse in summer and shares a daylight photo; Sena explains what it sees, sends a care plan to a licensed dermatologist, and the approved morning and evening plan arrives in the chat. Illustrative.">
-        <div className="sc-top" aria-hidden="true">
-          <span className="sc-av"><svg viewBox="0 0 24 24" fill="none"><SenaOrb /></svg></span>
-          <span className="sc-name"><b>Sena</b><small><i />AI skincare assistant</small></span>
-          <span className="sc-badge"><Icon name="shield" />Dermatologist-reviewed</span>
+    <div className="scr sc" role="img" aria-label="A chat with Sena, the AI skincare assistant: the patient describes dark patches on her cheeks that get worse in summer and shares a daylight photo of her cheek; Sena marks the uneven pigmentation on the photo, summarises its findings, sends a care plan to a licensed dermatologist, and the approved morning and evening plan arrives in the chat. Illustrative.">
+      <div className="sc-top" aria-hidden="true">
+        <span className="sc-av"><svg viewBox="0 0 24 24" fill="none"><SenaOrb /></svg></span>
+        <span className="sc-name"><b>Sena</b><small><i />AI skincare assistant</small></span>
+        <span className="sc-badge"><Icon name="shield" />Dermatologist-reviewed</span>
+      </div>
+      <div className="sc-chat" aria-hidden="true">
+        <span className="sc-day">Today</span>
+        <p className="sc-msg ai">Hello, I’m Sena, your AI skincare assistant. Tell me what’s bothering your skin, and I’ll help you find the right care.</p>
+        <p className="sc-msg me">I’ve noticed dark patches on my cheeks. They get worse every summer.</p>
+        <p className="sc-msg ai">Thank you for sharing. Could you send a photo taken in daylight, without makeup? It helps me see the pattern clearly.</p>
+        <div className="sc-photo">
+          <Image src="/images/sena-skin.webp" alt="" fill sizes="(max-width: 600px) 60vw, 260px" />
+          <span className="sc-pt sc-pt-1"><span className="aitag-pt" /></span>
+          <span className="sc-pt sc-pt-2"><span className="aitag-pt" /></span>
+          <span className="sc-mapped"><Icon name="scan-face" />Pigmentation mapped</span>
         </div>
-        <div className="sc-chat" aria-hidden="true">
-          <p className="sc-msg ai">Hello, I’m Sena, your AI skincare assistant. Tell me what’s bothering your skin, and I’ll help you find the right care.</p>
-          <p className="sc-msg me">I’ve noticed dark patches on my cheeks. They get worse every summer.</p>
-          <p className="sc-msg ai">Thank you for sharing. Could you send a photo taken in daylight, without makeup? It helps me see the pattern clearly.</p>
-          <div className="sc-msg me sc-photo">
-            <span className="sc-img"><Image src="/images/sena-selfie.webp" alt="" fill sizes="200px" /></span>
-          </div>
-          <p className="sc-msg ai">I can see uneven pigmentation across both cheeks. I’ve prepared a care plan and sent it to a licensed dermatologist for review.</p>
-          <div className="sc-plan">
-            <div className="sc-plan-h">
-              <b>Your care plan</b>
-              <small><Icon name="circle-check" />Approved by a licensed dermatologist</small>
-            </div>
-            <p><Icon name="sun" /><span><b>Morning</b>Gentle cleanser, niacinamide serum, tinted SPF 50+</span></p>
-            <p><Icon name="moon" /><span><b>Evening</b>Gentle cleanser, azelaic acid 20%, barrier cream</span></p>
-            <div className="sc-acts"><span>View my products</span><span>Ask a question</span></div>
-          </div>
+        <div className="sc-analysis">
+          <p className="sc-k"><Icon name="sparkles" />Skin analysis</p>
+          <div className="sc-finds"><span>Uneven pigmentation</span><span>Both cheeks</span><span>Worse in summer</span></div>
+          <p>I’ve prepared a care plan and sent it to a licensed dermatologist for review.</p>
         </div>
-        <div className="sc-input" aria-hidden="true">
-          <span className="sc-field"><Icon name="plus" />Ask Sena anything</span>
-          <span className="sc-send"><Icon name="mic" /></span>
+        <div className="sc-plan">
+          <div className="sc-plan-h">
+            <b>Your care plan</b>
+            <small><Icon name="circle-check" />Approved by a licensed dermatologist</small>
+          </div>
+          <p><Icon name="sun" /><span><b>Morning</b>Gentle cleanser, niacinamide serum, tinted SPF 50+</span></p>
+          <p><Icon name="moon" /><span><b>Evening</b>Gentle cleanser, azelaic acid 20%, barrier cream</span></p>
+          <div className="sc-acts"><span>View my products</span><span>Ask a question</span></div>
         </div>
       </div>
-      <Tag className="t-sena-1">Photo-based AI analysis</Tag>
-    </>
+      <div className="sc-input" aria-hidden="true">
+        <span className="sc-cam"><Icon name="camera" /></span>
+        <span className="sc-field">Ask Sena anything</span>
+        <span className="sc-send"><Icon name="arrow-up-right" /></span>
+      </div>
+    </div>
   );
 }
 

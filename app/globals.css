@@ -295,7 +295,6 @@ h4 { font-weight: 600; }
 .ch-caption { margin-top: 14px; font-size: 0.8rem; color: var(--ink-faint); text-align: center; }
 .ch-tag { position: absolute; z-index: 4; display: inline-flex; align-items: center; gap: 7px; height: 30px; padding: 0 13px 0 5px; border-radius: 999px; white-space: nowrap; font-size: 0.76rem; font-weight: 600; color: var(--ink); background: rgba(255, 255, 255, 0.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.95); box-shadow: 0 10px 24px -12px rgba(48, 43, 94, 0.5); }
 .t-pro-1, .t-brand-1 { left: 34%; top: -15px; }
-.t-sena-1 { left: 2%; top: 47%; }
 
 
 
@@ -310,8 +309,9 @@ h4 { font-weight: 600; }
 .scr { position: relative; font-size: clamp(10px, 2.2cqw, 14px); line-height: 1.35; text-align: left; color: var(--ink); }
 .scr svg { width: 1.15em; min-width: 1.15em; height: 1.15em; max-width: none; flex: none; }
 
-/* Sena: her own chat window — white panel, porcelain AI bubbles, violet
-   patient bubbles, a care-plan card; it rises from the bottom of the stage */
+/* Sena: her own chat window. Neutral greys and ink; the brand violet is
+   Sena's own (her avatar, the AI marks on the photo, the analysis spark), and
+   the dermatologist's approval is the one green — the trust signal. */
 .sc { display: flex; flex-direction: column; width: min(28em, 100%); margin-inline: auto; font-size: clamp(11px, 2.5cqw, 14px); overflow: hidden; border-radius: 1.6em; background: #fff; border: 1px solid var(--line); box-shadow: 0 2.6em 5em -2.4em rgba(23, 20, 43, 0.32), 0 0.4em 1em -0.4em rgba(23, 20, 43, 0.08); }
 .sc-top { display: flex; align-items: center; gap: 0.7em; padding: 1em 1.1em 0.9em; border-bottom: 1px solid var(--line); }
 .sc-av { display: grid; place-items: center; width: 2.6em; height: 2.6em; border-radius: 999px; background: linear-gradient(160deg, var(--plum), var(--plum-deep)); flex: none; }
@@ -319,30 +319,47 @@ h4 { font-weight: 600; }
 .sc-name { margin-right: auto; }
 .sc-name b { display: block; font-size: 1em; letter-spacing: -0.01em; }
 .sc-name small { display: inline-flex; align-items: center; gap: 0.4em; white-space: nowrap; font-size: 0.76em; color: var(--ink-faint); }
-.sc-name small i { width: 0.5em; height: 0.5em; border-radius: 999px; background: var(--v-400); box-shadow: 0 0 0 0.22em rgba(108, 101, 194, 0.18); }
-.sc-badge { display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; padding: 0.4em 0.75em; border-radius: 999px; font-size: 0.72em; font-weight: 600; color: var(--v-700); background: var(--v-50); }
-.scr .sc-badge svg { width: 1.2em; min-width: 1.2em; height: 1.2em; }
-.sc-chat { display: flex; flex-direction: column; gap: 0.55em; padding: 1.1em 1.1em 0.8em; }
-.sc-msg { max-width: 84%; padding: 0.65em 0.9em; border-radius: 1.15em; font-size: 0.86em; line-height: 1.45; }
-.sc-msg.ai { align-self: flex-start; color: var(--ink); background: var(--porcelain); border-bottom-left-radius: 0.35em; }
-.sc-msg.me { align-self: flex-end; color: #fff; background: var(--v-500); border-bottom-right-radius: 0.35em; }
-.sc-photo { padding: 0.3em; }
-.sc-img { position: relative; display: block; width: 9.5em; height: 7.6em; overflow: hidden; border-radius: 0.9em; }
-.sc-img img { object-fit: cover; }
-.sc-plan { align-self: flex-start; width: 88%; overflow: hidden; border-radius: 1.15em; border: 1px solid var(--line); box-shadow: 0 1em 2em -1.4em rgba(23, 20, 43, 0.35); }
-.sc-plan-h { padding: 0.8em 0.95em 0.7em; background: var(--v-50); border-bottom: 1px solid var(--line); }
+.sc-name small i { width: 0.5em; height: 0.5em; border-radius: 999px; background: #1c9a6b; box-shadow: 0 0 0 0.2em rgba(28, 154, 107, 0.16); }
+.sc-badge { display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; padding: 0.4em 0.75em; border-radius: 999px; font-size: 0.72em; font-weight: 600; color: var(--ink-soft); background: #f3f3f6; }
+.scr .sc-badge svg { width: 1.2em; min-width: 1.2em; height: 1.2em; color: var(--v-500); }
+.sc-chat { display: flex; flex-direction: column; gap: 0.55em; padding: 1em 1.1em 0.9em; }
+.sc-day { align-self: center; margin-bottom: 0.2em; font-size: 0.7em; font-weight: 600; color: var(--ink-faint); }
+.sc-msg { max-width: 84%; padding: 0.7em 0.95em; border-radius: 1.2em; font-size: 0.86em; line-height: 1.45; }
+.sc-msg.ai { align-self: flex-start; color: var(--ink); background: #f3f3f6; border-bottom-left-radius: 0.35em; }
+.sc-msg.me { align-self: flex-end; color: #fff; background: #1f1b33; border-bottom-right-radius: 0.35em; }
+/* the patient's photo: borderless, with Sena's marks drawn on the skin */
+.sc-photo { position: relative; align-self: flex-end; width: 62%; aspect-ratio: 5 / 4; overflow: hidden; border-radius: 1.2em; border-bottom-right-radius: 0.35em; box-shadow: 0 1em 2em -1.2em rgba(23, 20, 43, 0.45); }
+.sc-photo img { object-fit: cover; }
+.sc-pt { position: absolute; width: 0; height: 0; }
+.sc-pt .aitag-pt { position: absolute; left: -0.5em; top: -0.5em; width: 1em; height: 1em; border-color: #fff; background: var(--v-500); box-shadow: 0 0.15em 0.5em rgba(23, 20, 43, 0.35); }
+.sc-pt .aitag-pt::before { inset: 0.22em; background: #fff; }
+.sc-pt .aitag-pt::after { border-color: rgba(255, 255, 255, 0.85); }
+.sc-pt-1 { left: 72%; top: 70%; }
+.sc-pt-2 { left: 55%; top: 56%; }
+.sc-pt-2 .aitag-pt::after { animation-delay: 0.9s; }
+.sc-mapped { position: absolute; left: 0.6em; bottom: 0.6em; display: inline-flex; align-items: center; gap: 0.35em; padding: 0.35em 0.7em; border-radius: 999px; font-size: 0.7em; font-weight: 600; color: var(--ink); background: rgba(255, 255, 255, 0.86); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.scr .sc-mapped svg { width: 1.2em; min-width: 1.2em; height: 1.2em; color: var(--v-500); }
+.sc-analysis { align-self: flex-start; max-width: 88%; padding: 0.8em 0.95em; border-radius: 1.2em; border-bottom-left-radius: 0.35em; font-size: 0.86em; line-height: 1.45; background: #f3f3f6; }
+.sc-k { display: flex; align-items: center; gap: 0.4em; margin-bottom: 0.5em; font-size: 0.86em; font-weight: 700; color: var(--ink); }
+.scr .sc-k svg { width: 1.15em; min-width: 1.15em; height: 1.15em; color: var(--v-500); }
+.sc-finds { display: flex; flex-wrap: wrap; gap: 0.35em; margin-bottom: 0.6em; }
+.sc-finds span { padding: 0.25em 0.65em; border-radius: 999px; font-size: 0.82em; font-weight: 500; color: var(--ink); background: #fff; border: 1px solid var(--line); }
+.sc-plan { align-self: flex-start; width: 88%; overflow: hidden; border-radius: 1.2em; border: 1px solid var(--line); box-shadow: 0 1em 2em -1.4em rgba(23, 20, 43, 0.3); }
+.sc-plan-h { padding: 0.8em 0.95em 0.7em; border-bottom: 1px solid var(--line); }
 .sc-plan-h b { display: block; font-size: 0.95em; }
-.sc-plan-h small { display: inline-flex; align-items: center; gap: 0.35em; margin-top: 0.2em; font-size: 0.76em; font-weight: 600; color: var(--v-700); }
+.sc-plan-h small { display: inline-flex; align-items: center; gap: 0.35em; margin-top: 0.2em; font-size: 0.76em; font-weight: 600; color: #15805a; }
 .scr .sc-plan-h svg { width: 1.15em; min-width: 1.15em; height: 1.15em; }
 .sc-plan > p { display: flex; align-items: flex-start; gap: 0.6em; padding: 0.6em 0.95em 0; font-size: 0.82em; color: var(--ink-soft); }
-.sc-plan > p svg { margin-top: 0.12em; color: var(--v-500); }
+.sc-plan > p svg { margin-top: 0.12em; color: var(--ink-faint); }
 .sc-plan > p b { display: block; color: var(--ink); }
 .sc-acts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45em; padding: 0.8em 0.95em 0.9em; }
-.sc-acts span { padding: 0.55em; border-radius: 999px; font-size: 0.76em; font-weight: 600; text-align: center; color: var(--v-700); border: 1px solid var(--v-200); }
-.sc-acts span:first-child { color: #fff; background: var(--v-500); border-color: var(--v-500); }
+.sc-acts span { padding: 0.55em; border-radius: 999px; font-size: 0.76em; font-weight: 600; text-align: center; color: var(--ink); border: 1px solid var(--line-strong); }
+.sc-acts span:first-child { color: #fff; background: #1f1b33; border-color: #1f1b33; }
 .sc-input { display: flex; align-items: center; gap: 0.55em; padding: 0.7em 1.1em 1.1em; border-top: 1px solid var(--line); }
-.sc-field { flex: 1; display: flex; align-items: center; gap: 0.55em; padding: 0.7em 0.95em; border-radius: 999px; font-size: 0.84em; color: var(--ink-faint); background: var(--porcelain); }
-.sc-send { display: grid; place-items: center; width: 2.6em; height: 2.6em; border-radius: 999px; color: #fff; background: var(--v-500); flex: none; }
+.sc-cam { display: grid; place-items: center; width: 2.4em; height: 2.4em; border-radius: 999px; color: var(--ink-soft); background: #f3f3f6; flex: none; }
+.sc-field { flex: 1; padding: 0.7em 0.95em; border-radius: 999px; font-size: 0.84em; color: var(--ink-faint); background: #f3f3f6; }
+.sc-send { display: grid; place-items: center; width: 2.4em; height: 2.4em; border-radius: 999px; color: #fff; background: #1f1b33; flex: none; }
+.sc-send svg { transform: rotate(-45deg); }
 
 /* veyderm Pro: one AI search form -> the treatment plan. Neutral greys; the
    brand violet only marks the AI action. The window chrome is shared with
@@ -427,7 +444,6 @@ h4 { font-weight: 600; }
 @container (max-width: 470px) { .bi-grid { grid-template-columns: 1fr; } .bi-head { flex-wrap: wrap; } .bi-verified { margin-left: 0; } }
 
 @media (max-width: 920px) { .ch-grid, .chapter.rev .ch-grid { grid-template-columns: 1fr; } .chapter.rev .ch-copy { order: 0; } .ch-copy { max-width: none; } }
-@media (max-width: 600px) { .t-sena-1, .t-sena-2 { display: none; } }
 @media (max-width: 480px) { .ch-id { flex-direction: column; align-items: flex-start; gap: 2px; } .ch-aud { padding-left: 0; } .ch-aud::before { content: none; } .ch-ctas { flex-direction: column; align-items: stretch; } .ch-tag { height: 26px; font-size: 0.68rem; } .t-pro-1, .t-brand-1 { left: auto; right: 4%; } }
 
 /* ---- feature caption (sub-pages) ---- */
