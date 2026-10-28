@@ -527,24 +527,20 @@ h4 { font-weight: 600; }
 .form-ok p { color: var(--ink-soft); }
 @media (max-width: 860px) { .access-grid { grid-template-columns: 1fr; gap: 32px; } .access .form-card { padding: 30px 0 0; border-left: 0; border-top: 1px solid var(--night-line); } }
 
-/* ---- footer: its own quiet porcelain base, apart from the plum access card ---- */
-.ft { padding-block: clamp(56px, 7vw, 88px) 30px; color: var(--ink-soft); background: var(--porcelain); border-top: 1px solid var(--line); }
-.ft-main { display: grid; grid-template-columns: 1.3fr 2fr; gap: 40px 48px; }
-.ft-brand { max-width: 30ch; }
-.ft-brand .logo-foot { height: 24px; width: auto; margin-bottom: 16px; }
-.ft-tag { margin-bottom: 20px; font-size: 0.95rem; line-height: 1.55; color: var(--ink-soft); }
+/* ---- footer: compact — the brand, where to find us, how to reach us ---- */
+.ft { padding-block: clamp(40px, 5vw, 56px) 26px; color: var(--ink-soft); background: var(--porcelain); border-top: 1px solid var(--line); }
+.ft-main { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto; align-items: start; gap: 28px 48px; }
+.ft-brand .logo-foot { height: 24px; width: auto; margin-bottom: 12px; }
+.ft-tag { max-width: 60ch; font-size: 0.95rem; line-height: 1.55; color: var(--ink-soft); text-wrap: balance; }
+.ft-contact { display: grid; gap: 2px; font-style: normal; font-size: 0.92rem; line-height: 1.55; color: var(--ink-soft); }
+.ft-contact a { justify-self: start; margin-top: 8px; font-weight: 500; color: var(--ink); transition: color 0.2s var(--ease); }
+.ft-contact a:hover { color: var(--v-700); }
 .ft-social { display: flex; gap: 10px; }
-.ft-social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; color: var(--ink-soft); background: #fff; border: 1px solid var(--line); transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease); }
+.ft-social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; color: var(--ink-soft); background: #fff; border: 1px solid var(--line); transition: color 0.2s var(--ease), border-color 0.2s var(--ease); }
 .ft-social a:hover { color: var(--v-700); border-color: var(--v-300); }
 .ft-social svg { width: 18px; height: 18px; }
-.ft-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.ft-col h4 { margin-bottom: 12px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.005em; color: var(--ink); }
-.ft-col a { display: block; padding: 4px 0; font-size: 0.94rem; font-weight: 500; color: var(--ink-soft); transition: color 0.2s var(--ease); }
-.ft-col a:hover { color: var(--v-700); }
-.ft-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: clamp(36px, 5vw, 56px); padding-top: 22px; border-top: 1px solid var(--line); }
-.ft-bar p { font-size: 0.8rem; color: var(--ink-faint); }
-@media (max-width: 760px) { .ft-main { grid-template-columns: 1fr; gap: 32px; } .ft-cols { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 480px) { .ft-cols { grid-template-columns: 1fr 1fr; } }
+.ft-bar { margin-top: clamp(28px, 4vw, 40px); padding-top: 18px; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--ink-faint); }
+@media (max-width: 760px) { .ft-main { grid-template-columns: 1fr; gap: 22px; } }
 
 /* ---- consent ---- */
 .consent { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 150; }

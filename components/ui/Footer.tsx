@@ -16,6 +16,7 @@ const BRAND_ICON: Record<string, React.ReactNode> = {
   ),
 };
 
+/* A compact footer: brand and tagline, where to find us, how to reach us. */
 export function Footer() {
   return (
     <footer className="ft">
@@ -24,31 +25,22 @@ export function Footer() {
           <div className="ft-brand">
             <FooterLogo href="/" />
             <p className="ft-tag">{FOOTER.tagline}</p>
-            <div className="ft-social">
-              {FOOTER.social.map((s) => (
-                <a key={s.href} href={s.href} aria-label={s.label} target="_blank" rel="noopener noreferrer">
-                  {BRAND_ICON[s.brand]}
-                </a>
-              ))}
-            </div>
           </div>
-          <nav className="ft-cols" aria-label="Footer">
-            {FOOTER.groups.map((g) => (
-              <div className="ft-col" key={g.title}>
-                <h4>{g.title}</h4>
-                {g.links.map((l) => (
-                  <a key={l.href} href={l.href}>
-                    {l.label}
-                  </a>
-                ))}
-              </div>
+          <address className="ft-contact">
+            {FOOTER.address.map((line) => (
+              <span key={line}>{line}</span>
             ))}
-          </nav>
+            <a href={`mailto:${FOOTER.email}`}>{FOOTER.email}</a>
+          </address>
+          <div className="ft-social">
+            {FOOTER.social.map((s) => (
+              <a key={s.href} href={s.href} aria-label={`veyderm on ${s.label}`} target="_blank" rel="noopener noreferrer">
+                {BRAND_ICON[s.brand]}
+              </a>
+            ))}
+          </div>
         </div>
-        <div className="ft-bar">
-          <p>{FOOTER.rights}</p>
-          <p className="ft-disc">{FOOTER.disclaimers[0]}</p>
-        </div>
+        <p className="ft-bar">{FOOTER.rights}</p>
       </div>
     </footer>
   );

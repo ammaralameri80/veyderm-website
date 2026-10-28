@@ -22,40 +22,13 @@ export const NAV = {
 } as const;
 
 export const FOOTER = {
-  email: "info@veyderm.com",
   tagline: "The intelligence layer for dermatology, built in the UAE.",
   social: [
-    { label: "Instagram", href: "https://instagram.com/veyderm", brand: "instagram" as const },
     { label: "LinkedIn", href: "https://linkedin.com/company/veyderm", brand: "linkedin" as const },
+    { label: "Instagram", href: "https://instagram.com/veyderm", brand: "instagram" as const },
   ],
-  groups: [
-    {
-      title: "Platform",
-      links: [
-        { label: "veyderm Pro", href: "/professional" },
-        { label: "Sena", href: "/sena" },
-        { label: "For brands", href: "/brands" },
-      ],
-    },
-    {
-      title: "Company",
-      links: [
-        { label: "About veyderm", href: "/company" },
-        { label: "info@veyderm.com", href: "mailto:info@veyderm.com" },
-      ],
-    },
-    {
-      title: "Legal",
-      links: [
-        { label: "Privacy", href: "/privacy" },
-        { label: "Terms", href: "/terms" },
-      ],
-    },
-  ],
-  disclaimers: [
-    "Sena provides guidance, not a medical diagnosis.",
-    "veyderm connects licensed dermatologists with authorized UAE distributors. Information shown is not medical advice.",
-  ],
+  address: ["Media One Tower, Level 38", "Dubai Media City, United Arab Emirates"],
+  email: "info@veyderm.com",
   rights: "© 2026 veyderm. Dubai, United Arab Emirates.",
 };
 
