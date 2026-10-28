@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { content, isLang, type Lang } from "@/lib/content";
 
-// Self-hosted at build time (no runtime font requests). Figtree is the one
-// typeface site-wide — UI, headings, body.
-const sans = Figtree({
+// Self-hosted at build time (no runtime font requests). Plus Jakarta Sans is
+// the one typeface site-wide — UI, headings, body.
+const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
