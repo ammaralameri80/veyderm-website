@@ -170,7 +170,7 @@ h4 { font-weight: 600; }
 .kdot { position: relative; width: 7px; height: 7px; border-radius: 999px; background: var(--v-500); flex: none; }
 .kdot::after { content: ""; position: absolute; inset: -4px; border-radius: inherit; background: rgba(108, 101, 194, 0.22); animation: livedot 2.4s ease-in-out infinite; }
 /* the headline: tighter set, balanced lines, a faint ink-to-plum depth */
-.hero h1 { margin-bottom: 26px; max-width: 11ch; line-height: 1; letter-spacing: -0.042em; text-wrap: balance; color: var(--ink); }
+.hero h1 { margin-bottom: 26px; max-width: 12.5ch; line-height: 1; letter-spacing: -0.042em; text-wrap: balance; color: var(--ink); }
 .hero .lead { margin-bottom: 38px; max-width: 41ch; font-size: clamp(1.08rem, 1.25vw, 1.18rem); color: var(--ink-soft); }
 .hero-cta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
 .hero-cta .btn-primary { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 16px 32px -14px rgba(76, 68, 170, 0.7); }
@@ -250,7 +250,7 @@ h4 { font-weight: 600; }
   .hero { flex-direction: column; align-items: stretch; min-height: 0; background: radial-gradient(70% 30% at 50% 22%, rgba(108, 101, 194, 0.14), transparent 70%), linear-gradient(180deg, var(--porcelain) 0%, #fff 100%); }
   .hero-inner { order: 1; padding-top: 8px; padding-bottom: 56px; }
   .hero-copy { max-width: none; }
-  .hero h1 { max-width: 12ch; }
+  .hero h1 { max-width: 12.5ch; }
   /* 4:5 crop of the 2:3 frame (object-position 50% 55%) — face window re-mapped */
   /* phones: the portrait leads, her head tucked under the menu bar as on desktop */
   .hero-visual { order: 0; position: relative; top: auto; right: auto; width: min(100%, 520px); margin: 58px auto 0; }

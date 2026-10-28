@@ -30,14 +30,14 @@ export function Hero() {
             <span className="aitag"><span className="aitag-pt" /><b>Pigmentation</b>mapped</span>
           </li>
           <li className="probe probe-hydra">
-            <span className="aitag"><span className="aitag-pt" /><b>Texture</b>analyzed</span>
+            <span className="aitag"><span className="aitag-pt" /><b>Skin texture</b>assessed</span>
           </li>
         </ul>
 
         <div className="hcard hcard-progress" aria-hidden="true">
           <span className="hc-ic"><Icon name="scan-face" /></span>
           <span className="hc-case">
-            <small>AI case assessment</small>
+            <small>AI case analysis</small>
             <b>Ready for dermatologist review</b>
           </span>
         </div>

@@ -67,15 +67,16 @@ export const FOOTER = {
 
 export const HOME = {
   hero: {
-    kicker: "Clinical AI for dermatology in the UAE",
-    h1: "Dermatology, made intelligent.",
-    sub: "AI that reads skin with a specialist’s eye — and a licensed dermatologist who approves every recommendation. For clinics, patients and skincare brands across the UAE.",
+    kicker: "AI dermatology platform · Built in the UAE",
+    // a non-breaking space keeps "connected by" together on its line
+    h1: "Dermatology, connected\u00a0by intelligence.",
+    sub: "AI that supports every step of dermatology — from case assessment and product intelligence to treatment planning and patient care, with the dermatologist always in control.",
     primary: { label: "Request access", href: "#access", role: ROLES.derm },
     secondary: { label: "Meet Sena", href: "/sena" },
   },
   proof: [
-    "Dermatologist review built in",
-    "Authorized UAE product data",
+    "Dermatologist approval built in",
+    "Verified product data",
   ],
   pro: {
     product: "veyderm Pro",
