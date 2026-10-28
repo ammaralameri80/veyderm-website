@@ -124,85 +124,77 @@ function Tag({ children, className }: { children: ReactNode; className: string }
 }
 
 /* ---------------------------------------------------------- veyderm Pro
-   The doctor's prescription on the left; the AI-suggested plan built around
-   it on the right — prescribed items marked, AI additions marked, matched to
-   authorized products, waiting for the doctor's approval. Fictional patient. */
+   As simple as the product: the doctor describes the case and their
+   prescription in one AI search form, and gets the full treatment plan back —
+   prescribed items marked, ready to review and approve. Fictional patient. */
 
 const AM = [
-  { n: "Gentle cleanser", d: "Cleanse", by: "ai" },
-  { n: "Niacinamide 5% serum", d: "Even tone", by: "ai" },
-  { n: "Tinted mineral SPF 50+", d: "Daily photoprotection", by: "rx" },
+  { n: "Gentle cleanser", d: "Cleanse" },
+  { n: "Niacinamide 5% serum", d: "Even tone" },
+  { n: "Tinted mineral SPF 50+", d: "Daily photoprotection", rx: true },
 ];
 const PM = [
-  { n: "Gentle cleanser", d: "Cleanse", by: "ai" },
-  { n: "Azelaic acid 20%", d: "Treat · 12 weeks", by: "rx" },
-  { n: "Barrier repair cream", d: "Soothe", by: "ai" },
+  { n: "Gentle cleanser", d: "Cleanse" },
+  { n: "Azelaic acid 20%", d: "Treat · 12 weeks", rx: true },
+  { n: "Barrier repair cream", d: "Soothe" },
 ];
 
-function PlanRows({ rows }: { rows: typeof AM }) {
+function PlanColumn({ label, icon, rows }: { label: string; icon: "sun" | "moon"; rows: typeof AM }) {
   return (
-    <ul className="ps-rows">
-      {rows.map((r) => (
-        <li key={r.n}>
-          <span className={`ps-prod ps-prod-${r.by}`} />
-          <span className="ps-pn"><b>{r.n}</b><small>{r.d}</small></span>
-          {r.by === "rx" ? <span className="ps-badge rx">Prescribed</span> : <span className="ps-badge ai"><Icon name="sparkles" />AI</span>}
-        </li>
-      ))}
-    </ul>
+    <div className="px-col">
+      <p className="px-tl"><Icon name={icon} />{label}</p>
+      <ul>
+        {rows.map((r) => (
+          <li key={r.n}>
+            <span className="px-prod" />
+            <span className="px-pn"><b>{r.n}</b><small>{r.d}</small></span>
+            {r.rx && <span className="px-rx">Prescribed</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
 function ProPlanStage() {
   return (
     <>
-      <div className="scr ps" role="img" aria-label="veyderm Pro: a dermatologist's prescription for melasma — azelaic acid 20% at night and daily tinted sun protection — and the AI-suggested morning and evening plan built around it, matched to authorized UAE products and awaiting the doctor's approval. Illustrative.">
+      <div className="scr ps px" role="img" aria-label="veyderm Pro: the doctor describes a patient with epidermal melasma, skin type IV, and their prescription of azelaic acid 20% at night in an AI search form; veyderm returns a 12-week morning and evening treatment plan built around the prescription, matched to authorized UAE products and ready to approve. Illustrative.">
         <div className="ps-bar" aria-hidden="true">
           <span className="ps-dots"><i /><i /><i /></span>
           <span className="ps-app"><span className="ps-mark">v</span>veyderm Pro</span>
-          <span className="ps-crumb">Treatment plan</span>
+          <span className="ps-crumb">New treatment plan</span>
         </div>
-        <div className="ps-head" aria-hidden="true">
-          <span className="ps-av">LH</span>
-          <span className="ps-who"><b>Lana H., 29</b><small>Melasma · Skin type IV</small></span>
-          <span className="ps-status"><i />Awaiting your approval</span>
-        </div>
-        <div className="ps-body" aria-hidden="true">
-          <section className="ps-rx">
-            <p className="ps-k"><Icon name="pen" />Your prescription</p>
-            <div className="ps-dx">
-              <small>Diagnosis</small>
-              <b>Melasma, epidermal</b>
-              <span className="ps-sev">Moderate</span>
+        <div className="px-body" aria-hidden="true">
+          <div className="px-form">
+            <p className="px-label">Describe the case and your prescription</p>
+            <div className="px-field">
+              <Icon name="sparkles" />
+              <span className="px-q">Epidermal melasma, skin type IV. Azelaic acid 20% at night, daily sun protection.<i /></span>
+              <span className="px-go">Generate plan</span>
             </div>
-            <ul className="ps-rx-list">
-              <li><b>Azelaic acid 20%</b><small>Evenings · 12 weeks</small></li>
-              <li><b>Daily photoprotection</b><small>Broad-spectrum, tinted</small></li>
-            </ul>
-            <p className="ps-note">Avoid irritants. Review in 12 weeks.</p>
-          </section>
-          <div className="ps-link"><span><Icon name="sparkles" /></span></div>
-          <section className="ps-plan">
-            <p className="ps-k"><Icon name="sparkles" />AI-suggested plan<span className="ps-draft">Draft</span></p>
-            <div className="ps-time">
-              <p className="ps-tl"><Icon name="sun" />Morning</p>
-              <PlanRows rows={AM} />
+            <div className="px-chips"><span>Lana H., 29</span><span>Skin type IV</span><span>Melasma, epidermal</span></div>
+          </div>
+          <div className="px-result">
+            <div className="px-rh">
+              <b>Suggested treatment plan</b>
+              <small>12 weeks · built around your prescription</small>
             </div>
-            <div className="ps-time">
-              <p className="ps-tl"><Icon name="moon" />Evening</p>
-              <PlanRows rows={PM} />
+            <div className="px-cols">
+              <PlanColumn label="Morning" icon="sun" rows={AM} />
+              <PlanColumn label="Evening" icon="moon" rows={PM} />
             </div>
-          </section>
+          </div>
         </div>
         <div className="ps-foot" aria-hidden="true">
-          <span className="ps-match"><Icon name="package" />Matched to authorized UAE products</span>
+          <span className="ps-match"><Icon name="circle-check" />Matched to authorized UAE products</span>
           <span className="ps-btns">
             <span className="ps-btn ghost">Edit plan</span>
             <span className="ps-btn dark">Approve &amp; send</span>
           </span>
         </div>
       </div>
-      <Tag className="t-pro-1">Built around your prescription</Tag>
+      <Tag className="t-pro-1">AI treatment search</Tag>
     </>
   );
 }
