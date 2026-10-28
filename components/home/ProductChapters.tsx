@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import { ProductMark, SenaOrb, type ProductKind } from "@/components/ui/ProductMark";
 import { HOME } from "@/lib/site";
 
@@ -19,15 +19,17 @@ type ChapterProps = {
   heading: string;
   body: string;
   points: string[];
+  icons: IconName[];
   ctas: ReactNode;
   stage: ReactNode;
   caption?: string;
   reversed?: boolean;
+  dark?: boolean;
 };
 
-function Chapter({ id, product, audience, mark, heading, body, points, ctas, stage, caption, reversed }: ChapterProps) {
+function Chapter({ id, product, audience, mark, heading, body, points, icons, ctas, stage, caption, reversed, dark }: ChapterProps) {
   return (
-    <section id={id} className={`chapter${reversed ? " rev" : ""}`}>
+    <section id={id} className={`chapter${reversed ? " rev" : ""}${dark ? " dark" : ""}`}>
       <div className="wrap ch-grid">
         <Reveal className="ch-copy">
           <div className="ch-id">
@@ -37,8 +39,8 @@ function Chapter({ id, product, audience, mark, heading, body, points, ctas, sta
           <h2>{heading}</h2>
           <p className="ch-body">{body}</p>
           <ul className="ch-points">
-            {points.map((p) => (
-              <li key={p}><span className="ch-pt" aria-hidden="true" />{p}</li>
+            {points.map((p, i) => (
+              <li key={p}><span className="ch-pi" aria-hidden="true"><Icon name={icons[i]} /></span>{p}</li>
             ))}
           </ul>
           <div className="ch-ctas">{ctas}</div>
@@ -64,6 +66,7 @@ export function ProductChapters() {
         heading={pro.h2.join("")}
         body={pro.body}
         points={pro.points}
+        icons={["pen", "package", "lock"]}
         stage={<ProPlanStage />}
         ctas={
           <>
@@ -75,12 +78,14 @@ export function ProductChapters() {
       <Chapter
         id="sena"
         reversed
+        dark
         product={sena.product}
         audience={sena.audience}
         mark={sena.mark}
         heading={sena.h2.join("")}
         body={sena.body}
         points={sena.points}
+        icons={["message", "scan-face", "badge"]}
         caption={sena.caption}
         stage={<SenaChatStage />}
         ctas={
@@ -98,6 +103,7 @@ export function ProductChapters() {
         heading={brands.h2.join("")}
         body={brands.body}
         points={brands.points}
+        icons={["chart", "help", "target"]}
         stage={<BrandInsightsStage />}
         ctas={
           <>

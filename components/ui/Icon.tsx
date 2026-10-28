@@ -1,5 +1,6 @@
 import {
   ShieldCheck,
+  ChartColumnIncreasing,
   Lock,
   Check,
   Info,
@@ -37,6 +38,7 @@ import {
 
 const MAP = {
   shield: ShieldCheck,
+  chart: ChartColumnIncreasing,
   lock: Lock,
   check: Check,
   info: Info,

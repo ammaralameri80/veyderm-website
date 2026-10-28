@@ -30,7 +30,7 @@
   --line-strong: #d4d4dd;
   --success: #1c9a6b;
   /* the deep end of every page: access, closers and the footer */
-  --night: var(--plum-deep);
+  --night: #141129;
   --night-line: rgba(255, 255, 255, 0.1);
   --night-soft: rgba(255, 255, 255, 0.68);
   --night-faint: rgba(255, 255, 255, 0.5);
@@ -264,7 +264,7 @@ h4 { font-weight: 600; }
   .hcard-progress { left: auto; right: 4%; bottom: 3%; padding-block: 9px; }
   .hc-prog b { font-size: 1.3rem; }
 }
-@media (max-width: 480px) { .hero-cta { flex-direction: column; align-items: stretch; gap: 10px; } .hero h1 { font-size: clamp(2.2rem, 10.2vw, 2.6rem); } .access-stage { padding: 30px 20px 22px; border-radius: 26px; } }
+@media (max-width: 480px) { .hero-cta { flex-direction: column; align-items: stretch; gap: 10px; } .hero h1 { font-size: clamp(2.2rem, 10.2vw, 2.6rem); } }
 @media (max-width: 600px) { .aitag { height: 26px; font-size: 0.7rem; gap: 6px; padding-right: 10px; } .hero-proof { gap: 12px; } }
 
 /* ---- section heads ---- */
@@ -288,8 +288,9 @@ h4 { font-weight: 600; }
 .ch-body { margin-bottom: 28px; font-size: 1.08rem; line-height: 1.64; color: var(--ink-soft); }
 .ch-points { display: grid; gap: 14px; margin: 0 0 36px; padding: 0; list-style: none; }
 .ch-points li { display: flex; align-items: center; gap: 14px; font-weight: 500; color: var(--ink); }
-.ch-pt { position: relative; width: 14px; height: 14px; border-radius: 999px; border: 1.5px solid var(--v-500); background: #fff; box-shadow: 0 0 0 4px rgba(108, 101, 194, 0.1); flex: none; }
-.ch-pt::before { content: ""; position: absolute; inset: 2.5px; border-radius: inherit; background: var(--v-500); }
+.ch-pi { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; color: var(--v-600); background: var(--v-50); border: 1px solid rgba(108, 101, 194, 0.14); flex: none; }
+.ch-pi svg { width: 16px; height: 16px; min-width: 16px; }
+
 .ch-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
 
 .ch-media { position: relative; min-width: 0; }
@@ -307,7 +308,16 @@ h4 { font-weight: 600; }
 /* the three chapters share one continuous mist band, divided by a violet
    hairline, so they read as one platform rather than three loose sections */
 .chapters { position: relative; background: #fff; }
-.chapters .chapter:nth-child(2) { background: var(--porcelain); }
+.chapter.dark { color: #fff; background: radial-gradient(45% 60% at 24% 50%, rgba(108, 101, 194, 0.34), transparent 70%), radial-gradient(40% 50% at 100% 0%, rgba(108, 101, 194, 0.16), transparent 70%), var(--night); }
+.chapter.dark .ch-copy h2, .chapter.dark .ch-id b, .chapter.dark .ch-points li { color: #fff; }
+.chapter.dark .ch-body { color: var(--night-soft); }
+.chapter.dark .ch-id small, .chapter.dark .ch-caption { color: var(--night-faint); }
+.chapter.dark .ch-pi { color: var(--v-200); background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.14); }
+.chapter.dark .pmark { border-color: transparent; box-shadow: none; }
+.chapter.dark .btn-soft { color: #fff; background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.2); box-shadow: none; }
+.chapter.dark .btn-soft:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.34); }
+.chapter.dark .ch-stage::before { background: radial-gradient(50% 50% at 50% 50%, rgba(145, 132, 214, 0.32), transparent 72%); }
+.chapter.dark .sc { border-color: transparent; box-shadow: 0 3em 6em -2em rgba(0, 0, 0, 0.6); }
 .chapters .chapter:last-child { padding-bottom: clamp(96px, 11vw, 152px); }
 
 /* screens: sized in em off the stage width so they scale like an image and
@@ -487,20 +497,39 @@ h4 { font-weight: 600; }
 /* ---- access + sub-page closer: the night block every page ends on — deep
    violet-ink with a soft brand glow, white type, the form as a white card;
    it runs straight into the footer ---- */
-.access { position: relative; }
-.access-stage { position: relative; overflow: hidden; padding: clamp(36px, 5.5vw, 80px); border-radius: 32px; background: radial-gradient(42% 70% at 88% 18%, rgba(108, 101, 194, 0.16), transparent 70%), linear-gradient(180deg, var(--porcelain) 0%, #fff 100%); border: 1px solid var(--line); }
+.access { position: relative; color: #fff; background: radial-gradient(50% 70% at 90% 0%, rgba(108, 101, 194, 0.36), transparent 70%), radial-gradient(40% 60% at 0% 100%, rgba(108, 101, 194, 0.18), transparent 70%), var(--night); }
+.access-stage { position: relative; }
 .access-stage > * { position: relative; }
 .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 80px); align-items: center; }
 .access-copy { max-width: 42ch; }
 .access-copy .kicker { margin-bottom: 18px; }
 .access-copy h2 { margin-bottom: 16px; }
-.access-copy p { margin-bottom: 26px; font-size: 1.06rem; color: var(--ink-soft); }
+.access-copy p { margin-bottom: 26px; font-size: 1.06rem; color: var(--night-soft); }
+.access h2.heading { color: #fff; }
+.access .kicker { color: var(--night-soft); background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.14); box-shadow: none; }
+.access .kicker::before { background: var(--v-300); box-shadow: 0 0 0 4px rgba(183, 172, 228, 0.2); }
 .access-roles { display: flex; flex-wrap: wrap; gap: 10px; }
-.access-roles .btn { padding: 11px 18px; font-size: 0.93rem; color: var(--ink); background: #fff; border-color: var(--line-strong); box-shadow: 0 6px 16px -12px rgba(23, 20, 43, 0.3); }
-.access-roles .btn:hover { color: var(--v-700); background: #fff; border-color: var(--v-300); }
+.access-roles .btn { padding: 11px 18px; font-size: 0.93rem; color: #fff; background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.18); box-shadow: none; }
+.access-roles .btn:hover { color: #fff; background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.34); }
 .closer { text-align: center; }
 .closer h2 { max-width: 22ch; margin: 0 auto 28px; }
 .form-card { padding: clamp(26px, 3vw, 38px); border-radius: 26px; color: var(--ink); background: #fff; border: 1px solid var(--line); box-shadow: 0 30px 70px -40px rgba(23, 20, 43, 0.35); }
+/* on the dark access section the form is flat: no card, a hairline apart from the copy */
+.access .form-card { padding: 0 0 0 clamp(28px, 4vw, 64px); border: 0; border-left: 1px solid var(--night-line); border-radius: 0; color: #fff; background: none; box-shadow: none; }
+.access .form-card h3 { color: #fff; }
+.access .form-card .hint { color: var(--night-soft); }
+.access .field label { color: rgba(255, 255, 255, 0.86); }
+.access .field input, .access .field select { color: #fff; background-color: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.16); box-shadow: none; }
+.access .field input:hover, .access .field select:hover { border-color: rgba(255, 255, 255, 0.3); }
+.access .field input:focus, .access .field select:focus { border-color: var(--v-300); box-shadow: 0 0 0 4px rgba(183, 172, 228, 0.2); }
+.access .field input::placeholder { color: rgba(255, 255, 255, 0.42); }
+.access .field select option { color: var(--ink); }
+.access .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23B7ACE4' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.access .privacy { color: var(--night-faint); }
+.access .form-error { color: #ffb4ab; }
+.access .form-ok h3 { color: #fff; }
+.access .form-ok p { color: var(--night-soft); }
+.access .form-ok .tick { background: rgba(28, 154, 107, 0.22); color: #6fe0b0; }
 .form-card h3 { margin-bottom: 6px; font-size: 1.3rem; letter-spacing: -0.02em; color: var(--obsidian); }
 .form-card .hint { margin-bottom: 22px; font-size: 0.92rem; color: var(--ink-soft); }
 .field { margin-bottom: 16px; }
@@ -521,7 +550,7 @@ h4 { font-weight: 600; }
 .form-ok .tick { width: 52px; height: 52px; margin: 0 auto 16px; border-radius: 999px; background: rgba(28, 154, 107, 0.12); color: var(--success); display: grid; place-items: center; font-size: 1.5rem; }
 .form-ok h3 { margin-bottom: 8px; }
 .form-ok p { color: var(--ink-soft); }
-@media (max-width: 860px) { .access-grid { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 860px) { .access-grid { grid-template-columns: 1fr; gap: 32px; } .access .form-card { padding: 30px 0 0; border-left: 0; border-top: 1px solid var(--night-line); } }
 
 /* ---- footer: its own quiet porcelain base, apart from the plum access card ---- */
 .ft { padding-block: clamp(56px, 7vw, 88px) 30px; color: var(--ink-soft); background: var(--porcelain); border-top: 1px solid var(--line); }
