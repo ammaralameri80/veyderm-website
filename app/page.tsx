@@ -7,9 +7,9 @@ import { CtaForm } from "@/components/CtaForm";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
-const title = "veyderm — the UAE's first AI platform for dermatology";
+const title = "veyderm — AI dermatology platform, built in the UAE";
 const description =
-  "veyderm is the UAE's first AI platform for dermatology. AI prepares every recommendation; a licensed dermatologist approves it. Built in the UAE.";
+  "veyderm is an AI dermatology platform built in the UAE. AI supports every step of dermatology — from case assessment and product intelligence to treatment planning and patient care — with the dermatologist always in control.";
 
 export const metadata: Metadata = {
   title,
