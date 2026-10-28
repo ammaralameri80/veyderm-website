@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { HeaderLogo } from "@/components/Logo";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
-import { ProductMark } from "./ProductMark";
 import { NAV } from "@/lib/site";
 
 export function Nav() {
@@ -92,7 +91,6 @@ export function Nav() {
               <div className="nav-menu-in">
                 {NAV.products.map((p) => (
                   <a key={p.href} href={p.href} className="nav-prod" aria-current={p.href === pathname ? "page" : undefined}>
-                    <ProductMark kind={p.mark} size="sm" />
                     <span className="np-tx"><b>{p.label}</b><small>{p.desc}</small></span>
                     <Icon name="arrow-up-right" className="np-go" aria-hidden="true" />
                   </a>
@@ -131,7 +129,6 @@ export function Nav() {
           <div className="wrap">
             {NAV.products.map((p) => (
               <a key={p.href} href={p.href} className="sheet-prod" aria-current={p.href === pathname ? "page" : undefined}>
-                <ProductMark kind={p.mark} size="sm" />
                 <span className="np-tx"><b>{p.label}</b><small>{p.desc}</small></span>
               </a>
             ))}

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
-import { ProductMark, SenaOrb, type ProductKind } from "@/components/ui/ProductMark";
 import { HOME } from "@/lib/site";
 
 /* ------------------------------------------------------------------ chapter
@@ -15,7 +14,6 @@ type ChapterProps = {
   id: string;
   product: string;
   audience: string;
-  mark: ProductKind;
   heading: string;
   body: string;
   points: string[];
@@ -24,18 +22,14 @@ type ChapterProps = {
   stage: ReactNode;
   caption?: string;
   reversed?: boolean;
-  dark?: boolean;
 };
 
-function Chapter({ id, product, audience, mark, heading, body, points, icons, ctas, stage, caption, reversed, dark }: ChapterProps) {
+function Chapter({ id, product, audience, heading, body, points, icons, ctas, stage, caption, reversed }: ChapterProps) {
   return (
-    <section id={id} className={`chapter${reversed ? " rev" : ""}${dark ? " dark" : ""}`}>
+    <section id={id} className={`chapter${reversed ? " rev" : ""}`}>
       <div className="wrap ch-grid">
         <Reveal className="ch-copy">
-          <div className="ch-id">
-            <ProductMark kind={mark} />
-            <span><b>{product}</b><small>{audience}</small></span>
-          </div>
+          <p className="ch-id"><span className="ch-name">{product}</span><span className="ch-aud">{audience}</span></p>
           <h2>{heading}</h2>
           <p className="ch-body">{body}</p>
           <ul className="ch-points">
@@ -62,7 +56,6 @@ export function ProductChapters() {
         id="pro"
         product={pro.product}
         audience={pro.audience}
-        mark={pro.mark}
         heading={pro.h2.join("")}
         body={pro.body}
         points={pro.points}
@@ -78,10 +71,8 @@ export function ProductChapters() {
       <Chapter
         id="sena"
         reversed
-        dark
         product={sena.product}
         audience={sena.audience}
-        mark={sena.mark}
         heading={sena.h2.join("")}
         body={sena.body}
         points={sena.points}
@@ -99,7 +90,6 @@ export function ProductChapters() {
         id="brands"
         product={brands.product}
         audience={brands.audience}
-        mark={brands.mark}
         heading={brands.h2.join("")}
         body={brands.body}
         points={brands.points}
@@ -113,6 +103,18 @@ export function ProductChapters() {
         }
       />
     </div>
+  );
+}
+
+/* Sena's avatar in the chat: a lit orb with a spark at its heart */
+function SenaOrb() {
+  return (
+    <>
+      <circle cx="12" cy="12" r="9.6" fill="#b7ace4" fillOpacity="0.22" />
+      <circle cx="12" cy="12" r="7.6" fill="#dcd6f1" />
+      <circle cx="9.6" cy="9.2" r="3.8" fill="#fff" fillOpacity="0.7" />
+      <path d="M12 6.9c.52 2.58 1.92 3.98 4.5 4.5-2.58.52-3.98 1.92-4.5 4.5-.52-2.58-1.92-3.98-4.5-4.5 2.58-.52 3.98-1.92 4.5-4.5Z" fill="#463f88" />
+    </>
   );
 }
 

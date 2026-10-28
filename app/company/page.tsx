@@ -5,7 +5,6 @@ import { PageHero } from "@/components/ui/PageParts";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Icon } from "@/components/ui/Icon";
-import { ProductMark } from "@/components/ui/ProductMark";
 import { COMPANY_PAGE } from "@/lib/site";
 
 const title = "Company — building the AI infrastructure for dermatology";
@@ -48,7 +47,6 @@ export default function CompanyPage() {
               <div className="diagram-row">
                 {diagram.nodes.map((n) => (
                   <div className="dnode" key={n.t}>
-                    <ProductMark kind={n.mark} />
                     <b>{n.t}</b>
                     <small>{n.d}</small>
                   </div>
