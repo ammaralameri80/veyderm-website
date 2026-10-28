@@ -11,16 +11,12 @@ export const ROLES = {
 } as const;
 
 export const NAV = {
-  /** shown in the Platform menu (desktop) and the mobile sheet */
-  products: [
-    { label: "veyderm Pro", href: "/professional", ic: "stethoscope", desc: "AI-drafted treatment plans you review and sign." },
-    { label: "Sena", href: "/sena", ic: "message", desc: "An AI skin companion for patients, on WhatsApp." },
-    { label: "For brands", href: "/brands", ic: "building", desc: "Reach and inform dermatologists across the UAE." },
-  ],
-  note: "The same clinical AI powers every product. A licensed dermatologist approves every output.",
+  /** one link per audience, so each visitor finds their page in one click;
+   *  Company and contact live in the footer, Request access is the one action */
   links: [
-    { label: "Company", href: "/company" },
-    { label: "Contact", href: "mailto:info@veyderm.com" },
+    { label: "For dermatologists", href: "/professional", desc: "veyderm Pro — AI search and AI-drafted treatment plans." },
+    { label: "For patients", href: "/sena", desc: "Sena — your personal AI skin and beauty advisor." },
+    { label: "For brands", href: "/brands", desc: "Partner Portal — AI insight into how dermatology prescribes." },
   ],
   cta: { label: "Request access", href: "/#access" },
 } as const;
