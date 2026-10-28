@@ -8,8 +8,8 @@ import { HOME } from "@/lib/site";
 
 /* ------------------------------------------------------------------ chapter
    One product per chapter: an identity row, an obsidian headline, a short
-   paragraph and three points on the hero's measurement dots, beside a plum
-   stage that an illustrative, code-built product screen rises out of. */
+   paragraph and three points on the hero's measurement dots, beside an
+   illustrative, code-built product screen floating on a soft violet halo. */
 
 type ChapterProps = {
   id: string;
@@ -44,11 +44,8 @@ function Chapter({ id, product, audience, mark, heading, body, points, ctas, sta
           <div className="ch-ctas">{ctas}</div>
         </Reveal>
         <Reveal className="ch-media" delay={0.08}>
-          <div className="ch-stage">
-            <span className="ch-illus">Illustrative</span>
-            {stage}
-          </div>
-          {caption && <p className="ch-caption">{caption}</p>}
+          <div className="ch-stage">{stage}</div>
+          <p className="ch-caption">{caption ?? "Illustrative"}</p>
         </Reveal>
       </div>
     </section>
