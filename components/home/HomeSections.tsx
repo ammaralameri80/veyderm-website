@@ -1,11 +1,7 @@
-import type { ReactNode } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeader } from "@/components/ui/Section";
-import { Button, TextLink } from "@/components/ui/Button";
+import { TextLink } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
-import { DeviceFrame, ProScreen, BrandScreen } from "./Screens";
-import { SenaChat } from "./SenaChat";
-import { ProductShowcase } from "./ProductShowcase";
 import { HOME } from "@/lib/site";
 
 /* ---------------------------------------------------------- Proof bar */
@@ -23,124 +19,6 @@ export function ProofBar() {
         ))}
       </ul>
     </section>
-  );
-}
-
-/* ---------------------------------------------------------- Platform */
-export function Platform() {
-  const { platform } = HOME;
-  return (
-    <Section id="products" className="platform">
-      <Reveal className="pl-head">
-        <h2 className="heading">{platform.h2.join("")}</h2>
-        <p>{platform.sub}</p>
-      </Reveal>
-      <ProductShowcase />
-    </Section>
-  );
-}
-
-/* ---------------------------------------------------------- Feature row */
-function FeatureRow({
-  id,
-  kicker,
-  heading,
-  body,
-  points,
-  media,
-  reversed,
-  children,
-}: {
-  id: string;
-  kicker: string;
-  heading: string[];
-  body: string;
-  points: string[];
-  media: ReactNode;
-  reversed?: boolean;
-  children: ReactNode; // CTAs
-}) {
-  const [lead, accent, tail] = heading;
-  return (
-    <article className={`feature${reversed ? " rev" : ""}`} id={id}>
-      <Reveal className="feature-media">{media}</Reveal>
-      <Reveal className="feature-copy" delay={0.08}>
-        <span className="kicker">{kicker}</span>
-        <h2 className="heading">
-          {lead}
-          {accent && <span className="accent">{accent}</span>}
-          {tail}
-        </h2>
-        <p className="feature-p">{body}</p>
-        <ul className="points">
-          {points.map((p) => (
-            <li key={p}>
-              <Icon name="check" />
-              {p}
-            </li>
-          ))}
-        </ul>
-        <div className="feature-ctas">{children}</div>
-      </Reveal>
-    </article>
-  );
-}
-
-export function Features() {
-  const { pro, sena, brands } = HOME;
-  return (
-    <Section id="pro" className="features">
-      <FeatureRow
-        id="pro-feature"
-        kicker={pro.kicker}
-        heading={pro.h2}
-        body={pro.body}
-        points={pro.points}
-        media={<DeviceFrame><ProScreen /></DeviceFrame>}
-      >
-        <Button href={pro.ctas.primary.href} role={pro.ctas.primary.role} cta="feature_pro" arrow>
-          {pro.ctas.primary.label}
-        </Button>
-        <TextLink href={pro.ctas.secondary.href}>{pro.ctas.secondary.label}</TextLink>
-      </FeatureRow>
-
-      <div id="sena">
-        <FeatureRow
-          id="sena-feature"
-          kicker={sena.kicker}
-          heading={sena.h2}
-          body={sena.body}
-          points={sena.points}
-          reversed
-          media={
-            <div>
-              <DeviceFrame label="Live demo"><SenaChat /></DeviceFrame>
-              <p className="demo-caption">{sena.caption}</p>
-            </div>
-          }
-        >
-          <Button href={sena.ctas.primary.href} role={sena.ctas.primary.role} cta="feature_sena" arrow>
-            {sena.ctas.primary.label}
-          </Button>
-          <TextLink href={sena.ctas.secondary.href}>{sena.ctas.secondary.label}</TextLink>
-        </FeatureRow>
-      </div>
-
-      <div id="brands">
-        <FeatureRow
-          id="brands-feature"
-          kicker={brands.kicker}
-          heading={brands.h2}
-          body={brands.body}
-          points={brands.points}
-          media={<DeviceFrame><BrandScreen /></DeviceFrame>}
-        >
-          <Button href={brands.cta.href} role={brands.cta.role} cta="feature_brands" arrow>
-            {brands.cta.label}
-          </Button>
-        </FeatureRow>
-      </div>
-    </Section>
   );
 }
 

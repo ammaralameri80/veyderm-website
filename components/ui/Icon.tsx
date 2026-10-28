@@ -23,6 +23,15 @@ import {
   Palette,
   Layers,
   CircleCheck,
+  ChevronLeft,
+  Mic,
+  Video,
+  Phone,
+  Plus,
+  CheckCheck,
+  PenLine,
+  CircleHelp,
+  Moon,
   type LucideProps,
 } from "lucide-react";
 
@@ -51,6 +60,15 @@ const MAP = {
   palette: Palette,
   layers: Layers,
   "circle-check": CircleCheck,
+  "chevron-left": ChevronLeft,
+  mic: Mic,
+  video: Video,
+  phone: Phone,
+  plus: Plus,
+  "check-check": CheckCheck,
+  pen: PenLine,
+  help: CircleHelp,
+  moon: Moon,
 } as const;
 
 export type IconName = keyof typeof MAP;
