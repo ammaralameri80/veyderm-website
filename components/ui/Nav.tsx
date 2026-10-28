@@ -6,14 +6,44 @@ import { HeaderLogo } from "@/components/Logo";
 import { Button } from "./Button";
 import { NAV } from "@/lib/site";
 
+// "/#pro" -> "pro": the landing-page section each link jumps to
+const sectionOf = (href: string) => href.split("#")[1] ?? "";
+
 export function Nav() {
   const pathname = usePathname() || "/";
   const [open, setOpen] = useState(false); // mobile sheet
+  const [active, setActive] = useState(""); // section currently on screen
 
   // Close the sheet on route change.
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  // On the landing page, mark the link whose section is in view.
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActive("");
+      return;
+    }
+    const sections = NAV.links
+      .map((l) => document.getElementById(sectionOf(l.href)))
+      .filter((el): el is HTMLElement => el !== null);
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          const id = e.target.id;
+          if (e.isIntersecting) setActive(id);
+          else setActive((a) => (a === id ? "" : a));
+        }
+      },
+      // a section counts as "current" while it crosses the middle of the screen
+      { rootMargin: "-45% 0px -45% 0px" },
+    );
+    sections.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [pathname]);
+
+  const current = (href: string) => (sectionOf(href) === active ? "location" : undefined);
 
   return (
     <nav className="nav" aria-label="Main">
@@ -22,7 +52,7 @@ export function Nav() {
         <ul className="nav-links">
           {NAV.links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="nav-link" aria-current={l.href === pathname ? "page" : undefined}>
+              <a href={l.href} className="nav-link" aria-current={current(l.href)}>
                 {l.label}
               </a>
             </li>
@@ -49,7 +79,8 @@ export function Nav() {
         <div className="nav-sheet">
           <div className="wrap">
             {NAV.links.map((l) => (
-              <a key={l.href} href={l.href} className="sheet-prod" aria-current={l.href === pathname ? "page" : undefined}>
+              // a section jump doesn't change the route, so close the sheet here
+              <a key={l.href} href={l.href} className="sheet-prod" aria-current={current(l.href)} onClick={() => setOpen(false)}>
                 <span className="np-tx"><b>{l.label}</b><small>{l.desc}</small></span>
               </a>
             ))}

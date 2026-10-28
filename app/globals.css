@@ -121,8 +121,8 @@ h4 { font-weight: 600; }
 .nav-links > li { position: relative; }
 .nav-link { position: relative; display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border: 0; border-radius: var(--r-pill); background: transparent; font: inherit; font-weight: 500; font-size: 0.94rem; letter-spacing: -0.01em; color: var(--ink-soft); cursor: pointer; transition: color 0.2s var(--ease), background 0.2s var(--ease); }
 .nav-link:hover { color: var(--ink); background: rgba(108, 101, 194, 0.08); }
-.nav-link[aria-current="page"] { color: var(--ink); }
-.nav-link[aria-current="page"]::after { content: ""; position: absolute; left: 50%; bottom: 2px; width: 4px; height: 4px; border-radius: 999px; background: var(--v-500); transform: translateX(-50%); }
+.nav-link[aria-current] { color: var(--ink); }
+.nav-link[aria-current]::after { content: ""; position: absolute; left: 50%; bottom: 2px; width: 4px; height: 4px; border-radius: 999px; background: var(--v-500); transform: translateX(-50%); }
 
 /* the Platform panel (no backdrop blur: the capsule's own blur would clip it) */
 .np-tx b { display: block; font-size: 0.95rem; font-weight: 600; letter-spacing: -0.01em; }
@@ -137,7 +137,7 @@ h4 { font-weight: 600; }
 .nav-sheet { margin-top: 8px; border-radius: 22px; background: #fff; border: 1px solid var(--line); box-shadow: var(--sh-md); }
 .nav-sheet .wrap { display: grid; gap: 2px; padding-block: 10px 12px; }
 .nav-sheet a { padding: 13px 10px; border-radius: 14px; font-weight: 600; color: var(--ink); }
-.nav-sheet a:hover, .nav-sheet a[aria-current="page"] { background: var(--v-50); color: var(--v-700); }
+.nav-sheet a:hover, .nav-sheet a[aria-current] { background: var(--v-50); color: var(--v-700); }
 .nav-sheet .sheet-prod { display: block; padding: 12px; }
 .sheet-prod .np-tx b { color: var(--ink); }
 @media (max-width: 860px) { .nav-links { display: none; } .nav-toggle { display: inline-flex; align-items: center; justify-content: center; } .nav-right .btn.nav-cta { padding: 10px 16px; } }

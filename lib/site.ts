@@ -11,12 +11,12 @@ export const ROLES = {
 } as const;
 
 export const NAV = {
-  /** one link per audience, so each visitor finds their page in one click;
+  /** one link per audience, each jumping to its section of the landing page;
    *  Company and contact live in the footer, Request access is the one action */
   links: [
-    { label: "For dermatologists", href: "/professional", desc: "veyderm Pro — AI search and AI-drafted treatment plans." },
-    { label: "For patients", href: "/sena", desc: "Sena — your personal AI skin and beauty advisor." },
-    { label: "For brands", href: "/brands", desc: "Partner Portal — AI insight into how dermatology prescribes." },
+    { label: "For dermatologists", href: "/#pro", desc: "veyderm Pro — AI search and AI-drafted treatment plans." },
+    { label: "For patients", href: "/#sena", desc: "Sena — your personal AI skin and beauty advisor." },
+    { label: "For brands", href: "/#brands", desc: "Partner Portal — AI insight into how dermatology prescribes." },
   ],
   cta: { label: "Request access", href: "/#access" },
 } as const;
