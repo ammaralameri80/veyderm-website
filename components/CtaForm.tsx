@@ -71,11 +71,12 @@ export function CtaForm({ lang }: { lang: Lang }) {
 
   return (
     <section className="access section" id="access">
-      <div className="wrap access-grid">
+      <div className="wrap">
+      <div className="access-stage access-grid">
         <div className="access-copy">
-          <span className="kicker">Get early access</span>
+          <span className="kicker">For clinics, patients and brands</span>
           <h2 className="heading">
-            Get <span className="accent">early</span> access.
+            Get early access.
           </h2>
           <p>Tell us who you are. We&rsquo;ll reach out personally when your access is ready.</p>
           <div className="access-roles">
@@ -84,6 +85,9 @@ export function CtaForm({ lang }: { lang: Lang }) {
             </a>
             <a className="btn btn-ghost" href="#access" data-role={ROLES.patient} data-cta="access_patient">
               I&rsquo;m a patient
+            </a>
+            <a className="btn btn-ghost" href="#access" data-role={ROLES.brand} data-cta="access_brand">
+              I&rsquo;m a skincare brand
             </a>
           </div>
         </div>
@@ -142,6 +146,7 @@ export function CtaForm({ lang }: { lang: Lang }) {
             <p>{t.okP}</p>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

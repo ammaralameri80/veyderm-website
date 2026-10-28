@@ -5,7 +5,7 @@ import { Button } from "./Button";
 import { Icon, type IconName } from "./Icon";
 import { SkinPrint } from "@/components/home/SkinPrint";
 
-/** Shared sub-page hero: kicker + serif headline + sub, beside a photograph.
+/** Shared sub-page hero: kicker + obsidian headline + sub, beside a photograph.
  *  Pass `center` (no photo) for pages like /company that lead with a diagram. */
 export function PageHero({
   kicker,
@@ -66,7 +66,7 @@ export function FeatureGrid({
   icons: IconName[];
 }) {
   return (
-    <div className="feature-grid">
+    <div className={items.length === 3 ? "feature-grid three" : "feature-grid"}>
       {items.map((f, i) => (
         <Reveal key={f.t} delay={(i % 2) * 0.06}>
           <div className="fcard">
@@ -90,13 +90,15 @@ export function Closer({
 }) {
   return (
     <section className="section section--tight access">
-      <div className="wrap closer">
+      <div className="wrap">
+        <div className="access-stage closer">
         <Reveal>
           <h2 className="heading">{heading}</h2>
           <Button href={cta.href} role={cta.role} cta="closer" arrow>
             {cta.label}
           </Button>
         </Reveal>
+        </div>
       </div>
     </section>
   );

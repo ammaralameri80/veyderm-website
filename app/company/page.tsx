@@ -54,7 +54,7 @@ export default function CompanyPage() {
                 ))}
               </div>
               <div className="dflow"><Icon name="arrow-down" /></div>
-              <div className="dcore">{diagram.core}<small>Trained for UAE skin and climate</small></div>
+              <div className="dcore"><span className="dcore-ic"><Icon name="sparkles" /></span><span>{diagram.core}<small>Prepares every recommendation</small></span></div>
               <div className="dflow"><Icon name="arrow-down" /></div>
               <div className="dbase"><Icon name="shield" />{diagram.base}</div>
             </Reveal>

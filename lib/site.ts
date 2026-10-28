@@ -144,10 +144,10 @@ export const PRO_PAGE = {
   h1: ["The professional platform for ", "dermatologists."],
   sub: "AI prepares every consultation. You stay in control.",
   features: [
-    { t: "Treatment plans, drafted by AI", d: "Every patient arrives with a plan ranked by clinical evidence and checked for safety. Review, adjust, and sign in minutes." },
+    { t: "Treatment plans, drafted by AI", d: "Prescribe the way you always do. AI builds the complete plan around it — routine, timing and products — for you to review, adjust and sign." },
     { t: "The right products, every time", d: "veyderm matches authorized products to each patient's skin, history, and plan — sourced from verified UAE distributors." },
     { t: "Patient communication, built in", d: "Send the approved plan straight to your patient's Sena, answer follow-ups securely, and track progress between visits." },
-    { t: "Made for the UAE", d: "Built around UAE skin types, climate, and locally authorized products." },
+    { t: "Made for the UAE", d: "Built in the UAE, around locally authorized products and the dermatologists who prescribe them." },
   ],
   cta: { label: "Request clinician access", href: "/#access", role: ROLES.derm },
 };

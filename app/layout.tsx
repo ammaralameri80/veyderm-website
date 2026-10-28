@@ -1,24 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree, Instrument_Serif } from "next/font/google";
+import { Figtree } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { content, isLang, type Lang } from "@/lib/content";
 
-// Self-hosted at build time (no runtime font requests). Figtree carries the
-// site — UI, headings, body. Instrument Serif (italic) is reserved for the
-// accent phrase inside a section headline.
+// Self-hosted at build time (no runtime font requests). Figtree is the one
+// typeface site-wide — UI, headings, body.
 const sans = Figtree({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
-  display: "swap",
-});
-const serif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-serif",
   display: "swap",
 });
 
@@ -84,7 +76,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const dir = content[lang].dir;
 
   return (
-    <html lang={content[lang].htmlLang} dir={dir} className={`${sans.variable} ${serif.variable}`}>
+    <html lang={content[lang].htmlLang} dir={dir} className={sans.variable}>
       <body>
         <a className="skip" href="#top">Skip to content</a>
         {children}
