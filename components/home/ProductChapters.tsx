@@ -15,7 +15,6 @@ type ChapterProps = {
   product: string;
   audience: string;
   ic: string;
-  tone: string;
   heading: string;
   body: string;
   points: string[];
@@ -23,16 +22,15 @@ type ChapterProps = {
   stage: ReactNode;
   caption?: string;
   reversed?: boolean;
-  band?: boolean;
 };
 
-function Chapter({ id, product, audience, ic, tone, heading, body, points, ctas, stage, caption, reversed, band }: ChapterProps) {
+function Chapter({ id, product, audience, ic, heading, body, points, ctas, stage, caption, reversed }: ChapterProps) {
   return (
-    <section id={id} className={`chapter${reversed ? " rev" : ""}${band ? " band-soft" : ""}`}>
+    <section id={id} className={`chapter${reversed ? " rev" : ""}`}>
       <div className="wrap ch-grid">
         <Reveal className="ch-copy">
           <div className="ch-id">
-            <span className={`np-ic np-${tone}`}><Icon name={ic as IconName} aria-hidden="true" /></span>
+            <span className="np-ic"><Icon name={ic as IconName} aria-hidden="true" /></span>
             <span><b>{product}</b><small>{audience}</small></span>
           </div>
           <h2>{heading}</h2>
@@ -59,13 +57,12 @@ function Chapter({ id, product, audience, ic, tone, heading, body, points, ctas,
 export function ProductChapters() {
   const { pro, sena, brands } = HOME;
   return (
-    <>
+    <div className="chapters">
       <Chapter
         id="pro"
         product={pro.product}
         audience={pro.audience}
         ic={pro.ic}
-        tone={pro.tone}
         heading={pro.h2.join("")}
         body={pro.body}
         points={pro.points}
@@ -80,11 +77,9 @@ export function ProductChapters() {
       <Chapter
         id="sena"
         reversed
-        band
         product={sena.product}
         audience={sena.audience}
         ic={sena.ic}
-        tone={sena.tone}
         heading={sena.h2.join("")}
         body={sena.body}
         points={sena.points}
@@ -93,7 +88,7 @@ export function ProductChapters() {
         ctas={
           <>
             <Button href={sena.ctas.primary.href} role={sena.ctas.primary.role} cta="feature_sena" arrow>{sena.ctas.primary.label}</Button>
-            <Button href={sena.ctas.secondary.href} variant="soft" spark>{sena.ctas.secondary.label}</Button>
+            <Button href={sena.ctas.secondary.href} variant="soft">{sena.ctas.secondary.label}</Button>
           </>
         }
       />
@@ -102,7 +97,6 @@ export function ProductChapters() {
         product={brands.product}
         audience={brands.audience}
         ic={brands.ic}
-        tone={brands.tone}
         heading={brands.h2.join("")}
         body={brands.body}
         points={brands.points}
@@ -114,7 +108,7 @@ export function ProductChapters() {
           </>
         }
       />
-    </>
+    </div>
   );
 }
 

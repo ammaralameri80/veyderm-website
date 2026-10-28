@@ -91,7 +91,7 @@ export function Nav() {
               <div className="nav-menu-in">
                 {NAV.products.map((p) => (
                   <a key={p.href} href={p.href} className="nav-prod" aria-current={p.href === pathname ? "page" : undefined}>
-                    <span className={`np-ic np-${p.tone}`}><Icon name={p.ic} aria-hidden="true" /></span>
+                    <span className="np-ic"><Icon name={p.ic} aria-hidden="true" /></span>
                     <span className="np-tx"><b>{p.label}</b><small>{p.desc}</small></span>
                     <Icon name="arrow-up-right" className="np-go" aria-hidden="true" />
                   </a>
@@ -130,7 +130,7 @@ export function Nav() {
           <div className="wrap">
             {NAV.products.map((p) => (
               <a key={p.href} href={p.href} className="sheet-prod" aria-current={p.href === pathname ? "page" : undefined}>
-                <span className={`np-ic np-${p.tone}`}><Icon name={p.ic} aria-hidden="true" /></span>
+                <span className="np-ic"><Icon name={p.ic} aria-hidden="true" /></span>
                 <span className="np-tx"><b>{p.label}</b><small>{p.desc}</small></span>
               </a>
             ))}

@@ -30,7 +30,7 @@ export default function CompanyPage() {
           sub={COMPANY_PAGE.sub}
           photo={{ src: "/images/portrait-studio-side.webp", alt: "A woman with calm, healthy skin in soft studio light", position: "50% 16%" }}
         />
-        <Section tight>
+        <Section tight className="section--mist">
           <div className="company">
             <Reveal className="company-copy" >
               <div style={{ maxWidth: "46ch" }}>
