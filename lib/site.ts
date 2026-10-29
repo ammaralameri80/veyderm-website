@@ -39,7 +39,7 @@ export const HOME = {
     kicker: "AI dermatology platform · Built in the UAE",
     // a non-breaking space keeps "connected by" together on its line
     h1: "Dermatology, connected\u00a0by intelligence.",
-    sub: "AI that supports every step of dermatology — from case assessment and product intelligence to treatment planning and patient care, with the dermatologist always in control.",
+    sub: "AI that connects clinical assessment, product intelligence, treatment planning and patient care — with the dermatologist always in control.",
     primary: { label: "Request access", href: "#access", role: ROLES.derm },
     secondary: { label: "Meet Sena", href: "/sena" },
   },
