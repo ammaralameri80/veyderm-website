@@ -20,11 +20,10 @@ type ChapterProps = {
   icons: IconName[];
   ctas: ReactNode;
   stage: ReactNode;
-  caption?: string;
   reversed?: boolean;
 };
 
-function Chapter({ id, product, audience, heading, body, points, icons, ctas, stage, caption, reversed }: ChapterProps) {
+function Chapter({ id, product, audience, heading, body, points, icons, ctas, stage, reversed }: ChapterProps) {
   return (
     <section id={id} className={`chapter${reversed ? " rev" : ""}`}>
       <div className="wrap ch-grid">
@@ -41,7 +40,6 @@ function Chapter({ id, product, audience, heading, body, points, icons, ctas, st
         </Reveal>
         <Reveal className="ch-media" delay={0.08}>
           <div className="ch-stage">{stage}</div>
-          {caption && <p className="ch-caption">{caption}</p>}
         </Reveal>
       </div>
     </section>
@@ -77,7 +75,6 @@ export function ProductChapters() {
         body={sena.body}
         points={sena.points}
         icons={["message", "badge", "scan"]}
-        caption={sena.caption}
         stage={<SenaChatStage />}
         ctas={
           <>

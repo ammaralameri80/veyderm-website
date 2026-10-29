@@ -24,10 +24,10 @@ export const NAV = {
 export const FOOTER = {
   tagline: "The intelligence layer for dermatology, built in the UAE.",
   social: [
-    { label: "LinkedIn", href: "https://linkedin.com/company/veyderm", brand: "linkedin" as const },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/veyderm/", brand: "linkedin" as const },
     { label: "Instagram", href: "https://instagram.com/veyderm", brand: "instagram" as const },
   ],
-  address: ["Media One Tower, Level 38", "Dubai Media City, United Arab Emirates"],
+  address: ["Media One Tower, Level 38", "Dubai Media City", "Dubai – United Arab Emirates"],
   email: "info@veyderm.com",
   rights: "© 2026 veyderm. Dubai, United Arab Emirates.",
 };
@@ -68,7 +68,6 @@ export const HOME = {
     h2: ["AI skin advice, ", "in your pocket."],
     body: "Sena is an AI agent that understands your skin concerns in a natural conversation, knows the plan your dermatologist approved, and guides you every day on WhatsApp — from the clinic to the pharmacy to your routine at home.",
     points: ["AI that understands your skin concerns", "Advice drawn only from your dermatologist’s approved plan", "Scans products in store to check they fit your plan"],
-    caption: "Sena supports your dermatologist’s plan — it does not diagnose.",
     ctas: {
       primary: { label: "Join the Sena waitlist", href: "#access", role: ROLES.patient },
       secondary: { label: "Meet Sena", href: "/sena" },

@@ -25,6 +25,13 @@ export function Footer() {
           <div className="ft-brand">
             <FooterLogo href="/" />
             <p className="ft-tag">{FOOTER.tagline}</p>
+            <div className="ft-social">
+              {FOOTER.social.map((s) => (
+                <a key={s.href} href={s.href} aria-label={`veyderm on ${s.label}`} target="_blank" rel="noopener noreferrer">
+                  {BRAND_ICON[s.brand]}
+                </a>
+              ))}
+            </div>
           </div>
           <address className="ft-contact">
             {FOOTER.address.map((line) => (
@@ -32,13 +39,6 @@ export function Footer() {
             ))}
             <a href={`mailto:${FOOTER.email}`}>{FOOTER.email}</a>
           </address>
-          <div className="ft-social">
-            {FOOTER.social.map((s) => (
-              <a key={s.href} href={s.href} aria-label={`veyderm on ${s.label}`} target="_blank" rel="noopener noreferrer">
-                {BRAND_ICON[s.brand]}
-              </a>
-            ))}
-          </div>
         </div>
         <p className="ft-bar">{FOOTER.rights}</p>
       </div>
