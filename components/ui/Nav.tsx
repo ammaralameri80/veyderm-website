@@ -84,6 +84,10 @@ export function Nav() {
                 <span className="np-tx"><b>{l.label}</b><small>{l.desc}</small></span>
               </a>
             ))}
+            {/* shown only on the smallest phones, where the bar has no room for the CTA */}
+            <a href={NAV.cta.href} className="btn btn-primary sheet-cta" data-cta="nav-sheet" onClick={() => setOpen(false)}>
+              {NAV.cta.label}
+            </a>
           </div>
         </div>
       )}

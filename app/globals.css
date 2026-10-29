@@ -116,8 +116,7 @@ h4 { font-weight: 600; }
 /* gradient hairline edge: white catching light into a soft lavender */
 .nav-in::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(110deg, rgba(255, 255, 255, 0.95), rgba(183, 172, 228, 0.6) 40%, rgba(214, 207, 239, 0.5) 70%, rgba(255, 255, 255, 0.9)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
 .nav .brand { grid-column: 1; justify-self: start; display: inline-flex; align-items: center; }
-.nav .logo-full { height: 29px; width: auto; }
-.logo-small, .logo-icon { display: none; }
+.nav .logo-full { height: 29px; width: auto; max-width: none; flex: none; }
 .nav-links { grid-column: 2; justify-self: center; display: flex; align-items: center; gap: 4px; margin: 0; padding: 0; list-style: none; }
 .nav-links > li { position: relative; }
 .nav-link { position: relative; display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border: 0; border-radius: var(--r-pill); background: transparent; font: inherit; font-weight: 500; font-size: 0.94rem; letter-spacing: -0.01em; color: var(--ink-soft); cursor: pointer; transition: color 0.2s var(--ease), background 0.2s var(--ease); }
@@ -140,8 +139,14 @@ h4 { font-weight: 600; }
 .nav-sheet a:hover, .nav-sheet a[aria-current] { background: var(--v-50); color: var(--v-700); }
 .nav-sheet .sheet-prod { display: block; padding: 12px; }
 .sheet-prod .np-tx b { color: var(--ink); }
-@media (max-width: 860px) { .nav-links { display: none; } .nav-toggle { display: inline-flex; align-items: center; justify-content: center; } .nav-right .btn.nav-cta { padding: 10px 16px; } }
+.nav-sheet .sheet-cta { display: none; justify-content: center; margin-top: 6px; padding: 13px 20px; border-radius: var(--r-pill); color: #fff; }
+.nav-sheet .sheet-cta:hover { color: #fff; }
+@media (max-width: 860px) { .nav-in { grid-template-columns: auto 1fr; } .nav-right { grid-column: 2; } .nav-links { display: none; } .nav-toggle { display: inline-flex; align-items: center; justify-content: center; } .nav-right .btn.nav-cta { padding: 10px 16px; } }
 @media (max-width: 520px) { .nav-right .btn.nav-cta { padding: 9px 15px; font-size: 0.88rem; } .nav-right .btn.nav-cta .btn-arrow { display: none; } }
+/* phones: the wordmark steps down (never under the brand's 90px minimum) so it never meets the actions */
+@media (max-width: 430px) { .nav-in { padding-left: 20px; } .nav .logo-full { height: 24px; } .nav-right { gap: 8px; } }
+@media (max-width: 360px) { .nav-in { padding: 0 6px 0 18px; } .nav .logo-full { height: 23px; } .nav-right { gap: 6px; } .nav-right .btn.nav-cta { padding: 8px 12px; font-size: 0.82rem; } }
+@media (max-width: 350px) { .nav-right .btn.nav-cta { display: none; } .nav-sheet .sheet-cta { display: flex; } }
 @media (min-width: 861px) { .nav-sheet { display: none; } }
 
 /* ---- hero: a warm full-bleed stage the nav floats over; the message on the
