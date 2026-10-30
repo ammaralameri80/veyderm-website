@@ -27,7 +27,7 @@ export const FOOTER = {
     { label: "LinkedIn", href: "https://www.linkedin.com/company/veyderm/", brand: "linkedin" as const },
     { label: "Instagram", href: "https://www.instagram.com/veyderm", brand: "instagram" as const },
   ],
-  address: ["Media One Tower, Level 38", "Dubai Media City", "Dubai – United Arab Emirates"],
+  address: ["Media One Tower", "Dubai Media City", "Dubai – United Arab Emirates"],
   email: "info@veyderm.com",
   rights: "© 2026 veyderm. Dubai, United Arab Emirates.",
 };
