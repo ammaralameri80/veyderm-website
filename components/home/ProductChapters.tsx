@@ -120,7 +120,7 @@ function Tag({ children, className }: { children: ReactNode; className: string }
   return <span className={`ch-tag ${className}`} aria-hidden="true"><span className="aitag-pt" />{children}</span>;
 }
 
-/* ---------------------------------------------------------- veyderm Pro
+/* ---------------------------------------------------------- veyderm Clinical
    As simple as the product: the doctor describes the case and their
    prescription in one AI search form, and gets the full treatment plan back —
    prescribed items marked, ready to review and approve. Fictional patient. */
@@ -156,10 +156,10 @@ function PlanColumn({ label, icon, rows }: { label: string; icon: "sun" | "moon"
 function ProPlanStage() {
   return (
     <>
-      <div className="scr ps px" role="img" aria-label="veyderm Pro: the doctor describes a patient with epidermal melasma, skin type IV, and their prescription of azelaic acid 20% at night in an AI search form; veyderm returns a 12-week morning and evening treatment plan built around the prescription, matched to authorized UAE products and ready to approve.">
+      <div className="scr ps px" role="img" aria-label="veyderm Clinical: the doctor describes a patient with epidermal melasma, skin type IV, and their prescription of azelaic acid 20% at night in an AI search form; veyderm returns a 12-week morning and evening treatment plan built around the prescription, matched to authorized UAE products and ready to approve.">
         <div className="ps-bar" aria-hidden="true">
           <span className="ps-dots"><i /><i /><i /></span>
-          <span className="ps-app"><span className="ps-mark">v</span>veyderm Pro</span>
+          <span className="ps-app"><span className="ps-mark">v</span>veyderm Clinical</span>
           <span className="ps-crumb">New treatment plan</span>
         </div>
         <div className="px-body" aria-hidden="true">
@@ -200,7 +200,7 @@ function ProPlanStage() {
    Sena's own chat: the patient describes her concern and shares a photo, Sena
    maps what it sees on the photo itself, and the care plan comes back
    approved by a licensed dermatologist — the same plan the doctor approved in
-   veyderm Pro. Photo: licensed Adobe Stock (AdobeStock_1895086210). */
+   veyderm Clinical. Photo: licensed Adobe Stock (AdobeStock_1895086210). */
 
 function SenaChatStage() {
   return (

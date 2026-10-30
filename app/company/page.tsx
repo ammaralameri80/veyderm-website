@@ -8,7 +8,7 @@ import { Icon } from "@/components/ui/Icon";
 import { COMPANY_PAGE } from "@/lib/site";
 
 const title = "Company — building the AI infrastructure for dermatology";
-const description = "veyderm is building the AI infrastructure for dermatology, starting in the UAE: veyderm Pro for clinicians, Sena for patients, and an intelligence layer for skincare brands. A licensed dermatologist approves every output.";
+const description = "veyderm is building the AI infrastructure for dermatology, starting in the UAE: veyderm Clinical for clinicians, Sena for patients, and an intelligence layer for skincare brands. A licensed dermatologist approves every output.";
 
 export const metadata: Metadata = {
   title,

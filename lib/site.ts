@@ -1,6 +1,6 @@
 /**
  * Site copy — authored verbatim from the brand brief, English only.
- * Brand names keep their casing (veyderm, veyderm Pro, Sena). The three role
+ * Brand names keep their casing (veyderm, veyderm Clinical, Sena). The three role
  * values MUST match the API's VALID_ROLES and the CtaForm select.
  */
 
@@ -14,7 +14,7 @@ export const NAV = {
   /** one link per audience, each jumping to its section of the landing page;
    *  Company and contact live in the footer, Request access is the one action */
   links: [
-    { label: "For dermatologists", href: "/#pro", desc: "veyderm Pro — AI search and AI-drafted treatment plans." },
+    { label: "For dermatologists", href: "/#pro", desc: "veyderm Clinical — AI search and AI-drafted treatment plans." },
     { label: "For patients", href: "/#sena", desc: "Sena — your personal AI skin and beauty advisor." },
     { label: "For brands", href: "/#brands", desc: "Partner Portal — AI insight into how dermatology prescribes." },
   ],
@@ -48,16 +48,16 @@ export const HOME = {
     "Verified product data",
   ],
   pro: {
-    product: "veyderm Pro",
+    product: "veyderm Clinical",
     audience: "For dermatologists and clinics",
     ic: "stethoscope",
-    kicker: "veyderm Pro",
+    kicker: "veyderm Clinical",
     h2: ["Your expertise, ", "amplified by AI."],
     body: "veyderm’s AI searches every product, ingredient and concern for you, then drafts a complete treatment plan around your case — ready for you to review, adjust and send to your patient in minutes.",
     points: ["AI search by product, ingredient or concern", "AI-drafted plans built around each case", "You approve every plan before it’s shared"],
     ctas: {
       primary: { label: "Request clinician access", href: "#access", role: ROLES.derm },
-      secondary: { label: "Explore veyderm Pro", href: "/professional" },
+      secondary: { label: "Explore veyderm Clinical", href: "/professional" },
     },
   },
   sena: {
@@ -98,7 +98,7 @@ export const HOME = {
   company: {
     kicker: "What we're building",
     h2: ["What we're ", "building."],
-    body: "veyderm is the AI infrastructure for dermatology, starting in the UAE: veyderm Pro for clinicians, Sena for patients, and an intelligence layer for skincare brands.",
+    body: "veyderm is the AI infrastructure for dermatology, starting in the UAE: veyderm Clinical for clinicians, Sena for patients, and an intelligence layer for skincare brands.",
     link: { label: "About veyderm", href: "/company" },
   },
 };
@@ -106,7 +106,7 @@ export const HOME = {
 /* --------------------------------------------------------- Sub-pages */
 
 export const PRO_PAGE = {
-  kicker: "veyderm Pro",
+  kicker: "veyderm Clinical",
   h1: ["The professional platform for ", "dermatologists."],
   sub: "AI prepares every consultation. You stay in control.",
   features: [
@@ -150,12 +150,12 @@ export const COMPANY_PAGE = {
   sub: "We're building the AI infrastructure for dermatology, starting in the UAE.",
   body: [
     "veyderm is an AI platform for dermatology, built in the UAE. One clinical AI prepares every recommendation, from the first question a patient asks to the plan a dermatologist signs.",
-    "Three products share that core: veyderm Pro, the professional platform for dermatologists; Sena, the AI skin companion for patients; and an intelligence layer for skincare brands.",
+    "Three products share that core: veyderm Clinical, the professional platform for dermatologists; Sena, the AI skin companion for patients; and an intelligence layer for skincare brands.",
     "The principle behind all of it is simple. AI prepares; a licensed dermatologist reviews and approves every output before it reaches a patient.",
   ],
   diagram: {
     nodes: [
-      { ic: "stethoscope", t: "veyderm Pro", d: "Doctors" },
+      { ic: "stethoscope", t: "veyderm Clinical", d: "Doctors" },
       { ic: "message", t: "Sena", d: "Patients" },
       { ic: "building", t: "Brand platform", d: "Industry" },
     ],

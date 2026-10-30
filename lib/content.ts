@@ -14,7 +14,7 @@ export type Lang = "en" | "ar";
 export const ENABLE_ARABIC = false;
 
 // Solution names kept as single constants so they can be renamed in one place.
-export const PRODUCT_PRO_NAME = "veyderm Professional";
+export const PRODUCT_PRO_NAME = "veyderm Clinical";
 export const PRODUCT_SENA_NAME = "Sena";
 
 export const LANGS: Lang[] = ["en", "ar"];
@@ -393,7 +393,7 @@ export const PLATFORM_TAGLINE = "The intelligence layer for dermatology.";
 export const homeContent = {
   nav: {
     links: [
-      { label: "veyderm Pro", href: "/professional" },
+      { label: "veyderm Clinical", href: "/professional" },
       { label: "Sena", href: "/sena" },
       { label: "For brands", href: "/#brands" },
     ],
@@ -436,14 +436,14 @@ export const homeContent = {
     features: [
       {
         id: "pro",
-        name: "veyderm Pro",
+        name: "veyderm Clinical",
         h2a: "The clinical portal",
         h2em: "for dermatologists.",
         p: "Every patient arrives with a plan already drafted: ranked by clinical evidence, checked for safety, built for UAE skin and climate. You review, adjust and sign.",
         points: ["Drafts ready before the consultation", "Safety flags on every plan", "Order from verified UAE distributors"],
         cta: "Request clinician access",
         role: "Dermatologist / Clinic",
-        link: { label: "Explore veyderm Pro", href: "/professional" },
+        link: { label: "Explore veyderm Clinical", href: "/professional" },
       },
       {
         id: "sena",
@@ -600,7 +600,7 @@ export const homeContent = {
     skip: "Skip to the end",
   },
   proSection: {
-    name: "veyderm Pro",
+    name: "veyderm Clinical",
     h2: "The clinical portal for dermatologists.",
     p: "Every patient arrives with a plan already drafted: ranked by clinical evidence, checked for safety, built for UAE skin and climate. You review, adjust and sign. Nothing reaches a patient without you.",
     facts: [
@@ -610,7 +610,7 @@ export const homeContent = {
     ],
     cta: "Request clinician access",
     role: "Dermatologist / Clinic",
-    link: { label: "See veyderm Pro in detail", href: "/professional" },
+    link: { label: "See veyderm Clinical in detail", href: "/professional" },
   },
   senaSection: {
     name: "Sena",
@@ -669,7 +669,7 @@ export const homeContent = {
     ],
   },
   pro: {
-    kicker: "veyderm Pro",
+    kicker: "veyderm Clinical",
     h2: "The clinical portal for dermatologists.",
     p: "Every patient arrives with a plan already drafted: ranked by clinical evidence, checked for safety, built for UAE skin and climate. You review, adjust and sign. Nothing reaches a patient without you.",
     console: {
@@ -798,7 +798,7 @@ export const homeContent = {
 };
 
 export const proFaq = [
-  { q: "What is veyderm Professional?", a: `A clinical system that turns each patient into a ${TERMS.skinprint} and a ${TERMS.tailoredPlan} you review, adjust and sign.` },
+  { q: "What is veyderm Clinical?", a: `A clinical system that turns each patient into a ${TERMS.skinprint} and a ${TERMS.tailoredPlan} you review, adjust and sign.` },
   { q: "Does the AI make the decision?", a: `No. AI prepares the ${TERMS.tailoredPlan}; the dermatologist reviews, adjusts and signs it. Every plan is ${TERMS.doctorSigned}.` },
   { q: "How are products chosen?", a: `${TERMS.evidenceMatch} ranks authorized products from the ${TERMS.verifiedShelf} by clinical evidence — not by ad spend.` },
   { q: "What is SafeCheck?", a: `${TERMS.safeCheck} flags interactions, pregnancy cautions and sensitivities automatically, before you sign the plan.` },

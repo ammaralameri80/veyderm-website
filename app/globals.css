@@ -352,7 +352,7 @@ h4 { font-weight: 600; }
 .sc-send { display: grid; place-items: center; width: 2.4em; height: 2.4em; border-radius: 999px; color: #fff; background: #1f1b33; flex: none; }
 .sc-send svg { transform: rotate(-45deg); }
 
-/* veyderm Pro: one AI search form -> the treatment plan. Neutral greys; the
+/* veyderm Clinical: one AI search form -> the treatment plan. Neutral greys; the
    brand violet only marks the AI action. The window chrome is shared with
    the brands screen. */
 .ps, .bi { width: 100%; border-radius: 1.3em; overflow: hidden; background: #fff; border: 1px solid var(--line); }

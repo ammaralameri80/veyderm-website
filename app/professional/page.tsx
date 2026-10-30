@@ -5,8 +5,8 @@ import { PageHero, FeatureGrid, Closer } from "@/components/ui/PageParts";
 import { Section } from "@/components/ui/Section";
 import { PRO_PAGE } from "@/lib/site";
 
-const title = "veyderm Pro — the professional platform for dermatologists";
-const description = "AI prepares every consultation. veyderm Pro drafts treatment plans, matches authorized products, and carries secure patient communication. You stay in control.";
+const title = "veyderm Clinical — the professional platform for dermatologists";
+const description = "AI prepares every consultation. veyderm Clinical drafts treatment plans, matches authorized products, and carries secure patient communication. You stay in control.";
 
 export const metadata: Metadata = {
   title,

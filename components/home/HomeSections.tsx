@@ -50,7 +50,7 @@ export function CompanyStrip() {
   const { company } = HOME;
   const [lead, accent, tail] = company.h2;
   const nodes: { ic: IconName; t: string; d: string }[] = [
-    { ic: "stethoscope", t: "veyderm Pro", d: "Doctors" },
+    { ic: "stethoscope", t: "veyderm Clinical", d: "Doctors" },
     { ic: "message", t: "Sena", d: "Patients" },
     { ic: "building", t: "Brand platform", d: "Industry" },
   ];
