@@ -16,7 +16,7 @@ export const NAV = {
   links: [
     { label: "For dermatologists", href: "/#pro", desc: "veyderm Clinical — AI search and AI-drafted treatment plans." },
     { label: "For patients", href: "/#sena", desc: "Sena — your personal AI skin and beauty advisor." },
-    { label: "For brands", href: "/#brands", desc: "Partner Portal — AI insight into how dermatology prescribes." },
+    { label: "For brands", href: "/#brands", desc: "veyderm Partners — AI insight into how dermatology prescribes." },
   ],
   cta: { label: "Request access", href: "/#access" },
 } as const;
@@ -74,10 +74,10 @@ export const HOME = {
     },
   },
   brands: {
-    product: "Partner Portal",
+    product: "veyderm Partners",
     audience: "For skincare and pharma brands",
     ic: "building",
-    kicker: "Partner Portal",
+    kicker: "veyderm Partners",
     h2: ["AI insight into how ", "dermatology prescribes."],
     body: "veyderm’s AI turns anonymised treatment plans into real-world insight — which concerns your products are prescribed for, what dermatologists are asking, and where demand is growing. A compliant channel to earn your place on the plan with evidence.",
     points: ["AI summaries of prescribing trends", "Demand signals and questions from dermatologists", "Brand-neutral ranking — never paid placement"],
