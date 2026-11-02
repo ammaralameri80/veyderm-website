@@ -33,6 +33,12 @@ export function Footer() {
               ))}
             </div>
           </div>
+          <nav className="ft-links" aria-label="Products">
+            <a href="/professional">veyderm Clinical</a>
+            <a href="/sena">Sena</a>
+            <a href="/brands">veyderm Partners</a>
+            <a href="/company">Company</a>
+          </nav>
           <address className="ft-contact">
             {FOOTER.address.map((line) => (
               <span key={line}>{line}</span>

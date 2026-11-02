@@ -44,8 +44,14 @@ export const metadata: Metadata = {
       }
     : { index: false, follow: false, googleBot: { index: false, follow: false } },
   icons: {
+    // Solid white tile + ink "vd" (matches the social avatars). Google's search
+    // favicon wants a square icon whose size is a multiple of 48px.
     icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
       { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon-96.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon-48.png", type: "image/png", sizes: "48x48" },
       { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon-16.png", type: "image/png", sizes: "16x16" },
     ],
