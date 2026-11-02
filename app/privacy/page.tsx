@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "How veyderm collects, uses and protects personal data on this website, in line with UAE Federal Decree-Law No. 45 of 2021 (PDPL).",
+  alternates: { canonical: "/privacy" },
   robots: { index: true, follow: true },
 };
 

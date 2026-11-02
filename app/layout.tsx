@@ -32,7 +32,6 @@ export const metadata: Metadata = {
   authors: [{ name: "veyderm" }],
   creator: "veyderm",
   publisher: "veyderm",
-  alternates: { canonical: "/" },
   // Bing Webmaster Tools site verification (msvalidate.01). Keep this even
   // after verification succeeds — removing it un-verifies the site.
   verification: { other: { "msvalidate.01": "78CC9730E6E267F1C2D87A48B31F89CC" } },

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Terms of Use",
   description:
     "The terms that govern use of the veyderm website, under the laws of the United Arab Emirates.",
+  alternates: { canonical: "/terms" },
   robots: { index: true, follow: true },
 };
 
