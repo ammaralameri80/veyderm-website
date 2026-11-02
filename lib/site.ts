@@ -164,3 +164,34 @@ export const COMPANY_PAGE = {
   },
   contact: { label: "Partnerships and investor enquiries:", email: "info@veyderm.com" },
 };
+
+/* ------------------------------------------------------------------ FAQ */
+/* Visible Q&A on the homepage; also emitted as FAQPage structured data.
+   Answers are grounded in the site copy — keep them factual, no over-claiming. */
+
+export const FAQ: { q: string; a: string }[] = [
+  {
+    q: "What is veyderm?",
+    a: "veyderm is an AI dermatology platform built in the UAE. It connects clinical assessment, product intelligence, treatment planning and patient care in one system — with a licensed dermatologist reviewing and approving every output before it reaches a patient.",
+  },
+  {
+    q: "Is veyderm available in the UAE?",
+    a: "Yes. veyderm is built in the UAE for UAE dermatologists, clinics, patients and skincare brands. Access is currently by request — dermatologists and brands can request access, and patients can join the Sena waitlist.",
+  },
+  {
+    q: "Does a dermatologist review the AI's recommendations?",
+    a: "Yes. veyderm's AI prepares every recommendation and treatment plan, but a licensed dermatologist reviews and approves it before it reaches a patient. The dermatologist is always in control.",
+  },
+  {
+    q: "What is Sena, and is it medical advice?",
+    a: "Sena is veyderm's AI skin companion for patients, on WhatsApp and in partner stores. It understands your concerns, analyses photos, and guides you using a plan your dermatologist approved. Sena provides guidance, not a medical diagnosis, and refers you to a dermatologist when needed.",
+  },
+  {
+    q: "What does veyderm offer dermatologists and skincare brands?",
+    a: "Dermatologists use veyderm Clinical to search products, draft AI treatment plans around each case, match authorised products from verified UAE distributors, and communicate with patients. Skincare and pharma brands use veyderm Partners for AI insight into how dermatology prescribes — prescribing trends, demand signals, and a compliant, brand-neutral channel to reach verified dermatologists.",
+  },
+  {
+    q: "How do I get access to veyderm?",
+    a: "Access is currently by request. Dermatologists and brands can request access from the veyderm website, and patients can join the Sena waitlist.",
+  },
+];

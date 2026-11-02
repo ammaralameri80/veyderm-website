@@ -1,0 +1,23 @@
+# veyderm
+
+> veyderm is an AI dermatology platform built in the UAE. AI supports every step of dermatology — case assessment, product intelligence, treatment planning and patient care — with a licensed dermatologist reviewing and approving every output before it reaches a patient.
+
+veyderm runs three products on one clinical AI core. The guiding principle across all of them: AI prepares; a licensed dermatologist reviews and approves every output.
+
+## Products
+- **veyderm Clinical** — the professional platform for dermatologists: AI search by product, ingredient or concern; AI-drafted treatment plans built around each case; authorised product matching from verified UAE distributors; secure patient communication. The dermatologist reviews, adjusts and approves every plan.
+- **Sena** — the AI skin companion for patients, on WhatsApp and in partner stores: understands skin concerns in conversation, analyses photos, and guides patients using a dermatologist-approved plan. Sena provides guidance, not a medical diagnosis.
+- **veyderm Partners** — AI insight for skincare and pharmaceutical brands into how dermatology prescribes: prescribing trends, demand signals, and a compliant, brand-neutral channel to reach verified dermatologists. Ranking is never paid placement.
+
+## Pages
+- [Home](https://www.veyderm.com/): overview of the veyderm platform.
+- [veyderm Clinical (for dermatologists)](https://www.veyderm.com/professional)
+- [Sena (for patients)](https://www.veyderm.com/sena)
+- [For skincare brands](https://www.veyderm.com/brands)
+- [Company](https://www.veyderm.com/company): what veyderm is building and the AI-plus-dermatologist model.
+
+## Contact
+- Email: info@veyderm.com
+- Location: One Business Centre, Emaar Square, Dubai, United Arab Emirates
+- LinkedIn: https://www.linkedin.com/company/veyderm/
+- Instagram: https://www.instagram.com/veyderm

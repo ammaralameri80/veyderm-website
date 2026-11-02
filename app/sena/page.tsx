@@ -16,9 +16,24 @@ export const metadata: Metadata = {
   twitter: { title, description },
 };
 
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteUrl}/sena#service`,
+  name: "Sena",
+  serviceType: "AI skin companion for patients",
+  url: `${siteUrl}/sena`,
+  description,
+  provider: { "@id": `${siteUrl}/#organization` },
+  areaServed: { "@type": "Country", name: "United Arab Emirates" },
+  audience: { "@type": "Audience", audienceType: "Patients" },
+};
+
 export default function SenaPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Nav />
       <main>
         <PageHero

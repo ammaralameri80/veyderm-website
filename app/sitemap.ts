@@ -3,8 +3,12 @@ import { ENABLE_ARABIC } from "@/lib/content";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
+// Stable "last reviewed" date for the marketing pages. Bump this when page
+// content meaningfully changes, rather than reporting "today" on every build
+// (which search engines learn to distrust).
+const lastModified = new Date("2026-11-02");
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
   const languages = ENABLE_ARABIC ? { en: siteUrl, ar: `${siteUrl}/ar` } : undefined;
 
   const entries: MetadataRoute.Sitemap = [

@@ -16,9 +16,24 @@ export const metadata: Metadata = {
   twitter: { title, description },
 };
 
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteUrl}/brands#service`,
+  name: "veyderm Partners",
+  serviceType: "AI insight platform for skincare and pharma brands",
+  url: `${siteUrl}/brands`,
+  description,
+  provider: { "@id": `${siteUrl}/#organization` },
+  areaServed: { "@type": "Country", name: "United Arab Emirates" },
+  audience: { "@type": "Audience", audienceType: "Skincare and pharmaceutical brands" },
+};
+
 export default function BrandsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Nav />
       <main>
         <PageHero

@@ -3,7 +3,9 @@ import { Nav } from "@/components/ui/Nav";
 import { Footer } from "@/components/ui/Footer";
 import { Hero } from "@/components/home/Hero";
 import { ProductChapters } from "@/components/home/ProductChapters";
+import { Faq } from "@/components/home/Faq";
 import { CtaForm } from "@/components/CtaForm";
+import { FAQ, FOOTER } from "@/lib/site";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
@@ -27,12 +29,27 @@ const jsonLd = {
       "@id": `${siteUrl}/#organization`,
       name: "veyderm",
       url: siteUrl,
-      logo: `${siteUrl}/og-image.png`,
+      logo: `${siteUrl}/veyderm-icon-512.png`,
       description,
       email: "info@veyderm.com",
-      address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
+      sameAs: FOOTER.social.map((s) => s.href),
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "One Business Centre, Emaar Square",
+        addressLocality: "Dubai",
+        addressCountry: "AE",
+      },
     },
     { "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "veyderm", url: siteUrl, publisher: { "@id": `${siteUrl}/#organization` } },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteUrl}/#faq`,
+      mainEntity: FAQ.map(({ q, a }) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    },
   ],
 };
 
@@ -44,6 +61,7 @@ export default function Home() {
       <main>
         <Hero />
         <ProductChapters />
+        <Faq />
         <CtaForm lang="en" />
       </main>
       <Footer />

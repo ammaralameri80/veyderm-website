@@ -5,6 +5,8 @@ import { PageHero, FeatureGrid, Closer } from "@/components/ui/PageParts";
 import { Section } from "@/components/ui/Section";
 import { PRO_PAGE } from "@/lib/site";
 
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
+
 const title = "veyderm Clinical — the professional platform for dermatologists";
 const description = "AI prepares every consultation. veyderm Clinical drafts treatment plans, matches authorized products, and carries secure patient communication. You stay in control.";
 
@@ -16,9 +18,23 @@ export const metadata: Metadata = {
   twitter: { title, description },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteUrl}/professional#service`,
+  name: "veyderm Clinical",
+  serviceType: "AI dermatology platform for clinicians",
+  url: `${siteUrl}/professional`,
+  description,
+  provider: { "@id": `${siteUrl}/#organization` },
+  areaServed: { "@type": "Country", name: "United Arab Emirates" },
+  audience: { "@type": "Audience", audienceType: "Dermatologists and clinics" },
+};
+
 export default function ProfessionalPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Nav />
       <main>
         <PageHero
