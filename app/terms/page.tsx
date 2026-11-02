@@ -4,26 +4,10 @@ import { Footer } from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
-  description: "The terms that govern use of the Veyderm marketing website.",
+  description:
+    "The terms that govern use of the veyderm website, under the laws of the United Arab Emirates.",
   robots: { index: true, follow: true },
 };
-
-function DraftNote() {
-  return (
-    <div className="legal-draft" role="note">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
-        <path d="M12 9v4" />
-        <path d="M12 17h.01" />
-      </svg>
-      <span>
-        <strong>Draft for review.</strong> This is placeholder content and has not
-        been reviewed by a qualified lawyer. It must be checked against UAE law
-        before the site goes live.
-      </span>
-    </div>
-  );
-}
 
 export default function TermsPage() {
   return (
@@ -31,73 +15,109 @@ export default function TermsPage() {
       <Nav />
       <main className="sec legal" id="top">
       <div className="wrap">
-        <DraftNote />
         <h1>Terms of Use</h1>
-        <p className="updated">Last updated: 1 October 2026 · Draft</p>
+        <p className="updated">Last updated: 2 November 2026</p>
 
         <p>
-          These terms govern your use of the Veyderm marketing website. By using
-          the site or submitting the early-access form, you agree to them.
+          These Terms of Use (&ldquo;Terms&rdquo;) govern your access to and use of
+          the veyderm website (www.veyderm.com). By using the website or submitting
+          the early-access request form, you agree to these Terms. If you do not
+          agree, please do not use the website. veyderm is operated from Dubai,
+          United Arab Emirates.
         </p>
 
-        <h2>What this site is</h2>
+        <h2>What this website is</h2>
         <p>
-          This is a marketing and early-access site for Veyderm, a platform that
-          helps licensed dermatologists build evidence-based treatment plans,
-          surface authorized products, and stay connected with patients. The site
-          itself does not provide the product or store patient records.
+          This is the marketing and early-access website for veyderm, an AI
+          dermatology platform built in the UAE that supports licensed
+          dermatologists, patients and skincare brands. The website itself does not
+          provide the clinical platform and does not store patient records. Access
+          to the platform is governed by separate agreements.
         </p>
 
         <h2>Not medical advice</h2>
         <p>
-          Content on this site is for general information only and is{" "}
-          <strong>not medical advice</strong>. Any sample plans, products or
-          evidence levels shown are illustrative examples, not recommendations.
-          Always consult a qualified healthcare professional for diagnosis and
-          treatment.
+          Content on this website is for general information only and is{" "}
+          <strong>not medical advice, diagnosis or treatment</strong>. Any sample
+          plans, products, concerns or outputs shown are illustrative examples, not
+          recommendations. veyderm supports, and does not replace, the judgment of a
+          licensed dermatologist; a licensed dermatologist reviews and approves
+          clinical outputs on the platform. Always consult a qualified healthcare
+          professional for any medical concern, and never disregard professional
+          advice because of something you read here.
         </p>
 
         <h2>Early access</h2>
         <p>
           Submitting the form is a request to be considered for early access. It
-          does not create any obligation on us to provide access, and features
-          shown may change or not ship.
+          creates no obligation on us to provide access, and features shown on the
+          website may change, be delayed, or not ship. You agree that the
+          information you submit is accurate and that you are entitled to provide it.
         </p>
 
         <h2>Acceptable use</h2>
         <p>
-          Don&apos;t misuse the site: no attempts to disrupt it, access it without
-          authorisation, submit false information, or use it unlawfully.
+          You agree to use the website lawfully and not to: disrupt or interfere
+          with it or its security; attempt to gain unauthorised access to it or any
+          connected system; submit false, misleading or unlawful information;
+          introduce malicious code; or copy, scrape or harvest its content or data
+          without our permission.
         </p>
 
         <h2>Intellectual property</h2>
         <p>
-          The Veyderm name, logo, content and design are owned by Veyderm or its
-          licensors and may not be copied or reused without permission.
+          The veyderm name, logo, trademarks, content, design and software are owned
+          by veyderm or its licensors and are protected by applicable laws. You may
+          not copy, modify, distribute or reuse them without our prior written
+          permission.
         </p>
 
-        <h2>Disclaimers &amp; liability</h2>
+        <h2>Third-party links</h2>
         <p>
-          The site is provided &ldquo;as is&rdquo; without warranties of any kind.
-          To the extent permitted by law, we are not liable for any loss arising
-          from your use of the site.
+          The website may link to third-party sites or services (for example our
+          social media pages). We are not responsible for the content or practices
+          of those third parties, and their own terms and privacy policies apply.
         </p>
 
-        <h2>Governing law</h2>
+        <h2>Disclaimers</h2>
         <p>
-          These terms are governed by the laws of the United Arab Emirates, and
-          the courts of the UAE have jurisdiction over any dispute.
+          The website is provided on an &ldquo;as is&rdquo; and &ldquo;as
+          available&rdquo; basis, without warranties of any kind, whether express or
+          implied, to the fullest extent permitted by law. We do not warrant that
+          the website will be uninterrupted, error-free or free of harmful
+          components.
         </p>
 
-        <h2>Changes</h2>
+        <h2>Limitation of liability</h2>
         <p>
-          We may update these terms as the product develops; the current version
-          will always be posted here.
+          To the fullest extent permitted by the laws of the United Arab Emirates,
+          veyderm shall not be liable for any indirect, incidental or consequential
+          loss, or any loss of data, profits or goodwill, arising from your use of
+          or inability to use the website. Nothing in these Terms excludes liability
+          that cannot be excluded under applicable law.
         </p>
 
-        <h2>Contact</h2>
+        <h2>Governing law and jurisdiction</h2>
         <p>
-          Veyderm — Dubai, United Arab Emirates.
+          These Terms are governed by the laws of the United Arab Emirates as
+          applied in the Emirate of Dubai. The courts of Dubai, United Arab
+          Emirates, have exclusive jurisdiction over any dispute arising from or in
+          connection with these Terms or the website.
+        </p>
+
+        <h2>Changes to these Terms</h2>
+        <p>
+          We may update these Terms as veyderm develops or as the law changes. The
+          current version will always be posted on this page with the date above.
+          Continued use of the website after changes means you accept the updated
+          Terms.
+        </p>
+
+        <h2>Contact us</h2>
+        <p>
+          veyderm
+          <br />
+          One Business Centre, Emaar Square, Dubai, United Arab Emirates
           <br />
           <a href="mailto:info@veyderm.com">info@veyderm.com</a>
         </p>
