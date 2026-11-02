@@ -40,7 +40,13 @@ export function Footer() {
             <a href={`mailto:${FOOTER.email}`}>{FOOTER.email}</a>
           </address>
         </div>
-        <p className="ft-bar">{FOOTER.rights}</p>
+        <div className="ft-bar">
+          <p>{FOOTER.rights}</p>
+          <nav className="ft-legal" aria-label="Legal">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Use</a>
+          </nav>
+        </div>
       </div>
     </footer>
   );

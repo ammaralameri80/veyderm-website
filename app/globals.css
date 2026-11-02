@@ -524,7 +524,11 @@ h4 { font-weight: 600; }
 .ft-social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; color: var(--ink-soft); background: #fff; border: 1px solid var(--line); transition: color 0.2s var(--ease), border-color 0.2s var(--ease); }
 .ft-social a:hover { color: var(--v-700); border-color: var(--v-300); }
 .ft-social svg { width: 18px; height: 18px; }
-.ft-bar { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--ink-faint); }
+.ft-bar { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--ink-faint); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.ft-bar p { margin: 0; }
+.ft-legal { display: flex; gap: 20px; }
+.ft-legal a { color: var(--ink-soft); transition: color 0.2s var(--ease); }
+.ft-legal a:hover { color: var(--v-700); }
 @media (max-width: 760px) { .ft-main { grid-template-columns: 1fr; gap: 32px; } .ft-contact { margin-top: 0; } }
 
 /* ---- consent ---- */
