@@ -8,9 +8,9 @@ const SIZES = "(max-width: 920px) 100vw, 46vw";
 const PROOF_ICONS: IconName[] = ["shield", "package"];
 
 /** Hero: a cool lavender stage the nav floats over — the message on the left,
- *  a cut-out portrait on the right standing on the same stage. An AI scan
- *  sweeps the face, the readouts report what it mapped, and the case is handed
- *  on for dermatologist review — status only, no invented results. */
+ *  a cut-out portrait on the right standing on the same stage. AI readouts
+ *  report what it mapped, and the case is handed on for dermatologist
+ *  review — status only, no invented results. */
 export function Hero() {
   const { hero } = HOME;
   return (
@@ -18,12 +18,6 @@ export function Hero() {
       <div className="hero-visual" role="img" aria-label="A portrait while veyderm's AI scans the face, maps pigmentation and texture, and prepares the case for dermatologist review.">
         <div className="hero-bg" aria-hidden="true">
           <Image src={PORTRAIT} alt="" fill priority sizes={SIZES} className="hero-img" />
-          {/* the same frame, brightened and evened, revealed by the scan */}
-          <Image src={PORTRAIT} alt="" fill priority sizes={SIZES} className="hero-img hero-img-after" />
-        </div>
-        <div className="scan" aria-hidden="true">
-          <span className="scan-frame" />
-          <span className="scan-line" />
         </div>
         <ul className="probes" aria-hidden="true">
           <li className="probe probe-tone">

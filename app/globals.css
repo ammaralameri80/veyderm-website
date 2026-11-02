@@ -151,7 +151,7 @@ h4 { font-weight: 600; }
 
 /* ---- hero: a warm full-bleed stage the nav floats over; the message on the
    left, a luminous portrait on the right whose sand backdrop melts into the
-   stage. An AI scan window sweeps the face and leaves the skin brighter. ---- */
+   stage. AI readouts annotate what it mapped. ---- */
 .hero { position: relative; min-height: clamp(620px, 86svh, 820px); overflow: hidden; display: flex; align-items: center; background: radial-gradient(36% 52% at 73% 46%, rgba(108, 101, 194, 0.16), transparent 70%), linear-gradient(180deg, var(--porcelain) 0%, #fff 100%); }
 .hero-inner { position: relative; z-index: 4; width: 100%; padding-top: clamp(124px, 16vh, 170px); padding-bottom: clamp(56px, 8vh, 104px); }
 .hero-copy { max-width: 620px; }
@@ -178,30 +178,7 @@ h4 { font-weight: 600; }
 .hero-visual { --st: 14%; --sr: 36%; --sb: 38%; --sl: 22%; position: absolute; top: 34px; right: clamp(0px, 3vw, 64px); width: clamp(420px, 44%, 760px); aspect-ratio: 1260 / 1141; }
 .hero-bg { position: absolute; inset: 0; }
 .hero-img { object-fit: contain; object-position: 50% 100%; }
-/* a soft "analyzing" lift that tracks the scan beam down the face oval */
-.hero-img-after { filter: brightness(1.09) contrast(0.97) saturate(0.95); -webkit-mask-image: radial-gradient(34% 30% at 42% 38%, #000 52%, transparent 100%); mask-image: radial-gradient(34% 30% at 42% 38%, #000 52%, transparent 100%); clip-path: inset(0 0 100% 0); animation: reveal 5s var(--ease) infinite; }
-@keyframes reveal {
-  0% { clip-path: inset(0 0 100% 0); opacity: 0.8; }
-  44% { clip-path: inset(0 0 0 0); opacity: 0.8; }
-  60%, 100% { clip-path: inset(0 0 0 0); opacity: 0; }
-}
 
-/* the scan window: a calm violet frame + a lush beam that sweeps the face web */
-.scan { position: absolute; top: var(--st); right: var(--sr); bottom: var(--sb); left: var(--sl); z-index: 2; pointer-events: none; }
-.scan-frame { display: none; position: absolute; inset: 0; --c: rgba(124, 116, 214, 0.5); --l: 24px; --w: 1.5px;
-  background:
-    linear-gradient(var(--c), var(--c)) top left / var(--l) var(--w),
-    linear-gradient(var(--c), var(--c)) top left / var(--w) var(--l),
-    linear-gradient(var(--c), var(--c)) top right / var(--l) var(--w),
-    linear-gradient(var(--c), var(--c)) top right / var(--w) var(--l),
-    linear-gradient(var(--c), var(--c)) bottom left / var(--l) var(--w),
-    linear-gradient(var(--c), var(--c)) bottom left / var(--w) var(--l),
-    linear-gradient(var(--c), var(--c)) bottom right / var(--l) var(--w),
-    linear-gradient(var(--c), var(--c)) bottom right / var(--w) var(--l);
-  background-repeat: no-repeat; filter: drop-shadow(0 0 5px rgba(124, 116, 214, 0.3)); }
-.scan-line { position: absolute; left: 4%; right: 4%; top: 0; height: 2px; border-radius: 2px; background: linear-gradient(90deg, rgba(124, 116, 214, 0), rgba(124, 116, 214, 0.85) 14%, #f1ecff 50%, rgba(124, 116, 214, 0.85) 86%, rgba(124, 116, 214, 0)); box-shadow: 0 0 18px 4px rgba(124, 116, 214, 0.6), 0 0 46px 12px rgba(167, 154, 223, 0.28); animation: sweep 5s var(--ease) infinite; }
-.scan-line::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 72px; background: linear-gradient(180deg, rgba(124, 116, 214, 0), rgba(124, 116, 214, 0.14)); }
-@keyframes sweep { 0% { top: 0; opacity: 0; } 8% { opacity: 1; } 44% { opacity: 1; } 52%, 100% { top: 100%; opacity: 0; } }
 
 /* smart tags: a live pulsing sensor on the skin + a readout with a status chip */
 .probe { position: absolute; width: 0; height: 0; z-index: 3; animation: probe-in 0.7s var(--ease) both; }
@@ -231,8 +208,8 @@ h4 { font-weight: 600; }
 .hc-prog b em { font-style: normal; font-size: 0.74rem; font-weight: 500; letter-spacing: 0; color: var(--ink-faint); }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-img-after, .scan-line, .probe, .aitag-pt::after, .kdot::after, .hcard { animation: none; }
-  .scan-line, .probe i::after { opacity: 0; }
+  .probe, .aitag-pt::after, .kdot::after, .hcard { animation: none; }
+  .probe i::after { opacity: 0; }
 }
 @media (max-width: 1180px) { .hero-copy { max-width: 480px; } .hcard-progress { right: 3%; } }
 @media (max-width: 920px) {
