@@ -25,7 +25,7 @@ export const FOOTER = {
   tagline: "The intelligence layer for dermatology, built in the UAE.",
   social: [
     { label: "LinkedIn", href: "https://www.linkedin.com/company/veyderm/", brand: "linkedin" as const },
-    { label: "Instagram", href: "https://www.instagram.com/veyderm", brand: "instagram" as const },
+    { label: "Instagram", href: "https://www.instagram.com/veyderm26", brand: "instagram" as const },
   ],
   address: ["One Business Centre", "Emaar Square", "Dubai – United Arab Emirates"],
   email: "info@veyderm.com",

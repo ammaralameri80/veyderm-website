@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Icon } from "@/components/ui/Icon";
 import { COMPANY_PAGE } from "@/lib/site";
+import { OG_BASE, TWITTER_BASE } from "@/lib/seo";
 
 const title = "Company — building the AI infrastructure for dermatology";
 const description = "veyderm is building the AI infrastructure for dermatology, starting in the UAE: veyderm Clinical for clinicians, Sena for patients, and an intelligence layer for skincare brands. A licensed dermatologist approves every output.";
@@ -14,8 +15,8 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/company" },
-  openGraph: { title, description, url: "/company" },
-  twitter: { title, description },
+  openGraph: { ...OG_BASE, title, description, url: "/company" },
+  twitter: { ...TWITTER_BASE, title, description },
 };
 
 export default function CompanyPage() {

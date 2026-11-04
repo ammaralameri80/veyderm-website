@@ -4,6 +4,7 @@ import { Footer } from "@/components/ui/Footer";
 import { PageHero, FeatureGrid, Closer } from "@/components/ui/PageParts";
 import { Section } from "@/components/ui/Section";
 import { BRANDS_PAGE } from "@/lib/site";
+import { OG_BASE, TWITTER_BASE } from "@/lib/seo";
 
 const title = "For skincare brands — grow with the dermatologists who prescribe";
 const description = "veyderm connects your brand to UAE dermatologists — from medical education to the order. Share the science, generate qualified leads, and upgrade the rep and ordering experience.";
@@ -12,8 +13,8 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/brands" },
-  openGraph: { title, description, url: "/brands" },
-  twitter: { title, description },
+  openGraph: { ...OG_BASE, title, description, url: "/brands" },
+  twitter: { ...TWITTER_BASE, title, description },
 };
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");

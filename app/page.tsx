@@ -6,6 +6,7 @@ import { ProductChapters } from "@/components/home/ProductChapters";
 import { Faq } from "@/components/home/Faq";
 import { CtaForm } from "@/components/CtaForm";
 import { FAQ, FOOTER } from "@/lib/site";
+import { OG_BASE, TWITTER_BASE } from "@/lib/seo";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/" },
-  openGraph: { title, description, url: "/" },
-  twitter: { title, description },
+  openGraph: { ...OG_BASE, title, description, url: "/" },
+  twitter: { ...TWITTER_BASE, title, description },
 };
 
 const jsonLd = {
@@ -32,7 +33,7 @@ const jsonLd = {
       logo: `${siteUrl}/veyderm-icon-512.png`,
       description,
       email: "info@veyderm.com",
-      sameAs: FOOTER.social.map((s) => s.href),
+      sameAs: [...FOOTER.social.map((s) => s.href), "https://www.facebook.com/people/veyderm/61595895246414/"],
       address: {
         "@type": "PostalAddress",
         streetAddress: "One Business Centre, Emaar Square",
@@ -40,7 +41,7 @@ const jsonLd = {
         addressCountry: "AE",
       },
     },
-    { "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "veyderm", url: siteUrl, publisher: { "@id": `${siteUrl}/#organization` } },
+    { "@type": "WebSite", "@id": `${siteUrl}/#website`, name: "veyderm", alternateName: ["veyderm AI", "veyderm.com"], url: siteUrl, publisher: { "@id": `${siteUrl}/#organization` } },
     {
       "@type": "FAQPage",
       "@id": `${siteUrl}/#faq`,

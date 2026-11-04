@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import "./globals.css";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { content, isLang, type Lang } from "@/lib/content";
+import { OG_BASE, TWITTER_BASE } from "@/lib/seo";
 
 // Self-hosted at build time (no runtime font requests). Plus Jakarta Sans is
 // the one typeface site-wide — UI, headings, body.
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
       }
     : { index: false, follow: false, googleBot: { index: false, follow: false } },
   icons: {
-    // Solid white tile + ink "vd" (matches the social avatars). Google's search
+    // PNG/ICO: white "vd" on a solid #141129 tile (favicon.svg stays ink on white). Google's search
     // favicon wants a square icon whose size is a multiple of 48px.
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
@@ -58,15 +59,12 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    type: "website",
-    siteName: "veyderm",
+    ...OG_BASE,
     title,
     description,
     url: siteUrl,
-    locale: "en_US",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "veyderm — AI dermatology platform, built in the UAE." }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/og-image.png"] },
+  twitter: { ...TWITTER_BASE, title, description },
   category: "health",
 };
 

@@ -4,6 +4,7 @@ import { Footer } from "@/components/ui/Footer";
 import { PageHero, FeatureGrid, Closer } from "@/components/ui/PageParts";
 import { Section } from "@/components/ui/Section";
 import { PRO_PAGE } from "@/lib/site";
+import { OG_BASE, TWITTER_BASE } from "@/lib/seo";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
 
@@ -14,8 +15,8 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/professional" },
-  openGraph: { title, description, url: "/professional" },
-  twitter: { title, description },
+  openGraph: { ...OG_BASE, title, description, url: "/professional" },
+  twitter: { ...TWITTER_BASE, title, description },
 };
 
 const jsonLd = {

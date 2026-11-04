@@ -4,6 +4,7 @@ import { Footer } from "@/components/ui/Footer";
 import { PageHero, FeatureGrid, Closer } from "@/components/ui/PageParts";
 import { Section } from "@/components/ui/Section";
 import { SENA_PAGE } from "@/lib/site";
+import { OG_BASE, TWITTER_BASE } from "@/lib/seo";
 
 const title = "Sena — your AI skin companion";
 const description = "Sena is the AI agent that looks after your skin — on WhatsApp and in store. Share a photo, get an analysis, and receive a plan approved by a licensed dermatologist. Guidance, not a medical diagnosis.";
@@ -12,8 +13,8 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/sena" },
-  openGraph: { title, description, url: "/sena" },
-  twitter: { title, description },
+  openGraph: { ...OG_BASE, title, description, url: "/sena" },
+  twitter: { ...TWITTER_BASE, title, description },
 };
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.veyderm.com").replace(/\/$/, "");
